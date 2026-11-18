@@ -16,7 +16,7 @@ The shared page head SHALL configure automatic Umami page views scoped to the pr
 
 #### Scenario: Non-production build
 
-- **WHEN** a build runs without the production analytics flag
+- **WHEN** a build runs outside the production release workflow
 - **THEN** its generated HTML omits the Umami tracker
 
 #### Scenario: Local or preview host

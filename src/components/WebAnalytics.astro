@@ -1,5 +1,5 @@
 ---
-const analyticsEnabled = import.meta.env.PUBLIC_MI_CV_UMAMI_ENABLED === '1';
+import { isUmamiProductionBuild } from '../analytics/umami-build.mjs';
 
 const umami = {
   scriptUrl: 'https://umami.reflexionia.com/script.js',
@@ -8,7 +8,7 @@ const umami = {
 };
 ---
 
-{analyticsEnabled && <script
+{isUmamiProductionBuild && <script
   is:inline
   defer
   src={umami.scriptUrl}
