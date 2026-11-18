@@ -12,6 +12,7 @@
     "verify": "npm run check && npm test && npm run build"
   },
   "dependencies": {
+    "@sentry/browser": "11.14.0",
     "astro": "^5.16.0"
   },
   "devDependencies": {

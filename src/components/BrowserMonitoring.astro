@@ -1,0 +1,8 @@
+<script>
+  const dsn = import.meta.env.PUBLIC_SENTRY_DSN;
+  if (dsn) {
+    import('../monitoring/sentry')
+      .then(({ startSentry }) => startSentry(dsn, import.meta.env.DEV))
+      .catch(() => {});
+  }
+</script>

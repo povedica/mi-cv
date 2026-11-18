@@ -28,3 +28,5 @@ Verificado en Colima: la portada y la entrevista respondieron por HTTP, `npm run
 Los [worktrees](WORKFLOWS.md#worktrees) se crean con `scripts/worktree.sh`. El script asigna a cada checkout un proyecto Compose propio y configura un puerto loopback efímero.
 
 El contenedor principal responde en `http://127.0.0.1:4321/`. El [módulo de trazabilidad](WORKFLOWS.md#logs-locales) registra la compilación y las peticiones de las dos páginas en desarrollo. Se comprobó en Colima que la cabecera `X-Request-Id` coincide con el evento JSON y que una consulta y una cabecera sintéticas quedan fuera de los logs.
+
+Sentry de navegador queda listo y desactivado por defecto. En Chrome headless, la entrevista conservó su flujo local y un receptor HTTP de prueba recibió cero eventos sin DSN y un error saneado con DSN simulado. La portada y la entrevista volvieron a verificarse en el contenedor con Sentry desactivado y `npm run verify` en verde.

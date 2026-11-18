@@ -2,6 +2,8 @@ services:
   web:
     build: .
     init: true
+    environment:
+      PUBLIC_SENTRY_DSN: "${PUBLIC_SENTRY_DSN:-}"
     ports:
       - "127.0.0.1:${MI_CV_HOST_PORT:-4321}:4321"
     healthcheck:

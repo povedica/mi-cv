@@ -29,10 +29,11 @@ Usa `git worktree list` para localizar los checkouts. Para retirar uno, detén s
 | `MI_CV_HOST_PORT` | Variable local, no sensible | Shell o `.env` local de Compose | Puerto del equipo. El valor por defecto es `4321`. |
 | `COMPOSE_PROJECT_NAME` | Variable local, no sensible | `.env` generado en cada worktree | Aísla los servicios y la red de Compose por checkout. |
 | `ASTRO_TELEMETRY_DISABLED` | Variable del contenedor, no sensible | Dockerfile (`1`) | Desactiva la telemetría de Astro. |
+| `PUBLIC_SENTRY_DSN` | Variable pública opcional | `.env` local o variable del entorno de despliegue en Actions | DSN de navegador. Vacía por defecto. Astro la integra durante la compilación estática. |
 | `PROJECT_NUMBER` | Variable de GitHub Actions | Settings → Secrets and variables → Actions → Variables | Identifica el tablero para el workflow de backlog. |
 | `PROJECT_TOKEN` | Secreto de GitHub Actions | Valor maestro en 1Password y copia operativa en Settings → Secrets and variables → Actions → Secrets | Autoriza la actualización del tablero después de fusionar una PR. |
 
-`.env.example` solo contiene configuración local pública. Compose usa `.env` para interpolar el puerto y no lo inyecta en el contenedor. El desarrollo local actual no necesita secretos. Para futuras credenciales, guarda el valor en 1Password e inyéctalo únicamente en el proceso que lo consuma. Usa `vars` de Actions para configuración no sensible y `secrets` para credenciales. Mantén las credenciales fuera de variables `PUBLIC_*`, argumentos de build, imágenes, commits y logs.
+`.env.example` solo contiene configuración local pública. Compose lee `.env` y solo pasa al contenedor la variable pública de Sentry que se declara en `compose.yaml`. El desarrollo local actual funciona con esa variable vacía y sin secretos. Para futuras credenciales, guarda el valor en 1Password e inyéctalo únicamente en el proceso que lo consuma. Usa `vars` de Actions para configuración no sensible y `secrets` para credenciales. Mantén las credenciales fuera de variables `PUBLIC_*`, argumentos de build, imágenes, commits y logs.
 
 El contexto Docker incluye una lista explícita de archivos de la aplicación. Los borradores editoriales, los archivos de entorno locales y el historial Git quedan fuera.
 
@@ -41,6 +42,12 @@ El contexto Docker incluye una lista explícita de archivos de la aplicación. L
 Ejecuta `docker compose logs -f web` para ver Astro y los eventos JSON del módulo de trazabilidad. En desarrollo, la portada y la entrevista devuelven `X-Request-Id`; busca ese valor como `trace_id` para relacionar la respuesta con su ruta lógica, estado HTTP y duración. Las comprobaciones de salud usan HEAD. La compilación registra inicio y fin bajo el mismo identificador.
 
 Los eventos propios excluyen URLs completas, consultas, IP, cabeceras y cuerpos. El despliegue actual es estático. Los logs de acceso tras el despliegue corresponden al alojamiento, según su configuración.
+
+## Sentry
+
+Sentry está desactivado de forma predeterminada. Para una prueba autorizada, configura `PUBLIC_SENTRY_DSN` con el DSN de navegador del proyecto de pruebas y recrea el contenedor. En un despliegue estático se debe pasar la variable al paso de compilación. El DSN es público. Un token de administración o de subida de mapas de código sería un secreto independiente.
+
+La integración captura errores y rechazos sin manejar que tengan frames de código propio. Solo envía el tipo de error, un mensaje fijo, el entorno y los frames de código local sin consultas. Se excluyen mensajes originales, usuarios, peticiones, sesiones, breadcrumbs, replay y trazas de rendimiento. Antes de activar el proveedor para visitantes, valida el coste, la información de privacidad y el descarte de IP en el proyecto de Sentry.
 
 ## Codex local
 
