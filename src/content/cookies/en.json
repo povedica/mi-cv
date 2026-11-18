@@ -1,0 +1,16 @@
+{
+  "title": "Cookie policy",
+  "notice": "This site only uses technical cookies needed to work and a cookie-free, self-hosted analytics tool. No ads, no third-party tracking.",
+  "dismiss": "Got it",
+  "home": "Back to the profile",
+  "sections": [
+    ["What they are", "Cookies are small files a website stores in your browser. There are also similar technologies, such as local storage."],
+    ["What this site uses", "Analytics are self-hosted (Umami, on my own server) and use no cookies. There are no advertising or social media cookies."],
+    ["How to manage them", "You can delete or block cookies and local storage in your browser settings."],
+    ["Controller", "Pablo Poveda Ortega"],
+    ["Changes", "Any changes to this policy will be posted here."]
+  ],
+  "inventory": "Cookies and local storage",
+  "columns": ["Name", "Type", "Purpose", "Duration"],
+  "entry": ["mi-cv:cookie-notice:v1", "First-party local storage", "Remember that you dismissed the notice.", "Until you clear site data or the notice version changes."]
+}

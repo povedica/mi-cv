@@ -1,0 +1,58 @@
+---
+import es from '../content/cookies/es.json';
+import en from '../content/cookies/en.json';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+
+const { locale } = Astro.props;
+const copy = locale === 'es' ? es : en;
+const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
+---
+<aside class="cookie-notice shell" aria-label={copy.title} hidden>
+  <p>{copy.notice} <a class="inline-link" href={policy}>{copy.title}</a></p>
+  <button class="button button-secondary" type="button">{copy.dismiss}</button>
+</aside>
+
+<script>
+  const notice = document.querySelector<HTMLElement>('.cookie-notice');
+  const key = 'mi-cv:cookie-notice:v1';
+  if (notice) {
+    let acknowledged = false;
+    try {
+      acknowledged = localStorage.getItem(key) === '1';
+    } catch {
+      // The notice still works where storage is disabled.
+    }
+    notice.hidden = acknowledged;
+    notice.querySelector('button')?.addEventListener('click', () => {
+      try {
+        localStorage.setItem(key, '1');
+      } catch {
+        // Dismiss for this page even without persistent storage.
+      }
+      notice.hidden = true;
+      document.querySelector('main')?.focus();
+    });
+  }
+</script>
+
+<style>
+  .cookie-notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background-color: var(--surface);
+    padding: 12px 16px;
+    margin-block: 12px;
+  }
+
+  p { margin: 0; }
+  .inline-link { margin: 0; }
+  button { background-color: transparent; cursor: pointer; min-height: 44px; }
+</style>

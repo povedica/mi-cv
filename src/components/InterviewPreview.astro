@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import portrait from '../assets/pablo-portrait.jpg';
 import SiteHead from './SiteHead.astro';
+import CookieNotice from './CookieNotice.astro';
 import es from '../content/landing/es.json';
 import en from '../content/landing/en.json';
 import '../styles/global.css';
@@ -36,7 +37,8 @@ const label = (spanish: string, english: string) => isSpanish ? spanish : englis
         <a href={home} class="back-link">{label('Volver al perfil', 'Back to the profile')}</a>
       </div>
     </header>
-    <main class="interview-main shell" id="contenido">
+    <CookieNotice locale={locale} />
+    <main class="interview-main shell" id="contenido" tabindex="-1">
       <section class="interview-intro" aria-labelledby="interview-title">
         <h1 id="interview-title">{label('Entrevístame', 'Interview me')}</h1>
         <p>{label('La experiencia final usará una representación de IA de Pablo Poveda, con respuestas limitadas a información profesional aprobada para publicación. Hoy puedes explorar la interfaz con su fotografía.', 'The planned interview will use an AI representation of Pablo Poveda and answer from approved professional information. Today you can try the interface with his still portrait.')}</p>
@@ -88,6 +90,7 @@ const label = (spanish: string, english: string) => isSpanish ? spanish : englis
         </section>
       </div>
     </main>
+    <footer class="site-footer shell"><a href={isSpanish ? '/cookies/' : '/en/cookies/'}>Cookies</a></footer>
 
     <script>
       import { track } from '../analytics/data-layer';

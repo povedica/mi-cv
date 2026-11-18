@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import portrait from '../assets/pablo-portrait.jpg';
 import SiteHead from './SiteHead.astro';
+import CookieNotice from './CookieNotice.astro';
 import LandingCards from './LandingCards.astro';
 import es from '../content/landing/es.json';
 import en from '../content/landing/en.json';
@@ -55,6 +56,7 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
         <a class="button button-primary nav-cta" href={interview} data-interview-placement="navigation">{copy.interviewLabel}</a>
       </div>
     </header>
+    <CookieNotice locale={locale} />
     <main id="main-content" tabindex="-1">
       <section class="hero shell" id={hero}>
         <div class="hero-copy">
@@ -143,6 +145,7 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
       <div class="footer-links">
         <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
         <a href={github}>GitHub</a>
+        <a href={isSpanish ? '/cookies/' : '/en/cookies/'}>Cookies</a>
         {showLocalCv && cvLocales.map(language => (
           <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>
         ))}

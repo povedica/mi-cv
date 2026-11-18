@@ -31,6 +31,7 @@ class ReleaseTest(unittest.TestCase):
         files = PAGES + [
             ASSET, "en/index.html", "en/interview/index.html", "cv/public-en.pdf",
             "certificados/public.pdf", "sitemap.xml", "robots.txt", "og.png", "og.jpg",
+            "cookies/index.html", "en/cookies/index.html",
         ]
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
