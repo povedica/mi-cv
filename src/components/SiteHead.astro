@@ -1,0 +1,21 @@
+---
+import BrowserMonitoring from './BrowserMonitoring.astro';
+import WebAnalytics from './WebAnalytics.astro';
+
+interface Props {
+  description: string;
+  title: string;
+}
+
+const { description, title } = Astro.props;
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <WebAnalytics />
+  <BrowserMonitoring />
+</head>

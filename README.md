@@ -20,6 +20,8 @@ docker compose -f compose.yaml -f compose.dev.yaml up --build --watch
 
 | Start here | What it covers |
 | --- | --- |
+| [Changelog](CHANGELOG.md) | Versioned release notes and release procedure |
+
 | [Architecture](docs/ARCHITECTURE.md) | System context, component map, functional flows, and stack rationale |
 | [Modules](docs/MODULES.md) | Entry points, internals, data boundaries, and tests |
 | [Web analytics](docs/ANALYTICS.md) | Versioned data layer, integration contract, and dashboard measures |
