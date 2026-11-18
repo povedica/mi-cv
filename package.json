@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@sentry/browser": "11.14.0",
-    "astro": "^5.16.0"
+    "astro": "^7.4.13"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.5",
