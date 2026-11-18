@@ -279,5 +279,10 @@
     "How do you organize an engineering team?",
     "How have you brought generative AI into development?",
     "What practices do you use to improve software delivery and quality?"
-  ]
+  ],
+  "openGraph": {
+    "title": "Pablo Poveda · Engineering Manager",
+    "description": "From web developer to running a 20-person engineering department. Technical leadership, software delivery and generative AI. Interview me.",
+    "imageAlt": "Pablo Poveda, Engineering Manager"
+  }
 }

@@ -6,6 +6,7 @@
 !src/
 !public/
 public/**
+!public/og.jpg
 !public/robots.txt
 !public/sitemap.xml
 !tests/

@@ -279,5 +279,10 @@
     "¿Cómo organizas un equipo de ingeniería?",
     "¿Cómo has incorporado la IA generativa al desarrollo?",
     "¿Qué prácticas usas para mejorar la entrega y la calidad del software?"
-  ]
+  ],
+  "openGraph": {
+    "title": "Pablo Poveda · Engineering Manager",
+    "description": "De desarrollador web a dirigir un departamento de ingeniería de 20 personas. Liderazgo técnico, entrega de software e IA generativa. Entrevístame.",
+    "imageAlt": "Pablo Poveda, Engineering Manager"
+  }
 }

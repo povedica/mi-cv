@@ -24,6 +24,21 @@ const [hero, achievements, focus, ai, experience, projects, education, talks, sk
 const navIds = [experience, projects, ai, talks, contact];
 const linkedin = 'https://www.linkedin.com/in/pablo-poveda-ortega/';
 const github = 'https://github.com/povedica';
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Pablo Poveda Ortega',
+  jobTitle: 'Engineering Manager',
+  address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
+  sameAs: [linkedin, github],
+};
+const talkUrls = [
+  'https://wordpress.tv/2017/05/16/pablo-poveda-el-factor-humano/',
+  'https://wordpress.tv/2017/10/15/pablo-poveda-kiss-cultura-de-plugins-buenas-practicas/',
+  'https://wordpress.tv/2018/11/26/pablo-poveda-y-pablo-lopez-trabajo-en-equipo-cuando-cada-maestrillo-tiene-su-librillo/',
+  'https://wordpress.tv/2019/04/27/cierre-wordcamp-madrid-2019/',
+  'https://wordpress.tv/2022/11/22/hablemos-de-rendimiento/',
+];
 const cv = {
   es: '/cv/Pablo-Poveda-Ortega-CV-ES.pdf',
   en: '/cv/Pablo-Poveda-Ortega-CV-EN.pdf',
@@ -41,6 +56,16 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
     <link rel="alternate" hreflang="es" href="https://cv.reflexionia.com/" />
     <link rel="alternate" hreflang="en" href="https://cv.reflexionia.com/en/" />
     <link rel="alternate" hreflang="x-default" href="https://cv.reflexionia.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={copy.openGraph.title} />
+    <meta property="og:description" content={copy.openGraph.description} />
+    <meta property="og:url" content={`https://cv.reflexionia.com${home}`} />
+    <meta property="og:image" content="https://cv.reflexionia.com/og.jpg" />
+    <meta property="og:image:alt" content={copy.openGraph.imageAlt} />
+    <meta property="og:locale" content={isSpanish ? 'es_ES' : 'en_GB'} />
+    <meta property="og:locale:alternate" content={isSpanish ? 'en_GB' : 'es_ES'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(person).replaceAll('<', '\u003c')} />
   </SiteHead>
   <body>
     <a class="skip-link" href="#main-content">{copy.skip}</a>
@@ -103,7 +128,7 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
         <div class="section-header"><h2>{copy.talks.title}</h2></div>
         <div class="topic-grid">
           <article class="topic"><h3>{copy.talks.highlights[0].title}</h3><p>{copy.talks.highlights[0].text}</p></article>
-          <article class="topic"><h3>{copy.talks.heading}</h3><ul>{copy.talks.labels.map(label => <li>{label}</li>)}</ul></article>
+          <article class="topic"><h3>{copy.talks.heading}</h3><ul>{copy.talks.labels.map((label, index) => <li><a class="inline-link" href={talkUrls[index]}>{label}</a></li>)}</ul></article>
           <article class="topic"><h3>{copy.talks.highlights[1].title}</h3><p>{copy.talks.highlights[1].text}</p></article>
         </div>
       </section>
