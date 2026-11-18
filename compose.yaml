@@ -5,7 +5,7 @@ services:
     ports:
       - "127.0.0.1:${MI_CV_HOST_PORT:-4321}:4321"
     healthcheck:
-      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4321/', { signal: AbortSignal.timeout(2000) }).then(response => { if (!response.ok) process.exitCode = 1 }).catch(() => { process.exitCode = 1 })"]
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:4321/', { method: 'HEAD', signal: AbortSignal.timeout(2000) }).then(response => { if (!response.ok) process.exitCode = 1 }).catch(() => { process.exitCode = 1 })"]
       interval: 5s
       timeout: 3s
       retries: 10

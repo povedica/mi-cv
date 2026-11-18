@@ -36,6 +36,12 @@ Usa `git worktree list` para localizar los checkouts. Para retirar uno, detén s
 
 El contexto Docker incluye una lista explícita de archivos de la aplicación. Los borradores editoriales, los archivos de entorno locales y el historial Git quedan fuera.
 
+## Logs locales
+
+Ejecuta `docker compose logs -f web` para ver Astro y los eventos JSON del módulo de trazabilidad. En desarrollo, la portada y la entrevista devuelven `X-Request-Id`; busca ese valor como `trace_id` para relacionar la respuesta con su ruta lógica, estado HTTP y duración. Las comprobaciones de salud usan HEAD. La compilación registra inicio y fin bajo el mismo identificador.
+
+Los eventos propios excluyen URLs completas, consultas, IP, cabeceras y cuerpos. El despliegue actual es estático. Los logs de acceso tras el despliegue corresponden al alojamiento, según su configuración.
+
 ## Codex local
 
 Las reglas del proyecto están en `AGENTS.md`. Las skills de proyecto están en `.agents/skills`. Invoca `$twin-iteration` para retomar, `$twin-chat` para implementar el chat, `$twin-editorial` para trabajar el corpus o `$twin-verification` para verificar una entrega.

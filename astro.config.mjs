@@ -1,2 +1,7 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ output: 'static' });
+import { astroTracing } from './src/server/astro-tracing.mjs';
+
+export default defineConfig({
+  output: 'static',
+  integrations: [astroTracing()],
+});

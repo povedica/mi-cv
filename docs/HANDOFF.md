@@ -26,3 +26,5 @@ El entorno de desarrollo Docker usa Compose Watch y publica Astro solo en loopba
 Verificado en Colima: la portada y la entrevista respondieron por HTTP, `npm run verify` pasó dentro del contenedor y Compose Watch sincronizó un archivo nuevo. Una prueba con datos simulados confirmó que el contenedor excluye `.env`, el token de Projects y los borradores.
 
 Los [worktrees](WORKFLOWS.md#worktrees) se crean con `scripts/worktree.sh`. El script asigna a cada checkout un proyecto Compose propio y configura un puerto loopback efímero.
+
+El contenedor principal responde en `http://127.0.0.1:4321/`. El [módulo de trazabilidad](WORKFLOWS.md#logs-locales) registra la compilación y las peticiones de las dos páginas en desarrollo. Se comprobó en Colima que la cabecera `X-Request-Id` coincide con el evento JSON y que una consulta y una cabecera sintéticas quedan fuera de los logs.
