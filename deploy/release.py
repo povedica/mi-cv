@@ -35,6 +35,21 @@ def unpack(destination):
         raise ValueError("Release requires both pages and Astro assets")
 
 
+def retain_assets(root, release):
+    # Cached HTML may still reference an earlier release's immutable assets.
+    shared_assets = root / "assets" / "_astro"
+    shared_assets.mkdir(mode=0o755, parents=True, exist_ok=True)
+    assets = list((release / "_astro").iterdir())
+    for asset in assets:
+        target = shared_assets / asset.name
+        if target.exists() and target.read_bytes() != asset.read_bytes():
+            raise ValueError(f"Asset name reused with different contents: {asset.name}")
+    for asset in assets:
+        target = shared_assets / asset.name
+        if not target.exists():
+            os.link(asset, target)
+
+
 def main(root, operation, sha):
     if not SHA.fullmatch(sha) or operation not in {"publish", "rollback"}:
         raise ValueError("Expected publish or rollback and a full commit SHA")
@@ -48,9 +63,11 @@ def main(root, operation, sha):
                 content.mkdir(mode=0o755)
                 unpack(content)
                 if not release.exists():
+                    retain_assets(root, content)
                     content.rename(release)
         if not all((release / page).is_file() for page in PAGES):
             raise ValueError("Release is missing or incomplete")
+        retain_assets(root, release)
         with tempfile.TemporaryDirectory(dir=root) as staging:
             link = Path(staging) / "current"
             link.symlink_to(Path("releases") / sha)

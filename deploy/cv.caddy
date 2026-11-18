@@ -1,5 +1,14 @@
 cv.reflexionia.com {
 	root * /etc/caddy/sites/mi-cv/current
 	encode zstd gzip
-	file_server
+	@pages path / /interview/
+	header @pages Cache-Control "public, max-age=0, s-maxage=300"
+	handle /_astro/* {
+		header Cache-Control "public, max-age=31536000, immutable"
+		root * /etc/caddy/sites/mi-cv/assets
+		file_server
+	}
+	handle {
+		file_server
+	}
 }
