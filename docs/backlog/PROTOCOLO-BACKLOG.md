@@ -1,15 +1,13 @@
-# Protocolo del backlog de mi-cv
+# GitHub Projects protocol
 
-GitHub Projects refleja el estado de las tareas. [El roadmap](../BACKLOG.md) conserva hitos y criterios de aceptación. [Decisiones](DECISIONES.md) recoge las decisiones aprobadas que se puedan publicar.
+The [Project](https://github.com/users/povedica/projects/3) holds task status. The [roadmap](../BACKLOG.md) holds milestone acceptance criteria. [Decisions](DECISIONES.md) records decisions approved for publication.
 
-1. Crea una issue pública con la plantilla de backlog y añádela a «mi-cv · backlog» en Ideas. Recoge decisiones pendientes en la issue si se pueden compartir.
-2. Pasa la tarjeta a Listo para hacer cuando cumpla la [DoR](DOR.md). Antes de reclamarla, revisa Pausada y comprueba que ninguna tarjeta activa de la misma Zona vaya a solapar el cambio.
-3. Al reclamar, indica Agente y Rama, y pasa a En curso. Al preparar la PR para revisión, usa `Closes #N` en la primera línea y pasa a En revisión. Si hay un bloqueo, pasa a Pausada y registra cuándo se puede retomar.
-4. Aplica la [DoD](DOD.md) antes de fusionar. El workflow mueve a Hecho las issues del repositorio cerradas por una fusión, conservando Pausada.
-5. Registra las decisiones aprobadas en la PR correspondiente. Las propuestas descartadas cierran su issue con el motivo y pasan a Hecho.
+1. Create an issue with scope, acceptance criteria and a zone. Add it to the Project in **Ideas**.
+2. Move it to **Listo para hacer** once it meets the [definition of ready](DOR.md). Check paused work and overlapping zones before claiming it.
+3. Set **Agente**, **Rama** and **En curso** when starting. Use an isolated worktree as described in [engineering workflows](../WORKFLOWS.md#worktrees).
+4. Start the PR description with `Closes #N`. Use **En revisión** when the PR is ready. Record how to resume blocked work in **Pausada**.
+5. Apply the [definition of done](DOD.md) before merging. The trusted merge workflow moves closed issues to **Hecho**, preserving paused items. Record applicable product decisions in the same PR.
 
-Los estados del campo nativo `Status` son Ideas, Listo para hacer, En curso, Pausada, En revisión y Hecho. Prioridad usa P1, P2 y P3. Zona identifica web, chat, editorial, infra o docs. Area y Tipo clasifican la tarea. Agente, Rama y Referencia enlazan el trabajo con su responsable y su especificación.
+The native `Status` field uses the Spanish values above. Keep `Prioridad` at P1, P2 or P3. `Zona` identifies web, chat, editorial, infra or docs. `Area`, `Tipo` and `Referencia` provide classification and context.
 
-Los datos sensibles permanecen fuera del tablero y de las issues. La sincronización de escritura usa el secreto de Actions `PROJECT_TOKEN` y la variable `PROJECT_NUMBER`. La validación de PR es de solo lectura. La escritura en Projects se ejecuta únicamente tras una fusión y usa los scripts de la rama base del evento.
-
-En una misma PR, usa commits parciales por propósito y en orden de dependencias. Revisa el diff preparado antes de cada commit y conserva junto a cada cambio las pruebas que lo cubren. Si existe una issue, puedes enlazarla con `Refs #N` en el cuerpo del commit.
+Keep sensitive data outside GitHub. The PR check is read-only. The Project write job reads `PROJECT_NUMBER` and `PROJECT_TOKEN` after a qualifying merge. Make focused commits in dependency order, include relevant tests and use `Refs #N` in commit bodies where useful.

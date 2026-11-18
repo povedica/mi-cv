@@ -1,7 +1,7 @@
-# Contribuir
+# Contributing
 
-El ciclo de issues, ramas y PR está descrito en el [protocolo del tablero](docs/backlog/PROTOCOLO-BACKLOG.md). Abre una issue con alcance y criterios de aceptación verificables. Abre la PR con `Closes #N` y comprueba `npm run verify`.
+Follow the [backlog workflow](docs/backlog/PROTOCOLO-BACKLOG.md). Include concrete acceptance criteria in issues and begin the PR description with `Closes #N`. Run `npm run verify` and update the relevant technical documentation with your change.
 
-El repositorio, las ramas, las issues, los diffs y los logs de CI son públicos. Revisa también imágenes y capturas. Mantén el corpus privado fuera de Git y pide aprobación a Pablo antes de publicar textos biográficos o el retrato.
+The repository, branches, issues, diffs and CI logs are public. Review attachments and screenshots before publishing. Keep private drafts and credentials outside Git. Obtain the owner's approval before publishing professional copy or the portrait.
 
-Para problemas de seguridad, usa el [canal privado](SECURITY.md).
+Use the [private security channel](SECURITY.md) for vulnerability reports.

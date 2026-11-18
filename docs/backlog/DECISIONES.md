@@ -1,4 +1,4 @@
-# Decisiones del backlog
+# Decision log
 
-| Fecha | Issue | Decisión | Responsable |
+| Date | Issue | Decision | Owner |
 | --- | --- | --- | --- |

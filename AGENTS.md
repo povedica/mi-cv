@@ -1,46 +1,35 @@
-# Instrucciones para Codex y Cursor
+# Instructions for Codex and Cursor
 
-## Objetivo
-Construir una identidad profesional interactiva: web navegable + entrevista conversacional futura basada en conocimiento editorial aprobado, voz y avatar propios. La portada y la vista previa local de entrevista funcionan. El agente de IA está pendiente.
+## Objective
 
-## Restricciones
-1. No inventar biografía, empleos, métricas, logros, preferencias actuales, correos ni URLs.
-2. No exponer documentos privados. Todo conocimiento visible o recuperable debe tener aprobación explícita y `visibility=public`.
-3. No presentar foto estática como vídeo-avatar en funcionamiento.
-4. Nunca decir que Pablo está conectado en directo cuando habla una IA.
-5. No desplegar API keys permanentes en el navegador.
-6. Separar conocimiento, agente, voz y motor de avatar mediante interfaces.
-7. No añadir proveedores de pago sin validar coste, API, consentimiento y sustitución.
-8. Mantener fallback a web estática/chat si los servicios de IA fallan.
-9. Respetar accesibilidad (WCAG 2.2 AA como objetivo), mobile first y reducción de movimiento.
-10. Crear tests para cada comportamiento significativo, especialmente grounding y privacidad.
+Build an interactive professional identity with a navigable profile and a future conversation grounded in approved editorial knowledge, with the owner's voice and avatar. The profile and browser-only interview preview are live in the local build. The AI agent is planned.
 
-## Modo de trabajo
-- Leer `README.md`, `docs/ARCHITECTURE.md` y `docs/BACKLOG.md` antes de modificar.
-- Entregar cambios pequeños, verificables y con descripción de decisiones.
-- Ejecutar `npm run build` antes de concluir una iteración.
-- Mantener explícito qué funciona de verdad y qué es una demo.
-- Pedir confirmación humana antes de publicar contenidos biográficos o activar costes recurrentes.
-- No incorporar simultáneamente RAG, voz y avatar sin validar cada capa.
+## Constraints
 
-## Primera prioridad
-Continuar según el backlog. El siguiente hito conecta el chat de texto a un BFF con corpus aprobado. Ejecutar `npm run check` y `npm test` además de la compilación.
+1. Never invent biography, employment, metrics, achievements, current preferences, email addresses or URLs.
+2. Keep private documents outside public surfaces. Visible or retrievable knowledge requires explicit approval and `visibility=public`.
+3. Describe the still portrait accurately. A working video avatar is a separate capability.
+4. Make AI-generated interactions explicit. Never claim that Pablo is live when an AI is speaking.
+5. Keep permanent API keys out of the browser.
+6. Separate knowledge, the agent, voice and the avatar engine through interfaces.
+7. Validate cost, API, consent and replaceability before adding a paid provider.
+8. Keep a static or text fallback when AI services fail.
+9. Target WCAG 2.2 AA, mobile-first design and reduced-motion support.
+10. Test significant behavior, especially grounding and privacy.
 
-## Continuidad local
+## Working agreement
 
-- Consultar `docs/HANDOFF.md` para el estado actual y `docs/WORKFLOWS.md` para elegir una skill.
-- Ejecutar `npm run verify` como comprobación común de la entrega.
+- Read `README.md`, `docs/ARCHITECTURE.md` and `docs/BACKLOG.md` before changing the project. Consult `docs/HANDOFF.md` and `docs/WORKFLOWS.md` for context and skill selection.
+- Use small, verifiable changes. Record decisions and distinguish current behavior, demonstrations and planned interfaces.
+- Run `npm run verify`, which includes check, test and build. Verify the affected flow directly.
+- Obtain human approval before publishing biographical content or enabling recurring costs.
+- Validate retrieval, voice and avatar one layer at a time. The next product milestone is an approved-corpus text-chat BFF.
+- Keep technical documentation in English. Use the [documentation skill](.agents/skills/twin-documentation/SKILL.md) when modules, interfaces or architecture change.
 
-## Backlog en GitHub Projects
+## GitHub Projects and traceability
 
-- Consulta el [tablero mi-cv · backlog](https://github.com/users/povedica/projects/3) y el [protocolo](docs/backlog/PROTOCOLO-BACKLOG.md) al retomar una tarea, reclamarla o abrir o fusionar una PR. Lee la [skill compartida](.agents/skills/backlog-github-projects/SKILL.md).
-- El tablero lleva el estado operativo. `docs/BACKLOG.md` conserva el roadmap. Actualiza `docs/HANDOFF.md` y registra las decisiones publicables en `docs/backlog/DECISIONES.md`.
-- Revisa el diff y los adjuntos antes de subir cualquier rama. Los borradores, las fuentes privadas y las credenciales quedan fuera del historial. La publicación inicial requiere aprobación expresa del texto biográfico y del retrato.
-
-## Trazabilidad de Git
-
-- Divide cada entrega en commits por propósito. Cada commit debe explicar qué cambia y dejar juntas la implementación y las pruebas que la verifican.
-- Prepara solo los archivos o fragmentos del cambio, revisa `git diff --cached` y escribe un mensaje concreto. Mantén el orden de dependencias entre commits.
-- Enlaza la issue con `Refs #N` en el cuerpo del commit cuando exista. Usa `Closes #N` en la PR que completa la tarea.
-
-- Crea los worktrees con `./scripts/worktree.sh <rama> [base]`. En este equipo quedan bajo `~/Projects/mi-cv-worktrees`. Usa [el flujo local](docs/WORKFLOWS.md#worktrees) para iniciar Docker en cada checkout.
+- Use the [backlog Project](https://github.com/users/povedica/projects/3), [protocol](docs/backlog/PROTOCOLO-BACKLOG.md) and [shared skill](.agents/skills/backlog-github-projects/SKILL.md) when resuming, claiming or reviewing work.
+- The Project holds task state. Keep the roadmap, handoff and approved decision record current.
+- Review diffs and attachments before pushing any branch. Keep drafts, private sources and credentials outside history. The initial publication requires explicit approval of the portrait and biographical copy.
+- Make focused commits in dependency order, stage only the intended changes, and keep relevant tests with their implementation. Use `Refs #N` in commits and `Closes #N` in the PR when an issue exists.
+- Create linked checkouts with `./scripts/worktree.sh <branch> [base]`. On this machine, they live under `~/Projects/mi-cv-worktrees`. See the [local worktree workflow](docs/WORKFLOWS.md#worktrees).

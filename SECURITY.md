@@ -1,3 +1,3 @@
-# Avisos de seguridad
+# Reporting vulnerabilities
 
-Comunica las vulnerabilidades por [el canal privado de GitHub](https://github.com/povedica/mi-cv/security/advisories/new). Evita adjuntar credenciales, datos personales o corpus privado. Si el canal está temporalmente desactivado, verifica un contacto privado con el mantenedor antes de enviar detalles.
+Report vulnerabilities through the [private GitHub advisory channel](https://github.com/povedica/mi-cv/security/advisories/new). Leave credentials, personal data and private editorial records out of attachments. If private reporting is unavailable, confirm a private channel with the maintainer before sharing details.

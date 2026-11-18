@@ -1,5 +1,5 @@
-# Definition of Ready
+# Definition of ready
 
-- La issue describe alcance, zona, dependencias y criterios de aceptación verificables.
-- Cabe en una PR y sus dependencias están resueltas.
-- Las decisiones pendientes figuran en Ideas. Los contenidos que se vayan a publicar cuentan con aprobación.
+- The issue contains scope, implementation zone, dependencies and verifiable acceptance criteria.
+- The work fits in one PR and its dependencies are resolved.
+- Open decisions stay in Ideas. Content intended for publication requires owner approval.

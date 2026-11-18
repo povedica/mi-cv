@@ -1,15 +1,15 @@
-# Corpus editorial
+# Editorial record format
 
-Cada fragmento contiene una afirmación o un caso verificable. Formato propuesto: Markdown con cabecera YAML. El cuerpo Markdown es el campo `body` del registro normalizado; el lector de archivos será parte de la ingesta futura.
+Each fragment represents a verifiable fact or case. The proposed format is Markdown with YAML front matter. The Markdown body becomes `body` in the normalized record. The future ingestion service owns file parsing.
 
-| Campo | Uso |
+| Field | Purpose |
 | --- | --- |
-| `id`, `version` | Identificador estable y revisión entera positiva |
-| `title`, `kind`, `locale` | Título editorial, tipo (`role`, `project`, `capability`, `preference`) e idioma |
-| `author`, `createdAt`, `source` | Autor, fecha y referencia interna para contrastar el contenido |
+| `id`, `version` | Stable identifier and positive integer revision |
+| `title`, `kind`, `locale` | Editorial title, type (`role`, `project`, `capability`, `preference`) and language |
+| `author`, `createdAt`, `source` | Author, creation date and internal verification reference |
 | `status` | `draft` → `review` → `approved` → `published` |
-| `visibility` | `private` por defecto. `public` requiere conformidad explícita |
-| `approval` | Nulo, o registro con `by`, `at` y `version` exacta revisada |
-| `publishedAt`, `validFrom`, `validUntil` | Instantes UTC ISO con milisegundos o nulos. El final de vigencia es exclusivo |
+| `visibility` | Starts as `private`. Moving to `public` requires explicit approval. |
+| `approval` | Null or the exact approved revision, with `by`, `at` and `version` |
+| `publishedAt`, `validFrom`, `validUntil` | UTC ISO timestamps with milliseconds or null. Expiry is exclusive. |
 
-Pablo revisa y aprueba el texto exacto y su visibilidad. Cualquier cambio crea una nueva versión en borrador con aprobación nula. Guardar fuentes internas fuera del índice y omitir datos confidenciales del cuerpo. La ingesta futura deberá resolver la última versión publicada por ID, revisar autenticidad y permisos del editor, validar los metadatos y aplicar `toPublicEvidence`. Revocaciones y expiraciones deben retirar el fragmento del índice y de cualquier caché. Los borradores de este directorio quedan fuera de la salida de Astro.
+The owner reviews and approves the exact text and its visibility. Edits create a draft revision with no approval. Internal sources and confidential body content stay outside the public index. Ingestion will select the latest published revision per ID, validate editorial authorization and metadata, and apply `toPublicEvidence`. Revocation and expiry must remove fragments from the index and caches. Local drafts are excluded from Git, Docker and static output.

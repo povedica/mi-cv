@@ -1,80 +1,57 @@
-# Flujos de trabajo para Codex y Cursor
+# Engineering workflows
 
-## Arranque local
+## Local development and worktrees
 
-1. Abre `mi-cv` como carpeta raíz en Codex local o Cursor. Usa Node.js 22.20 o superior de la serie 22 para coincidir con CI y ejecutar OpenSpec.
-2. Ejecuta `npm ci` la primera vez y luego `npm run verify`. Inicia la web con `npm run dev -- --host 127.0.0.1` y abre http://localhost:4321/.
-3. Usa el remoto `povedica/mi-cv` y consulta el tablero antes de empezar una iteración. Guarda los borradores fuera del historial público.
+Use Node.js 22.20+ (CI uses Node 22) for the native workflow, or run `docker compose up --build --watch`. Docker exposes the site on loopback and runs Node as a non-root user. The [README](../README.md) contains the start and verification commands.
 
-## Worktrees
-
-Crea una rama de trabajo con un checkout independiente desde la raíz:
+Create a branch checkout with its own Compose project:
 
 ```bash
-worktree="$(./scripts/worktree.sh feat/chat-texto)" && cd "$worktree"
+worktree="$(./scripts/worktree.sh feat/text-chat)" && cd "$worktree"
 docker compose up --build -d --wait
 docker compose port web 4321
 ```
 
-El script crea el checkout en `~/Projects/mi-cv-worktrees` cuando el repositorio principal está en `~/Projects/mi-cv`. Usa `main` local como base para ramas nuevas. Puedes indicar otra base como segundo argumento, por ejemplo `origin/main` después de un fetch. Para abrir una rama existente, indica solo la rama. El script también funciona desde otro worktree.
+On this machine, linked checkouts are siblings of the main repo under `~/Projects/mi-cv-worktrees`. New branches start from local `main`; an optional second argument selects a different base. Omit the base to reuse an existing branch. The script generates only a local Compose name and an ephemeral loopback port. Run `docker compose watch --no-up` against an existing service or start with `docker compose up --build --watch`. Query the port again after recreating the container.
 
-Cada checkout recibe un `.env` ignorado por Git con un nombre Compose propio y un puerto loopback asignado por Docker. Usa la dirección que devuelve `docker compose port` después de cada creación del contenedor. Para recarga durante el desarrollo, ejecuta `docker compose watch --no-up` con el servicio ya iniciado, o arráncalo directamente con `docker compose up --build --watch`. También puedes ejecutar `npm ci` dentro del checkout si necesitas las herramientas de Node en el host.
+Use `git worktree list` to locate checkouts. To retire one, stop its Compose project, preserve any needed local configuration and commit your changes, then use `git worktree remove <path>` from another checkout. The branch remains available.
 
-Usa `git worktree list` para localizar los checkouts. Para retirar uno, detén su Compose con `docker compose down` dentro del worktree y conserva cualquier configuración local que necesites. Desde otro checkout ejecuta `git worktree remove <ruta>` tras comprobar que los cambios están guardados. La rama se conserva.
+## Configuration and secrets
 
-## Variables de entorno y secretos
+| Name | Location | Purpose |
+| --- | --- | --- |
+| `MI_CV_HOST_PORT` | Public local setting in the shell or `.env` | Defaults to 4321; generated worktrees use 0 for an ephemeral loopback port. |
+| `COMPOSE_PROJECT_NAME` | Public local setting generated in worktree `.env` | Isolates services and networking per checkout. |
+| `ASTRO_TELEMETRY_DISABLED` | Public container setting in the Dockerfile | Disables Astro telemetry at value 1. |
+| `PUBLIC_SENTRY_DSN` | Optional public local or deployment environment variable | Browser DSN. Empty by default. Pass it at static build time when approved. |
+| `PROJECT_NUMBER` | GitHub Actions variable | Identifies the backlog Project. |
+| `PROJECT_TOKEN` | GitHub Actions secret, master value in 1Password | Allows the trusted merge job to update the private Project. |
 
-| Nombre | Tipo | Dónde se configura | Uso |
-| --- | --- | --- | --- |
-| `MI_CV_HOST_PORT` | Variable local, no sensible | Shell o `.env` local de Compose | Puerto del equipo. El valor por defecto es `4321`. |
-| `COMPOSE_PROJECT_NAME` | Variable local, no sensible | `.env` generado en cada worktree | Aísla los servicios y la red de Compose por checkout. |
-| `ASTRO_TELEMETRY_DISABLED` | Variable del contenedor, no sensible | Dockerfile (`1`) | Desactiva la telemetría de Astro. |
-| `PUBLIC_SENTRY_DSN` | Variable pública opcional | `.env` local o variable del entorno de despliegue en Actions | DSN de navegador. Vacía por defecto. Astro la integra durante la compilación estática. |
-| `PROJECT_NUMBER` | Variable de GitHub Actions | Settings → Secrets and variables → Actions → Variables | Identifica el tablero para el workflow de backlog. |
-| `PROJECT_TOKEN` | Secreto de GitHub Actions | Valor maestro en 1Password y copia operativa en Settings → Secrets and variables → Actions → Secrets | Autoriza la actualización del tablero después de fusionar una PR. |
+`.env.example` contains public configuration only. Compose reads local `.env` and explicitly passes the public DSN to the application. The Docker build context excludes local environment files, credentials, the Git history and private drafts. Keep future credentials in 1Password and inject them only into the process that needs them. Use Actions `vars` for public configuration and `secrets` for credentials. Astro values prefixed with `PUBLIC_` are browser-visible.
 
-`.env.example` solo contiene configuración local pública. Compose lee `.env` y solo pasa al contenedor la variable pública de Sentry que se declara en `compose.yaml`. El desarrollo local actual funciona con esa variable vacía y sin secretos. Para futuras credenciales, guarda el valor en 1Password e inyéctalo únicamente en el proceso que lo consuma. Usa `vars` de Actions para configuración no sensible y `secrets` para credenciales. Mantén las credenciales fuera de variables `PUBLIC_*`, argumentos de build, imágenes, commits y logs.
+## Local logs
 
-El contexto Docker incluye una lista explícita de archivos de la aplicación. Los borradores editoriales, los archivos de entorno locales y el historial Git quedan fuera.
-
-## Logs locales
-
-Ejecuta `docker compose logs -f web` para ver Astro y los eventos JSON del módulo de trazabilidad. En desarrollo, la portada y la entrevista devuelven `X-Request-Id`; busca ese valor como `trace_id` para relacionar la respuesta con su ruta lógica, estado HTTP y duración. Las comprobaciones de salud usan HEAD. La compilación registra inicio y fin bajo el mismo identificador.
-
-Los eventos propios excluyen URLs completas, consultas, IP, cabeceras y cuerpos. El despliegue actual es estático. Los logs de acceso tras el despliegue corresponden al alojamiento, según su configuración.
+Run `docker compose logs -f web`. Local GET requests for the two pages return `X-Request-Id`. Match it to the JSON `trace_id` for logical route, status and duration. Build start and completion share a separate trace ID. Health checks use HEAD. Custom logs exclude query strings, headers, IP addresses and bodies. A production static host controls its own access logs.
 
 ## Sentry
 
-Sentry está desactivado de forma predeterminada. Para una prueba autorizada, configura `PUBLIC_SENTRY_DSN` con el DSN de navegador del proyecto de pruebas y recrea el contenedor. En un despliegue estático se debe pasar la variable al paso de compilación. El DSN es público. Un token de administración o de subida de mapas de código sería un secreto independiente.
+Leave the DSN empty for zero reporting. For an authorized test, set the public browser DSN in local configuration and recreate the container. Static deployment requires the value during the deployment build. Any future administrative or source map upload token is a separate secret.
 
-La integración captura errores y rechazos sin manejar que tengan frames de código propio. Solo envía el tipo de error, un mensaje fijo, el entorno y los frames de código local sin consultas. Se excluyen mensajes originales, usuarios, peticiones, sesiones, breadcrumbs, replay y trazas de rendimiento. Antes de activar el proveedor para visitantes, valida el coste, la información de privacidad y el descarte de IP en el proyecto de Sentry.
+The browser adapter keeps a fixed error message, known error type, environment and sanitized first-party frames. It excludes original messages, user context, request data, session replay, breadcrumbs and performance traces. Validate cost, the public privacy notice and IP storage settings before enabling collection for visitors.
 
-## Codex local
+## Change workflow
 
-Las reglas del proyecto están en `AGENTS.md`. Las skills de proyecto están en `.agents/skills`. Invoca `$twin-iteration` para retomar, `$twin-chat` para implementar el chat, `$twin-editorial` para trabajar el corpus o `$twin-verification` para verificar una entrega.
+1. Read [the handoff](HANDOFF.md), [roadmap](BACKLOG.md) and relevant [module](MODULES.md). Consult the [Project protocol](backlog/PROTOCOLO-BACKLOG.md).
+2. Write requirements and scenarios with OpenSpec when behavior or contracts need review. Use `$openspec-propose` in Codex or `/openspec-propose` in Cursor. The proposal, design, spec delta and tasks live in `openspec/changes/`. Validate with `npx --no-install openspec validate <change> --strict`.
+3. Implement and verify in focused commits. Capture evidence in the relevant docs. Archive completed OpenSpec changes to update the canonical specifications under `openspec/specs/`.
+4. Keep the architecture, module reference and handoff aligned with the running system. The repository skill [twin-documentation](../.agents/skills/twin-documentation/SKILL.md) defines when and how to update each artifact.
 
-Mensaje para abrir la primera sesión:
-
-> Lee AGENTS.md y docs/HANDOFF.md. Usa $twin-iteration para implementar el siguiente cambio acotado. Verifica el resultado y actualiza el traspaso.
-
-## Cursor
-
-Las reglas están en `.cursor/rules`. En el chat del agente puedes usar `/twin-resume`, `/twin-verify` o `/twin-editorial-review` si la versión de Cursor ofrece comandos de proyecto. Si un comando o skill no aparece, referencia su Markdown directamente con `@` o pide al agente que lo lea por ruta. Ambos editores comparten los mismos criterios en `AGENTS.md`.
-
-## OpenSpec
-
-Para un cambio que necesite acordar requisitos antes de implementarlo, usa `$openspec-propose` en Codex o `/openspec-propose` en Cursor. La propuesta, el diseño, los cambios de especificación y las tareas quedan en `openspec/changes/`. Si existe una issue, enlázala en la propuesta. GitHub Projects conserva el estado de la tarea.
-
-Tras `npm ci`, ejecuta `npx --no-install openspec list` para consultar cambios y `npx --no-install openspec validate <cambio> --strict` para validar uno. Aplica y verifica el cambio antes de archivarlo. Las especificaciones vigentes quedan en `openspec/specs/`.
-
-## Selección y cierre
-
-| Trabajo | Flujo |
+| Task | Repository skill |
 | --- | --- |
-| Gestionar issues, ramas y PR | [Backlog en GitHub Projects](../.agents/skills/backlog-github-projects/SKILL.md) |
-| Retomar una sesión o una tarea de backlog | [Iteración](../.agents/skills/twin-iteration/SKILL.md) |
-| API, sesiones, retrieval, respuestas y citas | [Chat](../.agents/skills/twin-chat/SKILL.md) |
-| Borrador, revisión, aprobación y vigencia | [Editorial](../.agents/skills/twin-editorial/SKILL.md) |
-| Tests, compilación, navegador y evidencia | [Verificación](../.agents/skills/twin-verification/SKILL.md) |
+| Resume an iteration | [twin-iteration](../.agents/skills/twin-iteration/SKILL.md) |
+| Change chat and evidence | [twin-chat](../.agents/skills/twin-chat/SKILL.md) |
+| Review professional content | [twin-editorial](../.agents/skills/twin-editorial/SKILL.md) |
+| Verify a change | [twin-verification](../.agents/skills/twin-verification/SKILL.md) |
+| Update GitHub Projects | [backlog-github-projects](../.agents/skills/backlog-github-projects/SKILL.md) |
 
-Al terminar, registra alcance, decisiones, archivos, comandos y resultados en el traspaso si cambió el estado del proyecto. Actualiza el backlog cuando se cumpla un criterio de aceptación. Verifica primero el flujo afectado y luego ejecuta `npm run verify`.
+Cursor also provides project commands for resuming, verifying and editorial review. Skills can be opened by file path in either editor.

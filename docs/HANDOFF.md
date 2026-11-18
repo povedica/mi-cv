@@ -1,32 +1,15 @@
-# Traspaso de AI Professional Twin
+# Engineering handoff
 
-## Estado a 18 de noviembre de 2026
+## Current state
 
-Astro sirve el perfil y la entrevista con la fotografía original. La vista previa permite añadir preguntas al historial de la página y borrarlas al cerrar. El contrato TypeScript de chat define sesiones, citas y abstención, y el filtro editorial tiene pruebas unitarias. Los dos ejemplos de conocimiento siguen siendo borradores privados. El BFF, la ingesta, el índice, el proveedor conversacional, la voz y el avatar siguen pendientes.
+The static profile and local interview preview are the running product. The source portrait is a still image. The interview clears its own DOM history when closed. Astro emits two static routes with responsive WebP images. The dashboard event contract runs in the browser. No collector or dashboard is connected.
 
-La iteración visual se comprobó en Chrome. Las [capturas de portada](screenshots/portada.jpg) y [entrevista](screenshots/entrevista.jpg) recogen el estado entregado. La compilación generó dos rutas y la inspección de la salida confirmó que los borradores quedaron fuera. Consulta [README](../README.md), [arquitectura](ARCHITECTURE.md) y [backlog](BACKLOG.md).
+Colima serves the development environment on loopback. Docker Watch and independent worktree environments are documented in [engineering workflows](WORKFLOWS.md). Build and local access logs are correlated. Optional Sentry remains disabled by default; a synthetic DSN and local receiver verified scrubbed browser delivery.
 
-## Siguiente cambio acotado
+The private [GitHub Project](https://github.com/users/povedica/projects/3) is linked to the [public remote](https://github.com/povedica/mi-cv). The repository is prepared locally. The first public push still requires approval of the portrait, professional copy and screenshots. Drafts remain outside Git. Historical [home](screenshots/portada.jpg) and [interview](screenshots/entrevista.jpg) screenshots show the original preview, before the current performance changes.
 
-Implementar un primer flujo de texto con sesión, pregunta y cierre siguiendo el contrato HTTP. Empezar por pruebas locales con contenido sintético aislado. Verificar atribución de citas, abstención sin evidencia, acceso a sesión y exclusión de registros privados. Conectar la interfaz al API cuando el flujo funcione y mantener la vista estática disponible si el servicio falla.
+The production dependency audit previously reported one critical, three high and one low finding. npm proposed a major Astro upgrade. That migration is a separate task. See [quality verification](QUALITY.md) for the current build and browser checks.
 
-La activación con información profesional depende de la aprobación de Pablo para cada versión del corpus. Las decisiones sobre proveedor real, coste, voz y avatar quedan para sus etapas correspondientes.
+## Next bounded change
 
-## Git y tablero
-
-El remoto público es [povedica/mi-cv](https://github.com/povedica/mi-cv) y el [tablero operativo](https://github.com/users/povedica/projects/3) es privado. El [protocolo](backlog/PROTOCOLO-BACKLOG.md) describe las transiciones y la automatización de PR. La primera subida de la aplicación queda pendiente de aprobación del retrato, los textos biográficos y las capturas que los muestran. Los ejemplos de conocimiento permanecen en el checkout local, excluidos de Git.
-
-La configuración remota de Actions usa `PROJECT_NUMBER=3` y el secreto `PROJECT_TOKEN`. Están habilitados el escaneo de secretos, la protección de push y los avisos privados de vulnerabilidades. Comprueba una PR de prueba tras la primera subida para validar el workflow en GitHub.
-
-La auditoría de producción del lockfile actual devuelve una alerta crítica en Astro, tres altas y una baja. npm propone una actualización mayor de Astro. La migración queda como tarea de mantenimiento separada.
-
-OpenSpec 2.1.0 está fijado como dependencia de desarrollo e inicializado para Codex y Cursor. El [flujo de OpenSpec](WORKFLOWS.md#openspec) explica cómo proponer un cambio y enlazarlo con su issue.
-
-El entorno de desarrollo Docker usa Compose Watch y publica Astro solo en loopback. El archivo `.env.example` documenta el puerto local. El [inventario de configuración](WORKFLOWS.md#variables-de-entorno-y-secretos) distingue los valores locales, las variables de Actions y el secreto de Projects.
-Verificado en Colima: la portada y la entrevista respondieron por HTTP, `npm run verify` pasó dentro del contenedor y Compose Watch sincronizó un archivo nuevo. Una prueba con datos simulados confirmó que el contenedor excluye `.env`, el token de Projects y los borradores.
-
-Los [worktrees](WORKFLOWS.md#worktrees) se crean con `scripts/worktree.sh`. El script asigna a cada checkout un proyecto Compose propio y configura un puerto loopback efímero.
-
-El contenedor principal responde en `http://127.0.0.1:4321/`. El [módulo de trazabilidad](WORKFLOWS.md#logs-locales) registra la compilación y las peticiones de las dos páginas en desarrollo. Se comprobó en Colima que la cabecera `X-Request-Id` coincide con el evento JSON y que una consulta y una cabecera sintéticas quedan fuera de los logs.
-
-Sentry de navegador queda listo y desactivado por defecto. En Chrome headless, la entrevista conservó su flujo local y un receptor HTTP de prueba recibió cero eventos sin DSN y un error saneado con DSN simulado. La portada y la entrevista volvieron a verificarse en el contenedor con Sentry desactivado y `npm run verify` en verde.
+Implement a local text-chat session, one question and close using synthetic content. Verify citation ownership, abstention without evidence, session access and exclusion of private records before connecting the interface. The live corpus requires approval of each version. An analytics deployment requires a separately approved collector and consent policy.

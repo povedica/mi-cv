@@ -1,6 +1,6 @@
-# Definition of Done
+# Definition of done
 
-- Pasa `npm run verify`. Los tests cubren el comportamiento cambiado.
-- El diff público respeta las restricciones editoriales, de privacidad y credenciales.
-- La PR documenta la verificación y actualiza el traspaso y las decisiones si procede.
-- La PR se fusiona en la rama principal, cierra la issue y el tablero refleja Hecho.
+- `npm run verify` passes and tests cover changed behavior.
+- The public diff respects editorial approval, privacy and credential boundaries.
+- The PR records verification and updates applicable documentation and decisions.
+- The PR merges into the default branch, closes the issue, and the Project reflects completion.

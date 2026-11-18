@@ -1,11 +1,11 @@
 schema: spec-driven
 
 context: |
-  Escribe los artefactos en español.
-  Consulta AGENTS.md para las restricciones del proyecto y el protocolo en docs/backlog/PROTOCOLO-BACKLOG.md para el ciclo de issues y PR.
-  Enlaza la issue de GitHub cuando exista y mantén los artefactos aptos para un repositorio público.
-  Usa ejemplos sintéticos para las especificaciones y pruebas que necesiten datos editoriales.
+  Write technical artifacts in English. The product interface is Spanish.
+  Follow the editorial and privacy constraints in AGENTS.md and the issue lifecycle in docs/backlog/PROTOCOLO-BACKLOG.md.
+  Link the GitHub issue when available. Keep public artifacts free of unpublished facts, credentials and private records.
+  Use synthetic examples when describing or testing editorial data.
 
 rules:
   tasks:
-    - Agrupa el trabajo en cambios verificables que puedan formar commits por propósito.
+    - Group work into verifiable changes that can become focused commits.
