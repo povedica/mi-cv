@@ -11,6 +11,11 @@ import tarfile
 import tempfile
 
 PAGES = {"index.html", "interview/index.html"}
+LANDING_FILES = {
+    "en/index.html", "en/interview/index.html", "sitemap.xml", "robots.txt",
+    "og.png", "og.jpg",
+}
+PUBLIC_PDF = re.compile(r"(?:cv|certificados)/[\w-][\w.-]*\.pdf", re.ASCII)
 ASSET = re.compile(r"_astro/[\w.-]+\.(?:css|js|webp)", re.ASCII)
 SHA = re.compile(r"[a-f0-9]{40}")
 
@@ -18,12 +23,15 @@ SHA = re.compile(r"[a-f0-9]{40}")
 def unpack(destination):
     names = set()
     total = 0
+    has_astro_assets = False
     with tarfile.open(fileobj=sys.stdin.buffer, mode="r|") as archive:
         for member in archive:
             name = member.name
             total += member.size
+            is_astro_asset = bool(ASSET.fullmatch(name))
             if (not member.isfile() or name in names or
-                    not (name in PAGES or ASSET.fullmatch(name)) or
+                    not (name in PAGES or name in LANDING_FILES or
+                         is_astro_asset or PUBLIC_PDF.fullmatch(name)) or
                     member.size < 1 or total > 32 * 1024 * 1024 or len(names) >= 256):
                 raise ValueError("Invalid release contents")
             target = destination / name
@@ -31,7 +39,8 @@ def unpack(destination):
             with archive.extractfile(member) as source, target.open("xb") as output:
                 shutil.copyfileobj(source, output)
             names.add(name)
-    if not PAGES <= names or names == PAGES:
+            has_astro_assets |= is_astro_asset
+    if not PAGES <= names or not has_astro_assets:
         raise ValueError("Release requires both pages and Astro assets")
 
 
