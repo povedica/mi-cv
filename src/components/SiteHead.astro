@@ -16,6 +16,7 @@ const { description, title } = Astro.props;
   <meta name="theme-color" content="#0b1020" />
   <meta name="description" content={description} />
   <title>{title}</title>
+  <slot />
   <WebAnalytics />
   <BrowserMonitoring />
 </head>

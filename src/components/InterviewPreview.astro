@@ -21,7 +21,12 @@ const label = (spanish: string, english: string) => isSpanish ? spanish : englis
 ---
 <!doctype html>
 <html lang={locale} data-analytics-page="interview">
-  <SiteHead description={label('Vista previa de la entrevista profesional de Pablo Poveda.', 'Preview of Pablo Poveda’s professional interview.')} title={label('Entrevista · Pablo Poveda', 'Interview · Pablo Poveda')} />
+  <SiteHead description={label('Vista previa de la entrevista profesional de Pablo Poveda.', 'Preview of Pablo Poveda’s professional interview.')} title={label('Entrevista · Pablo Poveda', 'Interview · Pablo Poveda')}>
+    <link rel="canonical" href={`https://cv.reflexionia.com${isSpanish ? '/interview/' : '/en/interview/'}`} />
+    <link rel="alternate" hreflang="es" href="https://cv.reflexionia.com/interview/" />
+    <link rel="alternate" hreflang="en" href="https://cv.reflexionia.com/en/interview/" />
+    <link rel="alternate" hreflang="x-default" href="https://cv.reflexionia.com/interview/" />
+  </SiteHead>
   <body class="interview-body">
     <a class="skip-link" href="#contenido">{label('Saltar al contenido', 'Skip to content')}</a>
     <header class="site-header shell interview-nav">
