@@ -44,3 +44,52 @@ test('a failing downstream consumer cannot interrupt the interface', () => {
     delete globalThis.window;
   }
 });
+
+test('forwards only approved Umami names and dimensions without a duplicate page view', () => {
+  const calls = [];
+  globalThis.window = {
+    umami: { track: (...args) => calls.push(args) },
+  };
+  try {
+    track('page_view', 'home');
+    track('cv_download', 'en');
+    track('cv_download', 'es');
+    track('cv_download', 'private.pdf');
+    track('linkedin_click', 'home');
+    track('language_change', 'es-en');
+    track('language_change', 'en-es');
+    track('language_change', 'es-es');
+    track('interview_preview_open', 'interview');
+    track('interview_preview_question_added', 'interview');
+    track('interview_preview_question_added', 'synthetic question text');
+    track('contact_click', 'home');
+
+    assert.deepEqual(calls, [
+      ['cv-download', { lang: 'en' }],
+      ['cv-download', { lang: 'es' }],
+      ['linkedin-click'],
+      ['language-change', { from: 'es', to: 'en' }],
+      ['language-change', { from: 'en', to: 'es' }],
+      ['interview-open'],
+      ['interview-question-sent'],
+      ['contact-click'],
+    ]);
+  } finally {
+    delete globalThis.window;
+  }
+});
+
+test('keeps the local event when the Umami script is blocked or tracking fails', async () => {
+  globalThis.window = {};
+  try {
+    track('interview_preview_open', 'interview');
+    window.umami = { track() { throw new Error('tracker failed'); } };
+    track('interview_preview_open', 'interview');
+    window.umami = { track: () => Promise.reject(new Error('collector unavailable')) };
+    track('interview_preview_open', 'interview');
+    await new Promise(resolve => setImmediate(resolve));
+    assert.equal(window.dataLayer.length, 3);
+  } finally {
+    delete globalThis.window;
+  }
+});

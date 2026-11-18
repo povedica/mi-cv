@@ -45,5 +45,5 @@ Acceptance requires grounded responses, privacy boundaries, cost limits and a wo
 ## 5. Administration and deployment
 
 - [ ] Editorial roles, MFA, publishing lifecycle and rollback.
-- [ ] Aggregate dashboard with an approved analytics adapter, budget guard, retention and kill switch.
+- [ ] Release and verify the Umami adapter in production. See [analytics rollout](ANALYTICS.md) and issue #15 for acceptance criteria.
 - [ ] Privacy and accessibility review, deployment automation, staging and production.

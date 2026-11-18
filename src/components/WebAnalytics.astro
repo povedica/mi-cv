@@ -1,3 +1,24 @@
+---
+const umami = {
+  scriptUrl: 'https://umami.reflexionia.com/script.js',
+  websiteId: '0729e66f-fbc9-41a2-8bfd-eaf4663ff49b',
+  domains: 'cv.reflexionia.com',
+};
+---
+
+<script
+  is:inline
+  defer
+  src={umami.scriptUrl}
+  data-website-id={umami.websiteId}
+  data-domains={umami.domains}
+  data-exclude-search="true"
+  data-exclude-hash="true"
+  data-fetch-credentials="omit"
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+
 <script>
   import { track } from '../analytics/data-layer';
   const pageId = document.documentElement.dataset.analyticsPage;
@@ -6,5 +27,25 @@
   for (const link of document.querySelectorAll<HTMLAnchorElement>('a[data-interview-placement]')) {
     const placement = link.dataset.interviewPlacement;
     if (placement) link.addEventListener('click', () => track('interview_link_click', placement));
+  }
+
+  const currentLanguage = document.documentElement.lang;
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('a[data-analytics-action]')) {
+    link.addEventListener('click', () => {
+      switch (link.dataset.analyticsAction) {
+        case 'cv-download':
+          track('cv_download', link.hreflang || currentLanguage);
+          break;
+        case 'language-change':
+          track('language_change', `${currentLanguage}-${link.hreflang}`);
+          break;
+        case 'linkedin-click':
+          track('linkedin_click', 'home');
+          break;
+        case 'contact-click':
+          track('contact_click', 'home');
+          break;
+      }
+    });
   }
 </script>

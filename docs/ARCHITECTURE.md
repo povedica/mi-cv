@@ -11,13 +11,14 @@ flowchart LR
   Build --> Files[Static HTML, CSS, JS and WebP]
   Files --> Host[Shared Caddy edge]
   Host --> Browser[Visitor browser]
+  Browser -->|Page views and approved events| Umami[Self-hosted Umami]
   Browser -. optional scrubbed errors .-> Sentry
   Git --> CI[GitHub Actions]
   CI -->|Manual production release over SSH| Host
   CI --> Projects[Private GitHub Project]
 ```
 
-The browser executes the preview and materializes analytics events. The current build configures no analytics collector or dashboard. The dashed Sentry connection requires an explicit browser DSN.
+The browser executes the preview and materializes analytics events. The build configures Umami for the production hostname. The dashed Sentry connection requires an explicit browser DSN.
 
 ## Component map
 
@@ -29,6 +30,7 @@ flowchart TD
   Home --> Data[Versioned analytics data layer]
   Interview --> Data
   Data --> Queue[In-memory window.dataLayer]
+  Data --> Adapter[Umami adapter]
   Astro --> Errors[Optional browser error monitoring]
   Errors --> Scrubber[First-party frame allowlist]
   Config[Astro integration] --> Logs[Build and dev request logs]
@@ -73,7 +75,7 @@ The question enters the DOM through `textContent`. The event queue receives the 
 | GitHub Actions and Projects | Automated verification and PR-linked task tracking using an existing repository workflow. Project write permissions are confined to the merge workflow. |
 | OpenSpec | Reviewable requirements and behavior changes alongside the commits that implement them. This documentation describes the running system. |
 | Structured logs and optional Sentry | Local request and build correlation plus a separate browser error channel. The static host owns production access logging. |
-| In-memory analytics data layer | Dashboard-ready event vocabulary and no vendor payload on the critical path. A future adapter is required for persistent reporting. |
+| In-memory analytics data layer | A bounded versioned queue and an allowlisted adapter provide aggregate reporting without blocking visitor actions. |
 
 ## Target conversation architecture
 
