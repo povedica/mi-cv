@@ -23,7 +23,7 @@ Use `git worktree list` to locate checkouts. To retire one, stop its Compose pro
 | `MI_CV_HOST_PORT` | Public local setting in the shell or `.env` | Defaults to 4321; generated worktrees use 0 for an ephemeral loopback port. |
 | `COMPOSE_PROJECT_NAME` | Public local setting generated in worktree `.env` | Isolates services and networking per checkout. |
 | `ASTRO_TELEMETRY_DISABLED` | Public container setting in the Dockerfile | Disables Astro telemetry at value 1. |
-| `PUBLIC_SENTRY_DSN` | Optional public local or deployment environment variable | Browser DSN. Empty by default. Pass it at static build time when approved. |
+| `PUBLIC_SENTRY_DSN` | Optional local setting or GitHub Actions variable in the `production` environment | Browser DSN. Empty by default. The production verification step reads it while building the static release. |
 | `PROJECT_NUMBER` | GitHub Actions variable | Identifies the backlog Project. |
 | `PROJECT_TOKEN` | GitHub Actions secret, master value in 1Password | Allows the trusted merge job to update the private Project. |
 
@@ -37,7 +37,11 @@ Run `docker compose logs -f web`. In explicit development mode, GET requests for
 
 Leave the DSN empty for zero reporting. For an authorized test, set the public browser DSN in local configuration and recreate the container. Static deployment requires the value during the deployment build. Any future administrative or source map upload token is a separate secret.
 
+After approval, set `PUBLIC_SENTRY_DSN` under **Settings → Environments → production → Environment variables** in GitHub. Run **Deploy production** from a new commit SHA when changing or clearing the DSN. The release receiver reuses the first artifact accepted for a SHA, so rerunning the same SHA may keep the previous configuration. Production error frames refer to bundled JavaScript positions.
+
 The browser adapter keeps a fixed error message, known error type, environment and sanitized first-party frames. It excludes original messages, user context, request data, session replay, breadcrumbs and performance traces. Validate cost, the public privacy notice and IP storage settings before enabling collection for visitors.
+
+On November 18, 2026, the `mi-cv` project was created on the free Sentry plan. A headless Chrome run against a temporary local production build sent one event. Sentry accepted it with HTTP 200 and recorded issue `MI-CV-1` as `Error: Browser runtime error`. The stored event had the synthetic first-party frame, no request entry, no stored IP, and a geolocation object added by Sentry. Project-side IP scrubbing is enabled. The test trigger existed only in temporary output. Visitor collection remains pending privacy notice review and approval.
 
 ## Change workflow
 
