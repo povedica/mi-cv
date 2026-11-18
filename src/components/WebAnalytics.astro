@@ -1,0 +1,10 @@
+<script>
+  import { track } from '../analytics/data-layer';
+  const pageId = document.documentElement.dataset.analyticsPage;
+  if (pageId) track('page_view', pageId);
+
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('a[data-interview-placement]')) {
+    const placement = link.dataset.interviewPlacement;
+    if (placement) link.addEventListener('click', () => track('interview_link_click', placement));
+  }
+</script>

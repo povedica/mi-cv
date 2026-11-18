@@ -2,17 +2,19 @@
 import { site, themes } from '../data/site';
 import { Image } from 'astro:assets';
 import portrait from '../assets/pablo-portrait.jpg';
+import WebAnalytics from '../components/WebAnalytics.astro';
 import BrowserMonitoring from '../components/BrowserMonitoring.astro';
 import '../styles/global.css';
 ---
 <!doctype html>
-<html lang="es">
+<html lang="es" data-analytics-page="home">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0b1020" />
     <meta name="description" content={site.description} />
     <title>{site.name} · Engineering Leadership</title>
+    <WebAnalytics />
     <BrowserMonitoring />
   </head>
   <body>
@@ -21,7 +23,7 @@ import '../styles/global.css';
     <header class="site-header shell">
       <a class="brand" href="/" aria-label="Pablo Poveda, inicio"><span class="brand-mark">PP</span><span>Pablo Poveda</span></a>
       <nav aria-label="Navegación principal"><a href="#enfoque">Enfoque</a><a href="#experiencia">Experiencia</a><a href="#proyecto">Proyecto</a><a href="#cv-contacto">CV y contacto</a></nav>
-      <a class="button button-primary nav-cta" href="/interview/">Entrevístame</a>
+      <a class="button button-primary nav-cta" data-interview-placement="navigation" href="/interview/">Entrevístame</a>
     </header>
     <main id="contenido">
       <section class="hero shell">
@@ -29,7 +31,7 @@ import '../styles/global.css';
           <div class="eyebrow"><span class="eyebrow-dot"></span> SOFTWARE ENGINEERING · LEADERSHIP · AI</div>
           <h1>{site.name}<em>Technical Engineering Leadership</em></h1>
           <p class="lead">{site.description}</p>
-          <div class="hero-actions"><a class="button button-primary button-large" href="/interview/">Entrevístame</a><a class="button button-secondary button-large" href="#enfoque">Explorar capacidades</a></div>
+          <div class="hero-actions"><a class="button button-primary button-large" data-interview-placement="hero" href="/interview/">Entrevístame</a><a class="button button-secondary button-large" href="#enfoque">Explorar capacidades</a></div>
           <div class="hero-note">Vista previa de la interfaz de entrevista.</div>
         </div>
         <div class="hero-stage" aria-label="Vista previa de entrevista virtual">
@@ -53,7 +55,7 @@ import '../styles/global.css';
         <div>
           <h2>Entrevista virtual</h2>
           <p>La entrevista está pensada para explorar decisiones técnicas, proyectos y liderazgo con respuestas basadas en información profesional revisada.</p>
-          <a class="inline-link" href="/interview/">Explorar la interfaz de entrevista</a>
+          <a class="inline-link" data-interview-placement="portrait" data-interview-placement="project" href="/interview/">Explorar la interfaz de entrevista</a>
         </div>
       </section>
       <section class="statement shell" id="cv-contacto">

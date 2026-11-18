@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import portrait from '../assets/pablo-portrait.jpg';
+import WebAnalytics from '../components/WebAnalytics.astro';
 import BrowserMonitoring from '../components/BrowserMonitoring.astro';
 import '../styles/global.css';
 
@@ -11,13 +12,14 @@ const suggestions = [
 ];
 ---
 <!doctype html>
-<html lang="es">
+<html lang="es" data-analytics-page="interview">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0b1020" />
     <meta name="description" content="Vista previa de la entrevista profesional de Pablo Poveda." />
     <title>Entrevista virtual · Pablo Poveda</title>
+    <WebAnalytics />
     <BrowserMonitoring />
   </head>
   <body class="interview-body">
@@ -77,6 +79,8 @@ const suggestions = [
     </main>
 
     <script>
+      import { track } from '../analytics/data-layer';
+
       const start = document.querySelector<HTMLButtonElement>('#start-preview')!;
       const end = document.querySelector<HTMLButtonElement>('#end-preview')!;
       const session = document.querySelector<HTMLElement>('#preview-session')!;
@@ -87,6 +91,7 @@ const suggestions = [
 
       start.hidden = false;
       start.addEventListener('click', () => {
+        track('interview_preview_open', 'interview');
         session.hidden = false;
         start.hidden = true;
         status.textContent = 'Vista previa abierta. Puedes añadir preguntas al historial. Las respuestas estarán disponibles cuando se conecte el agente.';
@@ -108,12 +113,14 @@ const suggestions = [
         const item = document.createElement('li');
         item.textContent = question;
         history.append(item);
+        track('interview_preview_question_added', 'interview');
         history.scrollTop = history.scrollHeight;
         form.reset();
         input.focus();
       });
 
       end.addEventListener('click', () => {
+        track('interview_preview_close', 'interview');
         history.replaceChildren();
         form.reset();
         session.hidden = true;
