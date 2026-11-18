@@ -4,6 +4,10 @@
 !astro.config.mjs
 !tsconfig.json
 !src/
+!public/
+public/**
+!public/robots.txt
+!public/sitemap.xml
 !tests/
 !knowledge/
 knowledge/**
