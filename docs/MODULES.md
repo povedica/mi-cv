@@ -12,6 +12,7 @@
 | [Chat contract](../src/data/chat-contract.ts) | Defines the target session, question, citation, answer, abstention and error types. | Type-only. API deployment, authentication, quotas, and citation validation remain planned. |
 | [Docker](../compose.yaml) and [worktrees](../scripts/worktree.sh) | A non-root Node container installs the lockfile and serves Astro on loopback. Compose Watch syncs source. The worktree script creates a branch checkout and generates a local Compose name and port configuration. | The image context excludes local credentials and private drafts. [Worktree tests](../tests/worktree.test.sh) exercise isolation and invalid input. |
 | [Verification](../.github/workflows/build.yml) and [backlog automation](../.github/workflows/backlog-sync.yml) | CI checks the npm build and local tooling. The backlog workflow validates PR references and updates the private Project after eligible merges. | The PR check is read-only. The merge workflow uses the trusted base and keeps paused items unchanged. [Tests](../scripts/backlog/test_sync.py) mock GitHub operations. |
+| [Static deployment](DEPLOYMENT.md) | A manual main-branch Actions workflow verifies Astro output and streams it to a dedicated SSH receiver. The receiver switches the release symlink and Caddy handles HTTPS. | The receiver allows only the two routes and expected file types. Actions compare both routes and all build assets over verified HTTPS. |
 
 ## Planned chat HTTP interface
 

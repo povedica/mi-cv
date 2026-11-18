@@ -24,6 +24,7 @@ docker compose -f compose.yaml -f compose.dev.yaml up --build --watch
 | [Modules](docs/MODULES.md) | Entry points, internals, data boundaries, and tests |
 | [Web analytics](docs/ANALYTICS.md) | Versioned data layer, integration contract, and dashboard measures |
 | [Performance and accessibility](docs/QUALITY.md) | Design constraints, verification, and measured results |
+| [Production deployment](docs/DEPLOYMENT.md) | GitHub Actions, shared Caddy edge, HTTPS checks and rollback |
 | [Engineering workflows](docs/WORKFLOWS.md) | Docker, worktrees, CI, secrets, logs, and OpenSpec |
 | [Roadmap](docs/BACKLOG.md) and [handoff](docs/HANDOFF.md) | Implementation status and the next milestone |
 

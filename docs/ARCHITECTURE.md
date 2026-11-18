@@ -2,17 +2,18 @@
 
 ## System context
 
-The build emits two HTML documents and hashed assets. Both pages work as documents before JavaScript runs. The interview uses progressive enhancement for a local history. The public hosting target and domain are still open.
+The build emits two HTML documents and hashed assets. Both pages work as documents before JavaScript runs. The interview uses progressive enhancement for a local history. The production target is the shared Caddy edge at `cv.reflexionia.com`. See the [deployment runbook](DEPLOYMENT.md) for provisioning and release activation.
 
 ```mermaid
 flowchart LR
   Developer --> Git[Git repository]
   Git --> Build[Astro build in Node]
   Build --> Files[Static HTML, CSS, JS and WebP]
-  Files --> Host[Static host]
+  Files --> Host[Shared Caddy edge]
   Host --> Browser[Visitor browser]
   Browser -. optional scrubbed errors .-> Sentry
   Git --> CI[GitHub Actions]
+  CI -->|Manual production release over SSH| Host
   CI --> Projects[Private GitHub Project]
 ```
 
