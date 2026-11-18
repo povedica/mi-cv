@@ -6,11 +6,28 @@
 2. Ejecuta `npm ci` la primera vez y luego `npm run verify`. Inicia la web con `npm run dev -- --host 127.0.0.1` y abre http://localhost:4321/.
 3. Usa el remoto `povedica/mi-cv` y consulta el tablero antes de empezar una iteración. Guarda los borradores fuera del historial público.
 
+## Worktrees
+
+Crea una rama de trabajo con un checkout independiente desde la raíz:
+
+```bash
+worktree="$(./scripts/worktree.sh feat/chat-texto)" && cd "$worktree"
+docker compose up --build -d --wait
+docker compose port web 4321
+```
+
+El script crea el checkout en `~/Projects/mi-cv-worktrees` cuando el repositorio principal está en `~/Projects/mi-cv`. Usa `main` local como base para ramas nuevas. Puedes indicar otra base como segundo argumento, por ejemplo `origin/main` después de un fetch. Para abrir una rama existente, indica solo la rama. El script también funciona desde otro worktree.
+
+Cada checkout recibe un `.env` ignorado por Git con un nombre Compose propio y un puerto loopback asignado por Docker. Usa la dirección que devuelve `docker compose port` después de cada creación del contenedor. Para recarga durante el desarrollo, ejecuta `docker compose watch --no-up` con el servicio ya iniciado, o arráncalo directamente con `docker compose up --build --watch`. También puedes ejecutar `npm ci` dentro del checkout si necesitas las herramientas de Node en el host.
+
+Usa `git worktree list` para localizar los checkouts. Para retirar uno, detén su Compose con `docker compose down` dentro del worktree y conserva cualquier configuración local que necesites. Desde otro checkout ejecuta `git worktree remove <ruta>` tras comprobar que los cambios están guardados. La rama se conserva.
+
 ## Variables de entorno y secretos
 
 | Nombre | Tipo | Dónde se configura | Uso |
 | --- | --- | --- | --- |
 | `MI_CV_HOST_PORT` | Variable local, no sensible | Shell o `.env` local de Compose | Puerto del equipo. El valor por defecto es `4321`. |
+| `COMPOSE_PROJECT_NAME` | Variable local, no sensible | `.env` generado en cada worktree | Aísla los servicios y la red de Compose por checkout. |
 | `ASTRO_TELEMETRY_DISABLED` | Variable del contenedor, no sensible | Dockerfile (`1`) | Desactiva la telemetría de Astro. |
 | `PROJECT_NUMBER` | Variable de GitHub Actions | Settings → Secrets and variables → Actions → Variables | Identifica el tablero para el workflow de backlog. |
 | `PROJECT_TOKEN` | Secreto de GitHub Actions | Valor maestro en 1Password y copia operativa en Settings → Secrets and variables → Actions → Secrets | Autoriza la actualización del tablero después de fusionar una PR. |

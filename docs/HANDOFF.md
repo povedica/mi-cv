@@ -24,3 +24,5 @@ OpenSpec 2.1.0 está fijado como dependencia de desarrollo e inicializado para C
 
 El entorno de desarrollo Docker usa Compose Watch y publica Astro solo en loopback. El archivo `.env.example` documenta el puerto local. El [inventario de configuración](WORKFLOWS.md#variables-de-entorno-y-secretos) distingue los valores locales, las variables de Actions y el secreto de Projects.
 Verificado en Colima: la portada y la entrevista respondieron por HTTP, `npm run verify` pasó dentro del contenedor y Compose Watch sincronizó un archivo nuevo. Una prueba con datos simulados confirmó que el contenedor excluye `.env`, el token de Projects y los borradores.
+
+Los [worktrees](WORKFLOWS.md#worktrees) se crean con `scripts/worktree.sh`. El script asigna a cada checkout un proyecto Compose propio y configura un puerto loopback efímero.

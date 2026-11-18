@@ -42,3 +42,5 @@ Continuar según el backlog. El siguiente hito conecta el chat de texto a un BFF
 - Divide cada entrega en commits por propósito. Cada commit debe explicar qué cambia y dejar juntas la implementación y las pruebas que la verifican.
 - Prepara solo los archivos o fragmentos del cambio, revisa `git diff --cached` y escribe un mensaje concreto. Mantén el orden de dependencias entre commits.
 - Enlaza la issue con `Refs #N` en el cuerpo del commit cuando exista. Usa `Closes #N` en la PR que completa la tarea.
+
+- Crea los worktrees con `./scripts/worktree.sh <rama> [base]`. En este equipo quedan bajo `~/Projects/mi-cv-worktrees`. Usa [el flujo local](docs/WORKFLOWS.md#worktrees) para iniciar Docker en cada checkout.
