@@ -21,3 +21,6 @@ La configuración remota de Actions usa `PROJECT_NUMBER=3` y el secreto `PROJECT
 La auditoría de producción del lockfile actual devuelve una alerta crítica en Astro, tres altas y una baja. npm propone una actualización mayor de Astro. La migración queda como tarea de mantenimiento separada.
 
 OpenSpec 2.1.0 está fijado como dependencia de desarrollo e inicializado para Codex y Cursor. El [flujo de OpenSpec](WORKFLOWS.md#openspec) explica cómo proponer un cambio y enlazarlo con su issue.
+
+El entorno de desarrollo Docker usa Compose Watch y publica Astro solo en loopback. El archivo `.env.example` documenta el puerto local. El [inventario de configuración](WORKFLOWS.md#variables-de-entorno-y-secretos) distingue los valores locales, las variables de Actions y el secreto de Projects.
+Verificado en Colima: la portada y la entrevista respondieron por HTTP, `npm run verify` pasó dentro del contenedor y Compose Watch sincronizó un archivo nuevo. Una prueba con datos simulados confirmó que el contenedor excluye `.env`, el token de Projects y los borradores.

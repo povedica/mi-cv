@@ -17,7 +17,19 @@ Web personal en Astro y vista previa de la entrevista profesional.
 
 Abre la carpeta raíz del proyecto y consulta [los flujos de trabajo](docs/WORKFLOWS.md) y [el traspaso](docs/HANDOFF.md).
 
-## Arrancar en el Mac
+## Desarrollo local con Docker
+
+Con Docker Engine y Compose 2.22 o posterior:
+
+```bash
+docker compose up --build --watch
+```
+
+Abre `http://127.0.0.1:4321/`. Compose sincroniza el código con Astro y reconstruye la imagen al cambiar las dependencias. Si necesitas otro puerto, copia `.env.example` a `.env` y cambia `MI_CV_HOST_PORT`. Para ejecutar las comprobaciones dentro de la imagen, usa `docker compose run --rm web npm run verify`. Para retirar los contenedores de este entorno, usa `docker compose down`.
+
+Consulta [la configuración y los secretos](docs/WORKFLOWS.md#variables-de-entorno-y-secretos).
+
+## Arrancar en el Mac sin Docker
 
 Requisitos: Node.js 22.20+ y npm para la aplicación y las herramientas de desarrollo.
 

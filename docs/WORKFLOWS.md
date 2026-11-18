@@ -6,6 +6,19 @@
 2. Ejecuta `npm ci` la primera vez y luego `npm run verify`. Inicia la web con `npm run dev -- --host 127.0.0.1` y abre http://localhost:4321/.
 3. Usa el remoto `povedica/mi-cv` y consulta el tablero antes de empezar una iteración. Guarda los borradores fuera del historial público.
 
+## Variables de entorno y secretos
+
+| Nombre | Tipo | Dónde se configura | Uso |
+| --- | --- | --- | --- |
+| `MI_CV_HOST_PORT` | Variable local, no sensible | Shell o `.env` local de Compose | Puerto del equipo. El valor por defecto es `4321`. |
+| `ASTRO_TELEMETRY_DISABLED` | Variable del contenedor, no sensible | Dockerfile (`1`) | Desactiva la telemetría de Astro. |
+| `PROJECT_NUMBER` | Variable de GitHub Actions | Settings → Secrets and variables → Actions → Variables | Identifica el tablero para el workflow de backlog. |
+| `PROJECT_TOKEN` | Secreto de GitHub Actions | Valor maestro en 1Password y copia operativa en Settings → Secrets and variables → Actions → Secrets | Autoriza la actualización del tablero después de fusionar una PR. |
+
+`.env.example` solo contiene configuración local pública. Compose usa `.env` para interpolar el puerto y no lo inyecta en el contenedor. El desarrollo local actual no necesita secretos. Para futuras credenciales, guarda el valor en 1Password e inyéctalo únicamente en el proceso que lo consuma. Usa `vars` de Actions para configuración no sensible y `secrets` para credenciales. Mantén las credenciales fuera de variables `PUBLIC_*`, argumentos de build, imágenes, commits y logs.
+
+El contexto Docker incluye una lista explícita de archivos de la aplicación. Los borradores editoriales, los archivos de entorno locales y el historial Git quedan fuera.
+
 ## Codex local
 
 Las reglas del proyecto están en `AGENTS.md`. Las skills de proyecto están en `.agents/skills`. Invoca `$twin-iteration` para retomar, `$twin-chat` para implementar el chat, `$twin-editorial` para trabajar el corpus o `$twin-verification` para verificar una entrega.
