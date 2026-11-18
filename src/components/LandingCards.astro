@@ -1,0 +1,26 @@
+---
+interface Props {
+  id: string;
+  section: {
+    title: string;
+    intro?: string;
+    items: { title: string; text: string; href?: string }[];
+  };
+}
+
+const { id, section } = Astro.props;
+---
+<section class="topics shell" id={id}>
+  <div class="section-header">
+    <h2>{section.title}</h2>
+    {section.intro && <p>{section.intro}</p>}
+  </div>
+  <div class="topic-grid">
+    {section.items.map(item => (
+      <article class="topic">
+        <h3>{item.href ? <a class="inline-link" href={item.href}>{item.title}</a> : item.title}</h3>
+        <p>{item.text}</p>
+      </article>
+    ))}
+  </div>
+</section>
