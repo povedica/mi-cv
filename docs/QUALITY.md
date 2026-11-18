@@ -63,3 +63,9 @@ Chrome and axe checks passed on both routes at 320, 390 and 1440 px, including t
 2. Audit both routes with Lighthouse mobile. Compare LCP, CLS and blocking time using the same browser and throttling profile. Inspect selected image and JavaScript bytes in the network panel.
 3. Run axe with the preview closed and populated. Use keyboard-only navigation at 320 px and desktop widths. Check reduced motion, focus, list announcements and reflow. Recheck with a screen reader before public release.
 4. Inspect `window.dataLayer` and the network panel after adding a synthetic question. Events should contain action metadata only, and analytics should cause no requests.
+
+## Automatic color scheme preview
+
+The bilingual portfolio and both interview routes follow `prefers-color-scheme` via CSS. A headless Chrome check changed the preference live on all four routes at viewport widths of 320 and 1440 pixels. The background token switched between the approved dark and light values, and the pages fit both widths. The interview was checked with the local preview open.
+
+At 1440 pixels, axe reported no automated color contrast violations on those routes in either scheme. Photo captions keep their dark overlays. The light theme uses a stronger border on secondary buttons and inputs to make controls distinguishable from the surrounding surface. Lighthouse and visual comparison against the final landing remain release checks.
