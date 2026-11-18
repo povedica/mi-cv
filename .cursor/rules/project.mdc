@@ -1,0 +1,6 @@
+---
+description: Core product and delivery rules for AI Professional Twin
+alwaysApply: true
+---
+
+Follow AGENTS.md as the shared source of project rules. Use docs/HANDOFF.md for current state and docs/BACKLOG.md for sequencing. Select the relevant workflow from docs/WORKFLOWS.md. Read linked SKILL.md files explicitly when the client does not discover them automatically. Preserve local changes and run npm run verify before handoff.

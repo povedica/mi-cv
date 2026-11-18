@@ -1,0 +1,7 @@
+---
+description: Editorial approval and grounding for knowledge and interview changes
+globs: "knowledge/**/*,src/server/**/*,src/pages/api/**/*,src/data/chat-contract.ts,src/pages/interview.astro"
+alwaysApply: false
+---
+
+Read .agents/skills/twin-editorial/SKILL.md for changes to content, ingestion or publication. Read .agents/skills/twin-chat/SKILL.md for changes to requests, sessions or answers. Keep private drafts off the client and publish only the exact approved public revision. Ground professional claims in evidence and abstain when evidence is missing.

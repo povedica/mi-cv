@@ -1,0 +1,1 @@
+Read .agents/skills/twin-editorial/SKILL.md. Review the changed records against their sources and report the exact version, factual gaps, publication eligibility and any exposure risk. Keep approval pending unless Pablo has approved that exact text and visibility.
