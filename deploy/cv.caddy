@@ -1,0 +1,5 @@
+cv.reflexionia.com {
+	root * /etc/caddy/sites/mi-cv/current
+	encode zstd gzip
+	file_server
+}

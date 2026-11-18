@@ -1,0 +1,59 @@
+name: Deploy production
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mi-cv-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+      url: https://cv.reflexionia.com
+    env:
+      ASTRO_TELEMETRY_DISABLED: '1'
+      PUBLIC_SENTRY_DSN: ''
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run verify
+      - name: Publish static release
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          SSH_HOST: ${{ vars.DEPLOY_SSH_HOST }}
+          SSH_PORT: ${{ vars.DEPLOY_SSH_PORT }}
+          SSH_USER: ${{ vars.DEPLOY_SSH_USER }}
+          SSH_KNOWN_HOSTS: ${{ vars.DEPLOY_SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          : "${SSH_KEY:?}" "${SSH_KNOWN_HOSTS:?}"
+          [[ "$SSH_HOST" =~ ^[a-zA-Z0-9][a-zA-Z0-9.-]*$ ]]
+          [[ "$SSH_USER" =~ ^[a-z_][a-z0-9_-]*$ ]]
+          [[ "$SSH_PORT" =~ ^[0-9]{1,5}$ ]]
+          umask 077
+          ssh_dir=$(mktemp -d)
+          trap 'rm -rf "$ssh_dir"' EXIT
+          printf '%s\n' "$SSH_KEY" > "$ssh_dir/key"
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > "$ssh_dir/known_hosts"
+          archive="$ssh_dir/release.tar"
+          (cd dist && find index.html interview _astro -type f -print0 |
+            tar --null --verbatim-files-from -cf "$archive" -T -)
+          ssh -F /dev/null -T -o BatchMode=yes -o ConnectTimeout=10 \
+            -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            -o "UserKnownHostsFile=$ssh_dir/known_hosts" -i "$ssh_dir/key" \
+            -p "$SSH_PORT" -l "$SSH_USER" -- "$SSH_HOST" "publish $GITHUB_SHA" < "$archive"
+      - name: Verify HTTPS release
+        run: bash deploy/check-https.sh
