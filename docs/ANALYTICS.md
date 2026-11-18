@@ -1,6 +1,6 @@
 # Web analytics
 
-The shared page head configures the self-hosted Umami tracker once. The tracker records page views on `cv.reflexionia.com`, as enforced by `data-domains`. The shared head also records `page_view` in the local versioned data layer and the adapter skips it to avoid a duplicate view in Umami.
+The shared page head emits the self-hosted Umami tracker only when the production deployment workflow sets `PUBLIC_MI_CV_UMAMI_ENABLED=1` at build time. Development, CI verification and preview builds omit the tracker by default. The tracker records page views on `cv.reflexionia.com`, as enforced by `data-domains`. The shared head also records `page_view` in the local versioned data layer and the adapter skips it to avoid a duplicate view in Umami.
 
 ```mermaid
 flowchart LR

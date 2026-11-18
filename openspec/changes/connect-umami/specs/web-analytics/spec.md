@@ -14,6 +14,11 @@ The shared page head SHALL configure automatic Umami page views scoped to the pr
 - **WHEN** the tracker is missing or tracking fails
 - **THEN** navigation and the preview continue to work
 
+#### Scenario: Non-production build
+
+- **WHEN** a build runs without the production analytics flag
+- **THEN** its generated HTML omits the Umami tracker
+
 #### Scenario: Local or preview host
 
 - **WHEN** the document hostname is outside the configured production domain

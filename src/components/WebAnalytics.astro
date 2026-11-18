@@ -1,4 +1,6 @@
 ---
+const analyticsEnabled = import.meta.env.PUBLIC_MI_CV_UMAMI_ENABLED === '1';
+
 const umami = {
   scriptUrl: 'https://umami.reflexionia.com/script.js',
   websiteId: '0729e66f-fbc9-41a2-8bfd-eaf4663ff49b',
@@ -6,7 +8,7 @@ const umami = {
 };
 ---
 
-<script
+{analyticsEnabled && <script
   is:inline
   defer
   src={umami.scriptUrl}
@@ -17,7 +19,7 @@ const umami = {
   data-fetch-credentials="omit"
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
-></script>
+></script>}
 
 <script>
   import { track } from '../analytics/data-layer';
