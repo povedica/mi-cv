@@ -8,6 +8,8 @@ Colima serves the optimized static preview by default on loopback. The explicit 
 
 The private [GitHub Project](https://github.com/users/povedica/projects/3) is linked to the [public remote](https://github.com/povedica/mi-cv). The repository is prepared locally. The first public push still requires approval of the portrait, professional copy and screenshots. Drafts remain outside Git. Historical [home](screenshots/portada.jpg) and [interview](screenshots/entrevista.jpg) screenshots show the original preview, before the current performance changes.
 
+The [latest DevTools audit](QUALITY.md#november-18-2026-devtools-comparison) verified the default optimized mode on port 4321 with 100 for performance, 1.07 s FCP and 1.22 s LCP. Use the explicit development override for hot reload.
+
 The production dependency audit previously reported one critical, three high and one low finding. npm proposed a major Astro upgrade. That migration is a separate task. See [quality verification](QUALITY.md) for the current build and browser checks.
 
 ## Next bounded change

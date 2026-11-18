@@ -40,6 +40,17 @@ A repeat on the same anchor with Lighthouse 13.6.0 mobile, a clean Chrome profil
 
 The waterfall confirmed zero toolbar requests in both runs. Only development requested the Vite client. Both rechecks scored 100 for accessibility and SEO, and 96 for best practices due to the browser's favicon request returning 404.
 
+### November 18, 2026 DevTools comparison
+
+Both reports used Lighthouse 13.5.0 on mobile at `http://127.0.0.1:4321/#experiencia` with simulated throttling. Chrome recorded a browser-extension request in both waterfalls. Page transfer totals below are from Lighthouse's page-weight audit.
+
+| Local server mode | Performance | FCP | LCP | Page transfers | JavaScript minification |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Development, toolbar disabled | 90 | 2.80 s | 2.88 s | 347 KiB | Flagged development modules |
+| Optimized static preview | 100 | 1.07 s | 1.22 s | 24 KiB | Passed |
+
+The optimized report also scored 100 for accessibility, best practices and SEO, with 0 ms TBT and 0 CLS. It loaded the hashed browser bundles and a 17,526-byte WebP portrait. These are local lab measurements.
+
 ## Accessibility behavior
 
 Both pages have semantic landmarks, a keyboard-visible skip link, visible focus styles and reduced-motion support. The interview labels its input and keeps the ordered history inside a live region, preserving list semantics. Opening the preview focuses the question field. Closing it clears the history and returns focus to the start button.
