@@ -1,0 +1,188 @@
+/* Light theme override for cv.reflexionia.com (issue #19 mockup).
+   Activate automatically with prefers-color-scheme. Does not change layout.
+   Photo overlays (portrait/video gradients and the white text on them) stay dark. */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --line: rgba(24, 32, 64, 0.12);
+    --text: #111733;
+    --muted: #4b5570;
+    --accent: #5a43d4;
+    --accent2: #4632b8;
+  }
+
+  .page-glow {
+    background:
+      radial-gradient(ellipse at 22% 20%, rgba(83, 67, 180, 0.08), transparent 58%),
+      radial-gradient(ellipse at 80% 40%, rgba(31, 58, 117, 0.08), transparent 52%);
+  }
+
+  .site-header {
+    border-bottom-color: var(--line);
+  }
+
+  /* Badge stays a solid purple mark; force light letters because --text is now dark. */
+  .brand-mark {
+    color: #fff;
+  }
+
+  .site-header nav {
+    color: var(--muted);
+  }
+
+  .site-header nav a:hover,
+  .back-link:hover,
+  .inline-link:hover {
+    color: var(--accent);
+  }
+
+  .button-primary,
+  #start-preview,
+  .chat-form button {
+    background: #5a43d4;
+    color: #fff;
+    box-shadow: 0 8px 28px rgba(90, 67, 212, 0.22);
+  }
+
+  .button-primary:hover,
+  #start-preview:hover,
+  .chat-form button:hover {
+    background: #4632b8;
+  }
+
+  .button-secondary {
+    border-color: rgba(24, 32, 64, 0.28);
+    color: var(--text);
+  }
+
+  .eyebrow {
+    color: var(--accent);
+  }
+
+  .eyebrow-dot {
+    background: var(--accent);
+  }
+
+  .hero h1 em {
+    color: var(--accent);
+  }
+
+  .lead,
+  .hero-note {
+    color: var(--muted);
+  }
+
+  .hero-stage {
+    border-color: var(--line);
+    background: var(--surface);
+    box-shadow: 0 30px 80px rgba(24, 32, 64, 0.1);
+  }
+
+  .stage-label,
+  .stage-status {
+    color: var(--muted);
+  }
+
+  .stage-future,
+  .stage-link,
+  .inline-link,
+  .muted {
+    color: var(--accent);
+  }
+
+  .stage-content,
+  .video-frame {
+    background: #dce0ea;
+  }
+
+  /* Photo overlays: keep the dark gradient and light text in both themes. */
+  .stage-content:after {
+    background: linear-gradient(transparent, #07111be0);
+  }
+
+  .portrait-name,
+  .video-caption strong {
+    color: #fff;
+  }
+
+  .portrait-desc {
+    color: #c7d0e0;
+  }
+
+  .topic {
+    background: linear-gradient(135deg, #ffffff, #f3f4f9);
+  }
+
+  .statement p,
+  .project p {
+    color: var(--muted);
+  }
+
+  .project {
+    background: var(--surface);
+  }
+
+  .site-footer {
+    color: var(--muted);
+  }
+
+  .interview-body {
+    background: radial-gradient(ellipse at 65% 0%, #e8eaf5 0%, var(--bg) 55%);
+  }
+
+  .back-link,
+  .interview-intro p,
+  .video-top,
+  .chat-head span {
+    color: var(--muted);
+  }
+
+  .video-panel,
+  .chat-panel {
+    border-color: var(--line);
+    background: var(--surface);
+  }
+
+  .video-gradient {
+    background: linear-gradient(transparent, #070d1edb);
+  }
+
+  .video-caption span {
+    color: #ced8ea;
+  }
+
+  .suggestions button {
+    border-color: rgba(24, 32, 64, 0.22);
+    color: var(--text);
+    background: transparent;
+  }
+
+  .suggestions button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(90, 67, 212, 0.08);
+  }
+
+  :focus-visible {
+    outline-color: var(--accent);
+  }
+
+  .skip-link {
+    background: #5a43d4;
+    color: #fff;
+  }
+
+  .chat-form input {
+    border-color: rgba(24, 32, 64, 0.28);
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  #end-preview {
+    background: transparent;
+    color: var(--text);
+  }
+}
