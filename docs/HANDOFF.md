@@ -19,3 +19,5 @@ El remoto público es [povedica/mi-cv](https://github.com/povedica/mi-cv) y el [
 La configuración remota de Actions usa `PROJECT_NUMBER=3` y el secreto `PROJECT_TOKEN`. Están habilitados el escaneo de secretos, la protección de push y los avisos privados de vulnerabilidades. Comprueba una PR de prueba tras la primera subida para validar el workflow en GitHub.
 
 La auditoría de producción del lockfile actual devuelve una alerta crítica en Astro, tres altas y una baja. npm propone una actualización mayor de Astro. La migración queda como tarea de mantenimiento separada.
+
+OpenSpec 2.1.0 está fijado como dependencia de desarrollo e inicializado para Codex y Cursor. El [flujo de OpenSpec](WORKFLOWS.md#openspec) explica cómo proponer un cambio y enlazarlo con su issue.

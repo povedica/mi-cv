@@ -19,7 +19,7 @@ Abre la carpeta raíz del proyecto y consulta [los flujos de trabajo](docs/WORKF
 
 ## Arrancar en el Mac
 
-Requisitos: Node.js 20.19+ y npm.
+Requisitos: Node.js 22.20+ y npm para la aplicación y las herramientas de desarrollo.
 
 ```bash
 npm run dev

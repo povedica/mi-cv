@@ -1,0 +1,11 @@
+schema: spec-driven
+
+context: |
+  Escribe los artefactos en español.
+  Consulta AGENTS.md para las restricciones del proyecto y el protocolo en docs/backlog/PROTOCOLO-BACKLOG.md para el ciclo de issues y PR.
+  Enlaza la issue de GitHub cuando exista y mantén los artefactos aptos para un repositorio público.
+  Usa ejemplos sintéticos para las especificaciones y pruebas que necesiten datos editoriales.
+
+rules:
+  tasks:
+    - Agrupa el trabajo en cambios verificables que puedan formar commits por propósito.
