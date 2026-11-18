@@ -1,0 +1,62 @@
+---
+import { site, themes } from '../data/site';
+import '../styles/global.css';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content={site.description} />
+    <title>{site.name} · Engineering Leadership</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="page-glow"></div>
+    <header class="site-header shell">
+      <a class="brand" href="/" aria-label="Pablo Poveda, inicio"><span class="brand-mark">PP</span><span>Pablo Poveda</span></a>
+      <nav aria-label="Navegación principal"><a href="#enfoque">Enfoque</a><a href="#experiencia">Experiencia</a><a href="#proyecto">Proyecto</a><a href="#cv-contacto">CV y contacto</a></nav>
+      <a class="button button-primary nav-cta" href="/interview/">Entrevístame</a>
+    </header>
+    <main id="contenido">
+      <section class="hero shell">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> SOFTWARE ENGINEERING · LEADERSHIP · AI</div>
+          <h1>{site.name}<em>Technical Engineering Leadership</em></h1>
+          <p class="lead">{site.description}</p>
+          <div class="hero-actions"><a class="button button-primary button-large" href="/interview/">Entrevístame</a><a class="button button-secondary button-large" href="#enfoque">Explorar capacidades</a></div>
+          <div class="hero-note">Vista previa de la interfaz de entrevista.</div>
+        </div>
+        <div class="hero-stage" aria-label="Vista previa de entrevista virtual">
+          <div class="stage-header"><div class="stage-label">VISTA PREVIA DE ENTREVISTA</div><span class="stage-future">AVATAR PRÓXIMAMENTE</span></div>
+          <div class="stage-content">
+            <img src="/images/pablo-portrait.jpg" alt="Retrato de Pablo Poveda" class="hero-portrait" width="1367" height="1152" />
+            <div class="stage-overlay"><span class="portrait-name">Pablo Poveda</span><span class="portrait-desc">Retrato real · Vídeo avatar pendiente</span></div>
+          </div>
+          <div class="stage-bottom"><span class="stage-status">Fotografía estática</span><a href="/interview/" class="stage-link">Ver entrevista</a></div>
+        </div>
+      </section>
+      <section class="topics shell" id="enfoque">
+        <div class="section-header"><div><h2>Capacidades</h2></div><p>Áreas que podrás explorar en la entrevista.</p></div>
+        <div class="topic-grid">{themes.map((theme) => <article class="topic"><h3>{theme.title}</h3><p>{theme.text}</p></article>)}</div>
+      </section>
+      <section class="statement shell" id="experiencia">
+        <div><h2>Experiencia y casos</h2></div>
+        <p>La cronología profesional y los casos de proyecto están pendientes de revisión editorial.</p>
+      </section>
+      <section class="project shell" id="proyecto">
+        <div>
+          <h2>Entrevista virtual</h2>
+          <p>La entrevista está pensada para explorar decisiones técnicas, proyectos y liderazgo con respuestas basadas en información profesional revisada.</p>
+          <a class="inline-link" href="/interview/">Explorar la interfaz de entrevista</a>
+        </div>
+      </section>
+      <section class="statement shell" id="cv-contacto">
+        <div><h2>CV y contacto</h2></div>
+        <p>El CV descargable y el canal de contacto están pendientes de publicación.</p>
+      </section>
+    </main>
+    <footer class="site-footer shell"><span>© {new Date().getFullYear()} Pablo Poveda</span><span>Proyecto de entrevista virtual en desarrollo.</span></footer>
+  </body>
+</html>

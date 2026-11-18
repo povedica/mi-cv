@@ -1,0 +1,120 @@
+---
+import '../styles/global.css';
+
+const suggestions = [
+  '¿Cómo organizas un equipo de ingeniería?',
+  '¿Cómo abordas una decisión de arquitectura?',
+  '¿Qué prácticas usas para mejorar la calidad del software?',
+];
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content="Vista previa de la entrevista profesional de Pablo Poveda." />
+    <title>Entrevista virtual · Pablo Poveda</title>
+  </head>
+  <body class="interview-body">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header shell interview-nav">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">PP</span>Pablo Poveda</a>
+      <a href="/" class="back-link">Volver al perfil</a>
+    </header>
+    <main class="interview-main shell" id="contenido">
+      <section class="interview-intro" aria-labelledby="interview-title">
+        <h1 id="interview-title">Entrevístame</h1>
+        <p>La experiencia final usará una representación de IA de Pablo Poveda, con respuestas limitadas a información profesional aprobada para publicación. Hoy puedes explorar la interfaz con su fotografía.</p>
+        <p>Esta vista previa mantiene tus preguntas en la página mientras está abierta. El sitio no solicita acceso a cámara ni micrófono.</p>
+        <ul class="interview-modes" aria-label="Modalidades de entrevista">
+          <li><a class="button button-primary" href="#chat-preview">Chat · Vista previa</a></li>
+          <li>Voz <span>Próximamente</span></li>
+          <li>Entrevista con avatar <span>Próximamente</span></li>
+        </ul>
+      </section>
+
+      <div class="interview-layout">
+        <figure class="video-panel">
+          <div class="video-top">Fotografía de referencia</div>
+          <div class="video-frame">
+            <img src="/images/pablo-portrait.jpg" width="1367" height="1152" alt="Retrato de Pablo Poveda" />
+            <div class="video-gradient"></div>
+            <figcaption class="video-caption"><strong>Pablo Poveda</strong><span>Imagen estática · Avatar pendiente</span></figcaption>
+          </div>
+        </figure>
+
+        <section class="chat-panel" id="chat-preview" aria-labelledby="chat-heading">
+          <header class="chat-head">
+            <div><h2 id="chat-heading">Chat profesional</h2><span>Vista previa local · Agente pendiente</span></div>
+          </header>
+          <div class="chat-content">
+            <button class="button button-primary" id="start-preview" type="button" hidden>Probar la interfaz de chat</button>
+            <p id="preview-status" role="status"></p>
+            <noscript><p>Activa JavaScript para probar el historial local.</p></noscript>
+            <div id="preview-session" hidden>
+              <div class="suggestions" aria-label="Preguntas sugeridas">
+                {suggestions.map(question => <button type="button" data-question={question}>{question}</button>)}
+              </div>
+              <h3>Historial local</h3>
+              <ol class="chat-history" aria-label="Tus preguntas" role="log"></ol>
+              <form class="chat-form" id="chat-form">
+                <label for="question">Tu pregunta</label>
+                <input id="question" maxlength="500" required autocomplete="off" />
+                <button type="submit">Añadir al historial</button>
+              </form>
+              <button class="button button-secondary" type="button" id="end-preview">Cerrar vista previa</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const start = document.querySelector<HTMLButtonElement>('#start-preview')!;
+      const end = document.querySelector<HTMLButtonElement>('#end-preview')!;
+      const session = document.querySelector<HTMLElement>('#preview-session')!;
+      const status = document.querySelector<HTMLElement>('#preview-status')!;
+      const history = document.querySelector<HTMLOListElement>('.chat-history')!;
+      const form = document.querySelector<HTMLFormElement>('#chat-form')!;
+      const input = document.querySelector<HTMLInputElement>('#question')!;
+
+      start.hidden = false;
+      start.addEventListener('click', () => {
+        session.hidden = false;
+        start.hidden = true;
+        status.textContent = 'Vista previa abierta. Puedes añadir preguntas al historial. Las respuestas estarán disponibles cuando se conecte el agente.';
+        input.focus();
+      });
+
+      session.querySelectorAll<HTMLButtonElement>('[data-question]').forEach(button => {
+        button.addEventListener('click', () => {
+          input.value = button.dataset.question ?? '';
+          input.focus();
+        });
+      });
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const question = input.value.trim();
+        if (!question) return;
+
+        const item = document.createElement('li');
+        item.textContent = question;
+        history.append(item);
+        history.scrollTop = history.scrollHeight;
+        form.reset();
+        input.focus();
+      });
+
+      end.addEventListener('click', () => {
+        history.replaceChildren();
+        form.reset();
+        session.hidden = true;
+        start.hidden = false;
+        status.textContent = 'Vista previa cerrada. Se ha borrado el historial local.';
+        start.focus();
+      });
+    </script>
+  </body>
+</html>

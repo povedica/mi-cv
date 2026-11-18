@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Corpus local que requiere aprobación editorial
+/knowledge/drafts/*
+!/knowledge/drafts/README.md
+/knowledge/private/
+*.pem
+*.key
+*.local
+__pycache__/
