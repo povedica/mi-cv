@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+test -s dist/index.html
+test -s dist/interview/index.html
 response=$(mktemp)
 trap 'rm -f "$response"' EXIT
 while IFS= read -r -d '' route; do

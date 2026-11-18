@@ -12,6 +12,12 @@ The [latest DevTools audit](QUALITY.md#november-18-2026-devtools-comparison) ver
 
 The production dependency audit previously reported one critical, three high and one low finding. npm proposed a major Astro upgrade. That migration is a separate task. See [quality verification](QUALITY.md) for the current build and browser checks.
 
+## Bilingual portfolio preview
+
+The #5 worktree serves the Spanish and English portfolios at `/` and `/en/`, with local interview previews at `/interview/` and `/en/interview/`. Both portfolios use locale-specific static copy with shared components. Canonicals, alternate-language links, the sitemap, structured person data and localized social metadata are in the local branch. The release receiver accepted the bilingual archive in a local dry run.
+
+The private Compose preview at `http://127.0.0.1:32773/` serves the owner-authorized CV originals through local read-only mounts. Normal builds omit the local download controls. Certificates, final release review and receiver installation on the VPS remain open. See [the landing copy](LANDING-COPY.md) and [information architecture](ARQUITECTURA-INFORMACION.md).
+
 ## Next bounded change
 
 Implement a local text-chat session, one question and close using synthetic content. Verify citation ownership, abstention without evidence, session access and exclusion of private records before connecting the interface. The live corpus requires approval of each version. See [analytics rollout](ANALYTICS.md) for the pending production verification.

@@ -65,7 +65,7 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
     <meta property="og:locale" content={isSpanish ? 'es_ES' : 'en_GB'} />
     <meta property="og:locale:alternate" content={isSpanish ? 'en_GB' : 'es_ES'} />
     <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json" set:html={JSON.stringify(person).replaceAll('<', '\u003c')} />
+    <script type="application/ld+json" set:html={JSON.stringify(person).replaceAll('<', '\\u003c')} />
   </SiteHead>
   <body>
     <a class="skip-link" href="#main-content">{copy.skip}</a>
