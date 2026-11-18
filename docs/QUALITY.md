@@ -27,14 +27,9 @@ Chrome requested 6,002 bytes for the home portrait at a 320 px viewport, 10,898 
 
 ## Audit the right server
 
-Port 4321 runs Astro development with Vite hot reload. The Astro development toolbar is disabled at project level. Use a static preview and a clean Chrome profile for deployment-style Lighthouse comparisons. In Docker, start the preview on a separate loopback port:
+The default `docker compose up --build` serves a freshly built static preview on port 4321, with minified bundles and negotiated gzip for eligible responses. Tiny assets may be served without gzip. Run Lighthouse against that default in a clean Chrome profile. Development is opt-in through `npm run dev` or the [Compose development override](WORKFLOWS.md#local-development-and-worktrees). Its hot reload client and unminified modules belong to the development workflow.
 
-```bash
-docker compose run --rm --build --publish 127.0.0.1:4387:4321 -e PUBLIC_SENTRY_DSN= web \
-  sh -ec 'npm run build && npm run preview -- --host 0.0.0.0'
-```
-
-The supplied Lighthouse 13.5.0 DevTools report targeted `/#experiencia` on port 4321. It recorded 58 for performance and 1,792 KiB of page transfers. The waterfall included Vite, Astro's toolbar modules and a browser extension. Lighthouse observed FCP at 0.27 s and LCP at 0.81 s, then estimated 7.4 s and 11.7 s under simulated mobile throttling.
+Before the default switched to static preview, a Lighthouse 13.5.0 DevTools report targeted `/#experiencia` on port 4321. It recorded 58 for performance and 1,792 KiB of page transfers. The waterfall included Vite, Astro's toolbar modules and a browser extension. Lighthouse observed FCP at 0.27 s and LCP at 0.81 s, then estimated 7.4 s and 11.7 s under simulated mobile throttling.
 
 A repeat on the same anchor with Lighthouse 13.6.0 mobile, a clean Chrome profile and Sentry disabled produced these lab measurements:
 

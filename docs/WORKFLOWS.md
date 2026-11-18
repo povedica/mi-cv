@@ -2,7 +2,7 @@
 
 ## Local development and worktrees
 
-Use Node.js 22.20+ (CI uses Node 22) for the native workflow, or run `docker compose up --build --watch`. Docker exposes the site on loopback and runs Node as a non-root user. The [README](../README.md) contains the start and verification commands.
+Use Node.js 22.20+ (CI uses Node 22) for the native workflow, or run `docker compose up --build`. The default builds and serves the optimized static preview. Use `npm run dev` or the explicit Compose override for unminified modules and hot reload. Docker exposes the site on loopback and runs Node as a non-root user. The [README](../README.md) contains the start and verification commands.
 
 Create a branch checkout with its own Compose project:
 
@@ -12,7 +12,7 @@ docker compose up --build -d --wait
 docker compose port web 4321
 ```
 
-On this machine, linked checkouts are siblings of the main repo under `~/Projects/mi-cv-worktrees`. New branches start from local `main`; an optional second argument selects a different base. Omit the base to reuse an existing branch. The script generates only a local Compose name and an ephemeral loopback port. Run `docker compose watch --no-up` against an existing service or start with `docker compose up --build --watch`. Query the port again after recreating the container.
+On this machine, linked checkouts are siblings of the main repo under `~/Projects/mi-cv-worktrees`. New branches start from local `main`; an optional second argument selects a different base. Omit the base to reuse an existing branch. The script generates only a local Compose name and an ephemeral loopback port. For hot reload, start with `docker compose -f compose.yaml -f compose.dev.yaml up --build --watch`. Query the port again after recreating the container.
 
 Use `git worktree list` to locate checkouts. To retire one, stop its Compose project, preserve any needed local configuration and commit your changes, then use `git worktree remove <path>` from another checkout. The branch remains available.
 
@@ -31,7 +31,7 @@ Use `git worktree list` to locate checkouts. To retire one, stop its Compose pro
 
 ## Local logs
 
-Run `docker compose logs -f web`. Local GET requests for the two pages return `X-Request-Id`. Match it to the JSON `trace_id` for logical route, status and duration. Build start and completion share a separate trace ID. Health checks use HEAD. Custom logs exclude query strings, headers, IP addresses and bodies. A production static host controls its own access logs.
+Run `docker compose logs -f web`. In explicit development mode, GET requests for the two pages return `X-Request-Id`. Match it to the JSON `trace_id` for logical route, status and duration. Build start and completion share a separate trace ID. Health checks use HEAD. Custom logs exclude query strings, headers, IP addresses and bodies. A production static host controls its own access logs.
 
 ## Sentry
 

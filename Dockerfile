@@ -14,4 +14,4 @@ COPY --chown=node:node tests/ ./tests/
 COPY --chown=node:node knowledge/publication.mjs ./knowledge/publication.mjs
 
 EXPOSE 4321
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start", "--", "--host", "0.0.0.0"]

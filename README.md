@@ -5,10 +5,16 @@ An Astro portfolio and a browser-only interview preview. Visitors can read the p
 ## Run locally
 
 ```bash
-docker compose up --build --watch
+docker compose up --build
 ```
 
-Open [the local site](http://127.0.0.1:4321/) or [the interview preview](http://127.0.0.1:4321/interview/). With Node.js 22.20+ and npm, the native equivalent is `npm ci` followed by `npm run dev -- --host 127.0.0.1`. Run `npm run verify` for type checking, tests, and a static build.
+Open [the local site](http://127.0.0.1:4321/) or [the interview preview](http://127.0.0.1:4321/interview/). With Node.js 22.20+ and npm, the native equivalent is `npm ci` followed by `npm start`. The default serves a fresh, minified static build with gzip. Run `npm run verify` for type checking, tests, and a static build.
+
+For development with hot reload, use `npm run dev` or:
+
+```bash
+docker compose -f compose.yaml -f compose.dev.yaml up --build --watch
+```
 
 ## Technical documentation
 
