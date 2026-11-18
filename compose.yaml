@@ -18,9 +18,6 @@ services:
           path: ./src
           target: /app/src
         - action: sync
-          path: ./public
-          target: /app/public
-        - action: sync
           path: ./tests
           target: /app/tests
         - action: sync

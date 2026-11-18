@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import portrait from '../assets/pablo-portrait.jpg';
 import BrowserMonitoring from '../components/BrowserMonitoring.astro';
 import '../styles/global.css';
 
@@ -40,7 +42,7 @@ const suggestions = [
         <figure class="video-panel">
           <div class="video-top">Fotografía de referencia</div>
           <div class="video-frame">
-            <img src="/images/pablo-portrait.jpg" width="1367" height="1152" alt="Retrato de Pablo Poveda" />
+            <Image src={portrait} alt="Retrato de Pablo Poveda" width={1200} widths={[320, 480, 640, 800, 960, 1200]} sizes="(max-width: 760px) calc(100vw - 56px), (max-width: 1200px) 44vw, 550px" format="webp" />
             <div class="video-gradient"></div>
             <figcaption class="video-caption"><strong>Pablo Poveda</strong><span>Imagen estática · Avatar pendiente</span></figcaption>
           </div>
@@ -59,7 +61,9 @@ const suggestions = [
                 {suggestions.map(question => <button type="button" data-question={question}>{question}</button>)}
               </div>
               <h3>Historial local</h3>
-              <ol class="chat-history" aria-label="Tus preguntas" role="log"></ol>
+              <div role="log" aria-label="Tus preguntas">
+                <ol class="chat-history"></ol>
+              </div>
               <form class="chat-form" id="chat-form">
                 <label for="question">Tu pregunta</label>
                 <input id="question" maxlength="500" required autocomplete="off" />

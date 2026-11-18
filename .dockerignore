@@ -4,7 +4,6 @@
 !astro.config.mjs
 !tsconfig.json
 !src/
-!public/
 !tests/
 !knowledge/
 knowledge/**
