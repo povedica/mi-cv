@@ -12,7 +12,7 @@ flowchart LR
 
 The build emits static HTML and hashed assets. Use system fonts, reserve image dimensions, prioritize the home portrait, and lazy-load the interview portrait. The analytics producer uses native browser APIs and a bounded queue. With Sentry disabled, the measured pages load only same-origin resources.
 
-The original JPEG was 197,551 bytes. The generated WebP files span 6,002–42,300 bytes. At desktop and mobile widths the browser selects one candidate, not the entire set.
+The original JPEG was 197,551 bytes. The largest generated candidate is 1200 px wide; a replacement source can keep the current aspect ratio at approximately 1200 × 1029 px. The generated WebP files span 6,002–42,300 bytes. At desktop and mobile widths the browser selects one candidate, not the entire set.
 
 ## Measured baseline
 
@@ -24,6 +24,26 @@ Lighthouse 13.6.0 used its default mobile profile against the static build on lo
 | Interview | 100 | 100 | 1.20 s | 0 | 0 ms |
 
 Chrome requested 6,002 bytes for the home portrait at a 320 px viewport, 10,898 bytes at 390 px, and 24,146 bytes at 1440 px, at device scale factor 1. The uncompressed JavaScript asset bodies total about 0.86 KB on home and 2.06 KB on a fresh interview load. Navigating from home reuses the shared modules and adds about 1.20 KB. Inline scripts, if any, are part of the HTML and excluded from those asset totals. Production hosting and field Core Web Vitals remain unmeasured.
+
+## Audit the right server
+
+Port 4321 runs Astro development with Vite hot reload. The Astro development toolbar is disabled at project level. Use a static preview and a clean Chrome profile for deployment-style Lighthouse comparisons. In Docker, start the preview on a separate loopback port:
+
+```bash
+docker compose run --rm --build --publish 127.0.0.1:4387:4321 -e PUBLIC_SENTRY_DSN= web \
+  sh -ec 'npm run build && npm run preview -- --host 0.0.0.0'
+```
+
+The supplied Lighthouse 13.5.0 DevTools report targeted `/#experiencia` on port 4321. It recorded 58 for performance and 1,792 KiB of page transfers. The waterfall included Vite, Astro's toolbar modules and a browser extension. Lighthouse observed FCP at 0.27 s and LCP at 0.81 s, then estimated 7.4 s and 11.7 s under simulated mobile throttling.
+
+A repeat on the same anchor with Lighthouse 13.6.0 mobile, a clean Chrome profile and Sentry disabled produced these lab measurements:
+
+| Server | Performance | FCP | LCP | Page transfers |
+| --- | ---: | ---: | ---: | ---: |
+| Development, toolbar disabled | 100 | 0.83 s | 0.83 s | 352 KiB |
+| Docker static preview | 100 | 0.77 s | 1.23 s | 26 KiB |
+
+The waterfall confirmed zero toolbar requests in both runs. Only development requested the Vite client. Both rechecks scored 100 for accessibility and SEO, and 96 for best practices due to the browser's favicon request returning 404.
 
 ## Accessibility behavior
 
