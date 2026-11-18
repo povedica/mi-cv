@@ -1,0 +1,47 @@
+name: Backlog
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize, labeled, unlabeled]
+  pull_request_target:
+    types: [closed]
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: read
+
+jobs:
+  check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - run: scripts/backlog/sync.sh check "$PR"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+
+  merged:
+    if: >-
+      github.event_name == 'pull_request_target' &&
+      github.event.pull_request.merged &&
+      github.event.pull_request.base.ref == github.event.repository.default_branch &&
+      vars.PROJECT_NUMBER != ''
+    runs-on: ubuntu-latest
+    steps:
+      # Usa la versión de la rama base anterior a la fusión.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - run: scripts/backlog/sync.sh merged "$PR"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROJECT_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+          PROJECT_NUMBER: ${{ vars.PROJECT_NUMBER }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
