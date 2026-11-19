@@ -26,7 +26,7 @@ Target errors are 400 for invalid input, 404 for an inaccessible session, 429 fo
 
 ## Recorded avatar
 
-`src/components/AvatarVideo.astro` renders the approved portrait as a responsive WebP
+`src/components/AvatarVideo.astro` renders the supplied poster as a responsive WebP
 fallback and labels the recording as AI-generated. The landing hero and interview request the
 versioned HLS manifest only after the visitor activates the player. The player
 uses native HLS when reported by the browser and loads the bundled hls.js light

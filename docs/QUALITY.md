@@ -83,3 +83,9 @@ portrait loaded before any media request and playback began from the keyboard.
 The portrait stayed visible with HLS and MSE disabled, JavaScript disabled, and
 a rejected manifest request. The interview smoke checks passed after reusing
 the same fallback there.
+
+The fragmented MP4 version retained all 1,187 source video frames in each
+rendition. Chrome (native and hls.js), Firefox and Playwright WebKit played at
+normal speed from the first frame through the end of the 47.48 s recording.
+Firefox's initial buffer adjustment was verified to stay within the first
+frame. The supplied poster loads as WebP and remains visible if playback fails.

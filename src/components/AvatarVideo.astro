@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import portrait from '../assets/pablo-portrait-v2.jpg';
+import poster from '../assets/poster-pablo-poveda.png';
 
 interface Props {
   placement?: 'hero' | 'interview';
@@ -14,17 +14,17 @@ const isHero = placement === 'hero';
   <figcaption class="video-top">Vídeo generado con IA a partir de Pablo</figcaption>
   <div class="avatar-frame">
     <Image
-      src={portrait}
+      src={poster}
       alt="Retrato de Pablo Poveda"
-      width={1200}
-      widths={[320, 480, 640, 800, 960, 1200]}
+      width={1122}
+      widths={[320, 480, 640, 800, 960, 1122]}
       sizes="(max-width: 414px) calc(100vw - 56px), 356px"
       format="webp"
       priority={isHero}
     />
     <video
       aria-label="Vídeo del avatar de Pablo Poveda"
-      data-source="/media/avatar/v1/master.m3u8"
+      data-source="/media/avatar/v2/master.m3u8"
       preload="none"
       playsinline
       controlslist="nodownload"
@@ -184,7 +184,8 @@ const isHero = placement === 'hero';
           return;
         }
 
-        const hls = new Hls();
+        // Keep Firefox's initial seek within the first frame when AAC priming offsets the tracks.
+        const hls = new Hls({ startPosition: 0, skipBufferHolePadding: 0.001 });
         destroy = () => hls.destroy();
         hls.on(Hls.Events.ERROR, (_event, data) => {
           if (data.fatal) fail();
