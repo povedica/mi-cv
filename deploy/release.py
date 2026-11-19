@@ -12,7 +12,7 @@ import tempfile
 
 PAGES = {"index.html", "interview/index.html"}
 LANDING_FILES = {
-    "en/index.html", "en/interview/index.html", "sitemap.xml", "robots.txt", "llms.txt", "en/llms.txt", "index.md", "en/index.md",
+    "en/index.html", "en/interview/index.html", "sitemap.xml", "robots.txt", "llms.txt", "index.md", "en/index.md",
     "captions/avatar-v2-es.vtt", "captions/avatar-v3-en.vtt",
     "og.png", "og.jpg", "og-v2.jpg", "og-v2-en.jpg", "pablo-poveda.jpg", "cookies/index.html", "en/cookies/index.html",
     "favicon.svg", "favicon.ico", "apple-touch-icon.png", "site.webmanifest",

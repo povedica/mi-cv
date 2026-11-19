@@ -1,19 +1,17 @@
 import type { APIRoute } from 'astro';
 import { cv, profileCopy, profileOrigin } from '../data/public-profile';
 
-export const GET: APIRoute = () => new Response(`# ${profileCopy.es.name}
+export const GET: APIRoute = () => new Response(`# ${profileCopy.en.name}
 
-> ${profileCopy.es.headline}. ${profileCopy.es.contact.note}
+> ${profileCopy.en.headline}. ${profileCopy.en.contact.note}
 
-## Perfil profesional / Professional profile
+## Professional profile
 
-- [Perfil en español](${profileOrigin}/index.md)
 - [Profile in English](${profileOrigin}/en/index.md)
-
-- [English discovery index](${profileOrigin}/en/llms.txt)
+- [Profile in Spanish](${profileOrigin}/index.md)
 
 ## Curriculum vitae
 
-- [CV en español (PDF)](${profileOrigin}${cv.es})
 - [CV in English (PDF)](${profileOrigin}${cv.en})
+- [CV in Spanish (PDF)](${profileOrigin}${cv.es})
 `, { headers: { 'Content-Type': 'text/plain; charset=utf-8' } });

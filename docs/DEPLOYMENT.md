@@ -39,7 +39,7 @@ If the HTTPS check fails, inspect the reported route, the live symlink and the C
 
 ## Search and agent discovery
 
-Install the updated release receiver and Caddy snippet before publishing this release. The receiver accepts `llms.txt`, `en/llms.txt`, `index.md` and `en/index.md`. Caddy serves the Markdown routes as `text/markdown; charset=utf-8` and both discovery files as `text/plain; charset=utf-8`.
+Install the updated release receiver and Caddy snippet before publishing this release. The receiver accepts `llms.txt`, `index.md` and `en/index.md`. Caddy serves the Markdown routes as `text/markdown; charset=utf-8` and the English discovery index as `text/plain; charset=utf-8`.
 
 Verify the hostname in Bing Webmaster Tools and Google Search Console and submit `https://cv.reflexionia.com/sitemap.xml` to both. Keep the portfolio home pages and CVs in the sitemap. The cookie policies and inactive interview previews use a robots `noindex` meta tag. Update the relevant revision date in `src/data/public-profile.ts` when publishing substantive changes to a profile or CV.
 
