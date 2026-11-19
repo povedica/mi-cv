@@ -8,6 +8,8 @@
 
 - [x] Add the brick breaker and public career milestones to the retro page.
 
+- [x] Add the secret word maze below the brick breaker.
+
 ## 2. Verification
 
 - [x] Run the repository type checks, tests and static build.

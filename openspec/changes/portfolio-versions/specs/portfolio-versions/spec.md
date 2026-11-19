@@ -41,7 +41,7 @@ The portfolio home SHALL recognize the desktop Konami sequence and seven rapid t
 - **WHEN** a visitor taps the header brand seven times in succession on a touch screen
 - **THEN** the fourth through sixth taps show the remaining count and the seventh opens the localized dropdown
 
-### Requirement: The retro page ends with a brick breaker
+### Requirement: The retro page offers a brick breaker
 
 The retro page SHALL offer an original brick breaker with keyboard and touch controls. Gameplay SHALL start only on explicit activation and SHALL provide a pause control. Clearing a row SHALL reveal a public career milestone.
 
@@ -49,3 +49,12 @@ The retro page SHALL offer an original brick breaker with keyboard and touch con
 
 - **WHEN** a visitor selects Play and then Pause
 - **THEN** the game starts and stops advancing until the visitor resumes it
+
+### Requirement: The retro page offers a secret word maze
+
+The retro page SHALL place an original maze after the brick breaker. Its patrols SHALL advance by player turn. The maze SHALL offer keyboard and touch controls, and the exit SHALL open after collecting the four letters.
+
+#### Scenario: Reveal the secret words
+
+- **WHEN** a visitor collects all four letters and reaches the exit
+- **THEN** the maze reveals the secret words and a public education milestone

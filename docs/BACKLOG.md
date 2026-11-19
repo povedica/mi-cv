@@ -57,4 +57,5 @@ Acceptance requires grounded responses, privacy boundaries, cost limits and a wo
 - [x] Implement the localized Versions dropdown, terminal demo and fixed-width 90s site in the issue #35 worktree.
 - [x] Add the desktop Konami sequence and seven-tap mobile shortcut to the Versions dropdown.
 - [x] Add a playable brick breaker with keyboard and touch controls to the retro page.
+- [x] Add a localized secret word maze below the brick breaker.
 - [ ] Review the implementation alongside the original design references and complete retro frame navigation from issue #35.
