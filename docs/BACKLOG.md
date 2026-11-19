@@ -39,6 +39,8 @@ Acceptance requires grounded responses, privacy boundaries, cost limits and a wo
 
 ## 4. Avatar
 
+- [ ] Release and verify the recorded HLS demonstration from issue #27.
+
 - [ ] Gather approved video material and consent.
 - [ ] Compare two providers for API, cost, lip sync, latency, agreement and shutdown.
 - [ ] Connect the selected audio/video adapter and display a persistent AI-generated-avatar label.

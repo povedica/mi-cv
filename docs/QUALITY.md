@@ -79,3 +79,35 @@ Chrome verified both locales at 360×800, 390×844, 1280×800, 1440×900 and 192
 Axe reported zero automated violations on both landings at 390 and 1280 pixels in the light and navy schemes. Lighthouse 13.6.0 mobile scored both local static pages 100 for performance and 100 for accessibility, with an LCP of 0.8 s. External requests were blocked for the local audits.
 
 PDFKit and PyMuPDF text extraction found an email address and a phone number in each supplied CV. Both files remain outside the static build. The certificate files have yet to be supplied for review.
+## Recorded avatar on the interview page
+
+Local Lighthouse mobile simulation in Chrome compared the previous interview
+preview with the static build served through Caddy. Performance and
+accessibility both scored 100 in each run. LCP was 1.2 s before and 0.8 s
+with the avatar poster. These are single local runs. The video and hls.js
+were requested only after player activation.
+
+Browser smoke checks covered keyboard activation, video playback and the
+local chat lifecycle at 1440 px and 375 px in Chrome. A rejected manifest
+request restored the poster and retry control. Firefox exercised hls.js.
+Playwright WebKit exercised native HLS at desktop and mobile viewport sizes.
+Physical iOS Safari and production delivery remain release checks.
+
+The landing hero was checked in Chrome at 1440 px and 375 px. The responsive
+portrait loaded before any media request and playback began from the keyboard.
+The portrait stayed visible with HLS and MSE disabled, JavaScript disabled, and
+a rejected manifest request. The interview smoke checks passed after reusing
+the same fallback there.
+
+The fragmented MP4 version retained all 1,187 source video frames in each
+rendition. Chrome (native and hls.js), Firefox and Playwright WebKit played at
+normal speed from the first frame through the end of the 47.48 s recording.
+Firefox's initial buffer adjustment was verified to stay within the first
+frame. The supplied poster loads as WebP and remains visible if playback fails.
+
+The #5 integration was tested on both localized landings and interview pages
+through a local Caddy instance. Chrome played the fragmented HLS stream
+after keyboard activation and restored the poster with a retry after a 403.
+Caddy returned 403 for a request without a Referer and 200 with the local
+site Referer. The local question history still cleared on close. The CV
+preview used local test PDFs to verify the active language and new-tab link.

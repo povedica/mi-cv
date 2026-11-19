@@ -1,0 +1,214 @@
+---
+import { Image } from 'astro:assets';
+import poster from '../assets/poster-pablo-poveda.png';
+
+interface Props {
+  locale: 'es' | 'en';
+  placement?: 'hero' | 'interview';
+}
+
+const { locale, placement = 'interview' } = Astro.props;
+const isHero = placement === 'hero';
+const label = (es: string, en: string) => locale === 'es' ? es : en;
+const messages = {
+  loading: label('Cargando vídeo…', 'Loading video…'),
+  retry: label('Reintentar reproducción del vídeo', 'Retry video playback'),
+  unavailable: label('El vídeo no está disponible en este momento.', 'The video is currently unavailable.'),
+  unsupported: label('El navegador no admite este vídeo. Se muestra el retrato de Pablo.', 'Your browser cannot play this video. Pablo’s portrait is shown.'),
+};
+---
+
+<figure class:list={["avatar-video", { "avatar-interview": !isHero }]} data-avatar-video data-messages={JSON.stringify(messages)}>
+  <figcaption class="avatar-caption">{label('Vídeo generado con IA a partir de Pablo', 'AI-generated video based on Pablo')}</figcaption>
+  <div class="avatar-frame">
+    <Image
+      src={poster}
+      alt={label('Retrato de Pablo Poveda', 'Portrait of Pablo Poveda')}
+      width={1122}
+      widths={[320, 480, 640, 800, 960, 1122]}
+      sizes="(max-width: 414px) calc(100vw - 56px), 356px"
+      format="webp"
+      priority={isHero}
+    />
+    <video
+      aria-label={label('Vídeo del avatar de Pablo Poveda', 'Video of Pablo Poveda’s avatar')}
+      data-source="/media/avatar/v2/master.m3u8"
+      preload="none"
+      playsinline
+      controlslist="nodownload"
+      disablepictureinpicture
+    ></video>
+    <button class="avatar-play" type="button" aria-label={label('Reproducir vídeo', 'Play video')} hidden>
+      <span aria-hidden="true"></span>
+    </button>
+  </div>
+  <p role="status"></p>
+  <noscript><p>{label('Activa JavaScript para reproducir el vídeo.', 'Enable JavaScript to play the video.')}</p></noscript>
+</figure>
+
+<style>
+  .avatar-frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #273042;
+    aspect-ratio: 9 / 16;
+  }
+
+  .avatar-frame img,
+  video {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .avatar-frame img {
+    object-fit: cover;
+    object-position: center 32%;
+  }
+
+  video {
+    visibility: hidden;
+    object-fit: cover;
+  }
+
+  [data-video-ready] img {
+    visibility: hidden;
+  }
+
+  [data-video-ready] video {
+    visibility: visible;
+  }
+
+  .avatar-caption { font-size: .8rem; margin-bottom: .4rem; }
+
+  .avatar-video {
+    margin: 0;
+  }
+
+  .avatar-interview {
+    width: min(100%, 380px);
+    align-self: start;
+    justify-self: center;
+  }
+
+  .avatar-play {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #0b1020;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .avatar-play[hidden] {
+    display: none;
+  }
+
+  .avatar-play:hover {
+    background: #242d46;
+  }
+
+  .avatar-play:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+  }
+
+  .avatar-play:disabled {
+    cursor: wait;
+  }
+
+  .avatar-play span {
+    width: 0;
+    height: 0;
+    margin-left: 4px;
+    border-block: 10px solid transparent;
+    border-inline-start: 16px solid currentColor;
+  }
+
+  p:empty {
+    display: none;
+  }
+</style>
+
+<script>
+  const player = document.querySelector<HTMLElement>('[data-avatar-video]')!;
+  const video = player.querySelector('video')!;
+  const load = player.querySelector('button')!;
+  const status = player.querySelector('[role="status"]')!;
+  const messages = JSON.parse(player.dataset.messages!) as Record<'loading' | 'retry' | 'unavailable' | 'unsupported', string>;
+  const source = video.dataset.source!;
+  const frame = video.parentElement!;
+
+  load.hidden = false;
+  video.addEventListener('contextmenu', event => event.preventDefault());
+
+  load.addEventListener('click', async () => {
+    load.disabled = true;
+    status.textContent = messages.loading;
+    let destroy = () => {};
+
+    function showVideo() {
+      frame.setAttribute('data-video-ready', '');
+      video.controls = true;
+      load.hidden = true;
+      status.textContent = '';
+      video.focus();
+    }
+
+    function fail() {
+      video.removeEventListener('error', fail);
+      video.removeEventListener('loadeddata', showVideo);
+      frame.removeAttribute('data-video-ready');
+      destroy();
+      video.removeAttribute('src');
+      video.load();
+      video.controls = false;
+      load.hidden = false;
+      load.disabled = false;
+      load.setAttribute('aria-label', messages.retry);
+      load.focus();
+      status.textContent = messages.unavailable;
+    }
+
+    video.addEventListener('error', fail, { once: true });
+    video.addEventListener('loadeddata', showVideo, { once: true });
+
+    try {
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = source;
+      } else {
+        const { default: Hls } = await import('hls.js/light');
+        if (!Hls.isSupported()) {
+          video.removeEventListener('error', fail);
+          video.removeEventListener('loadeddata', showVideo);
+          load.hidden = true;
+          status.textContent = messages.unsupported;
+          return;
+        }
+
+        // Keep Firefox's initial seek within the first frame when AAC priming offsets the tracks.
+        const hls = new Hls({ startPosition: 0, skipBufferHolePadding: 0.001 });
+        destroy = () => hls.destroy();
+        hls.on(Hls.Events.ERROR, (_event, data) => {
+          if (data.fatal) fail();
+        });
+        hls.loadSource(source);
+        hls.attachMedia(video);
+      }
+
+      // Native controls remain available if the browser requires another gesture.
+      void video.play().catch(() => {});
+    } catch {
+      fail();
+    }
+  });
+</script>
