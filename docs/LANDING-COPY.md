@@ -71,7 +71,7 @@ Página de entrevista:
 - Pie del hero: Engineering Management · Software Delivery · AI Engineering
 - H1: Pablo Poveda
 - Línea del cargo bajo H1: Engineering Manager · AI Engineering
-- Descripción: Llevo más de 15 años en el software, evolucionando del desarrollo a la dirección de equipos y departamentos de ingeniería.
+- Descripción: Llevo más de 15 años en el software, evolucionando del desarrollo a la dirección de equipos y departamentos de ingeniería y desarrollo web.
 
   Combino liderazgo de personas, dirección técnica y gestión integral de proyectos, con responsabilidad sobre equipos, planificación, presupuestos y resultados. Me gusta conectar la tecnología con las necesidades del negocio, construir equipos autónomos y convertir retos en soluciones que funcionan.
 
@@ -87,7 +87,7 @@ Página de entrevista:
 - Hero footer: Engineering Management · Software Delivery · AI Engineering
 - H1: Pablo Poveda
 - Role line below H1: Engineering Manager · AI Engineering
-- Description: I’ve spent more than 15 years in software, progressing from development to leading engineering teams and departments.
+- Description: I’ve spent more than 15 years in software, progressing from development to leading teams and departments in engineering and web development.
 
   I combine people leadership, technical direction and end-to-end project management, with responsibility for teams, planning, budgets and outcomes. I enjoy connecting technology with business needs, building autonomous teams and turning challenges into solutions that work.
 
