@@ -209,19 +209,23 @@
     "items": [
       {
         "title": "Máster en AI Engineering",
-        "text": "LIDR · finalizado en septiembre de 2026"
+        "metadata": "LIDR · finalizado en septiembre de 2026",
+        "description": "Ingeniería aplicada para construir productos con LLM: CAG, RAG, orquestación de agentes y evaluación de soluciones de IA. Lo pongo en práctica en mis propios proyectos, como esta web con entrevista por IA y tick-tack-done con su servidor MCP."
       },
       {
         "title": "Programa de liderazgo técnico LIDR Ignite",
-        "text": "LIDR · 2022"
+        "metadata": "LIDR · 2022 · 60 horas",
+        "description": "Lo hice cuando ya dirigía el equipo de Digital Experience en VASS, para dar método a lo que hacía cada día. Trata de mentoring, one-to-ones, contratación y onboarding, equipos de alto rendimiento y resolución de conflictos."
       },
       {
         "title": "Máster en DevOps y Cloud",
-        "text": "UNIR · 2019"
+        "metadata": "UNIR · 2019 · 60 ECTS",
+        "description": "Lo cursé en la propia UNIR mientras el equipo de la plataforma de contenidos crecía de 4 a 10 personas y adoptábamos CI/CD y Docker con GitLab. Cubre cultura DevOps, cloud (AWS), infraestructura como código, ciclo de vida de las aplicaciones, CI/CD, Docker, Puppet y Chef, con un proyecto final."
       },
       {
         "title": "Ingeniería Técnica en Informática de Gestión",
-        "text": "Universidad de Alicante · 2003–2008"
+        "metadata": "Universidad de Alicante · 2003–2008",
+        "description": "Mi base técnica en ingeniería del software. Al terminarla empecé como desarrollador web en Logiqo."
       }
     ]
   },
@@ -278,8 +282,7 @@
     "title": "Sobre mí",
     "items": [
       "He pasado de diseñar y construir software a formar y liderar equipos de desarrollo, sin perder el interés por entender cómo funcionan las cosas y cómo mejorarlas. Me gusta estar cerca de la tecnología, conectar lo que el negocio necesita con lo que realmente podemos construir y crear entornos donde las personas tengan autonomía, crezcan y hagan buen software.",
-      "Hoy me interesa especialmente cómo la IA está cambiando nuestra forma de desarrollar, aprender y trabajar. Busco una nueva etapa donde seguir combinando ingeniería y liderazgo.",
-      "Soy padre de mellizos. Me encontrarás en la montaña, en un campo de rugby o de viaje."
+      "Hoy me interesa especialmente cómo la IA está cambiando nuestra forma de desarrollar, aprender y trabajar. Busco una nueva etapa donde seguir combinando ingeniería y liderazgo."
     ],
     "quote": "Empecé programando web y, con los años, aprendí que los buenos proyectos salen de buenos equipos."
   },
@@ -303,6 +306,5 @@
     "title": "Pablo Poveda · Engineering Manager",
     "description": "De desarrollador web a dirigir un departamento de ingeniería de 20 personas. Liderazgo técnico, entrega de software e IA generativa. Entrevístame.",
     "imageAlt": "Pablo Poveda, Engineering Manager"
-  },
-  "profileLabel": "Perfil"
+  }
 }

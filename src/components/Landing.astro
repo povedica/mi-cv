@@ -173,27 +173,35 @@ const cvLabels = {
         </div>
       </section>
 
-      <section class="landing-section">
+      <section class="landing-section" id={skills}>
         <div class="landing-wrap">
-          <LandingSectionTitle title={copy.profileLabel} />
-          <div class="landing-profile">
-            <div>
-              <section id={skills}>
-                <h3>{copy.skills.title}</h3>
-                {copy.skills.items.map(item => <div class="landing-profile-item"><h4>{item.title}</h4><p>{item.text}</p></div>)}
-              </section>
+          <LandingSectionTitle title={copy.skills.title} />
+          {copy.skills.items.map(item => (
+            <div class="landing-profile-item">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
             </div>
-            <div>
-              <section id={education}>
-                <h3>{copy.education.title}</h3>
-                {copy.education.items.map(item => <div class="landing-profile-item"><h4>{item.title}</h4><p>{item.text}</p></div>)}
-              </section>
-              <section id={languages}>
-                <h3>{copy.languages.title}</h3>
-                <ul>{copy.languages.items.map(item => <li>{item}</li>)}</ul>
-              </section>
+          ))}
+        </div>
+      </section>
+
+      <section class="landing-section" id={education}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.education.title} />
+          {copy.education.items.map(item => (
+            <div class="landing-profile-item">
+              <h3>{item.title}</h3>
+              <p class="landing-education-metadata">{item.metadata}</p>
+              <p>{item.description}</p>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="landing-section" id={languages}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.languages.title} />
+          <ul class="landing-languages">{copy.languages.items.map(item => <li>{item}</li>)}</ul>
         </div>
       </section>
 

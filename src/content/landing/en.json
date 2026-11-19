@@ -209,19 +209,23 @@
     "items": [
       {
         "title": "Master's in AI Engineering",
-        "text": "LIDR · completed September 2026"
+        "metadata": "LIDR · completed September 2026",
+        "description": "Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI interview and tick-tack-done with its MCP server."
       },
       {
         "title": "LIDR Ignite technical leadership program",
-        "text": "LIDR · 2022"
+        "metadata": "LIDR · 2022 · 60 hours",
+        "description": "I took the program while leading the Digital Experience team at VASS to bring more structure to my day-to-day work. It covers mentoring, one-to-ones, hiring and onboarding, high-performing teams, and conflict resolution."
       },
       {
         "title": "Master's in DevOps and Cloud",
-        "text": "UNIR · 2019"
+        "metadata": "UNIR · 2019 · 60 ECTS",
+        "description": "I studied at UNIR while the content platform team grew from 4 to 10 people and we adopted CI/CD and Docker with GitLab. The program covers DevOps culture, cloud (AWS), infrastructure as code, application lifecycles, CI/CD, Docker, Puppet and Chef, and includes a final project."
       },
       {
         "title": "Technical Engineering Degree in Computer Science (Management Information Systems)",
-        "text": "University of Alicante · 2003–2008"
+        "metadata": "University of Alicante · 2003–2008",
+        "description": "This degree gave me my technical foundation in software engineering. After graduating, I started working as a web developer at Logiqo."
       }
     ]
   },
@@ -278,8 +282,7 @@
     "title": "About me",
     "items": [
       "I have moved from designing and building software to growing and leading development teams, without losing my curiosity about how things work and how to make them better. I like staying close to technology, connecting what the business needs with what we can realistically build, and creating environments where people have autonomy, grow and build good software.",
-      "Today I am especially interested in how AI is changing the way we build software, learn and work. I am looking for a new role where I can keep combining engineering and leadership.",
-      "I am a father of twins. You will find me in the mountains, on a rugby pitch or travelling."
+      "Today I am especially interested in how AI is changing the way we build software, learn and work. I am looking for a new role where I can keep combining engineering and leadership."
     ],
     "quote": "I started out as a web developer and, over the years, learned that good projects come from good teams."
   },
@@ -303,6 +306,5 @@
     "title": "Pablo Poveda · Engineering Manager",
     "description": "From web developer to running a 20-person engineering department. Technical leadership, software delivery and generative AI. Interview me.",
     "imageAlt": "Pablo Poveda, Engineering Manager"
-  },
-  "profileLabel": "Profile"
+  }
 }

@@ -234,19 +234,17 @@ Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma
 
 ---
 
-## Perfil / Profile
-
-El perfil agrupa habilidades, formación e idiomas. Charlas y comunidad es la última sección antes de los CTA.
+Habilidades, Formación e Idiomas son secciones independientes. Charlas y comunidad es la última sección antes de los CTA.
 
 ## 8. Formación y certificaciones (`formacion` / `education`)
 
 | | ES | EN |
 |---|---|---|
 | Título | Formación y certificaciones | Education and certifications |
-| 1 | **Máster en AI Engineering** · LIDR · finalizado en septiembre de 2026 · [Ver certificado (PDF)](/certificados/LIDR-AI-Engineering.pdf) | **Master's in AI Engineering** · LIDR · completed September 2026 · [View certificate (PDF)](/certificados/LIDR-AI-Engineering.pdf) |
-| 2 | **Programa de liderazgo técnico LIDR Ignite** · LIDR · 2022 · [Ver certificado (PDF)](/certificados/LIDR-Ignite.pdf) | **LIDR Ignite technical leadership program** · LIDR · 2022 · [View certificate (PDF)](/certificados/LIDR-Ignite.pdf) |
-| 3 | **Máster en DevOps y Cloud** · UNIR · 2019 · [Ver título (PDF)](/certificados/UNIR-DevOps-Cloud.pdf) | **Master's in DevOps and Cloud** · UNIR · 2019 · [View degree (PDF)](/certificados/UNIR-DevOps-Cloud.pdf) |
-| 4 | **Ingeniería Técnica en Informática de Gestión** · Universidad de Alicante · 2003–2008 | **Technical Engineering Degree in Computer Science (Management Information Systems)** · University of Alicante · 2003–2008 |
+| 1 | **Máster en AI Engineering** · LIDR · finalizado en septiembre de 2026<br>Ingeniería aplicada para construir productos con LLM: CAG, RAG, orquestación de agentes y evaluación de soluciones de IA. Lo pongo en práctica en mis propios proyectos, como esta web con entrevista por IA y tick-tack-done con su servidor MCP. · [Ver certificado (PDF)](/certificados/LIDR-AI-Engineering.pdf) | **Master's in AI Engineering** · LIDR · completed September 2026<br>Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI interview and tick-tack-done with its MCP server. · [View certificate (PDF)](/certificados/LIDR-AI-Engineering.pdf) |
+| 2 | **Programa de liderazgo técnico LIDR Ignite** · LIDR · 2022 · 60 horas<br>Lo hice cuando ya dirigía el equipo de Digital Experience en VASS, para dar método a lo que hacía cada día. Trata de mentoring, one-to-ones, contratación y onboarding, equipos de alto rendimiento y resolución de conflictos. · [Ver certificado (PDF)](/certificados/LIDR-Ignite.pdf) | **LIDR Ignite technical leadership program** · LIDR · 2022 · 60 hours<br>I took the program while leading the Digital Experience team at VASS to bring more structure to my day-to-day work. It covers mentoring, one-to-ones, hiring and onboarding, high-performing teams, and conflict resolution. · [View certificate (PDF)](/certificados/LIDR-Ignite.pdf) |
+| 3 | **Máster en DevOps y Cloud** · UNIR · 2019 · 60 ECTS<br>Lo cursé en la propia UNIR mientras el equipo de la plataforma de contenidos crecía de 4 a 10 personas y adoptábamos CI/CD y Docker con GitLab. Cubre cultura DevOps, cloud (AWS), infraestructura como código, ciclo de vida de las aplicaciones, CI/CD, Docker, Puppet y Chef, con un proyecto final. · [Ver título (PDF)](/certificados/UNIR-DevOps-Cloud.pdf) | **Master's in DevOps and Cloud** · UNIR · 2019 · 60 ECTS<br>I studied at UNIR while the content platform team grew from 4 to 10 people and we adopted CI/CD and Docker with GitLab. The program covers DevOps culture, cloud (AWS), infrastructure as code, application lifecycles, CI/CD, Docker, Puppet and Chef, and includes a final project. · [View degree (PDF)](/certificados/UNIR-DevOps-Cloud.pdf) |
+| 4 | **Ingeniería Técnica en Informática de Gestión** · Universidad de Alicante · 2003–2008<br>Mi base técnica en ingeniería del software. Al terminarla empecé como desarrollador web en Logiqo. | **Technical Engineering Degree in Computer Science (Management Information Systems)** · University of Alicante · 2003–2008<br>This degree gave me my technical foundation in software engineering. After graduating, I started working as a web developer at Logiqo. |
 
 Nota para el agente: los PDF (LIDR-AI-Engineering-certificate.pdf, LIDR-Ignite-certificate.pdf, UNIR-DevOps-master-title.pdf) no están en el repo: Pablo los aporta en el momento. Antes de publicarlos, comprueba que no llevan DNI, nota ni otros datos personales; el título de UNIR se publica sin nota. Si alguno los lleva, publica solo el texto y avisa en la issue.
 
@@ -311,14 +309,12 @@ Nota para el agente: cada charla enlaza a su página en wordpress.tv. Comprueba 
 - Título: Sobre mí
 - Texto: Empecé programando web y, con los años, aprendí que los buenos proyectos salen de buenos equipos. He pasado de diseñar y construir software a formar y liderar equipos de desarrollo, sin perder el interés por entender cómo funcionan las cosas y cómo mejorarlas. Me gusta estar cerca de la tecnología, conectar lo que el negocio necesita con lo que realmente podemos construir y crear entornos donde las personas tengan autonomía, crezcan y hagan buen software.
 - Texto 2: Hoy me interesa especialmente cómo la IA está cambiando nuestra forma de desarrollar, aprender y trabajar. Busco una nueva etapa donde seguir combinando ingeniería y liderazgo.
-- Fuera del trabajo: Soy padre de mellizos. Me encontrarás en la montaña, en un campo de rugby o de viaje.
 
 **EN**
 
 - Title: About me
 - Text: I started out as a web developer and, over the years, learned that good projects come from good teams. I have moved from designing and building software to growing and leading development teams, without losing my curiosity about how things work and how to make them better. I like staying close to technology, connecting what the business needs with what we can realistically build, and creating environments where people have autonomy, grow and build good software.
 - Text 2: Today I am especially interested in how AI is changing the way we build software, learn and work. I am looking for a new role where I can keep combining engineering and leadership.
-- Outside work: I am a father of twins. You will find me in the mountains, on a rugby pitch or travelling.
 
 ---
 
