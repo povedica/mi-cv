@@ -4,6 +4,7 @@ import SiteHead from './SiteHead.astro';
 import CookieNotice from './CookieNotice.astro';
 import LandingContactActions from './LandingContactActions.astro';
 import LandingBrand from './LandingBrand.astro';
+import LinkedInIcon from './LinkedInIcon.astro';
 import UnavailableInterview from './UnavailableInterview.astro';
 import ThemeSelect from './ThemeSelect.astro';
 import LandingSectionTitle from './LandingSectionTitle.astro';
@@ -262,5 +263,29 @@ const cvLabels = {
         </nav>
       </div>
     </footer>
+    <nav class="landing-dock landing-wrap" aria-label={isSpanish ? 'Acciones rápidas' : 'Quick actions'}>
+      <a class="landing-button landing-linkedin" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click"><LinkedInIcon /> LinkedIn</a>
+      <details class="landing-dock-cv">
+        <summary class="landing-button" aria-label={isSpanish ? 'Elegir idioma del CV' : 'Choose CV language'}>
+          CV <span class="landing-dock-chevron" aria-hidden="true"></span>
+        </summary>
+        <div class="landing-dock-cv-options">
+          {cvLocales.map(language => (
+            <a class="landing-button" href={cv[language]} hreflang={language} lang={language} aria-label={cvLabels[language]} target="_blank" rel="noopener" data-analytics-action="cv-download">
+              <span aria-hidden="true">{language === 'es' ? '🇪🇸' : '🇬🇧'}</span> CV {language.toUpperCase()}
+            </a>
+          ))}
+        </div>
+      </details>
+      <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
+    </nav>
+    <script>
+      const cvMenu = document.querySelector<HTMLDetailsElement>('.landing-dock-cv')!;
+      cvMenu.addEventListener('keydown', event => {
+        if (event.key !== 'Escape' || !cvMenu.open) return;
+        cvMenu.open = false;
+        cvMenu.querySelector('summary')?.focus();
+      });
+    </script>
   </body>
 </html>

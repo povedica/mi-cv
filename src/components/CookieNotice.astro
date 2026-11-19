@@ -43,7 +43,7 @@ const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
     position: fixed;
     z-index: 6;
     inset-inline: 0;
-    bottom: max(.75rem, env(safe-area-inset-bottom));
+    bottom: calc(max(.75rem, env(safe-area-inset-bottom)) + var(--cookie-bottom-offset, 0px));
     display: flex;
     align-items: center;
     justify-content: space-between;
