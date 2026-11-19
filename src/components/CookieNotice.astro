@@ -15,10 +15,10 @@ const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
   <button class="button button-secondary" type="button">{copy.dismiss}</button>
 </aside>
 
-<script>
-  const notice = document.querySelector<HTMLElement>('.cookie-notice');
-  const key = 'mi-cv:cookie-notice:v1';
-  if (notice) {
+<script is:inline>
+  (() => {
+    const notice = document.querySelector('.cookie-notice');
+    const key = 'mi-cv:cookie-notice:v1';
     let acknowledged = false;
     try {
       acknowledged = localStorage.getItem(key) === '1';
@@ -26,7 +26,7 @@ const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
       // The notice still works where storage is disabled.
     }
     notice.hidden = acknowledged;
-    notice.querySelector('button')?.addEventListener('click', () => {
+    notice.querySelector('button').addEventListener('click', () => {
       try {
         localStorage.setItem(key, '1');
       } catch {
@@ -35,7 +35,7 @@ const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
       notice.hidden = true;
       document.querySelector('main')?.focus();
     });
-  }
+  })();
 </script>
 
 <style>
