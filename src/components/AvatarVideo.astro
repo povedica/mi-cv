@@ -9,6 +9,7 @@ interface Props {
 
 const { locale, placement = 'interview' } = Astro.props;
 const isHero = placement === 'hero';
+const mediaVersion = locale === 'es' ? 'v2' : 'v3';
 const label = (es: string, en: string) => locale === 'es' ? es : en;
 const messages = {
   loading: label('Cargando vídeo…', 'Loading video…'),
@@ -32,7 +33,7 @@ const messages = {
     />
     <video
       aria-label={label('Vídeo del avatar de Pablo Poveda', 'Video of Pablo Poveda’s avatar')}
-      data-source="/media/avatar/v2/master.m3u8"
+      data-source={`/media/avatar/${mediaVersion}/master.m3u8`}
       preload="none"
       playsinline
       controlslist="nodownload"

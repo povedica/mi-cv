@@ -77,11 +77,13 @@ check limits direct navigation and casual hotlinking. Clients can forge headers.
 
    ```sh
    ./scripts/video-to-hls.sh src/assets/avatar-pablo-poveda-720p.mp4 /tmp/avatar-v2
+   ./scripts/video-to-hls.sh src/assets/avatar-pablo-poveda-720p-en.mp4 /tmp/avatar-v3
    ```
 
 2. As the edge operator, upload the generated directory to staging on the VPS
    over host-key-verified SSH. Install it under
-   `/etc/caddy/sites/mi-cv-media/avatar/v2/` with read access for Caddy.
+   `/etc/caddy/sites/mi-cv-media/avatar/v2/` for Spanish or
+   `/etc/caddy/sites/mi-cv-media/avatar/v3/` for English, with read access for Caddy.
    Verify the directory includes the master playlist, the three renditions and
    the initialization MP4 referenced by each rendition. The HLS media uses
    fragmented MP4. The converter pads the source audio tail to keep the last
