@@ -182,17 +182,11 @@ const cvLabels = {
                 <h3>{copy.skills.title}</h3>
                 {copy.skills.items.map(item => <div class="landing-profile-item"><h4>{item.title}</h4><p>{item.text}</p></div>)}
               </section>
+            </div>
+            <div>
               <section id={education}>
                 <h3>{copy.education.title}</h3>
                 {copy.education.items.map(item => <div class="landing-profile-item"><h4>{item.title}</h4><p>{item.text}</p></div>)}
-              </section>
-            </div>
-            <div>
-              <section id={talks}>
-                <h3>{copy.talks.title}</h3>
-                <div class="landing-profile-item"><h4>{copy.talks.highlights[0].title}</h4><p>{copy.talks.highlights[0].text}</p></div>
-                <div class="landing-profile-item"><h4>{copy.talks.heading}</h4><ul>{copy.talks.labels.map((label, index) => <li><a href={talkUrls[index]}>{label}</a></li>)}</ul></div>
-                <div class="landing-profile-item"><h4>{copy.talks.highlights[1].title}</h4><p>{copy.talks.highlights[1].text}</p></div>
               </section>
               <section id={languages}>
                 <h3>{copy.languages.title}</h3>
@@ -208,6 +202,17 @@ const cvLabels = {
           <LandingSectionTitle title={copy.about.title} />
           <blockquote>“{copy.about.quote}”</blockquote>
           <div class="landing-about">{copy.about.items.map(item => <p>{item}</p>)}</div>
+        </div>
+      </section>
+
+      <section class="landing-section" id={talks}>
+        <div class="landing-wrap landing-split">
+          <LandingSectionTitle title={copy.talks.title} />
+          <div>
+              <div class="landing-profile-item"><h3>{copy.talks.highlights[0].title}</h3><p>{copy.talks.highlights[0].text}</p></div>
+              <div class="landing-profile-item"><h3>{copy.talks.heading}</h3><ul>{copy.talks.labels.map((label, index) => <li><a href={talkUrls[index]}>{label}</a></li>)}</ul></div>
+              <div class="landing-profile-item"><h3>{copy.talks.highlights[1].title}</h3><p>{copy.talks.highlights[1].text}</p></div>
+          </div>
         </div>
       </section>
 

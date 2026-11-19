@@ -250,12 +250,12 @@
     "title": "Skills",
     "items": [
       {
-        "title": "Artificial Intelligence & GenAI",
-        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance"
-      },
-      {
         "title": "Engineering leadership and management:",
         "text": "building and developing teams, hiring and mentoring, objective-based performance management, engineering culture, agile methodologies and ownership of software delivery."
+      },
+      {
+        "title": "Artificial Intelligence & GenAI",
+        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance"
       },
       {
         "title": "Software delivery and quality:",

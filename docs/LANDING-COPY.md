@@ -236,7 +236,7 @@ Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma
 
 ## Perfil / Profile
 
-El perfil agrupa habilidades, formación, charlas e idiomas.
+El perfil agrupa habilidades, formación e idiomas. Charlas y comunidad es la última sección antes de los CTA.
 
 ## 8. Formación y certificaciones (`formacion` / `education`)
 
@@ -287,8 +287,8 @@ Nota para el agente: cada charla enlaza a su página en wordpress.tv. Comprueba 
 | | ES | EN |
 |---|---|---|
 | Título | Habilidades | Skills |
-| Artificial Intelligence & GenAI (va primero) | AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance | igual |
 | Liderazgo | **Liderazgo y gestión de ingeniería:** construcción y desarrollo de equipos, selección y mentoría, gestión del desempeño por objetivos, cultura de ingeniería, metodologías ágiles y responsabilidad sobre la entrega de software. | **Engineering leadership and management:** building and developing teams, hiring and mentoring, objective-based performance management, engineering culture, agile methodologies and ownership of software delivery. |
+| Artificial Intelligence & GenAI | AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance | igual |
 | Entrega y calidad | **Entrega y calidad de software:** Scrum, XP y Kanban, CI/CD (GitLab), contenedores (Docker), estándares de ingeniería, revisión de código y controles de calidad automatizados. | **Software delivery and quality:** Scrum, XP and Kanban, CI/CD (GitLab), containers (Docker), engineering standards, code review and automated quality checks. |
 | Tecnología | **Tecnologías:** PHP (a medida y WordPress), Drupal, Laravel y Symfony; API, bases de datos SQL y NoSQL, seguridad web, rendimiento e integración de sistemas. Proyectos personales recientes con TypeScript, Python y FastAPI. | **Technology:** PHP (custom and WordPress), Drupal, Laravel and Symfony; APIs, SQL and NoSQL databases, web security, performance and systems integration. Recent personal projects with TypeScript, Python and FastAPI. |
 
