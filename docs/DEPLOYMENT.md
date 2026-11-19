@@ -50,7 +50,7 @@ Check both routes and their assets over HTTPS. Application rollback changes only
 
 ## Avatar video
 
-The interview serves HLS from the existing Hetzner VPS and Caddy edge. This adds
+The landing hero and interview play HLS from the existing Hetzner VPS and Caddy edge. This adds
 no streaming subscription and retains control of the files, versioned URLs and
 player presentation. HLS offers adaptive bitrate playback when bandwidth
 changes. YouTube would add third-party branding and recommendations. Managed
@@ -79,7 +79,7 @@ check limits direct navigation and casual hotlinking. Clients can forge headers.
    configuration as described in [Provisioning](#provisioning). Bypass shared
    CDN caching for `/media/*` on this hostname so the origin can check headers.
    Media responses cache privately in the browser.
-4. Verify playback from the interview on Chrome, Firefox and Safari on desktop
+4. Verify playback from the landing and interview on Chrome, Firefox and Safari on desktop
    and Safari on iOS. Throttle the connection and inspect rendition requests.
    Verify no media requests occur before activating the player. Check that the
    master and a segment return 403 without a Referer and 200 with the interview
@@ -91,4 +91,4 @@ check limits direct navigation and casual hotlinking. Clients can forge headers.
 The current source is 720 × 1280. Rendition names refer to the short edge
 for portrait video. The 1080p rendition is an upscale included for
 the agreed rendition ladder. It adds no source detail. The player uses the
-approved portrait as its WebP poster. Captions depend on a timed transcript.
+approved portrait as its responsive WebP fallback. Captions depend on a timed transcript.

@@ -77,3 +77,9 @@ local chat lifecycle at 1440 px and 375 px in Chrome. A rejected manifest
 request restored the poster and retry control. Firefox exercised hls.js.
 Playwright WebKit exercised native HLS at desktop and mobile viewport sizes.
 Physical iOS Safari and production delivery remain release checks.
+
+The landing hero was checked in Chrome at 1440 px and 375 px. The responsive
+portrait loaded before any media request and playback began from the keyboard.
+The portrait stayed visible with HLS and MSE disabled, JavaScript disabled, and
+a rejected manifest request. The interview smoke checks passed after reusing
+the same fallback there.

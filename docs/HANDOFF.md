@@ -18,6 +18,6 @@ Implement a local text-chat session, one question and close using synthetic cont
 
 ## Recorded avatar release
 
-Issue #27 adds a recorded HLS demonstration to the interview and keeps the live
+Issue #27 adds a recorded HLS demonstration to the landing hero and interview and keeps the live
 avatar capability planned. The media is provisioned independently of the
 static release. See [deployment and service rationale](DEPLOYMENT.md#avatar-video).

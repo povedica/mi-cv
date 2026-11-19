@@ -19,7 +19,7 @@ flowchart LR
   CI --> Projects[Private GitHub Project]
 ```
 
-The interview can play the recorded avatar on demand. HLS files are provisioned independently of the static release. The browser executes the preview and materializes analytics events. The build configures Umami for the production hostname. The dashed Sentry connection requires an explicit browser DSN.
+The landing and interview can play the recorded avatar on demand. HLS files are provisioned independently of the static release. The browser executes the preview and materializes analytics events. The build configures Umami for the production hostname. The dashed Sentry connection requires an explicit browser DSN.
 
 ## Component map
 

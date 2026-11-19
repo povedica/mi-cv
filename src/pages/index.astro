@@ -1,7 +1,6 @@
 ---
 import { site, themes } from '../data/site';
-import { Image } from 'astro:assets';
-import portrait from '../assets/pablo-portrait-v2.jpg';
+import AvatarVideo from '../components/AvatarVideo.astro';
 import SiteHead from '../components/SiteHead.astro';
 import '../styles/global.css';
 ---
@@ -26,12 +25,9 @@ import '../styles/global.css';
           <div class="hero-note">Vista previa de la interfaz de entrevista.</div>
         </div>
         <div class="hero-stage" aria-label="Vista previa de entrevista virtual">
-          <div class="stage-header"><div class="stage-label">VISTA PREVIA DE ENTREVISTA</div><span class="stage-future">AVATAR PRÓXIMAMENTE</span></div>
-          <div class="stage-content">
-            <Image src={portrait} alt="Retrato de Pablo Poveda" class="hero-portrait" width={1200} widths={[320, 480, 640, 800, 960, 1200]} sizes="(max-width: 760px) calc(100vw - 56px), (max-width: 1544px) 50vw, 720px" format="webp" priority />
-            <div class="stage-overlay"><span class="portrait-name">Pablo Poveda</span><span class="portrait-desc">Retrato real · Vídeo avatar pendiente</span></div>
-          </div>
-          <div class="stage-bottom"><span class="stage-status">Fotografía estática</span><a href="/interview/" class="stage-link" data-interview-placement="portrait">Ver entrevista</a></div>
+          <div class="stage-header"><div class="stage-label">VISTA PREVIA DE ENTREVISTA</div></div>
+          <AvatarVideo placement="hero" />
+          <div class="stage-bottom"><a href="/interview/" class="stage-link" data-interview-placement="portrait">Ver entrevista</a></div>
         </div>
       </section>
       <section class="topics shell" id="enfoque">
