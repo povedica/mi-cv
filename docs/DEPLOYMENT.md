@@ -106,4 +106,6 @@ check limits direct navigation and casual hotlinking. Clients can forge headers.
 The current source is 720 × 1280. Rendition names refer to the short edge
 for portrait video. The 1080p rendition is an upscale included for
 the agreed rendition ladder. It adds no source detail. The player uses the
-approved poster as its responsive WebP fallback. Captions depend on a timed transcript.
+approved portrait cropped to 9:16 as its responsive WebP fallback. Same-language
+WebVTT captions ship with the static release. Update the caption track and
+the receiver allowlist when replacing a recording with a new media version.

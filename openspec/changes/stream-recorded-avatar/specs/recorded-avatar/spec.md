@@ -10,6 +10,11 @@ HLS requests until the visitor activates playback.
 - **WHEN** the visitor opens either page
 - **THEN** the poster and AI label are visible without requesting HLS media
 
+#### Scenario: Visitor enables captions
+
+- **WHEN** the visitor enables captions during playback
+- **THEN** the player presents synchronised captions in the language of the recording
+
 #### Scenario: Media is unavailable
 
 - **WHEN** the stream fails to load

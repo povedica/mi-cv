@@ -37,19 +37,19 @@
     "intro": "Where I add the most value, and what you can ask me about in the interview.",
     "items": [
       {
-        "title": "Leadership and teams.",
+        "title": "Leadership and teams",
         "text": "I build and grow engineering teams: hiring, onboarding, mentoring and objective-based reviews, with autonomy and a healthy engineering culture."
       },
       {
-        "title": "Software delivery and quality.",
+        "title": "Software delivery and quality",
         "text": "Agile practices, quality standards, automated code review, CI/CD and metrics to deliver more value with fewer incidents."
       },
       {
-        "title": "Business and delivery.",
+        "title": "Business and delivery",
         "text": "I lead engineering departments or areas, with responsibility for financial results, the project portfolio, pre-sales, and relationships with clients and leadership."
       },
       {
-        "title": "AI applied to development.",
+        "title": "AI applied to development",
         "text": "I bring generative AI into teams' daily work in a practical, safe and responsible way, and build applications with LLMs, RAG and agents."
       }
     ]
@@ -59,15 +59,15 @@
     "intro": "Generative AI is changing how we build software. I have brought it into real teams, and I study it and use it in depth.",
     "items": [
       {
-        "title": "Adoption in development teams (VASS).",
+        "title": "Adoption in development teams (VASS)",
         "text": "I co-led the adoption of generative AI across the development teams in my area, introducing new methods, tools and processes into real projects. The initiative increased team autonomy, accelerated delivery cycles and strengthened quality standards, with an estimated average improvement of 30% in the teams’ ability to deliver value."
       },
       {
-        "title": "Master's in AI Engineering (LIDR, 2026).",
+        "title": "Master's in AI Engineering (LIDR, 2026)",
         "text": "LLM applications, RAG and CAG, agents and agentic systems, and AI evaluation."
       },
       {
-        "title": "tick-tack-done.",
+        "title": "tick-tack-done",
         "text": "My personal project: a task and productivity app with an MCP server, so AI agents can work with it. I build it with AI agents and a GitHub backlog workflow.",
         "href": "https://todo.reflexionia.com",
         "demo": {
@@ -87,7 +87,7 @@
         "title": "Department Manager · Digital Experience (Open Source PHP)",
         "period": "May 2024 – Nov 2026",
         "items": [
-          "Led the department with full ownership of organizational decisions and responsibility for its financial results, project portfolio and business opportunities.",
+          "Led the department with full ownership of organisational decisions and responsibility for its financial results, project portfolio and business opportunities.",
           "Organized engineering teams of 15–20 people: structure, priorities and project assignments.",
           "Together with other leaders, drove the adoption of generative AI across development teams: roughly 30% more delivered value.",
           "Opened new clients through small initial projects that later grew into larger business.",
@@ -201,12 +201,12 @@
         "text": "I led the end-to-end development of a web and mobile platform for a national supermarket chain. I was responsible for technical direction and overall project management, coordinating multidisciplinary teams, overseeing planning, costs and delivery commitments, and leading strategic decisions and client communication."
       },
       {
-        "title": "International content platform.",
+        "title": "International content platform",
         "text": "UNIR's in-house product powering its websites in six countries. We built it from scratch; as the team grew from 4 to 10 people, CI/CD and containers shortened delivery by around 40%."
       },
       {
-        "title": "Marketing SaaS for pharmacies.",
-        "text": "Evolufarma's platform for generating and managing pharmacy websites, with e-commerce, a shared catalog, dashboard, APIs and email campaigns."
+        "title": "Marketing SaaS for pharmacies",
+        "text": "Evolufarma's platform for generating and managing pharmacy websites, with e-commerce, a shared catalogue, dashboard, APIs and email campaigns."
       }
     ]
   },
@@ -215,7 +215,7 @@
     "items": [
       {
         "title": "Master's in AI Engineering",
-        "description": "Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI interview and tick-tack-done with its MCP server.",
+        "description": "Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI-generated recording and tick-tack-done with its MCP server.",
         "period": "Sep 2026",
         "institution": "LIDR",
         "detail": "80 hours",
@@ -225,15 +225,15 @@
         }
       },
       {
-        "title": "LIDR Ignite technical leadership program",
-        "description": "I took the program while leading the Digital Experience team at VASS to bring more structure to my day-to-day work. It covers mentoring, one-to-ones, hiring and onboarding, high-performing teams, and conflict resolution.",
+        "title": "LIDR Ignite technical leadership programme",
+        "description": "I took the programme while leading the Digital Experience team at VASS to bring more structure to my day-to-day work. It covers mentoring, one-to-ones, hiring and onboarding, high-performing teams, and conflict resolution.",
         "period": "Jun 2022",
         "institution": "LIDR",
         "detail": "60 hours"
       },
       {
         "title": "Master's in DevOps and Cloud",
-        "description": "I studied at UNIR while the content platform team grew from 4 to 10 people and we adopted CI/CD and Docker with GitLab. The program covers DevOps culture, cloud (AWS), infrastructure as code, application lifecycles, CI/CD, Docker, Puppet and Chef, and includes a final project.",
+        "description": "I studied at UNIR while the content platform team grew from 4 to 10 people and we adopted CI/CD and Docker with GitLab. The programme covers DevOps culture, cloud (AWS), infrastructure as code, application lifecycles, CI/CD, Docker, Puppet and Chef, and includes a final project.",
         "period": "Sep 2019",
         "institution": "UNIR",
         "detail": "60 ECTS"
@@ -335,7 +335,7 @@
   ],
   "openGraph": {
     "title": "Pablo Poveda · Engineering Manager",
-    "description": "From web developer to running a 20-person engineering department. Technical leadership, software delivery and generative AI. Interview me.",
+    "description": "From web developer to running a 20-person engineering department. Technical leadership, software delivery and generative AI. Watch an AI-generated introduction.",
     "imageAlt": "Pablo Poveda, Engineering Manager"
   }
 }

@@ -1,6 +1,6 @@
 {
   "title": "Política de cookies",
-  "notice": "Esta web solo usa cookies técnicas necesarias para funcionar y una analítica propia sin cookies. No hay publicidad ni seguimiento de terceros.",
+  "notice": "Esta web usa almacenamiento local para recordar tus preferencias y una analítica propia sin cookies. No hay publicidad ni seguimiento de terceros.",
   "dismiss": "Entendido",
   "home": "Volver al perfil",
   "inventory": "Cookies y almacenamiento local",
@@ -53,7 +53,7 @@
     ],
     [
       "Cómo gestionarlas",
-      "Puedes borrar o bloquear las cookies y el almacenamiento local desde la configuración de tu navegador. Si bloqueas el almacenamiento local, el sitio no podrá recordar el tema que elijas ni que has cerrado el aviso."
+      "Puedes borrar o bloquear las cookies y el almacenamiento local desde la configuración de tu navegador. Si bloqueas el almacenamiento local, el sitio no podrá recordar el tema, el idioma ni si has cerrado el aviso."
     ]
   ],
   "controller": [

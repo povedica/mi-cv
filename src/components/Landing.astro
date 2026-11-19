@@ -49,9 +49,10 @@ const cv = {
   es: '/cv/Pablo-Poveda-Ortega-CV-ES.pdf',
   en: '/cv/Pablo-Poveda-Ortega-CV-EN.pdf',
 };
+const cvHint = isSpanish ? 'abre en una pestaña nueva' : 'opens in a new tab';
 const cvLabels = {
-  es: 'Descargar CV en PDF (español)',
-  en: 'Download CV in PDF (English)',
+  es: `CV (ES) · PDF, ${cvHint}`,
+  en: `CV (EN) · PDF, ${cvHint}`,
 };
 ---
 <!doctype html>
@@ -148,6 +149,8 @@ const cvLabels = {
         </div>
         <div class="landing-hero-foot"><div class="landing-wrap"><span>{copy.eyebrow}</span><span>{copy.location}</span></div></div>
       </section>
+
+      <CookieNotice locale={locale} />
 
       <section class="landing-section" id={focus}>
         <div class="landing-wrap landing-split">
@@ -299,7 +302,6 @@ const cvLabels = {
     </main>
 
     <footer class="landing-footer">
-      <CookieNotice locale={locale} />
       <div class="landing-wrap">
         <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
         <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
@@ -308,9 +310,8 @@ const cvLabels = {
           <a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a>
           {cvLocales.map(language => {
             const label = `CV (${language.toUpperCase()})`;
-            const hint = isSpanish ? 'PDF, abre en una pestaña nueva' : 'PDF, opens in a new tab';
             return (
-              <a href={cv[language]} hreflang={language} target="_blank" rel="noopener" aria-label={`${label}, ${hint}`} title={hint} data-analytics-action="cv-download">
+              <a href={cv[language]} hreflang={language} target="_blank" rel="noopener" aria-label={cvLabels[language]} title={cvLabels[language]} data-analytics-action="cv-download">
                 {label} <span aria-hidden="true">↗</span>
               </a>
             );

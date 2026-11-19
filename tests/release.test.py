@@ -30,7 +30,8 @@ class ReleaseTest(unittest.TestCase):
     def test_landing_files_are_accepted(self):
         files = PAGES + [
             ASSET, "_astro/Geist-latin.Ast12.woff2", "en/index.html", "en/interview/index.html", "cv/public-en.pdf",
-            "certificados/public.pdf", "sitemap.xml", "robots.txt", "og.png", "og.jpg",
+            "certificados/public.pdf", "sitemap.xml", "robots.txt", "og.png", "og.jpg", "favicon.svg",
+            "captions/avatar-v2-es.vtt", "captions/avatar-v3-en.vtt",
             "cookies/index.html", "en/cookies/index.html",
         ]
         with tempfile.TemporaryDirectory() as directory:

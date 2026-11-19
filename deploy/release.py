@@ -13,7 +13,8 @@ import tempfile
 PAGES = {"index.html", "interview/index.html"}
 LANDING_FILES = {
     "en/index.html", "en/interview/index.html", "sitemap.xml", "robots.txt",
-    "og.png", "og.jpg", "cookies/index.html", "en/cookies/index.html",
+    "captions/avatar-v2-es.vtt", "captions/avatar-v3-en.vtt",
+    "og.png", "og.jpg", "favicon.svg", "cookies/index.html", "en/cookies/index.html",
 }
 PUBLIC_PDF = re.compile(r"(?:cv|certificados)/[\w-][\w.-]*\.pdf", re.ASCII)
 ASSET = re.compile(r"_astro/[\w.-]+\.(?:css|js|webp|woff2)", re.ASCII)

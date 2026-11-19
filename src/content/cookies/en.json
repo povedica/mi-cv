@@ -1,6 +1,6 @@
 {
   "title": "Cookie policy",
-  "notice": "This site only uses technical cookies needed to work and a cookie-free, self-hosted analytics tool. No ads, no third-party tracking.",
+  "notice": "This site uses local storage to remember your preferences and cookie-free, self-hosted analytics. No ads, no third-party tracking.",
   "dismiss": "Got it",
   "home": "Back to the profile",
   "inventory": "Cookies and local storage",
@@ -53,7 +53,7 @@
     ],
     [
       "How to manage them",
-      "You can delete or block cookies and local storage in your browser settings. If you block local storage, the site cannot remember your chosen theme or that you dismissed the notice."
+      "You can delete or block cookies and local storage in your browser settings. If you block local storage, the site cannot remember your theme, language or whether you dismissed the notice."
     ]
   ],
   "controller": [

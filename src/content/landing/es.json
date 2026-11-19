@@ -37,19 +37,19 @@
     "intro": "Las áreas donde más aporto y de las que puedes preguntarme en la entrevista.",
     "items": [
       {
-        "title": "Liderazgo y equipos.",
+        "title": "Liderazgo y equipos",
         "text": "Construyo y hago crecer equipos de ingeniería: selección, onboarding, mentoría y evaluación por objetivos, con autonomía y buena cultura de ingeniería."
       },
       {
-        "title": "Entrega de software y calidad.",
+        "title": "Entrega de software y calidad",
         "text": "Prácticas ágiles, estándares de calidad, revisión automática del código, CI/CD y métricas para entregar más valor con menos incidencias."
       },
       {
-        "title": "Negocio y entrega.",
+        "title": "Negocio y entrega",
         "text": "Dirijo departamentos o áreas de ingeniería, con responsabilidad sobre resultados económicos, cartera de proyectos, preventa y relación con clientes y dirección."
       },
       {
-        "title": "IA aplicada al desarrollo.",
+        "title": "IA aplicada al desarrollo",
         "text": "Llevo la IA generativa al trabajo diario de los equipos con un uso práctico, seguro y responsable, y construyo aplicaciones con LLM, RAG y agentes."
       }
     ]
@@ -59,15 +59,15 @@
     "intro": "La IA generativa está cambiando cómo desarrollamos software. La he llevado a equipos reales y la estudio y la uso a fondo.",
     "items": [
       {
-        "title": "Adopción en equipos de desarrollo (VASS).",
+        "title": "Adopción en equipos de desarrollo (VASS)",
         "text": "Colideré en mi área la incorporación de IA generativa en los equipos de desarrollo, impulsando nuevas metodologías, herramientas y procesos integrados en proyectos reales. La iniciativa permitió aumentar la autonomía de los equipos, acelerar los ciclos de entrega y reforzar los estándares de calidad, con una mejora estimada media del 30 % en la capacidad de entrega de valor."
       },
       {
-        "title": "Máster en AI Engineering (LIDR, 2026).",
+        "title": "Máster en AI Engineering (LIDR, 2026)",
         "text": "Aplicaciones con LLM, RAG y CAG, agentes y sistemas agénticos, y evaluación de soluciones de IA."
       },
       {
-        "title": "tick-tack-done.",
+        "title": "tick-tack-done",
         "text": "Mi proyecto personal: una aplicación de tareas y productividad con servidor MCP, para que los agentes de IA trabajen con ella. Lo desarrollo con agentes de IA y un flujo de backlog en GitHub.",
         "href": "https://todo.reflexionia.com",
         "demo": {
@@ -201,11 +201,11 @@
         "text": "Lideré de principio a fin el desarrollo de una plataforma web y móvil para una cadena nacional de supermercados. Asumí la dirección técnica y la gestión integral del proyecto, coordinando equipos multidisciplinares, supervisando la planificación, los costes y los compromisos de entrega, y liderando las decisiones estratégicas y la interlocución con el cliente."
       },
       {
-        "title": "Plataforma de contenidos internacional.",
+        "title": "Plataforma de contenidos internacional",
         "text": "El producto interno de UNIR sobre el que funcionaban sus portales en seis países. Lo construimos desde cero; con el equipo creciendo de 4 a 10 personas, CI/CD y contenedores acortaron las entregas alrededor de un 40 %."
       },
       {
-        "title": "SaaS de marketing para farmacias.",
+        "title": "SaaS de marketing para farmacias",
         "text": "Plataforma de Evolufarma que generaba y gestionaba las webs de las farmacias, con tienda online, catálogo común, panel, API y campañas de email."
       }
     ]
@@ -215,7 +215,7 @@
     "items": [
       {
         "title": "Máster en AI Engineering",
-        "description": "Ingeniería aplicada para construir productos con LLM: CAG, RAG, orquestación de agentes y evaluación de soluciones de IA. Lo pongo en práctica en mis propios proyectos, como esta web con entrevista por IA y tick-tack-done con su servidor MCP.",
+        "description": "Ingeniería aplicada para construir productos con LLM: CAG, RAG, orquestación de agentes y evaluación de soluciones de IA. Lo pongo en práctica en mis propios proyectos, como esta web con una grabación generada con IA y tick-tack-done con su servidor MCP.",
         "period": "sep 2026",
         "institution": "LIDR",
         "detail": "80 horas",
@@ -335,7 +335,7 @@
   ],
   "openGraph": {
     "title": "Pablo Poveda · Engineering Manager",
-    "description": "De desarrollador web a dirigir un departamento de ingeniería de 20 personas. Liderazgo técnico, entrega de software e IA generativa. Entrevístame.",
+    "description": "De desarrollador web a dirigir un departamento de ingeniería de 20 personas. Liderazgo técnico, entrega de software e IA generativa y una grabación generada con IA.",
     "imageAlt": "Pablo Poveda, Engineering Manager"
   }
 }

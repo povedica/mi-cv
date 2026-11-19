@@ -33,17 +33,13 @@ const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
         // Dismiss for this page even without persistent storage.
       }
       notice.hidden = true;
-      document.querySelector('main')?.focus();
+      document.querySelector('main')?.focus({ preventScroll: true });
     });
   })();
 </script>
 
 <style>
   .cookie-notice:not([hidden]) {
-    position: fixed;
-    z-index: 6;
-    inset-inline: 0;
-    bottom: calc(max(.75rem, env(safe-area-inset-bottom)) + var(--cookie-bottom-offset, 0px));
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,7 +50,7 @@ const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
     background-color: var(--surface);
     padding: 12px 16px;
     font-size: .9rem;
-    margin: 0 auto;
+    margin: 1rem auto;
   }
 
   p { flex: 1 1 26rem; margin: 0; }

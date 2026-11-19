@@ -110,3 +110,24 @@ through a local Caddy instance. Chrome played the fragmented HLS stream
 after keyboard activation and restored the poster with a retry after a 403.
 Caddy returned 403 for a request without a Referer and 200 with the local
 site Referer. The local question history still cleared on close. Both approved CV PDFs return HTTP 200. The header opens the active locale’s PDF in a new tab.
+
+## November 19, 2026 landing review
+
+Chrome exercised all six static routes at 320, 390, 1280 and 1440 CSS pixels
+with both colour schemes and reduced motion. The storage notice sits in the
+document flow. It did not overlap controls, and both chat previews closed,
+cleared the question history and restored focus with the notice visible. Axe
+reported zero violations in the tested WCAG rules. The two HLS streams played
+with their matching WebVTT track and active timed cues on both route types.
+
+Mobile Lighthouse runs against the revised static build scored 100/99 for
+performance in Spanish/English. LCP was 1.87/1.95 s and CLS was 0.001/0.033.
+Accessibility, best practices and SEO each scored 100 in both languages. At
+412 CSS pixels and DPR 1.75, the browser selected a 57.2 KiB WebP, down from
+64.7 KiB. These are local runs with simulated mobile throttling.
+
+In a separate local A/B test, two runs with the external stylesheet painted in
+0.75–0.76 s. Two runs with the stylesheet inlined painted in 0.79–0.80 s.
+Preloading Geist in a four-run follow-up left first paint at approximately
+0.75 s and showed no consistent change in LCP. The site keeps the cacheable
+stylesheet and discovers fonts through it.

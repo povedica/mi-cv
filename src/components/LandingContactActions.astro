@@ -12,7 +12,7 @@ const { linkedin, cv, cvLabels } = Astro.props;
 <div class="landing-actions">
   <a class="landing-button landing-linkedin" href={linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" data-analytics-action="linkedin-click"><LinkedInIcon /> <span>LinkedIn</span></a>
   {(['es', 'en'] as const).map(language => (
-    <a class="landing-button" href={cv[language]} hreflang={language} lang={language} aria-label={cvLabels[language]} target="_blank" rel="noopener" data-analytics-action="cv-download">
+    <a class="landing-button" href={cv[language]} hreflang={language} aria-label={cvLabels[language]} title={cvLabels[language]} target="_blank" rel="noopener" data-analytics-action="cv-download">
       CV ({language.toUpperCase()})
     </a>
   ))}

@@ -34,7 +34,7 @@ const label = (spanish: string, english: string) => isSpanish ? spanish : englis
       <a class="brand" href={home}><span class="brand-mark" aria-hidden="true">PP</span>Pablo Poveda</a>
       <div class="header-actions">
         <ThemeSelect locale={locale} />
-        <a href={switchPath} hreflang={label('en', 'es')} lang={label('en', 'es')} aria-label={label('Read in English', 'Leer en español')}>{label('EN', 'ES')}</a>
+        <a href={switchPath} hreflang={label('en', 'es')} lang={label('en', 'es')} aria-label={label('EN · Read in English', 'ES · Leer en español')}>{label('EN', 'ES')}</a>
         <a href={home} class="back-link">{label('Volver al perfil', 'Back to the profile')}</a>
       </div>
     </header>
@@ -50,6 +50,8 @@ const label = (spanish: string, english: string) => isSpanish ? spanish : englis
           <li>{label('Avatar', 'Avatar')} <span>{label('En desarrollo', 'In development')}</span></li>
         </ul>
       </section>
+
+      <CookieNotice locale={locale} />
 
       <div class="interview-layout">
         <AvatarVideo locale={locale} />
@@ -84,8 +86,7 @@ const label = (spanish: string, english: string) => isSpanish ? spanish : englis
       </div>
     </main>
     <footer>
-      <CookieNotice locale={locale} />
-          <div class="site-footer shell"><a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a></div>
+      <div class="site-footer shell"><a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a></div>
     </footer>
 
     <script>

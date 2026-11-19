@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import poster from '../assets/poster-pablo-poveda.png';
+import poster from '../assets/poster-pablo-poveda-vertical.png';
 
 interface Props {
   locale: 'es' | 'en';
@@ -20,15 +20,18 @@ const messages = {
 ---
 
 <figure class:list={["avatar-video", { "avatar-interview": !isHero }]} data-avatar-video data-messages={JSON.stringify(messages)}>
-  <figcaption class="avatar-caption">{label('Vídeo generado con IA a partir de Pablo', 'AI-generated video based on Pablo')}</figcaption>
+  <figcaption class="avatar-caption">
+    {label('Grabación generada con IA a partir de Pablo. La entrevista interactiva sigue en desarrollo.', 'AI-generated recording based on Pablo. The interactive interview is still in development.')}
+  </figcaption>
   <div class="avatar-frame">
     <Image
       src={poster}
       alt={label('Retrato de Pablo Poveda', 'Portrait of Pablo Poveda')}
-      width={1122}
-      widths={[320, 480, 640, 800, 960, 1122]}
-      sizes={isHero ? "(max-width: 900px) 92vw, (max-width: 1439px) 340px, 410px" : "(max-width: 414px) calc(100vw - 56px), 380px"}
+      width={648}
+      widths={[288, 360, 432, 504, 576, 648]}
+      sizes={isHero ? "(max-width: 900px) min(calc(100vw - 2 * clamp(1rem, 4.5vw, 3rem)), 1240px), min(calc((min(100vw - 2 * clamp(1rem, 4.5vw, 3rem), 1240px) - clamp(1.25rem, 4vw, 4rem)) * .3521), max(220px, calc((100svh - 132px - 2 * clamp(1.65rem, 5svh, 4rem)) * 9 / 16)))" : "(max-width: 414px) calc(100vw - 56px), 380px"}
       format="webp"
+      quality={72}
       priority={isHero}
     />
     <video
@@ -38,7 +41,9 @@ const messages = {
       playsinline
       controlslist="nodownload"
       disablepictureinpicture
-    ></video>
+    >
+      <track kind="captions" src={`/captions/avatar-${mediaVersion}-${locale}.vtt`} srclang={locale} label={label('Español', 'English')} />
+    </video>
     <button class="avatar-play" type="button" aria-label={label('Reproducir vídeo', 'Play video')} hidden>
       <span aria-hidden="true"></span>
     </button>

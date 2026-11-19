@@ -26,9 +26,9 @@ Target errors are 400 for invalid input, 404 for an inaccessible session, 429 fo
 
 ## Recorded avatar
 
-`src/components/AvatarVideo.astro` renders the supplied poster as a responsive WebP
+`src/components/AvatarVideo.astro` renders a 9:16 crop of the approved portrait as a responsive WebP
 fallback and labels the recording as AI-generated. Both localized landing and interview pages request the
 versioned HLS manifest only after the visitor activates the player. Spanish routes use `v2` and English routes use `v3`. The player
 uses native HLS when reported by the browser and loads the bundled hls.js light
 build dynamically for Media Source Extensions. Unsupported browsers keep the portrait visible. Playback failures return to the portrait and offer a retry. Media files live outside the static release and are
-served by Caddy. See [conversion and deployment](DEPLOYMENT.md#avatar-video).
+served by Caddy. Version-matched WebVTT caption tracks are bundled with the static release. See [conversion and deployment](DEPLOYMENT.md#avatar-video).
