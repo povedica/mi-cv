@@ -240,7 +240,7 @@ const cvLabels = {
         <div class="landing-wrap">
           <LandingSectionTitle title={copy.languages.title} />
           <ul class="landing-languages" role="list">
-            {copy.languages.items.map(item => <li><span aria-hidden="true">{item.locale === 'es' ? '🇪🇸' : '🇬🇧'}</span>{item.text}</li>)}
+            {copy.languages.items.map(item => <li><span class="landing-language-code" aria-hidden="true">{item.locale.toUpperCase()}</span>{item.text}</li>)}
           </ul>
         </div>
       </section>

@@ -225,6 +225,7 @@
 .landing .landing-education-publication { display: inline-block; margin-top: .65rem; color: var(--accent); font: 400 .8rem/1.4 var(--mono); }
 .landing-languages { display: grid; gap: .5rem; list-style: none; padding: 0; }
 .landing-languages li { display: flex; align-items: baseline; gap: .65rem; }
+.landing-language-code { color: var(--accent); font: 400 .8rem/1.4 var(--mono); }
 
 .landing-about { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
 .landing-end { display: grid; border: 1px solid var(--line); background: var(--surface); }
