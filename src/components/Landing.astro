@@ -90,6 +90,7 @@ const cvLabels = {
           <a class="landing-lang" href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
             <span aria-hidden="true">{isSpanish ? '🇬🇧' : '🇪🇸'}</span>{otherLocale.toUpperCase()}
           </a>
+          <ThemeSelect locale={locale} compact />
         </div>
       </div>
     </header>
@@ -246,7 +247,6 @@ const cvLabels = {
           {cvLocales.map(language => <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>)}
           <a href={otherHome} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
         </nav>
-        <ThemeSelect locale={locale} />
       </div>
     </footer>
   </body>

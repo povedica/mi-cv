@@ -200,7 +200,7 @@
 .landing-footer { border-top: 1px solid var(--line); padding-block: 1.6rem; color: var(--muted); }
 .landing-footer .landing-wrap, .landing-footer nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem 1rem; }
 
-@media (max-width: 379px) {
+@media (max-width: 420px) {
   .landing-brand-name span:first-child { display: none; }
   .landing-brand-name span + span { display: inline; }
 }
