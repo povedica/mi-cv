@@ -270,16 +270,16 @@
         "text": "PHP (custom development and WordPress), Drupal, Laravel and Symfony. APIs, SQL and NoSQL databases, web security, performance and systems integration. Recent personal projects use TypeScript, Python and FastAPI. AI brings us back to basics: the fundamentals have never mattered more."
       },
       {
-        "title": "Artificial Intelligence & GenAI",
-        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance. AI amplifies what you already know how to do. Without sound engineering, it only makes mistakes happen faster."
-      },
-      {
         "title": "Software delivery and quality",
         "text": "Agile, predictable delivery processes with continuous integration and deployment, engineering standards, and quality built into the continuous, iterative development cycle. Fail fast, learn fast."
       },
       {
         "title": "Communication and business alignment",
         "text": "Translating business objectives into technical plans, aligning teams across marketing, content, systems and legal, reporting to leadership and teams, and presenting solutions to clients and at industry events."
+      },
+      {
+        "title": "Artificial Intelligence & GenAI",
+        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance. AI amplifies what you already know how to do. Without sound engineering, it only makes mistakes happen faster."
       }
     ]
   },

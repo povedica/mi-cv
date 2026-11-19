@@ -270,16 +270,16 @@
         "text": "PHP (a medida y WordPress), Drupal, Laravel y Symfony; API, bases de datos SQL y NoSQL, seguridad web, rendimiento e integración de sistemas. Proyectos personales recientes con TypeScript, Python y FastAPI. Con la IA volvemos a las bases: los fundamentos nunca fueron tan importantes como ahora."
       },
       {
-        "title": "Artificial Intelligence & GenAI",
-        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance. La IA multiplica lo que ya sabes hacer: sin buena ingeniería detrás, solo acelera los errores."
-      },
-      {
         "title": "Entrega y calidad de software",
         "text": "Procesos de entrega ágiles y predecibles, con integración y despliegue continuos, estándares de ingeniería y calidad integrada en el ciclo de desarrollo continuo e iterativo. Falla rápido, aprende rápido."
       },
       {
         "title": "Comunicación y relación con negocio",
         "text": "Traducir objetivos de negocio en planes técnicos, alinear a áreas como marketing, contenidos, sistemas o legal, reportar tanto a dirección como a los equipos y presentar soluciones a clientes y en eventos del sector."
+      },
+      {
+        "title": "Artificial Intelligence & GenAI",
+        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance. La IA multiplica lo que ya sabes hacer: sin buena ingeniería detrás, solo acelera los errores."
       }
     ]
   },
