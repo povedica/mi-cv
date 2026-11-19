@@ -1,6 +1,9 @@
 cv.reflexionia.com {
 	root * /etc/caddy/sites/mi-cv/current
 	encode zstd gzip
+	@profileMarkdown path /index.md /en/index.md
+	header @profileMarkdown Content-Type "text/markdown; charset=utf-8"
+	header /llms.txt Content-Type "text/plain; charset=utf-8"
 	@pages path / /en/ /interview/ /en/interview/
 	header @pages Cache-Control "public, max-age=0, s-maxage=300"
 	handle /_astro/* {

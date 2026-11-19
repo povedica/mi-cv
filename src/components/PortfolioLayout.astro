@@ -6,8 +6,7 @@ import LandingContactActions from './LandingContactActions.astro';
 import LandingBrand from './LandingBrand.astro';
 import UnavailableInterview from './UnavailableInterview.astro';
 import ThemeSelect from './ThemeSelect.astro';
-import es from '../content/landing/es.json';
-import en from '../content/landing/en.json';
+import { cv, linkedin, profileCopy, github } from '../data/public-profile';
 import geist from '../assets/fonts/Geist-latin.woff2?url';
 import geistMono from '../assets/fonts/GeistMono-latin.woff2?url';
 import '../styles/landing.css';
@@ -21,7 +20,7 @@ interface Props {
 
 const { locale, page = 'home' } = Astro.props;
 const isSpanish = locale === 'es';
-const copy = isSpanish ? es : en;
+const copy = profileCopy[locale];
 const home = isSpanish ? '/' : '/en/';
 const socialImage = `https://cv.reflexionia.com/${isSpanish ? 'og-v2.jpg' : 'og-v2-en.jpg'}`;
 const otherLocale = isSpanish ? 'en' : 'es';
@@ -33,12 +32,6 @@ const otherPage = `${isSpanish ? englishPath : path}?lang=${otherLocale}`;
 const title = Astro.props.title ?? copy.title;
 const description = Astro.props.description ?? copy.description;
 const otherLanguageLabel = isSpanish ? 'EN · Read in English' : 'ES · Leer en español';
-const linkedin = 'https://www.linkedin.com/in/pablo-poveda-ortega/';
-const github = 'https://github.com/povedica';
-const cv = {
-  es: '/cv/Pablo-Poveda-Ortega-CV-ES.pdf',
-  en: '/cv/Pablo-Poveda-Ortega-CV-EN.pdf',
-};
 const cvHint = isSpanish ? 'abre en una pestaña nueva' : 'opens in a new tab';
 const cvLabels = {
   es: `CV (ES) · PDF, ${cvHint}`,
@@ -87,6 +80,11 @@ const cvLabels = {
     </script>
     <link rel="preload" href={geist} as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="preload" href={geistMono} as="font" type="font/woff2" crossorigin="anonymous" />
+    {page === 'interview' && <meta name="robots" content="noindex" />}
+    {page === 'home' && <>
+      <link rel="alternate" type="text/markdown" href={isSpanish ? '/index.md' : '/en/index.md'} />
+      <link rel="describedby" href="/llms.txt" />
+    </>}
     <link rel="canonical" href={`https://cv.reflexionia.com${pagePath}`} />
     <link rel="alternate" hreflang="es" href={`https://cv.reflexionia.com${path}`} />
     <link rel="alternate" hreflang="en" href={`https://cv.reflexionia.com${englishPath}`} />

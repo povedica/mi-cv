@@ -1,4 +1,6 @@
 ---
+import { profileCopy, profileCreated, profileModified, profileOrigin, talkUrls } from '../data/public-profile';
+
 interface Props {
   locale: 'es' | 'en';
   home: string;
@@ -13,7 +15,7 @@ interface Props {
 }
 
 const { locale, home, title, profile, linkedin, github } = Astro.props;
-const site = 'https://cv.reflexionia.com/';
+const site = `${profileOrigin}/`;
 const url = new URL(home, site).href;
 const websiteId = `${site}#website`;
 const personId = `${site}#person`;
@@ -25,6 +27,58 @@ const credential = (name: string, institution: typeof lidr) => ({
   credentialCategory: profile.credentialCategory,
   recognizedBy: institution,
 });
+const copy = profileCopy[locale];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+function isoMonth(date: string) {
+  const [month, year] = date.split(' ');
+  const number = months.indexOf(month) + 1;
+  if (!number || !/^\d{4}$/.test(year)) throw new Error(`Invalid public experience date: ${date}`);
+  return `${year}-${String(number).padStart(2, '0')}`;
+}
+const career = copy.experience.roles.map((role, index) => {
+  const [start, end] = profileCopy.en.experience.roles[index].period.split(' – ');
+  return {
+    '@type': 'OrganizationRole',
+    roleName: role.title,
+    startDate: isoMonth(start),
+    endDate: isoMonth(end),
+    worksFor: { '@type': 'Organization', name: role.company },
+  };
+});
+const wordCamp = {
+  '@type': 'Event',
+  '@id': 'https://madrid.wordcamp.org/2019/#event',
+  name: 'WordCamp Madrid 2019',
+  url: 'https://madrid.wordcamp.org/2019/',
+  startDate: '2019-04-06',
+  endDate: '2019-04-07',
+  location: ['La Nave', 'Google for Startups'].map(name => ({
+    '@type': 'Place',
+    name,
+    address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
+  })),
+};
+const talks = copy.talks.labels.map((name, index) => ({
+  '@type': 'CreativeWork',
+  name,
+  url: talkUrls[index],
+  contributor: {
+    '@type': 'Role',
+    roleName: index === 3 ? copy.talks.highlights[0].title : locale === 'es' ? 'Ponente' : 'Speaker',
+    contributor: { '@id': personId },
+  },
+  ...(index === 3 ? { about: { '@id': wordCamp['@id'] } } : {}),
+}));
+talks.push({
+  '@type': 'CreativeWork',
+  name: copy.talks.highlights[1].title,
+  url: `${url}#${copy.ids[6]}`,
+  contributor: {
+    '@type': 'Role',
+    roleName: locale === 'es' ? 'Ponente' : 'Speaker',
+    contributor: { '@id': personId },
+  },
+});
 const graph = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -35,6 +89,8 @@ const graph = {
       url,
       name: title,
       isPartOf: { '@id': websiteId },
+      dateCreated: profileCreated,
+      dateModified: profileModified,
       mainEntity: { '@id': personId },
       inLanguage: locale,
     },
@@ -59,6 +115,16 @@ const graph = {
         credential(profile.credentialNames[1], unir),
       ],
       sameAs: [linkedin, github],
+      worksFor: career,
+      subjectOf: talks,
+    },
+    {
+      ...wordCamp,
+      organizer: {
+        '@type': 'Role',
+        roleName: copy.talks.highlights[0].title,
+        organizer: { '@id': personId },
+      },
     },
   ],
 };

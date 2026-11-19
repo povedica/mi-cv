@@ -16,6 +16,8 @@ Preload both existing Geist files. Keep the full Latin glyph coverage because Sp
 
 Use the host-scoped Cloudflare Email Obfuscation override before removing no-transform at the origin. Keep the MP4 initialization MIME type and give fMP4 media fragments their own MIME type. Keep current image references until both approved JPEGs are available and accepted by the release receiver.
 
+Use only public landing fields for Markdown and structured data. Share public URLs and dated revisions across the generated outputs. Use IndexNow after the HTTPS release check when the operator has supplied the verification key. Retain the current CV pages and text while updating document information and language.
+
 ## Risks / Trade-offs
 
 Changing the edge header before disabling Email Obfuscation can alter HTML and break release byte comparisons. Production validation must use the approved release and a fresh cache entry.

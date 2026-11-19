@@ -37,6 +37,16 @@ Run **Deploy production** from the Actions tab and select `production`. The work
 
 If the HTTPS check fails, inspect the reported route, the live symlink and the Caddy logs. The published release stays active until an operator switches it. Access logs belong to the shared edge.
 
+## Search and agent discovery
+
+Install the updated release receiver and Caddy snippet before publishing this release. The receiver accepts `llms.txt`, `index.md` and `en/index.md`. Caddy serves the Markdown routes as `text/markdown; charset=utf-8` and the discovery file as `text/plain; charset=utf-8`.
+
+Verify the hostname in Bing Webmaster Tools and Google Search Console and submit `https://cv.reflexionia.com/sitemap.xml` to both. Keep the portfolio home pages and CVs in the sitemap. The cookie policies and inactive interview previews use a robots `noindex` meta tag. Update the relevant revision date in `src/data/public-profile.ts` when publishing substantive changes to a profile or CV.
+
+Set the production environment variable `INDEXNOW_KEY` to a generated 32-character lowercase hexadecimal key. The workflow places the proof at `/<key>.txt`, verifies the HTTPS release and submits the sitemap URLs to IndexNow. Deploys without the variable skip the proof and notification. The deployment log records the HTTP result. See the [IndexNow protocol](https://www.indexnow.org/documentation).
+
+After release, inspect AI Crawl Control and Security Events for verified crawler requests. Check that the hostname policy allows the intended agents and that the production robots file matches the intended directives. User-Agent probes can confirm the response from the probe's network. Verified crawler access is visible in Cloudflare.
+
 ## Cloudflare cache
 
 Keep the existing Caddy origin address on the `cv` DNS record and enable Cloudflare proxying for that record. Use Full (strict) TLS from Cloudflare to Caddy. Keep changes scoped to `cv.reflexionia.com` so other hosts keep their own settings.

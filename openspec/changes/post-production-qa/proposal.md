@@ -8,6 +8,7 @@ Production QA found a legacy analytics error, crowded mobile overlays, stale sha
 - Share the portfolio layout with both interview previews.
 - Compact the mobile cookie notice and hide the action dock on downward scroll.
 - Refresh bilingual share descriptions and use the approved locale-specific JPEGs when supplied.
+- Publish static bilingual Markdown, add career and event metadata, refine indexing, and complete PDF metadata.
 - Allow compressed HTML at the edge while preserving the published demo address.
 
 ## Capabilities

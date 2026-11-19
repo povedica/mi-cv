@@ -12,16 +12,18 @@ RECEIVER = Path(__file__).resolve().parents[1] / "deploy" / "release.py"
 SHA = "a" * 40
 PAGES = ["index.html", "interview/index.html"]
 ASSET = "_astro/styles.css"
+INDEXNOW_KEY = "0123456789abcdef" * 2
 
 
 class ReleaseTest(unittest.TestCase):
-    def publish(self, root, files):
+    def publish(self, root, files, contents=None):
         archive = io.BytesIO()
         with tarfile.open(fileobj=archive, mode="w") as tar:
             for path in files:
                 member = tarfile.TarInfo(path)
-                member.size = 4
-                tar.addfile(member, io.BytesIO(b"test"))
+                data = (contents or {}).get(path, b"test")
+                member.size = len(data)
+                tar.addfile(member, io.BytesIO(data))
         return subprocess.run(
             [sys.executable, str(RECEIVER), str(root), "publish", SHA],
             input=archive.getvalue(), capture_output=True,
@@ -30,7 +32,7 @@ class ReleaseTest(unittest.TestCase):
     def test_landing_files_are_accepted(self):
         files = PAGES + [
             ASSET, "_astro/poster.test.avif", "_astro/Geist-latin.Ast12.woff2", "en/index.html", "en/interview/index.html", "cv/public-en.pdf",
-            "certificados/public.pdf", "sitemap.xml", "robots.txt", "og.png", "og.jpg", "og-v2.jpg", "og-v2-en.jpg", "pablo-poveda.jpg",
+            "certificados/public.pdf", "sitemap.xml", "robots.txt", "llms.txt", "index.md", "en/index.md", "og.png", "og.jpg", "og-v2.jpg", "og-v2-en.jpg", "pablo-poveda.jpg",
             "favicon.svg", "favicon.ico", "apple-touch-icon.png", "site.webmanifest",
             "icon-192.png", "icon-512.png", "maskable-512.png",
             "captions/avatar-v2-es.vtt", "captions/avatar-v3-en.vtt",
@@ -43,8 +45,17 @@ class ReleaseTest(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertTrue(all((root / "current" / path).is_file() for path in files))
 
+    def test_indexnow_verification_file_must_match_its_name(self):
+        filename = f"{INDEXNOW_KEY}.txt"
+        for content, expected in ((INDEXNOW_KEY.encode("ascii"), 0), (b"wrong", 1)):
+            with self.subTest(expected=expected), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                (root / "releases").mkdir()
+                result = self.publish(root, PAGES + [ASSET, filename], {filename: content})
+                self.assertEqual(result.returncode, expected, result.stderr)
+
     def test_unexpected_files_are_rejected(self):
-        for path in ("en/other/index.html", "cv/../private.pdf", "cv/nested/private.pdf", "private.pdf", "fonts/private.woff2"):
+        for path in ("en/other/index.html", "cv/../private.pdf", "cv/nested/private.pdf", "private.pdf", "private.txt", "en/private.md", "fonts/private.woff2"):
             with self.subTest(path=path), tempfile.TemporaryDirectory() as directory:
                 root = Path(directory)
                 (root / "releases").mkdir()

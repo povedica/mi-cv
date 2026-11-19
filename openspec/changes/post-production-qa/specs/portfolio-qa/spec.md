@@ -44,3 +44,21 @@ The localized interview routes SHALL use the same site layout as the correspondi
 
 - **WHEN** the visitor loads either interview route
 - **THEN** the header, footer, cookie notice and mobile dock behave like the profile layout, the language switch opens the other interview locale, and the interview history stays local
+
+### Requirement: Public profile discovery
+
+The build SHALL produce an agent discovery index and localized Markdown using approved public landing fields. The home pages SHALL publish structured career and public event data.
+
+#### Scenario: Agent reads the English profile
+
+- **WHEN** an agent follows the English Markdown link from the discovery index
+- **THEN** the document contains the public English profile and excludes demo credentials and private contact data
+
+### Requirement: Search indexing scope
+
+The sitemap SHALL list both localized home pages and CV PDFs with modification dates and language alternates. The inactive interview and cookie policies SHALL declare noindex and stay outside the sitemap.
+
+#### Scenario: Production release completes with IndexNow configured
+
+- **WHEN** the deployed proof and release files pass HTTPS verification
+- **THEN** the workflow submits the public sitemap URLs to IndexNow

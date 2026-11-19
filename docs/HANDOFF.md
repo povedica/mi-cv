@@ -29,6 +29,10 @@ Both localized interview routes now use the shared portfolio layout and remain o
 
 The supplied social JPEGs are 1200×630. Both static landing pages reference the locale-specific image and declare matching Open Graph and Twitter metadata. The release receiver accepts both image paths. The Caddy change requires the hostname-scoped Cloudflare rule and production validation described in the [deployment runbook](DEPLOYMENT.md). YellowLab, historical browsers, HLS response types, and social crawler previews remain production acceptance checks.
 
+The discovery follow-up adds static Markdown in both languages, a discovery index, dated sitemap entries for the home pages and CVs, and `noindex` on cookie and interview pages. JSON-LD now carries the public timeline and speaking activity. Metadata-only changes to the CV PDFs preserve the extracted text, document tags and rendered pixels. Direct production probes using GPTBot, ClaudeBot and PerplexityBot identifiers returned HTTP 200 for both home pages from the test network.
+
+IndexNow is wired into the production workflow and requires its environment variable. Search console ownership, backlinks and production validator checks are pending.
+
 ## Next bounded change
 
 Implement a local text-chat session, one question and close using synthetic content. Verify citation ownership, abstention without evidence, session access and exclusion of private records before connecting the interface. The live corpus requires approval of each version. See [analytics rollout](ANALYTICS.md) for the pending production verification.
