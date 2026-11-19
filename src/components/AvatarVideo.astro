@@ -30,8 +30,10 @@ const isHero = placement === 'hero';
       controlslist="nodownload"
       disablepictureinpicture
     ></video>
+    <button class="avatar-play" type="button" aria-label="Reproducir vídeo" hidden>
+      <span aria-hidden="true"></span>
+    </button>
   </div>
-  <button class="button button-primary" type="button" hidden>Cargar vídeo</button>
   <p role="status"></p>
   <noscript><p>Activa JavaScript para reproducir el vídeo.</p></noscript>
 </figure>
@@ -83,9 +85,44 @@ const isHero = placement === 'hero';
     margin: 0;
   }
 
-  button {
-    align-self: start;
-    margin-top: 12px;
+  .avatar-play {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #0b1020;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .avatar-play[hidden] {
+    display: none;
+  }
+
+  .avatar-play:hover {
+    background: #242d46;
+  }
+
+  .avatar-play:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+  }
+
+  .avatar-play:disabled {
+    cursor: wait;
+  }
+
+  .avatar-play span {
+    width: 0;
+    height: 0;
+    margin-left: 4px;
+    border-block: 10px solid transparent;
+    border-inline-start: 16px solid currentColor;
   }
 
   p:empty {
@@ -127,8 +164,8 @@ const isHero = placement === 'hero';
       video.controls = false;
       load.hidden = false;
       load.disabled = false;
+      load.setAttribute('aria-label', 'Reintentar reproducción del vídeo');
       load.focus();
-      load.textContent = 'Reintentar carga del vídeo';
       status.textContent = 'El vídeo no está disponible en este momento.';
     }
 
