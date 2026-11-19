@@ -122,7 +122,7 @@ const cvLabels = {
           <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
           <div class="landing-nav-preferences">
             <a class="landing-lang" href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
-              <span aria-hidden="true">{isSpanish ? '🇬🇧' : '🇪🇸'}</span>{otherLocale.toUpperCase()}
+              {otherLocale.toUpperCase()}
             </a>
             <ThemeSelect locale={locale} compact />
           </div>
