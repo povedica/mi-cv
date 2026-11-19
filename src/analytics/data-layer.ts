@@ -27,7 +27,7 @@ export type AnalyticsEvent = {
 }[EventName];
 
 export function createAnalyticsEvent(name: string, dimension: string): AnalyticsEvent | null {
-  if (!Object.hasOwn(values, name)) return null;
+  if (!Object.prototype.hasOwnProperty.call(values, name)) return null;
   const event = name as EventName;
   if (!(values[event] as readonly string[]).includes(dimension)) return null;
   if (event === 'cv_download') {

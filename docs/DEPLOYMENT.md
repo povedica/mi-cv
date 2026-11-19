@@ -33,15 +33,27 @@ git merge-base --is-ancestor origin/production origin/main
 git push origin refs/remotes/origin/main:refs/heads/production
 ```
 
-Run **Deploy production** from the Actions tab and select `production`. The workflow runs `npm run verify` before sending an archive over host-key-verified SSH. The receiver requires the Spanish home and interview and at least one regular Astro CSS, JavaScript or WebP asset. Its allowlist also accepts the English home and interview, `sitemap.xml`, `robots.txt`, `og.png`, `og.jpg` and public PDFs directly under `cv/` and `certificados/`. Exercise the allowlist locally with `python3 tests/release.test.py`. It stages a release under the full commit SHA and atomically replaces the `current` symlink under a server-side lock. Re-running a SHA reuses the first accepted release for that SHA. Each deploy checks HTTP 200 and compares the bytes of all files in the release over HTTPS.
+Run **Deploy production** from the Actions tab and select `production`. The workflow runs `npm run verify` before sending an archive over host-key-verified SSH. The receiver requires the Spanish home and interview and at least one regular Astro CSS, JavaScript or WebP asset. Its allowlist also accepts the English home and interview, `sitemap.xml`, `robots.txt`, `og.png`, `og.jpg`, `og-v2.jpg`, `og-v2-en.jpg` and public PDFs directly under `cv/` and `certificados/`. Exercise the allowlist locally with `python3 tests/release.test.py`. It stages a release under the full commit SHA and atomically replaces the `current` symlink under a server-side lock. Re-running a SHA reuses the first accepted release for that SHA. Each deploy checks HTTP 200 and compares the bytes of all files in the release over HTTPS.
 
 If the HTTPS check fails, inspect the reported route, the live symlink and the Caddy logs. The published release stays active until an operator switches it. Access logs belong to the shared edge.
+
+## Search and agent discovery
+
+Install the updated release receiver and Caddy snippet before publishing this release. The receiver accepts `llms.txt`, `index.md` and `en/index.md`. Caddy serves the Markdown routes as `text/markdown; charset=utf-8` and the English discovery index as `text/plain; charset=utf-8`.
+
+Verify the hostname in Bing Webmaster Tools and Google Search Console and submit `https://cv.reflexionia.com/sitemap.xml` to both. Keep the portfolio home pages and CVs in the sitemap. The cookie policies and inactive interview previews use a robots `noindex` meta tag. Update the relevant revision date in `src/data/public-profile.ts` when publishing substantive changes to a profile or CV.
+
+IndexNow integration is deferred. When enabled in a future release, publish the ownership proof and submit the sitemap URLs only after HTTPS verification. See the [IndexNow protocol](https://www.indexnow.org/documentation).
+
+After release, inspect AI Crawl Control and Security Events for verified crawler requests. Check that the hostname policy allows the intended agents and that the production robots file matches the intended directives. User-Agent probes can confirm the response from the probe's network. Verified crawler access is visible in Cloudflare.
 
 ## Cloudflare cache
 
 Keep the existing Caddy origin address on the `cv` DNS record and enable Cloudflare proxying for that record. Use Full (strict) TLS from Cloudflare to Caddy. Keep changes scoped to `cv.reflexionia.com` so other hosts keep their own settings.
 
-Add a Cache Rule that makes `/` and `/interview/` eligible for caching on this host when the query string is empty. Respect the origin cache headers and the standard cache key. Caddy allows shared caches to serve HTML for five minutes. GitHub Actions checks the new HTML on a release-specific query string and compares all deployed files with the build. The CV site sets `Cache-Control: no-transform` on the landing and interview routes so Cloudflare preserves the released HTML, including the public demo address.
+Add a Cache Rule that makes `/` and `/interview/` eligible for caching on this host when the query string is empty. Respect the origin cache headers and the standard cache key. Caddy allows shared caches to serve HTML for five minutes. GitHub Actions checks files with stable URLs on a release-specific query string and compares all deployed files with the build. The current release keeps `no-transform` on the HTML routes to protect the public demo address. Before removing that directive, create a [Cloudflare Configuration Rule](https://developers.cloudflare.com/rules/configuration-rules/settings/#email-obfuscation) with the expression `(http.host eq "cv.reflexionia.com")` and set **Email Obfuscation** to **Off**. This preserves the public demo address and allows the origin to omit `no-transform` so the edge can compress the HTML.
+
+After removing the directive and reloading Caddy, check `/` and `/en/` with `curl -fsSI -H 'Accept-Encoding: br, gzip' URL` on a fresh response. Expect `Content-Encoding: br` or `gzip`. Fetch both routes with `curl --compressed` and check that the public demo address remains literal and the release's decoded HTML matches the build. If the rule cannot be applied or Cloudflare rewrites the address, restore the previous Caddy configuration.
 
 Caddy serves fingerprinted assets from the shared `assets/_astro` directory. The receiver adds a release's assets before switching the HTML. This keeps earlier HTML usable while it remains in cache or a browser tab. Keep assets for retained releases and avoid automatic asset pruning without a retention review.
 

@@ -74,6 +74,25 @@ const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
     margin: 0 auto;
   }
 
+  @media (max-width: 740px) {
+    :global(.landing) .cookie-notice:not([hidden]) {
+      bottom: calc(max(.75rem, env(safe-area-inset-bottom)) + var(--dock-reserve) + .5rem);
+      gap: .5rem;
+      border-color: var(--strong-line);
+      border-radius: 1rem;
+      background-color: var(--surface);
+      background-color: color-mix(in srgb, var(--surface) 94%, transparent);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 4px 22px rgb(0 0 0 / 16%);
+      padding: .625rem .75rem;
+      font-size: .8125rem;
+      line-height: 1.4;
+    }
+
+    :global(.landing) .cookie-notice button { border-radius: .625rem; }
+  }
+
   p { flex: 1 1 26rem; margin: 0; }
   .inline-link { margin: 0; }
   button {

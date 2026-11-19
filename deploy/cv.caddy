@@ -1,6 +1,9 @@
 cv.reflexionia.com {
 	root * /etc/caddy/sites/mi-cv/current
 	encode zstd gzip
+	@profileMarkdown path /index.md /en/index.md
+	header @profileMarkdown Content-Type "text/markdown; charset=utf-8"
+	header /llms.txt Content-Type "text/plain; charset=utf-8"
 	@pages path / /en/ /interview/ /en/interview/
 	header @pages Cache-Control "public, max-age=0, s-maxage=300, no-transform"
 	handle /_astro/* {
@@ -24,7 +27,8 @@ cv.reflexionia.com {
 
 			@playlist path_regexp ^/avatar/v[0-9]+/(master|(?:1080p|720p|480p)/index)\.m3u8$
 			@segment path_regexp ^/avatar/v[0-9]+/(?:1080p|720p|480p)/[0-9]+\.ts$
-			@fragment path_regexp ^/avatar/v[0-9]+/(?:1080p|720p|480p)/(?:init_[0-2]\.mp4|[0-9]+\.m4s)$
+			@initialization path_regexp ^/avatar/v[0-9]+/(?:1080p|720p|480p)/init_[0-2]\.mp4$
+			@fragment path_regexp ^/avatar/v[0-9]+/(?:1080p|720p|480p)/[0-9]+\.m4s$
 			root * /etc/caddy/sites/mi-cv-media
 			handle @playlist {
 				header Content-Type application/vnd.apple.mpegurl
@@ -36,8 +40,13 @@ cv.reflexionia.com {
 				header Cache-Control "private, max-age=31536000, immutable"
 				file_server
 			}
-			handle @fragment {
+			handle @initialization {
 				header Content-Type video/mp4
+				header Cache-Control "private, max-age=31536000, immutable"
+				file_server
+			}
+			handle @fragment {
+				header Content-Type video/iso.segment
 				header Cache-Control "private, max-age=31536000, immutable"
 				file_server
 			}

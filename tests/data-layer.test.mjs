@@ -20,6 +20,21 @@ test('rejects arbitrary dimensions, unknown events and prototype keys', () => {
   ]) assert.equal(createAnalyticsEvent(event, value), null);
 });
 
+test('validates events in browsers without Object.hasOwn', () => {
+  const hasOwn = Object.hasOwn;
+  let accepted;
+  let rejected;
+  try {
+    Object.hasOwn = undefined;
+    accepted = createAnalyticsEvent('page_view', 'home');
+    rejected = createAnalyticsEvent('__proto__', 'home');
+  } finally {
+    Object.hasOwn = hasOwn;
+  }
+  assert.equal(accepted?.event, 'page_view');
+  assert.equal(rejected, null);
+});
+
 test('reuses the queue and bounds memory without eviction', () => {
   const layer = [{ event: 'other' }];
   globalThis.window = { dataLayer: layer };

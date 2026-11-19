@@ -12,12 +12,13 @@ import tempfile
 
 PAGES = {"index.html", "interview/index.html"}
 LANDING_FILES = {
-    "en/index.html", "en/interview/index.html", "sitemap.xml", "robots.txt",
+    "en/index.html", "en/interview/index.html", "sitemap.xml", "robots.txt", "llms.txt", "index.md", "en/index.md",
     "captions/avatar-v2-es.vtt", "captions/avatar-v3-en.vtt",
-    "og.png", "og.jpg", "pablo-poveda.jpg", "cookies/index.html", "en/cookies/index.html",
+    "og.png", "og.jpg", "og-v2.jpg", "og-v2-en.jpg", "pablo-poveda.jpg", "cookies/index.html", "en/cookies/index.html",
     "favicon.svg", "favicon.ico", "apple-touch-icon.png", "site.webmanifest",
     "icon-192.png", "icon-512.png", "maskable-512.png",
 }
+INDEXNOW_KEY = re.compile(r"[a-f0-9]{32}\.txt")
 PUBLIC_PDF = re.compile(r"(?:cv|certificados)/[\w-][\w.-]*\.pdf", re.ASCII)
 ASSET = re.compile(r"_astro/[\w.-]+\.(?:css|js|avif|webp|woff2)", re.ASCII)
 SHA = re.compile(r"[a-f0-9]{40}")
@@ -34,13 +35,15 @@ def unpack(destination):
             is_astro_asset = bool(ASSET.fullmatch(name))
             if (not member.isfile() or name in names or
                     not (name in PAGES or name in LANDING_FILES or
-                         is_astro_asset or PUBLIC_PDF.fullmatch(name)) or
+                         is_astro_asset or PUBLIC_PDF.fullmatch(name) or INDEXNOW_KEY.fullmatch(name)) or
                     member.size < 1 or total > 32 * 1024 * 1024 or len(names) >= 256):
                 raise ValueError("Invalid release contents")
             target = destination / name
             target.parent.mkdir(mode=0o755, exist_ok=True)
             with archive.extractfile(member) as source, target.open("xb") as output:
                 shutil.copyfileobj(source, output)
+            if INDEXNOW_KEY.fullmatch(name) and target.read_bytes() != name[:-4].encode("ascii"):
+                raise ValueError("Invalid IndexNow verification file")
             names.add(name)
             has_astro_assets |= is_astro_asset
     if not PAGES <= names or not has_astro_assets:

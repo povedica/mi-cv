@@ -1,11 +1,8 @@
 ---
+import PortfolioLayout from './PortfolioLayout.astro';
 import AvatarVideo from './AvatarVideo.astro';
-import SiteHead from './SiteHead.astro';
-import CookieNotice from './CookieNotice.astro';
-import ThemeSelect from './ThemeSelect.astro';
 import es from '../content/landing/es.json';
 import en from '../content/landing/en.json';
-import '../styles/global.css';
 
 interface Props {
   locale: 'es' | 'en';
@@ -13,138 +10,152 @@ interface Props {
 
 const { locale } = Astro.props;
 const isSpanish = locale === 'es';
-const home = isSpanish ? '/' : '/en/';
-const switchPath = isSpanish ? '/en/interview/' : '/interview/';
 const copy = isSpanish ? es : en;
 const suggestions = copy.suggestions;
 const label = (spanish: string, english: string) => isSpanish ? spanish : english;
-
 ---
-<!doctype html>
-<html lang={locale} data-analytics-page="interview">
-  <SiteHead description={label('Vista previa de la entrevista profesional de Pablo Poveda.', 'Preview of Pablo Poveda’s professional interview.')} title={label('Entrevista · Pablo Poveda', 'Interview · Pablo Poveda')}>
-    <link rel="canonical" href={`https://cv.reflexionia.com${isSpanish ? '/interview/' : '/en/interview/'}`} />
-    <link rel="alternate" hreflang="es" href="https://cv.reflexionia.com/interview/" />
-    <link rel="alternate" hreflang="en" href="https://cv.reflexionia.com/en/interview/" />
-    <link rel="alternate" hreflang="x-default" href="https://cv.reflexionia.com/interview/" />
-  </SiteHead>
-  <body class="interview-body">
-    <a class="skip-link" href="#contenido">{label('Saltar al contenido', 'Skip to content')}</a>
-    <header class="site-header shell interview-nav">
-      <a class="brand" href={home}><span class="brand-mark" aria-hidden="true">PP</span>Pablo Poveda</a>
-      <div class="header-actions">
-        <ThemeSelect locale={locale} />
-        <a href={switchPath} hreflang={label('en', 'es')} lang={label('en', 'es')} aria-label={label('EN · Read in English', 'ES · Leer en español')}>{label('EN', 'ES')}</a>
-        <a href={home} class="back-link">{label('Volver al perfil', 'Back to the profile')}</a>
-      </div>
-    </header>
-    <main class="interview-main shell" id="contenido" tabindex="-1">
-      <section class="interview-intro" aria-labelledby="interview-title">
-        <h1 id="interview-title">{label('Entrevístame', 'Interview me')}</h1>
-        <p>{label('La experiencia final usará una representación de IA de Pablo Poveda, con respuestas limitadas a información profesional aprobada para publicación. Puedes explorar la interfaz y reproducir una grabación generada con IA.', 'The planned interview will use an AI representation of Pablo Poveda and answer from approved professional information. You can try the interface and play an AI-generated recording.')}</p>
-        <p>{label('Esta vista previa mantiene tus preguntas en la página mientras está abierta. El sitio no solicita acceso a cámara ni micrófono.', 'This preview keeps your questions on the page while it is open. It does not request access to your camera or microphone.')}</p>
-        <p>{label('Analítica propia sin cookies. Los eventos no incluyen datos personales.', 'Self-hosted analytics without cookies. Events do not include personal data.')}</p>
-        <ul class="interview-modes" aria-label={label('Modalidades de entrevista', 'Interview modes')}>
-          <li><a class="button button-primary" href="#chat-preview">{label('Chat · Vista previa', 'Chat · Preview')}</a></li>
-          <li>{label('Voz', 'Voice')} <span>{label('En desarrollo', 'In development')}</span></li>
-          <li>{label('Avatar', 'Avatar')} <span>{label('En desarrollo', 'In development')}</span></li>
-        </ul>
-      </section>
+<PortfolioLayout
+  {locale}
+  page="interview"
+  title={label('Entrevista · Pablo Poveda', 'Interview · Pablo Poveda')}
+  description={label('Vista previa de la entrevista profesional de Pablo Poveda.', 'Preview of Pablo Poveda’s professional interview.')}
+>
+  <div class="landing-wrap interview-main">
+  <section class="interview-intro" aria-labelledby="interview-title">
+    <h1 id="interview-title">{label('Entrevístame', 'Interview me')}</h1>
+    <p>{label('La experiencia final usará una representación de IA de Pablo Poveda, con respuestas limitadas a información profesional aprobada para publicación. Puedes explorar la interfaz y reproducir una grabación generada con IA.', 'The planned interview will use an AI representation of Pablo Poveda and answer from approved professional information. You can try the interface and play an AI-generated recording.')}</p>
+    <p>{label('Esta vista previa mantiene tus preguntas en la página mientras está abierta. El sitio no solicita acceso a cámara ni micrófono.', 'This preview keeps your questions on the page while it is open. It does not request access to your camera or microphone.')}</p>
+    <p>{label('Analítica propia sin cookies. Los eventos no incluyen datos personales.', 'Self-hosted analytics without cookies. Events do not include personal data.')}</p>
+    <ul class="interview-modes" aria-label={label('Modalidades de entrevista', 'Interview modes')}>
+      <li><a class="landing-button" href="#chat-preview">{label('Chat · Vista previa', 'Chat · Preview')}</a></li>
+      <li>{label('Voz', 'Voice')} <span>{label('En desarrollo', 'In development')}</span></li>
+      <li>{label('Avatar', 'Avatar')} <span>{label('En desarrollo', 'In development')}</span></li>
+    </ul>
+  </section>
 
-      <div class="interview-layout">
-        <AvatarVideo locale={locale} />
+  <div class="interview-layout">
+    <AvatarVideo locale={locale} />
 
-        <section class="chat-panel" id="chat-preview" aria-labelledby="chat-heading">
-          <header class="chat-head">
-            <div><h2 id="chat-heading">{label('Chat profesional', 'Professional chat')}</h2><span>{label('Vista previa local', 'Local preview')}</span></div>
-          </header>
-          <div class="chat-content">
-            <button class="button button-primary" id="start-preview" type="button" hidden>{label('Probar la interfaz de chat', 'Try the chat interface')}</button>
-            <p id="preview-status" role="status"
-              data-opened={label('Vista previa abierta. Puedes añadir preguntas al historial.', 'Preview opened. You can add questions to the history.')}
-              data-closed={label('Vista previa cerrada. Se ha borrado el historial local.', 'Preview closed. The local history has been cleared.')}></p>
-            <noscript><p>{label('Activa JavaScript para probar el historial local.', 'Enable JavaScript to try the local history.')}</p></noscript>
-            <div id="preview-session" hidden>
-              <div class="suggestions" aria-label={label('Preguntas sugeridas', 'Suggested questions')}>
-                {suggestions.map(question => <button type="button" data-question={question}>{question}</button>)}
-              </div>
-              <h3>{label('Historial local', 'Local history')}</h3>
-              <div role="log" aria-label={label('Tus preguntas', 'Your questions')}>
-                <ol class="chat-history"></ol>
-              </div>
-              <form class="chat-form" id="chat-form">
-                <label for="question">{label('Tu pregunta', 'Your question')}</label>
-                <input id="question" maxlength="500" required autocomplete="off" />
-                <button type="submit">{label('Añadir al historial', 'Add to history')}</button>
-              </form>
-              <button class="button button-secondary" type="button" id="end-preview">{label('Cerrar vista previa', 'Close preview')}</button>
-            </div>
+    <section class="chat-panel" id="chat-preview" aria-labelledby="chat-heading">
+      <header class="chat-head">
+        <div><h2 id="chat-heading">{label('Chat profesional', 'Professional chat')}</h2><span>{label('Vista previa local', 'Local preview')}</span></div>
+      </header>
+      <div class="chat-content">
+        <button class="landing-button" id="start-preview" type="button" hidden>{label('Probar la interfaz de chat', 'Try the chat interface')}</button>
+        <p id="preview-status" role="status"
+          data-opened={label('Vista previa abierta. Puedes añadir preguntas al historial.', 'Preview opened. You can add questions to the history.')}
+          data-closed={label('Vista previa cerrada. Se ha borrado el historial local.', 'Preview closed. The local history has been cleared.')}></p>
+        <noscript><p>{label('Activa JavaScript para probar el historial local.', 'Enable JavaScript to try the local history.')}</p></noscript>
+        <div id="preview-session" hidden>
+          <div class="suggestions" aria-label={label('Preguntas sugeridas', 'Suggested questions')}>
+            {suggestions.map(question => <button class="landing-button" type="button" data-question={question}>{question}</button>)}
           </div>
-        </section>
+          <h3>{label('Historial local', 'Local history')}</h3>
+          <div role="log" aria-label={label('Tus preguntas', 'Your questions')}>
+            <ol class="chat-history"></ol>
+          </div>
+          <form class="chat-form" id="chat-form">
+            <label for="question">{label('Tu pregunta', 'Your question')}</label>
+            <input id="question" maxlength="500" required autocomplete="off" />
+            <button class="landing-button" type="submit">{label('Añadir al historial', 'Add to history')}</button>
+          </form>
+          <button class="landing-button" type="button" id="end-preview">{label('Cerrar vista previa', 'Close preview')}</button>
+        </div>
       </div>
-    </main>
-    <footer>
-      <CookieNotice locale={locale} />
-      <div class="site-footer shell"><a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a></div>
-    </footer>
+    </section>
+  </div>
+  </div>
+</PortfolioLayout>
 
-    <script>
-      import { track } from '../analytics/data-layer';
+<script>
+  import { track } from '../analytics/data-layer';
 
-      const start = document.querySelector<HTMLButtonElement>('#start-preview')!;
-      const end = document.querySelector<HTMLButtonElement>('#end-preview')!;
-      const session = document.querySelector<HTMLElement>('#preview-session')!;
-      const status = document.querySelector<HTMLElement>('#preview-status')!;
-      const history = document.querySelector<HTMLOListElement>('.chat-history')!;
-      const form = document.querySelector<HTMLFormElement>('#chat-form')!;
-      const input = document.querySelector<HTMLInputElement>('#question')!;
+  const start = document.querySelector<HTMLButtonElement>('#start-preview')!;
+  const end = document.querySelector<HTMLButtonElement>('#end-preview')!;
+  const session = document.querySelector<HTMLElement>('#preview-session')!;
+  const status = document.querySelector<HTMLElement>('#preview-status')!;
+  const history = document.querySelector<HTMLOListElement>('.chat-history')!;
+  const form = document.querySelector<HTMLFormElement>('#chat-form')!;
+  const input = document.querySelector<HTMLInputElement>('#question')!;
 
-      start.hidden = false;
-      start.addEventListener('click', () => {
-        track('interview_preview_open', 'interview');
-        session.hidden = false;
-        start.hidden = true;
-        status.textContent = status.dataset.opened ?? '';
-        input.focus();
-      });
+  start.hidden = false;
+  start.addEventListener('click', () => {
+    track('interview_preview_open', 'interview');
+    session.hidden = false;
+    start.hidden = true;
+    status.textContent = status.dataset.opened ?? '';
+    input.focus();
+  });
 
-      session.querySelectorAll<HTMLButtonElement>('[data-question]').forEach(button => {
-        button.addEventListener('click', () => {
-          input.value = button.dataset.question ?? '';
-          input.focus();
-        });
-      });
+  session.querySelectorAll<HTMLButtonElement>('[data-question]').forEach(button => {
+    button.addEventListener('click', () => {
+      input.value = button.dataset.question ?? '';
+      input.focus();
+    });
+  });
 
-      form.addEventListener('submit', event => {
-        event.preventDefault();
-        const question = input.value.trim();
-        if (!question) return;
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const question = input.value.trim();
+    if (!question) return;
 
-        const item = document.createElement('li');
-        item.textContent = question;
-        history.append(item);
-        track('interview_preview_question_added', 'interview');
-        history.scrollTop = history.scrollHeight;
-        form.reset();
-        input.focus();
-      });
+    const item = document.createElement('li');
+    item.textContent = question;
+    history.append(item);
+    track('interview_preview_question_added', 'interview');
+    history.scrollTop = history.scrollHeight;
+    form.reset();
+    input.focus();
+  });
 
-      end.addEventListener('click', () => {
-        track('interview_preview_close', 'interview');
-        history.replaceChildren();
-        form.reset();
-        session.hidden = true;
-        start.hidden = false;
-        status.textContent = status.dataset.closed ?? '';
-        start.focus();
-      });
-    </script>
-  </body>
-</html>
+  end.addEventListener('click', () => {
+    track('interview_preview_close', 'interview');
+    history.replaceChildren();
+    form.reset();
+    session.hidden = true;
+    start.hidden = false;
+    status.textContent = status.dataset.closed ?? '';
+    start.focus();
+  });
+</script>
 
 <style>
-  .header-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
-  @media (max-width: 760px) {
-    .interview-nav { height: auto; min-height: 75px; flex-wrap: wrap; gap: 12px; padding-block: 10px; }
+  .interview-main { padding-block: clamp(1.5rem, 5vw, 4rem); }
+  .interview-intro { max-width: 70ch; margin-bottom: 2rem; }
+  .interview-intro h1 {
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    font-weight: 600;
+    letter-spacing: -.055em;
+  }
+  .interview-intro p { margin-block: .75rem; color: var(--muted); }
+  .interview-modes { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; }
+  .interview-modes li { display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; }
+  .interview-modes span { font-size: .8rem; color: var(--muted); }
+  .interview-layout { display: grid; align-items: start; gap: 1rem; }
+  .chat-panel { min-width: 0; border: 1px solid var(--line); background: var(--surface); }
+  .chat-head, .chat-content { padding: 1rem; }
+  .chat-head { border-bottom: 1px solid var(--line); }
+  .chat-head h2 { font-size: 1.35rem; }
+  .chat-head span, #preview-status { color: var(--muted); font-size: .9rem; }
+  #preview-status:not(:empty) { margin-block: .75rem; }
+  .suggestions { display: grid; gap: .4rem; margin-bottom: 1rem; }
+  .suggestions button { text-align: start; }
+  button.landing-button { background: var(--surface); color: var(--text); font: inherit; cursor: pointer; }
+  .landing-button[hidden] { display: none; }
+  .chat-history { max-height: 10rem; overflow: auto; padding-inline-start: 1.5rem; }
+  .chat-history :global(li) { overflow-wrap: anywhere; }
+  .chat-form { display: grid; gap: .5rem; margin-block: 1rem; }
+  .chat-form input {
+    width: 100%;
+    min-height: 44px;
+    border: 1px solid var(--control-border);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    padding: .5rem;
+  }
+  .chat-form button { justify-self: start; }
+  @media (min-width: 741px) {
+    .interview-layout { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
   }
 </style>
