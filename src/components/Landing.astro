@@ -306,7 +306,15 @@ const cvLabels = {
           <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
           <a href={github} target="_blank" rel="noopener">GitHub</a>
           <a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a>
-          {cvLocales.map(language => <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>)}
+          {cvLocales.map(language => {
+            const label = `CV (${language.toUpperCase()})`;
+            const hint = isSpanish ? 'PDF, abre en una pestaña nueva' : 'PDF, opens in a new tab';
+            return (
+              <a href={cv[language]} hreflang={language} target="_blank" rel="noopener" aria-label={`${label}, ${hint}`} title={hint} data-analytics-action="cv-download">
+                {label} <span aria-hidden="true">↗</span>
+              </a>
+            );
+          })}
           <a href={otherHome} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
         </nav>
       </div>
