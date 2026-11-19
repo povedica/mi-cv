@@ -13,7 +13,7 @@ import '../styles/global.css';
     <header class="site-header shell">
       <a class="brand" href="/" aria-label="Pablo Poveda, inicio"><span class="brand-mark">PP</span><span>Pablo Poveda</span></a>
       <nav aria-label="Navegación principal"><a href="#enfoque">Enfoque</a><a href="#experiencia">Experiencia</a><a href="#proyecto">Proyecto</a><a href="#cv-contacto">CV y contacto</a></nav>
-      <a class="button button-primary nav-cta" data-interview-placement="navigation" href="/interview/">Entrevístame</a>
+      <span class="interview-cta button button-primary nav-cta" role="link" aria-disabled="true">Entrevístame <span class="interview-badge">Próximamente</span></span>
     </header>
     <main id="contenido">
       <section class="hero shell">
@@ -21,13 +21,13 @@ import '../styles/global.css';
           <div class="eyebrow"><span class="eyebrow-dot"></span> SOFTWARE ENGINEERING · LEADERSHIP · AI</div>
           <h1>{site.name}<em>Technical Engineering Leadership</em></h1>
           <p class="lead">{site.description}</p>
-          <div class="hero-actions"><a class="button button-primary button-large" data-interview-placement="hero" href="/interview/">Entrevístame</a><a class="button button-secondary button-large" href="#enfoque">Explorar capacidades</a></div>
+          <div class="hero-actions"><span class="interview-cta button button-primary button-large" role="link" aria-disabled="true">Entrevístame <span class="interview-badge">Próximamente</span></span><a class="button button-secondary button-large" href="#enfoque">Explorar capacidades</a></div>
           <div class="hero-note">Vista previa de la interfaz de entrevista.</div>
         </div>
         <div class="hero-stage" aria-label="Vista previa de entrevista virtual">
           <div class="stage-header"><div class="stage-label">VISTA PREVIA DE ENTREVISTA</div></div>
           <AvatarVideo placement="hero" />
-          <div class="stage-bottom"><a href="/interview/" class="stage-link" data-interview-placement="portrait">Ver entrevista</a></div>
+          <div class="stage-bottom"><span class="interview-cta stage-link" role="link" aria-disabled="true">Ver entrevista <span class="interview-badge">Próximamente</span></span></div>
         </div>
       </section>
       <section class="topics shell" id="enfoque">
@@ -42,7 +42,7 @@ import '../styles/global.css';
         <div>
           <h2>Entrevista virtual</h2>
           <p>La entrevista está pensada para explorar decisiones técnicas, proyectos y liderazgo con respuestas basadas en información profesional revisada.</p>
-          <a class="inline-link" data-interview-placement="project" href="/interview/">Explorar la interfaz de entrevista</a>
+          <span class="interview-cta inline-link" role="link" aria-disabled="true">Explorar entrevista <span class="interview-badge">Próximamente</span></span>
         </div>
       </section>
       <section class="statement shell" id="cv-contacto">
@@ -53,3 +53,34 @@ import '../styles/global.css';
     <footer class="site-footer shell"><span>© {new Date().getFullYear()} Pablo Poveda</span><span>Proyecto de entrevista virtual en desarrollo.</span><span>Analítica propia sin cookies. Los eventos no incluyen datos personales.</span></footer>
   </body>
 </html>
+
+<style>
+  .interview-cta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    cursor: default;
+    text-decoration: none;
+  }
+
+  .interview-cta.button-primary {
+    background: #273149;
+    color: #fff;
+    box-shadow: none;
+  }
+
+  .interview-badge {
+    display: inline-block;
+    padding: 0.14rem 0.45rem;
+    border: 1px solid #7770a3;
+    border-radius: 999px;
+    background: #312754;
+    color: #fff;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+</style>
