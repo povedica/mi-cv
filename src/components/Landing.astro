@@ -28,7 +28,6 @@ const otherHome = isSpanish ? '/en/?lang=en' : '/?lang=es';
 const otherLanguageLabel = isSpanish ? 'EN · Read in English' : 'ES · Leer en español';
 const [hero, focus, ai, experience, projects, education, talks, skills, languages, about, teaser, contact] = copy.ids;
 const [vassManager, vassLead, ...otherRoles] = copy.experience.roles;
-const navIds = [experience, projects, ai, talks, contact];
 const linkedin = 'https://www.linkedin.com/in/pablo-poveda-ortega/';
 const github = 'https://github.com/povedica';
 const talkUrls = [
@@ -108,9 +107,6 @@ const cvLabels = {
     <header class="landing-nav">
       <div class="landing-wrap">
         <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
-        <nav aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}>
-          {copy.nav.map((label, index) => <a href={`#${navIds[index]}`}>{label}</a>)}
-        </nav>
         <div class="landing-nav-actions">
           <LandingContactActions {linkedin} {cv} {cvLabels} />
           <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
