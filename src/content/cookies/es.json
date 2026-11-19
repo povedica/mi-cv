@@ -1,0 +1,58 @@
+{
+  "title": "Política de cookies",
+  "notice": "Esta web solo usa cookies técnicas necesarias para funcionar y una analítica propia sin cookies. No hay publicidad ni seguimiento de terceros.",
+  "dismiss": "Entendido",
+  "home": "Volver al perfil",
+  "sections": [
+    [
+      "Qué son",
+      "Las cookies son pequeños archivos que un sitio web guarda en tu navegador. También existen otras tecnologías parecidas, como el almacenamiento local."
+    ],
+    [
+      "Qué usa esta web",
+      "La analítica es propia (Umami, alojada en mi servidor) y no usa cookies. No hay cookies de publicidad ni de redes sociales."
+    ],
+    [
+      "Base legal",
+      "El almacenamiento técnico estrictamente necesario para prestar el servicio solicitado está exento de consentimiento según el artículo 22.2 de la LSSI. Este aviso es informativo."
+    ],
+    [
+      "Cómo gestionarlas",
+      "Puedes borrar o bloquear las cookies y el almacenamiento local desde la configuración de tu navegador."
+    ],
+    [
+      "Responsable",
+      "Pablo Poveda Ortega"
+    ],
+    [
+      "Cambios",
+      "Si esta política cambia, se actualizará aquí."
+    ]
+  ],
+  "inventory": "Cookies y almacenamiento local",
+  "columns": [
+    "Nombre",
+    "Tipo",
+    "Finalidad",
+    "Duración",
+    "Proveedor"
+  ],
+  "entries": [
+    [
+      "mi-cv:cookie-notice:v1",
+      "Almacenamiento local propio",
+      "Recordar que has cerrado el aviso.",
+      "Hasta que borres los datos del sitio o cambie la versión del aviso.",
+      "cv.reflexionia.com"
+    ],
+    [
+      "mi-cv:theme",
+      "Almacenamiento local propio",
+      "Recordar el tema que eliges.",
+      "Hasta que vuelvas a Sistema en la entrevista o borres los datos del sitio.",
+      "cv.reflexionia.com"
+    ]
+  ],
+  "updated": "Última actualización",
+  "date": "19 de noviembre de 2026"
+}

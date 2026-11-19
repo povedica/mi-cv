@@ -1,6 +1,7 @@
 ---
 import AvatarVideo from './AvatarVideo.astro';
 import SiteHead from './SiteHead.astro';
+import CookieNotice from './CookieNotice.astro';
 import ThemeSelect from './ThemeSelect.astro';
 import LandingSectionTitle from './LandingSectionTitle.astro';
 import LandingRoles from './LandingRoles.astro';
@@ -95,6 +96,7 @@ const cvLabels = {
       </div>
     </header>
 
+    <CookieNotice locale={locale} />
     <main id="main-content" tabindex="-1">
       <section class="landing-hero" id={hero} aria-labelledby="landing-name">
         <div class="landing-wrap landing-hero-main">
@@ -264,6 +266,7 @@ const cvLabels = {
         <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
           <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
           <a href={github}>GitHub</a>
+          <a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a>
           {cvLocales.map(language => <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>)}
           <a href={otherHome} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
         </nav>

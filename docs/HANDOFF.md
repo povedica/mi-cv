@@ -2,7 +2,7 @@
 
 ## Current state
 
-The static profile and local interview preview are the running product. The source portrait is a still image. The interview clears its own DOM history when closed. Astro emits four localized static routes with responsive WebP images. The landing and interview show a labelled AI-generated recording on demand, with a poster fallback. The dashboard event contract runs in the browser. The Umami integration was verified against the self-hosted dashboard from a local build. Production verification awaits release approval.
+The static profile and local interview preview are the running product. The source portrait is a still image. The interview clears its own DOM history when closed. Astro emits six localized static routes with responsive WebP images. The landing and interview show a labelled AI-generated recording on demand, with a poster fallback. The dashboard event contract runs in the browser. The Umami integration was verified against the self-hosted dashboard from a local build. Production verification awaits release approval.
 
 Colima serves the optimized static preview by default on loopback. The explicit development override enables Docker Watch. Independent worktree environments are documented in [engineering workflows](WORKFLOWS.md). Build and local access logs are correlated. Optional Sentry remains disabled by default; a synthetic DSN and local receiver verified scrubbed browser delivery.
 
@@ -30,3 +30,5 @@ static release. See [deployment and service rationale](DEPLOYMENT.md#avatar-vide
 
 Issue #27 is integrated in the #5 branch. The landing PR should close
 both issues when it merges into the default branch.
+
+Issue #25 is integrated in the #5 branch. The landing PR should close it along with #5 and #27. The bilingual cookie notice and policy document the theme choice and notice acknowledgement. Repeat the inventory after deploying.

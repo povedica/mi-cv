@@ -31,6 +31,7 @@ class ReleaseTest(unittest.TestCase):
         files = PAGES + [
             ASSET, "_astro/Geist-latin.Ast12.woff2", "en/index.html", "en/interview/index.html", "cv/public-en.pdf",
             "certificados/public.pdf", "sitemap.xml", "robots.txt", "og.png", "og.jpg",
+            "cookies/index.html", "en/cookies/index.html",
         ]
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
