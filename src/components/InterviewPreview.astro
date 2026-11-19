@@ -51,8 +51,6 @@ const label = (spanish: string, english: string) => isSpanish ? spanish : englis
         </ul>
       </section>
 
-      <CookieNotice locale={locale} />
-
       <div class="interview-layout">
         <AvatarVideo locale={locale} />
 
@@ -86,6 +84,7 @@ const label = (spanish: string, english: string) => isSpanish ? spanish : englis
       </div>
     </main>
     <footer>
+      <CookieNotice locale={locale} />
       <div class="site-footer shell"><a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a></div>
     </footer>
 

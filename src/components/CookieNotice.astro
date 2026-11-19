@@ -33,7 +33,7 @@ const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
         // Dismiss for this page even without persistent storage.
       }
       notice.hidden = true;
-      document.querySelector('main')?.focus({ preventScroll: true });
+      notice.parentElement?.querySelector('a:not(.cookie-notice a)')?.focus({ preventScroll: true });
     });
   })();
 </script>

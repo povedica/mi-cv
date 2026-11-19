@@ -139,8 +139,6 @@ const cvLabels = {
         <div class="landing-hero-foot"><div class="landing-wrap"><span>{copy.eyebrow}</span><span>{copy.location}</span></div></div>
       </section>
 
-      <CookieNotice locale={locale} />
-
       <section class="landing-section" id={focus}>
         <div class="landing-wrap landing-split">
           <LandingSectionTitle title={copy.focus.title} intro={copy.focus.intro} />
@@ -291,6 +289,7 @@ const cvLabels = {
     </main>
 
     <footer class="landing-footer">
+      <CookieNotice locale={locale} />
       <div class="landing-wrap">
         <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
         <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
