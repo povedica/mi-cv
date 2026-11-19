@@ -1,14 +1,18 @@
 ---
 interface Props {
   company: string;
+  sector: string;
   period: string;
   context: string;
 }
 
-const { company, period, context } = Astro.props;
+const { company, sector, period, context } = Astro.props;
 ---
 <div class="landing-company">
-  <strong>{company}</strong>
+  <div class="landing-company-name">
+    <strong>{company}</strong>
+    <span>{sector}</span>
+  </div>
   <span class="landing-period">{period}</span>
   <span class="landing-location">
     <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

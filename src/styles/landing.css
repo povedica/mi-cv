@@ -169,6 +169,8 @@
 .landing-timeline { list-style: none; padding: 0; border-bottom: 1px solid var(--line); }
 .landing-timeline > li { display: grid; gap: 1.15rem clamp(2rem, 5vw, 5rem); padding-block: 1.9rem; border-top: 1px solid var(--line); }
 .landing-company { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem .75rem; color: var(--dim); font-size: .9rem; }
+.landing-company-name { display: grid; gap: .22rem; color: var(--text); }
+.landing-company-name span { font-weight: 400; }
 .landing-company strong { color: var(--text); font-size: 1.65rem; line-height: 1; letter-spacing: -.045em; }
 .landing .landing-period { color: var(--accent); font-size: .9rem; }
 .landing-location { display: inline-flex; align-items: baseline; gap: .35rem; }

@@ -140,6 +140,7 @@ Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma
 |---|---|---|
 | Cargo | Manager de departamento · Digital Experience (Open Source PHP) | Department Manager · Digital Experience (Open Source PHP) |
 | Empresa | VASS | VASS |
+| Sector | Consultoría tecnológica | Technology consultancy |
 | Fechas | may 2024 – nov 2026 | May 2024 – Nov 2026 |
 | Contexto | Madrid | Madrid |
 | Resumen | Dirección del departamento: personas, cartera de proyectos y resultados. | Running the department: people, project portfolio and results. |
@@ -157,6 +158,7 @@ Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma
 |---|---|---|
 | Cargo | Team Lead / Tech Lead · Digital Experience (Open Source PHP) | Team Lead / Tech Lead · Digital Experience (Open Source PHP) |
 | Empresa | VASS | VASS |
+| Sector | Consultoría tecnológica | Technology consultancy |
 | Fechas | sep 2020 – abr 2024 | Sep 2020 – Apr 2024 |
 | Contexto | Madrid | Madrid |
 | Resumen | Liderazgo técnico y construcción del equipo desde cero. | Technical leadership and building the team from scratch. |
@@ -174,6 +176,7 @@ Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma
 |---|---|---|
 | Cargo | Senior PHP Developer | Senior PHP Developer |
 | Empresa | UNIR | UNIR |
+| Sector | Universidad online | Online university |
 | Fechas | abr 2017 – may 2020 | Apr 2017 – May 2020 |
 | Contexto | Madrid | Madrid |
 | Resumen | La plataforma de contenidos de los portales internacionales de la universidad. | The content platform behind the university's international websites. |
@@ -190,6 +193,7 @@ Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma
 |---|---|---|
 | Cargo | Senior Web Developer | Senior Web Developer |
 | Empresa | Evolufarma | Evolufarma |
+| Sector | SaaS farmacéutico | Pharmacy SaaS |
 | Fechas | abr 2014 – jun 2017 | Apr 2014 – Jun 2017 |
 | Contexto | Madrid · Startup de marketing 360 para farmacias | Madrid · 360° marketing startup for pharmacies |
 | Resumen | Una plataforma SaaS de marketing online para farmacias. | An online marketing SaaS platform for pharmacies. |
@@ -206,6 +210,7 @@ Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma
 |---|---|---|
 | Cargo | Desarrollador web → Senior PHP Developer | Web Developer → Senior PHP Developer |
 | Empresa | Logiqo | Logiqo |
+| Sector | Agencia digital | Digital agency |
 | Fechas | oct 2008 – mar 2014 | Oct 2008 – Mar 2014 |
 | Contexto | Madrid | Madrid |
 | Resumen | Webs y aplicaciones para marketing online y captación de clientes. | Websites and applications for online marketing and customer acquisition. |

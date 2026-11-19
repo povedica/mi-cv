@@ -151,12 +151,12 @@ const cvLabels = {
           <LandingSectionTitle title={copy.experience.title} />
           <ol class="landing-timeline" role="list">
             <li>
-              <LandingCompany company={vassManager.company} period={copy.experience.vassPeriod} context={vassManager.context} />
+              <LandingCompany company={vassManager.company} sector={vassManager.sector} period={copy.experience.vassPeriod} context={vassManager.context} />
               <LandingRoles roles={[vassManager, vassLead]} group />
             </li>
             {otherRoles.map(role => (
               <li>
-                <LandingCompany company={role.company} period={role.period} context={role.context} />
+                <LandingCompany company={role.company} sector={role.sector} period={role.period} context={role.context} />
                 <LandingRoles roles={[role]} />
               </li>
             ))}

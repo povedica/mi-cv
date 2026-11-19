@@ -89,6 +89,7 @@
           "Oversaw nationwide projects, such as the loyalty platform of one of the country's leading telecom operators."
         ],
         "company": "VASS",
+        "sector": "Technology consultancy",
         "context": "Madrid",
         "summary": "Running the department: people, project portfolio and results.",
         "tags": [
@@ -110,6 +111,7 @@
           "Held financial responsibility for the department and led pre-sales through to proposal and estimation."
         ],
         "company": "VASS",
+        "sector": "Technology consultancy",
         "context": "Madrid",
         "summary": "Technical leadership and building the team from scratch.",
         "tags": [
@@ -130,6 +132,7 @@
           "I completed a Master's in DevOps and Cloud at UNIR to support this work."
         ],
         "company": "UNIR",
+        "sector": "Online university",
         "context": "Madrid",
         "summary": "The content platform behind the university's international websites.",
         "tags": [
@@ -150,6 +153,7 @@
           "I worked across several stacks: websites and online stores, microservices, APIs, mobile applications and relational and non-relational databases."
         ],
         "company": "Evolufarma",
+        "sector": "Pharmacy SaaS",
         "context": "Madrid · 360° marketing startup for pharmacies",
         "summary": "An online marketing SaaS platform for pharmacies.",
         "tags": [
@@ -170,6 +174,7 @@
           "I was promoted to Senior PHP Developer in my first year and went on to lead large web projects."
         ],
         "company": "Logiqo",
+        "sector": "Digital agency",
         "context": "Madrid",
         "summary": "Websites and applications for online marketing and customer acquisition.",
         "tags": [
