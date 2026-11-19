@@ -3,6 +3,7 @@ import AvatarVideo from './AvatarVideo.astro';
 import SiteHead from './SiteHead.astro';
 import CookieNotice from './CookieNotice.astro';
 import LandingContactActions from './LandingContactActions.astro';
+import LandingBrand from './LandingBrand.astro';
 import UnavailableInterview from './UnavailableInterview.astro';
 import ThemeSelect from './ThemeSelect.astro';
 import LandingSectionTitle from './LandingSectionTitle.astro';
@@ -75,10 +76,7 @@ const cvLabels = {
     <a class="landing-skip" href="#main-content">{copy.skip}</a>
     <header class="landing-nav">
       <div class="landing-wrap">
-        <a class="landing-brand" href={home} aria-label={copy.name + " · " + copy.headline}>
-          <span class="landing-brand-name"><span>{copy.name}</span><span aria-hidden="true">PP</span><b aria-hidden="true">.</b></span>
-          <span class="landing-brand-title"><span>{copy.headline}</span><span>{copy.portraitLabel}</span></span>
-        </a>
+        <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
         <nav aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}>
           {copy.nav.map((label, index) => <a href={`#${navIds[index]}`}>{label}</a>)}
         </nav>
@@ -254,7 +252,7 @@ const cvLabels = {
     <footer class="landing-footer">
       <CookieNotice locale={locale} />
       <div class="landing-wrap">
-        <div><strong>{copy.name}</strong><p>{isSpanish ? 'Web hecha con Astro.' : 'Built with Astro.'}</p></div>
+        <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
         <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
           <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
           <a href={github}>GitHub</a>

@@ -382,7 +382,7 @@ Etiquetas de modos en `/interview/`: «Chat» (activo) · «Voz» y «Avatar» c
 |---|---|---|
 | Línea 1 | © {año} Pablo Poveda | © {year} Pablo Poveda |
 | Enlaces | LinkedIn · GitHub · CV (ES) · CV (EN) · English | LinkedIn · GitHub · CV (EN) · CV (ES) · Español |
-| Línea 2 | Web hecha con Astro. La entrevista usa IA y responde solo con información que he revisado. | Built with Astro. The interview uses AI and answers only from information I have reviewed. |
+| Marca | Pablo Poveda · Engineering Manager · AI Engineering | Pablo Poveda · Engineering Manager · AI Engineering |
 | Privacidad | Privacidad (cuando exista `/privacidad/`, BKL-011) | Privacy (once `/en/privacy/` exists, BKL-011) |
 
 GitHub → https://github.com/povedica

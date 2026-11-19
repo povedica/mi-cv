@@ -105,7 +105,7 @@
 .landing-brand-name { white-space: nowrap; }
 .landing-brand-title { color: var(--muted); font-size: .68rem; font-weight: 500; letter-spacing: 0; }
 .landing-brand b { color: var(--accent); }
-.landing-brand-title span:first-child, .landing-brand-name span + span, .landing-nav .landing-linkedin span { display: none; }
+.landing-brand-title span:first-child, .landing-nav .landing-linkedin span { display: none; }
 .landing-button {
   display: inline-flex;
   align-items: center;
@@ -244,6 +244,7 @@
 .landing-questions { width: 100%; list-style: none; padding: 0; border-bottom: 1px solid var(--line); }
 .landing-questions li { padding-block: .7rem; border-top: 1px solid var(--line); }
 .landing-footer { border-top: 1px solid var(--line); padding-block: 1.6rem; color: var(--muted); }
+.landing-footer .landing-brand { color: var(--text); }
 .landing-footer > .landing-wrap:not(.cookie-notice), .landing-footer nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem 1rem; }
 
 @media (max-width: 740px) {
