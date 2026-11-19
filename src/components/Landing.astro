@@ -95,7 +95,6 @@ const cvLabels = {
       </div>
     </header>
 
-    <CookieNotice locale={locale} />
     <main id="main-content" tabindex="-1">
       <section class="landing-hero" id={hero} aria-labelledby="landing-name">
         <div class="landing-wrap landing-hero-main">
@@ -253,6 +252,7 @@ const cvLabels = {
     </main>
 
     <footer class="landing-footer">
+      <CookieNotice locale={locale} />
       <div class="landing-wrap">
         <div><strong>{copy.name}</strong><p>{isSpanish ? 'Web hecha con Astro.' : 'Built with Astro.'}</p></div>
         <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>

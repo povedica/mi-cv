@@ -7,6 +7,6 @@ interface Props {
 const { label, status } = Astro.props;
 ---
 <button class="landing-button landing-interview-unavailable" type="button" disabled>
-  <span>{label}</span>
+  <span class="landing-interview-label">{label}</span>
   <span class="landing-interview-status">{status}</span>
 </button>

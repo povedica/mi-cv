@@ -74,7 +74,7 @@ Página de entrevista:
 - Descripción: Lidero, gestiono y escalo equipos técnicos, mejoro la entrega de software e incorporo la IA generativa al desarrollo. Más de 15 años en el sector, del desarrollo web a dirigir un departamento de ingeniería.
 - Ubicación: Madrid, España · Remoto
 - CTA activos: LinkedIn · 🇪🇸 CV · 🇬🇧 CV.
-- Entrevístame: botón deshabilitado con «Próximamente».
+- Entrevístame con IA: botón deshabilitado con «Próximamente».
 - Retrato (alt): Retrato de Pablo Poveda
 - Etiqueta del retrato: Pablo Poveda · Engineering Manager
 
@@ -86,7 +86,7 @@ Página de entrevista:
 - Description: I lead, manage and scale technical teams, improve software delivery and bring generative AI into development. 15+ years in the industry, from web development to running an engineering department.
 - Location: Madrid, Spain · Remote
 - Active CTAs: LinkedIn · 🇪🇸 CV · 🇬🇧 CV.
-- Interview me: disabled button with “Coming soon”.
+- Interview me with AI: disabled button with “Coming soon”.
 - Portrait (alt): Portrait of Pablo Poveda
 - Portrait label: Pablo Poveda · Engineering Manager
 
@@ -327,7 +327,7 @@ Hay dos variantes. Mientras el chat con IA no esté en producción (BKL-008 a BK
 **ES · A (vista previa)**
 - Título: Entrevístame
 - Texto: Estoy preparando una entrevista con IA para que puedas hacer preguntas sobre mi trayectoria. Las respuestas se basarán en información que he revisado.
-- CTA: Entrevístame · Próximamente (deshabilitado).
+- CTA: Entrevístame con IA · Próximamente (deshabilitado).
 
 **ES · B (chat activo)**
 - Título: Entrevístame
@@ -338,7 +338,7 @@ Hay dos variantes. Mientras el chat con IA no esté en producción (BKL-008 a BK
 **EN · A (preview)**
 - Title: Interview me
 - Text: I am preparing an AI interview where you can ask questions about my career. Its answers will be based on information I have reviewed.
-- CTA: Interview me · Coming soon (disabled).
+- CTA: Interview me with AI · Coming soon (disabled).
 
 **EN · B (chat live)**
 - Title: Interview me
