@@ -3,6 +3,7 @@ cv.reflexionia.com {
 	encode zstd gzip
 	handle_path /media/* {
 		route {
+			header +Vary "Referer, Origin"
 			@denied {
 				not header Referer https://cv.reflexionia.com/*
 			}
