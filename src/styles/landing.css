@@ -29,7 +29,7 @@
   --band-accent: #4088ca;
   --band-line: rgb(245 248 252 / 14%);
   --mono: 'Geist Mono', ui-monospace, monospace;
-  --nav-height: 52px;
+  --nav-height: 46px;
   --gutter: clamp(1rem, 4.5vw, 3rem);
 }
 :root.theme-dark, :root.theme-dark-black {
@@ -106,7 +106,7 @@
 .landing-brand-name { white-space: nowrap; }
 .landing-brand-title { color: var(--muted); font-size: .68rem; font-weight: 500; letter-spacing: 0; }
 .landing-brand b { color: var(--accent); }
-.landing-brand-name span + span, .landing-nav-cv span:first-child, .landing-linkedin span { display: none; }
+.landing-brand-title span:first-child, .landing-brand-name span + span, .landing-nav-cv span:first-child, .landing-linkedin span { display: none; }
 .landing-button {
   display: inline-flex;
   align-items: center;
@@ -136,15 +136,13 @@
 .landing-nav nav a, .landing-lang { padding-block: .6rem; text-decoration: none; }
 .landing-nav nav a:hover, .landing-lang:hover { text-decoration: underline; }
 
-.landing-hero { --hero-padding: clamp(1.65rem, 5svh, 4rem); display: grid; grid-template-rows: 1fr auto; }
-.landing-hero-main { display: grid; gap: clamp(2rem, 6vw, 6rem); align-items: center; padding-block: var(--hero-padding); }
-.landing-hero-copy { display: grid; gap: clamp(.75rem, 2.5svh, 1.55rem); }
-.landing-status, .landing-hero-foot, .landing-heading span, .landing-period, .landing-tags {
+.landing-hero { --hero-padding: clamp(1rem, 2.5svh, 1.75rem); }
+.landing-hero-main { display: grid; gap: clamp(1.25rem, 4vw, 4rem); align-items: start; padding-block: var(--hero-padding); }
+.landing-hero-copy { display: grid; gap: clamp(.65rem, 1.6svh, 1.15rem); }
+.landing-hero-foot, .landing-heading span, .landing-period, .landing-tags {
   font: 400 .75rem/1.4 var(--mono);
   letter-spacing: .035em;
 }
-.landing-status { display: flex; align-items: center; gap: .75rem; color: var(--muted); }
-.landing-avatar { display: block; width: 44px; height: 44px; border: 1px solid var(--strong-line); border-radius: 50%; object-fit: cover; }
 .landing h1 { font-size: clamp(2.6rem, 13.2vw, 5.4rem); font-weight: 600; letter-spacing: -.065em; line-height: .96; }
 .landing-role { font-size: clamp(1.1rem, 5.3vw, 2.8rem); font-weight: 300; line-height: 1.1; letter-spacing: -.035em; color: var(--muted); }
 .landing-lead { max-width: 36rem; color: var(--muted); font-size: clamp(1rem, 1.35vw, 1.16rem); }
@@ -211,10 +209,12 @@
   .landing-cv-group a:first-child { flex: 1; }
 }
 @media (min-width: 561px) {
-  :root { --nav-height: 56px; }
+  :root { --nav-height: 50px; }
   .landing-lang { margin-inline: .2rem; }
   .landing-brand { font-size: 1.35rem; }
   .landing-brand-title { font-size: .78rem; }
+  .landing-brand-title span:first-child { display: inline; }
+  .landing-brand-title span + span { display: none; }
   .landing-nav .landing-button { font-size: .88rem; }
   .landing-nav nav a { font-size: .8rem; }
   .landing-nav .landing-linkedin { width: auto; }
@@ -225,15 +225,13 @@
   .landing-areas article:nth-child(even) { padding-left: 1.5rem; }
 }
 @media (min-width: 901px) {
-  .landing-hero { min-height: calc(100svh - var(--nav-height)); }
   .landing-hero-main { grid-template-columns: minmax(0, 1.38fr) minmax(0, .75fr); }
+  .landing-hero-copy { padding-top: clamp(.75rem, 3svh, 2rem); }
   .landing h1 { font-size: clamp(3rem, min(8vw, 13.3svh), 8rem); }
   .landing-role { font-size: clamp(1.5rem, min(3.25vw, 5.4svh), 3rem); }
-  .landing-avatar { display: none; }
-  .landing-status::before { content: ''; width: 2.2rem; height: 1px; background: var(--accent); }
   .landing-portrait {
     /* Reserve room for the header, player caption and hero footer. */
-    width: min(100%, max(220px, calc((100svh - var(--nav-height) - 2 * var(--hero-padding) - 76px) * 9 / 16)));
+    width: min(100%, max(220px, calc((100svh - 56px - 2 * clamp(1.65rem, 5svh, 4rem) - 76px) * 9 / 16)));
     justify-self: end;
   }
   .landing-split, .landing-heading-wide { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }

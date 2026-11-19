@@ -68,7 +68,6 @@ Página de entrevista:
 
 **ES**
 
-- Línea de estado: Busco roles de Engineering Manager y liderazgo técnico
 - Pie del hero: Engineering Management · Software Delivery · AI Engineering
 - H1: Pablo Poveda
 - Línea del cargo bajo H1: Engineering Manager · AI Engineering
@@ -81,7 +80,6 @@ Página de entrevista:
 
 **EN**
 
-- Status line: I am looking for Engineering Manager and technical leadership roles
 - Hero footer: Engineering Management · Software Delivery · AI Engineering
 - H1: Pablo Poveda
 - Role line below H1: Engineering Manager · AI Engineering

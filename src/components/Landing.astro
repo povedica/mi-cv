@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import portrait from '../assets/pablo-portrait-v2.jpg';
 import AvatarVideo from './AvatarVideo.astro';
 import SiteHead from './SiteHead.astro';
 import ThemeSelect from './ThemeSelect.astro';
@@ -76,7 +74,7 @@ const cvLabels = {
       <div class="landing-wrap">
         <a class="landing-brand" href={home} aria-label={copy.name + " · " + copy.headline}>
           <span class="landing-brand-name"><span>{copy.name}</span><span aria-hidden="true">PP</span><b aria-hidden="true">.</b></span>
-          <span class="landing-brand-title">{copy.headline}</span>
+          <span class="landing-brand-title"><span>{copy.headline}</span><span>{copy.portraitLabel}</span></span>
         </a>
         <nav aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}>
           {copy.nav.map((label, index) => <a href={`#${navIds[index]}`}>{label}</a>)}
@@ -99,10 +97,6 @@ const cvLabels = {
       <section class="landing-hero" id={hero} aria-labelledby="landing-name">
         <div class="landing-wrap landing-hero-main">
           <div class="landing-hero-copy">
-            <p class="landing-status">
-              <Image src={portrait} alt={copy.portraitAlt} class="landing-avatar" width={96} height={96} format="webp" />
-              {copy.status}
-            </p>
             <h1 id="landing-name">{copy.name}</h1>
             <p class="landing-role">{copy.headline}</p>
             <p class="landing-lead">{copy.lead}</p>
