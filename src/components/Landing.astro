@@ -192,9 +192,13 @@ const cvLabels = {
           <LandingSectionTitle title={copy.education.title} />
           {copy.education.items.map(item => (
             <div class="landing-profile-item">
-              <h3>{item.title}</h3>
-              <p class="landing-period">{item.period}</p>
-              <p class="landing-education-metadata">{item.metadata}</p>
+              <div class="landing-education-heading">
+                <h3>{item.title}</h3>
+                <div class="landing-education-metadata">
+                  <span class="landing-period">{item.period}</span>
+                  <span>{item.metadata}</span>
+                </div>
+              </div>
               <p>{item.description}</p>
             </div>
           ))}
