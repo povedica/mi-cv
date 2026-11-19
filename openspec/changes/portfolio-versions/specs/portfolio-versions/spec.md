@@ -26,3 +26,17 @@ The 90s website SHALL keep the same document width across viewports and offer or
 
 - **WHEN** a visitor opens the 90s website with reduced motion enabled
 - **THEN** the greeting is static and the section links remain usable
+
+### Requirement: Secret shortcuts open the versions index
+
+The portfolio home SHALL recognize the desktop Konami sequence and seven rapid touch taps on the header brand. Both shortcuts SHALL open the localized index with a discovery message.
+
+#### Scenario: Complete the keyboard sequence
+
+- **WHEN** a visitor presses the final A outside an editable control after entering the Konami sequence
+- **THEN** the localized index opens immediately
+
+#### Scenario: Discover the touch shortcut
+
+- **WHEN** a visitor taps the header brand seven times in succession on a touch screen
+- **THEN** the fourth through sixth taps show the remaining count and the seventh opens the localized index

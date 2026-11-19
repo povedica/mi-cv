@@ -331,3 +331,19 @@
 }
 
 .landing-versions-link { padding-inline: .35rem; }
+
+.landing-nav .landing-brand { touch-action: manipulation; }
+[data-versions-secret] {
+  position: fixed;
+  z-index: 7;
+  inset: calc(var(--nav-height) + .5rem) .75rem auto auto;
+  width: auto;
+  pointer-events: none;
+  margin: 0;
+  border: 1px solid var(--strong-line);
+  padding: .35rem .6rem;
+  border-radius: .5rem;
+  color: var(--text);
+  background: var(--surface);
+}
+[data-versions-secret]:empty { visibility: hidden; }

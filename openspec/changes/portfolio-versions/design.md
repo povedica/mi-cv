@@ -6,7 +6,7 @@ The existing portfolio renders Spanish and English static documents from a share
 
 - Provide a predictable return to the current portfolio from each style.
 - Support the terminal with keyboard and touch controls and retain profile links without JavaScript.
-- Keep the game and Easter eggs outside this increment.
+- Keep the game outside this increment.
 
 ## Decisions
 

@@ -55,4 +55,5 @@ Acceptance requires grounded responses, privacy boundaries, cost limits and a wo
 ## Alternate portfolio presentations
 
 - [x] Implement the localized Versions index, terminal demo and fixed-width 90s site in the issue #35 worktree.
-- [ ] Review the implementation alongside the original design references and complete retro frame navigation, the game and both Easter eggs from issue #35.
+- [x] Add the desktop Konami sequence and seven-tap mobile shortcut to the Versions index.
+- [ ] Review the implementation alongside the original design references and complete retro frame navigation and the game from issue #35.

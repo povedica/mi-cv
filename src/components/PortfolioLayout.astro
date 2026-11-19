@@ -106,11 +106,11 @@ const cvLabels = {
     <meta name="twitter:image:alt" content={copy.openGraph.imageAlt} />
     {page === 'home' && <ProfileSchema {locale} {home} {title} profile={copy.profile} {linkedin} {github} />}
   </SiteHead>
-  <body class="landing">
+  <body id="inicio-portfolio" class="landing">
     <a class="landing-skip" href="#main-content">{copy.skip}</a>
     <header class="landing-nav">
       <div class="landing-wrap">
-        <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
+        <LandingBrand href={page === "home" ? "#inicio-portfolio" : home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
         <div class="landing-nav-actions">
           <LandingContactActions {linkedin} {cv} {cvLabels} />
           <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
@@ -124,6 +124,10 @@ const cvLabels = {
         </div>
       </div>
     </header>
+
+    {page === 'home' && <p class="landing-wrap" data-versions-secret role="status"
+      data-unlocked={isSpanish ? "¡Acceso a Versiones descubierto!" : "Versions shortcut discovered!"}
+      data-countdown={isSpanish ? "Toques restantes" : "Taps remaining"}></p>}
 
     <main id="main-content" tabindex="-1">
       <slot />
@@ -154,6 +158,52 @@ const cvLabels = {
       <UnavailableInterview label={copy.interview.title} status={copy.interview.status} />
     </nav>
     <script>
+      const secret = document.querySelector<HTMLElement>('[data-versions-secret]');
+      const versions = document.querySelector<HTMLAnchorElement>('.landing-versions-link');
+      const brand = document.querySelector('.landing-nav .landing-brand');
+
+      if (secret && versions && brand) {
+        const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        const activate = () => {
+          secret.textContent = secret.dataset.unlocked ?? '';
+          location.assign(versions.href + '#secreto');
+        };
+        let keys: string[] = [];
+        let lastKey = 0;
+        document.addEventListener('keydown', event => {
+          if (event.defaultPrevented || event.repeat || event.isComposing ||
+              event.ctrlKey || event.altKey || event.metaKey ||
+              (event.target instanceof Element && event.target.closest('input, textarea, select, [contenteditable], [role="textbox"]'))) return;
+          const now = performance.now();
+          if (now - lastKey > 1800) keys = [];
+          lastKey = now;
+          keys = [...keys.slice(-(sequence.length - 1)), event.key.length === 1 ? event.key.toLowerCase() : event.key];
+          if (sequence.every((key, index) => keys[index] === key)) {
+            keys = [];
+            activate();
+          }
+        });
+
+        let taps = 0;
+        let tapTimeout = 0;
+        brand.addEventListener('click', event => {
+          if (!(event instanceof PointerEvent) || event.pointerType !== 'touch') return;
+          window.clearTimeout(tapTimeout);
+          taps += 1;
+          if (taps === 7) {
+            event.preventDefault();
+            taps = 0;
+            activate();
+          } else {
+            if (taps >= 4) secret.textContent = `${secret.dataset.countdown} · ${7 - taps}`;
+            tapTimeout = window.setTimeout(() => {
+              taps = 0;
+              secret.textContent = '';
+            }, 1000);
+          }
+        });
+      }
+
       const dock = document.querySelector('.landing-dock');
       const mobile = matchMedia('(max-width: 740px)');
       let lastScroll = Math.max(0, window.scrollY);

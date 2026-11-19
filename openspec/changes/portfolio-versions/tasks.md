@@ -4,6 +4,8 @@
 - [x] Implement predefined terminal commands using the public profile.
 - [x] Implement the fixed-width 90s document with static reduced-motion fallback.
 
+- [x] Add desktop and touch Easter eggs to the portfolio header.
+
 ## 2. Verification
 
 - [x] Run the repository type checks, tests and static build.
