@@ -2,12 +2,12 @@
 
 ### Requirement: Alternate versions are reachable from the portfolio
 
-The localized portfolio header SHALL link to a Versions index with a terminal and a 90s website at distinct URLs. Each alternative SHALL link to the corresponding portfolio and CV PDF.
+The localized portfolio header SHALL provide a Versions dropdown with direct links to a terminal and a 90s website at distinct URLs. Each alternative SHALL link to the corresponding portfolio and CV PDF.
 
-#### Scenario: Browse the versions index
+#### Scenario: Open the Versions dropdown
 
-- **WHEN** a visitor follows Versions from the portfolio header
-- **THEN** the index offers both alternate presentations in the selected language
+- **WHEN** a visitor opens Versions from the portfolio header
+- **THEN** the dropdown offers both alternate presentations in the selected language
 
 ### Requirement: The terminal renders predefined public results
 
@@ -27,19 +27,19 @@ The 90s website SHALL keep the same document width across viewports and offer or
 - **WHEN** a visitor opens the 90s website with reduced motion enabled
 - **THEN** the greeting is static and the section links remain usable
 
-### Requirement: Secret shortcuts open the versions index
+### Requirement: Secret shortcuts open the Versions dropdown
 
-The portfolio home SHALL recognize the desktop Konami sequence and seven rapid touch taps on the header brand. Both shortcuts SHALL open the localized index with a discovery message.
+The portfolio home SHALL recognize the desktop Konami sequence and seven rapid touch taps on the header brand. Both shortcuts SHALL open the localized dropdown with a discovery message.
 
 #### Scenario: Complete the keyboard sequence
 
 - **WHEN** a visitor presses the final A outside an editable control after entering the Konami sequence
-- **THEN** the localized index opens immediately
+- **THEN** the localized dropdown opens immediately
 
 #### Scenario: Discover the touch shortcut
 
 - **WHEN** a visitor taps the header brand seven times in succession on a touch screen
-- **THEN** the fourth through sixth taps show the remaining count and the seventh opens the localized index
+- **THEN** the fourth through sixth taps show the remaining count and the seventh opens the localized dropdown
 
 ### Requirement: The retro page ends with a brick breaker
 

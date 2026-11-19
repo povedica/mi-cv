@@ -28,7 +28,7 @@ const welcome = es ? '¡Bienvenido a mi página personal!' : 'Welcome to my pers
       <tr>
         <td colspan="2">
           <header>
-            <a href={versions}>← {es ? 'Versiones' : 'Versions'}</a>
+            <a href={home}>← {es ? 'Volver al portfolio' : 'Back to the portfolio'}</a>
             <h1><font face="Impact, Arial Black, sans-serif" size="7">{copy.name}</font></h1>
             <p class="motion-safe" aria-hidden="true"><marquee behavior="slide" scrollamount="25" loop="1">{welcome}</marquee></p>
             <p class="welcome">{welcome}</p>
@@ -88,7 +88,7 @@ const welcome = es ? '¡Bienvenido a mi página personal!' : 'Welcome to my pers
           <footer>
             <CookieNotice {locale} />
             <hr />
-            <p>{es ? 'Webring ficticio' : 'Fictional webring'} · <a href={versions}>{es ? 'Índice' : 'Index'}</a> · <a href={versions + 'tui/'}>{es ? 'Siguiente · Terminal' : 'Next · Terminal'}</a></p>
+            <p>{es ? 'Webring ficticio' : 'Fictional webring'} · <a href={home}>{es ? 'Inicio' : 'Home'}</a> · <a href={versions + 'tui/'}>{es ? 'Siguiente · Terminal' : 'Next · Terminal'}</a></p>
             <p><font face="Courier New, monospace">{es ? 'Mejor visto con Netscape Navigator a 800×600' : 'Best viewed with Netscape Navigator at 800×600'}</font></p>
           </footer>
         </td>

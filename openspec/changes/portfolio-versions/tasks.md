@@ -1,6 +1,6 @@
 ## 1. Navigation and versions
 
-- [x] Add the localized menu entry and versions index.
+- [x] Add the localized Versions dropdown with direct links.
 - [x] Implement predefined terminal commands using the public profile.
 - [x] Implement the fixed-width 90s document with static reduced-motion fallback.
 

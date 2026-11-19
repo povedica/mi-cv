@@ -22,6 +22,7 @@ const { locale, page = 'home' } = Astro.props;
 const isSpanish = locale === 'es';
 const copy = profileCopy[locale];
 const home = isSpanish ? '/' : '/en/';
+const versionsPath = isSpanish ? '/versiones/' : '/en/versions/';
 const socialImage = `https://cv.reflexionia.com/${isSpanish ? 'og-v2.jpg' : 'og-v2-en.jpg'}`;
 const otherLocale = isSpanish ? 'en' : 'es';
 const cvLocales = [locale, otherLocale] as const;
@@ -115,7 +116,13 @@ const cvLabels = {
           <LandingContactActions {linkedin} {cv} {cvLabels} />
           <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
           <div class="landing-nav-preferences">
-            <a class="landing-lang landing-versions-link" href={isSpanish ? "/versiones/" : "/en/versions/"}>{isSpanish ? "Versiones" : "Versions"}</a>
+            <details class="landing-versions">
+              <summary class="landing-lang">{isSpanish ? "Versiones" : "Versions"}</summary>
+              <ul>
+                <li><a href={versionsPath + "tui/"}>Terminal (TUI)</a></li>
+                <li><a href={versionsPath + "90s/"}>{isSpanish ? "Web de los 90" : "90s website"}</a></li>
+              </ul>
+            </details>
             <a class="landing-lang" href={otherPage} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
               {otherLocale.toUpperCase()}
             </a>
@@ -159,14 +166,29 @@ const cvLabels = {
     </nav>
     <script>
       const secret = document.querySelector<HTMLElement>('[data-versions-secret]');
-      const versions = document.querySelector<HTMLAnchorElement>('.landing-versions-link');
+      const versions = document.querySelector<HTMLDetailsElement>('.landing-versions');
+      const versionsToggle = versions?.querySelector('summary');
+      if (versions && versionsToggle) {
+        document.addEventListener('click', event => {
+          if (!event.defaultPrevented && event.target instanceof Node && !versions.contains(event.target)) versions.open = false;
+        });
+        versions.addEventListener('keydown', event => {
+          if (event.key !== 'Escape' || !versions.open) return;
+          versions.open = false;
+          versionsToggle.focus();
+        });
+      }
       const brand = document.querySelector('.landing-nav .landing-brand');
 
       if (secret && versions && brand) {
         const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
         const activate = () => {
           secret.textContent = secret.dataset.unlocked ?? '';
-          location.assign(versions.href + '#secreto');
+          versions.open = true;
+          versionsToggle?.focus();
+          window.setTimeout(() => {
+            if (secret.textContent === secret.dataset.unlocked) secret.textContent = '';
+          }, 2500);
         };
         let keys: string[] = [];
         let lastKey = 0;

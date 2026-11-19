@@ -7,7 +7,6 @@ const { locale } = Astro.props;
 const es = locale === 'es';
 const copy = profileCopy[locale];
 const home = es ? '/?lang=es' : '/en/';
-const version = es ? '/versiones/' : '/en/versions/';
 const source = (index: number) => (es ? '/' : '/en/') + '#' + copy.ids[index];
 const commands = [
   ['help', es ? 'Comandos disponibles' : 'Available commands'],
@@ -22,7 +21,6 @@ const [help, experience, projects, education, talks, download, contact] = comman
 ---
 <VersionShell {locale} title="cv-agent · Pablo Poveda" terminal>
   <nav aria-label={es ? 'Navegación' : 'Navigation'}>
-    <a href={version}>← {es ? 'Versiones' : 'Versions'}</a>
     <a id="terminal-home" href={home}>{es ? 'Volver al portfolio' : 'Back to the portfolio'} <kbd>Esc</kbd></a>
   </nav>
   <header>

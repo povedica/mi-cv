@@ -27,7 +27,7 @@ The landing and interview can play the recorded avatar on demand. HLS files are 
 flowchart TD
   Astro[Astro routes] --> Portfolio[Shared portfolio layout]
   Portfolio --> Home[Profile content]
-  Portfolio --> Versions[Versions index]
+  Portfolio --> Versions[Versions dropdown]
   Versions --> Terminal[Local terminal demo]
   Versions --> Retro[Fixed-width retro site]
   Portfolio --> Interview[Local preview content]
