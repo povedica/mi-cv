@@ -111,7 +111,7 @@ Página de entrevista:
 
 - Título: IA aplicada
 - Entradilla: La IA generativa está cambiando cómo desarrollamos software. La he llevado a equipos reales y la estudio y la uso a fondo.
-- Bloque 1 · **Adopción en equipos de desarrollo (VASS).** Impulsé, junto con otros responsables, la adopción de IA generativa en los equipos de desarrollo del área, con un flujo de trabajo y un harness asistidos por IA en proyectos reales. Pequeñas funcionalidades y correcciones que podían llevar unos dos días se entregaban de forma autónoma en menos tiempo y con criterios de calidad más objetivos: alrededor de un 30 % más de valor entregado (estimación propia).
+- Bloque 1 · **Adopción en equipos de desarrollo (VASS).** Colideré en mi área la incorporación de IA generativa en los equipos de desarrollo, impulsando nuevas metodologías, herramientas y procesos integrados en proyectos reales. La iniciativa permitió aumentar la autonomía de los equipos, acelerar los ciclos de entrega y reforzar los estándares de calidad, con una mejora estimada media del 30 % en la capacidad de entrega de valor.
 - Bloque 2 · **Máster en AI Engineering (LIDR, 2026).** Aplicaciones con LLM, RAG y CAG, agentes y sistemas agénticos, y evaluación de soluciones de IA.
 - Bloque 3 · **tick-tack-done.** Mi proyecto personal: una aplicación de tareas y productividad con servidor MCP, para que los agentes de IA trabajen con ella. Lo desarrollo con agentes de IA y un flujo de backlog en GitHub. → https://todo.reflexionia.com
 - Bloque 4 · **Esta web.** Una entrevista con una IA que responde solo con información que he revisado y citando la fuente. Es mi caso práctico de RAG, guardrails y control de coste. → `#entrevista`
@@ -120,7 +120,7 @@ Página de entrevista:
 
 - Title: Applied AI
 - Intro: Generative AI is changing how we build software. I have brought it into real teams, and I study it and use it in depth.
-- Block 1 · **Adoption in development teams (VASS).** Together with other leaders, I drove the adoption of generative AI across the area's development teams, with an AI-assisted workflow and harness on live projects. Small features and fixes that could take around two days were delivered autonomously in less time and against more objective quality criteria: roughly 30% more delivered value (my own estimate).
+- Block 1 · **Adoption in development teams (VASS).** I co-led the adoption of generative AI across the development teams in my area, introducing new methods, tools and processes into real projects. The initiative increased team autonomy, accelerated delivery cycles and strengthened quality standards, with an estimated average improvement of 30% in the teams’ ability to deliver value.
 - Block 2 · **Master's in AI Engineering (LIDR, 2026).** LLM applications, RAG and CAG, agents and agentic systems, and AI evaluation.
 - Block 3 · **tick-tack-done.** My personal project: a task and productivity app with an MCP server, so AI agents can work with it. I build it with AI agents and a GitHub backlog workflow. → https://todo.reflexionia.com
 - Block 4 · **This website.** An interview with an AI that answers only from information I have reviewed, citing its sources. It is my hands-on case study in RAG, guardrails and cost control. → `#interview`
