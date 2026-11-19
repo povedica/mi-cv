@@ -25,6 +25,13 @@
       "Recordar el tema que eliges.",
       "Hasta que vuelvas a Sistema en la entrevista o borres los datos del sitio.",
       "cv.reflexionia.com"
+    ],
+    [
+      "mi-cv:language",
+      "Almacenamiento local propio",
+      "Recordar el idioma que eliges desde la portada.",
+      "Hasta que cambies la elección o borres los datos del sitio.",
+      "cv.reflexionia.com"
     ]
   ],
   "updated": "Última actualización",

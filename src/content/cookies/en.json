@@ -25,6 +25,13 @@
       "Remember your chosen theme.",
       "Until you switch back to System in the interview or clear site data.",
       "cv.reflexionia.com"
+    ],
+    [
+      "mi-cv:language",
+      "First-party local storage",
+      "Remember the language you choose on the landing page.",
+      "Until you change your choice or clear site data.",
+      "cv.reflexionia.com"
     ]
   ],
   "updated": "Last updated",

@@ -10,6 +10,7 @@ Production baseline from November 18, 2026, for #25. A fresh Chrome context open
 | Sentry | No storage observed during the tested flows | No error was triggered. |
 | Cookie notice integrated in #5 | First-party local storage for acknowledgement | Preview implementation stores `1` at `mi-cv:cookie-notice:v1` until site data is cleared or a new notice version is introduced. Dismissal still works for the current page when storage is blocked. |
 | Theme preference | First-party local storage after manual selection | Stores `light` or `dark` at `mi-cv:theme` until the visitor selects System in the interview or clears site data. |
+| Landing language preference | First-party local storage after manual selection | Stores `es` or `en` at `mi-cv:language` until the visitor switches language or clears site data. Automatic selection reads browser preferences. |
 
 The English routes were absent from this production baseline. Repeat the inventory after the bilingual release across both languages and the policy routes. Keep the text aligned with measured behavior and use LinkedIn as the contact channel specified in #25.
 
@@ -19,7 +20,7 @@ Local browser checks exercised the notice in both languages, followed the policy
 
 The integrated preview was also checked in dark mode. A fresh browser context
 had no cookies or session storage and an empty local storage. Dismissing the
-notice and changing the theme produced only the two documented keys. Both
+notice and changing the theme produced only the notice and theme keys documented at the time. Both
 localized policies link to the inventory from the footer. The preview uses
 the production analytics hostname gate, so the local test does not replace
 the post-release collector and edge checks.

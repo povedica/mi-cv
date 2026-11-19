@@ -23,7 +23,7 @@ const copy = isSpanish ? es : en;
 const home = isSpanish ? '/' : '/en/';
 const otherLocale = isSpanish ? 'en' : 'es';
 const cvLocales = [locale, otherLocale] as const;
-const otherHome = isSpanish ? '/en/' : '/';
+const otherHome = isSpanish ? '/en/?lang=en' : '/?lang=es';
 const otherLanguageLabel = isSpanish ? 'EN · Read in English' : 'ES · Leer en español';
 const [hero, focus, ai, experience, projects, education, talks, skills, languages, about, teaser, contact] = copy.ids;
 const [vassManager, vassLead, ...otherRoles] = copy.experience.roles;
@@ -57,6 +57,43 @@ const cvLabels = {
 <!doctype html>
 <html lang={locale} data-analytics-page="home">
   <SiteHead title={copy.title} description={copy.description}>
+    <script is:inline>
+      (() => {
+        const key = 'mi-cv:language';
+        const url = new URL(location.href);
+        const locale = document.documentElement.lang;
+        const selected = url.searchParams.get('lang');
+
+        if (selected === locale) {
+          try {
+            localStorage.setItem(key, locale);
+            url.searchParams.delete('lang');
+            history.replaceState(history.state, '', url);
+          } catch {
+            // Keep the explicit language in the URL when storage is blocked.
+          }
+          return;
+        }
+
+        if (locale !== 'es' || url.pathname !== '/' || url.hash) return;
+
+        let preference;
+        try {
+          preference = localStorage.getItem(key);
+        } catch {
+          // Use browser preferences when storage is blocked.
+        }
+        if (preference !== 'es' && preference !== 'en') {
+          preference = (navigator.languages.length ? navigator.languages : [navigator.language])
+            .map(language => language.toLowerCase().split('-')[0])
+            .find(language => language === 'es' || language === 'en');
+        }
+        if (preference === 'en') {
+          url.pathname = '/en/';
+          location.replace(url);
+        }
+      })();
+    </script>
     <link rel="canonical" href={`https://cv.reflexionia.com${isSpanish ? '/' : '/en/'}`} />
     <link rel="alternate" hreflang="es" href="https://cv.reflexionia.com/" />
     <link rel="alternate" hreflang="en" href="https://cv.reflexionia.com/en/" />
