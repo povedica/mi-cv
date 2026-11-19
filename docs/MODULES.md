@@ -23,3 +23,13 @@
 | `DELETE /api/v1/chat/sessions/{id}` | 204 for idempotent close by the owner of the session. Release transient state. |
 
 Target errors are 400 for invalid input, 404 for an inaccessible session, 429 for quota, and 503 when the service is unavailable. Validate origins and citation ownership server-side. Keep visitor questions out of logs. Future interfaces for voice sessions, avatar sessions and publication are separate from this contract.
+
+## Recorded avatar
+
+`src/components/AvatarVideo.astro` renders the approved portrait as a WebP
+poster and labels the recording as AI-generated. The interview requests the
+versioned HLS manifest only after the visitor activates the player. The player
+uses native HLS when reported by the browser and loads the bundled hls.js light
+build dynamically for Media Source Extensions. Playback failures return to the
+poster and offer a retry. Media files live outside the static release and are
+served by Caddy. See [conversion and deployment](DEPLOYMENT.md#avatar-video).

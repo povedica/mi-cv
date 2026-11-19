@@ -15,3 +15,9 @@ The production dependency audit previously reported one critical, three high and
 ## Next bounded change
 
 Implement a local text-chat session, one question and close using synthetic content. Verify citation ownership, abstention without evidence, session access and exclusion of private records before connecting the interface. The live corpus requires approval of each version. See [analytics rollout](ANALYTICS.md) for the pending production verification.
+
+## Recorded avatar release
+
+Issue #27 adds a recorded HLS demonstration to the interview and keeps the live
+avatar capability planned. The media is provisioned independently of the
+static release. See [deployment and service rationale](DEPLOYMENT.md#avatar-video).

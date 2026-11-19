@@ -63,3 +63,17 @@ Chrome and axe checks passed on both routes at 320, 390 and 1440 px, including t
 2. Audit both routes with Lighthouse mobile. Compare LCP, CLS and blocking time using the same browser and throttling profile. Inspect selected image and JavaScript bytes in the network panel.
 3. Run axe with the preview closed and populated. Use keyboard-only navigation at 320 px and desktop widths. Check reduced motion, focus, list announcements and reflow. Recheck with a screen reader before public release.
 4. Inspect `window.dataLayer` and the network panel after adding a synthetic question. Events should contain action metadata only, and analytics should cause no requests.
+
+## Recorded avatar on the interview page
+
+Local Lighthouse mobile simulation in Chrome compared the previous interview
+preview with the static build served through Caddy. Performance and
+accessibility both scored 100 in each run. LCP was 1.2 s before and 0.8 s
+with the avatar poster. These are single local runs. The video and hls.js
+were requested only after player activation.
+
+Browser smoke checks covered keyboard activation, video playback and the
+local chat lifecycle at 1440 px and 375 px in Chrome. A rejected manifest
+request restored the poster and retry control. Firefox exercised hls.js.
+Playwright WebKit exercised native HLS at desktop and mobile viewport sizes.
+Physical iOS Safari and production delivery remain release checks.

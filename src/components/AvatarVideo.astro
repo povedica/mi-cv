@@ -1,0 +1,106 @@
+---
+import { getImage } from 'astro:assets';
+import portrait from '../assets/pablo-portrait-v2.jpg';
+
+const poster = await getImage({ src: portrait, width: 800, format: 'webp' });
+---
+
+<figure class="video-panel avatar-video" data-avatar-video>
+  <figcaption class="video-top">Vídeo generado con IA a partir de Pablo</figcaption>
+  <video
+    aria-label="Vídeo del avatar de Pablo Poveda"
+    data-source="/media/avatar/v1/master.m3u8"
+    poster={poster.src}
+    width="1280"
+    height="720"
+    preload="none"
+    playsinline
+    controlslist="nodownload"
+    disablepictureinpicture
+  ></video>
+  <button class="button button-primary" type="button" hidden>Cargar vídeo</button>
+  <p role="status"></p>
+  <noscript><p>Activa JavaScript para reproducir el vídeo.</p></noscript>
+</figure>
+
+<style>
+  video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    background: #273042;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+  }
+
+  button {
+    align-self: start;
+    margin-top: 12px;
+  }
+
+  p:empty {
+    display: none;
+  }
+</style>
+
+<script>
+  const player = document.querySelector<HTMLElement>('[data-avatar-video]')!;
+  const video = player.querySelector('video')!;
+  const load = player.querySelector('button')!;
+  const status = player.querySelector('[role="status"]')!;
+  const source = video.dataset.source!;
+
+  load.hidden = false;
+  video.addEventListener('contextmenu', event => event.preventDefault());
+
+  load.addEventListener('click', async () => {
+    load.disabled = true;
+    status.textContent = 'Cargando vídeo…';
+    let destroy = () => {};
+
+    function fail() {
+      destroy();
+      video.removeAttribute('src');
+      video.load();
+      video.controls = false;
+      load.hidden = false;
+      load.disabled = false;
+      load.focus();
+      load.textContent = 'Reintentar carga del vídeo';
+      status.textContent = 'El vídeo no está disponible en este momento.';
+    }
+
+    video.addEventListener('error', fail, { once: true });
+
+    try {
+      if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = source;
+      } else {
+        const { default: Hls } = await import('hls.js/light');
+        if (!Hls.isSupported()) throw new Error('HLS unavailable');
+
+        const hls = new Hls();
+        destroy = () => hls.destroy();
+        hls.on(Hls.Events.ERROR, (_event, data) => {
+          if (data.fatal) {
+            video.removeEventListener('error', fail);
+            fail();
+          }
+        });
+        hls.loadSource(source);
+        hls.attachMedia(video);
+      }
+
+      video.controls = true;
+      load.hidden = true;
+      status.textContent = '';
+      video.focus();
+      // Native controls remain available if the browser requires another gesture.
+      void video.play().catch(() => {});
+    } catch {
+      video.removeEventListener('error', fail);
+      fail();
+    }
+  });
+</script>

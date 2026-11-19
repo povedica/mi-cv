@@ -14,3 +14,5 @@ dist/
 *.key
 *.local
 __pycache__/
+
+/src/assets/avatar-pablo-poveda-720p.mp4
