@@ -329,3 +329,5 @@
   .landing-skills, .landing-about, .landing-end, .landing-ai-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .landing-end section:first-child { border-bottom: 0; border-right: 1px solid var(--line); }
 }
+
+.landing-versions-link { padding-inline: .35rem; }

@@ -51,3 +51,8 @@ Acceptance requires grounded responses, privacy boundaries, cost limits and a wo
 - [ ] Editorial roles, MFA, publishing lifecycle and rollback.
 - [ ] Release and verify the Umami adapter in production. See [analytics rollout](ANALYTICS.md) and issue #15 for acceptance criteria.
 - [ ] Privacy and accessibility review, deployment automation, staging and production.
+
+## Alternate portfolio presentations
+
+- [x] Implement the localized Versions index, terminal demo and fixed-width 90s site in the issue #35 worktree.
+- [ ] Review the implementation alongside the original design references and complete retro frame navigation, the game and both Easter eggs from issue #35.

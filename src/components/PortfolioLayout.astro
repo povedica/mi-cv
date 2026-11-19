@@ -115,6 +115,7 @@ const cvLabels = {
           <LandingContactActions {linkedin} {cv} {cvLabels} />
           <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
           <div class="landing-nav-preferences">
+            <a class="landing-lang landing-versions-link" href={isSpanish ? "/versiones/" : "/en/versions/"}>{isSpanish ? "Versiones" : "Versions"}</a>
             <a class="landing-lang" href={otherPage} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
               {otherLocale.toUpperCase()}
             </a>

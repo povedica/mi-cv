@@ -1,0 +1,131 @@
+---
+import VersionShell from './VersionShell.astro';
+import { cv, linkedin, profileCopy, talkUrls } from '../data/public-profile';
+
+interface Props { locale: 'es' | 'en' }
+const { locale } = Astro.props;
+const es = locale === 'es';
+const copy = profileCopy[locale];
+const home = es ? '/?lang=es' : '/en/';
+const version = es ? '/versiones/' : '/en/versions/';
+const source = (index: number) => (es ? '/' : '/en/') + '#' + copy.ids[index];
+const commands = [
+  ['help', es ? 'Comandos disponibles' : 'Available commands'],
+  [es ? 'experiencia' : 'experience', copy.experience.title],
+  [es ? 'proyectos' : 'projects', copy.projects.title],
+  [es ? 'formacion' : 'education', copy.education.title],
+  [es ? 'charlas' : 'talks', copy.talks.heading],
+  ['cv', copy.download],
+  [es ? 'contacto' : 'contact', 'LinkedIn'],
+];
+const [help, experience, projects, education, talks, download, contact] = commands.map(([command]) => command);
+---
+<VersionShell {locale} title="cv-agent · Pablo Poveda" terminal>
+  <nav aria-label={es ? 'Navegación' : 'Navigation'}>
+    <a href={version}>← {es ? 'Versiones' : 'Versions'}</a>
+    <a id="terminal-home" href={home}>{es ? 'Volver al portfolio' : 'Back to the portfolio'} <kbd>Esc</kbd></a>
+  </nav>
+  <header>
+    <h1>Pablo Poveda<span aria-hidden="true">_</span></h1>
+    <p>{es ? 'Demostración interactiva con respuestas predefinidas del perfil público.' : 'Interactive demo with predefined answers from the public profile.'}</p>
+  </header>
+  <section class="console" aria-label={es ? 'Sesión de terminal' : 'Terminal session'}>
+    <div class="status"><strong>cv-agent</strong><span>{es ? 'Perfil público' : 'Public profile'}</span><span>READ-ONLY</span></div>
+    <div id="terminal-output" tabindex="0" role="log" aria-live="polite" aria-relevant="additions">
+      <p><strong>❯</strong> {es ? '¿Qué experiencia tiene Pablo liderando equipos de ingeniería?' : 'What experience does Pablo have leading engineering teams?'}</p>
+      <p class="trace">● Read({copy.ids[3]})<br />● Search({es ? "liderazgo" : "leadership"})</p>
+      <p>{copy.experience.roles[0].summary} {copy.experience.roles[1].summary}</p>
+      <p><a href={source(3)}>{es ? 'Fuente' : 'Source'} · {copy.experience.title}</a></p>
+    </div>
+    <form id="terminal-form" data-unknown={es ? 'Comando desconocido. Usa /help.' : 'Unknown command. Use /help.'} hidden>
+      <div class="shortcuts">{commands.map(([command, label]) => <button type="button" value={command} aria-label={`/${command} · ${label}`}>/{command}</button>)}</div>
+      <label for="terminal-input">{es ? 'Comando' : 'Command'}</label>
+      <input id="terminal-input" placeholder="/help" autocomplete="off" spellcheck="false" maxlength="48" />
+      <button type="submit">{es ? 'Ejecutar' : 'Run'}</button>
+    </form>
+    <noscript>
+      <p><a href={source(3)}>{copy.experience.title}</a> · <a href={source(4)}>{copy.projects.title}</a> · <a href={source(5)}>{copy.education.title}</a> · <a href={source(6)}>{copy.talks.heading}</a> · <a href={linkedin}>LinkedIn</a></p>
+    </noscript>
+  </section>
+  <a slot="footer" href={cv[locale]} hreflang={locale}>{copy.download} (PDF)</a>
+
+  <template id={`terminal-${help}`}><ul>{commands.map(([command, label]) => <li><code>/{command}</code> · {label}</li>)}</ul></template>
+  <template id={`terminal-${experience}`}>
+    <ul>{copy.experience.roles.map(role => <li><strong>{role.company} · {role.title}</strong> ({role.period})<br />{role.summary}</li>)}</ul>
+    <a href={source(3)}>{copy.experience.title} ↗</a>
+  </template>
+  <template id={`terminal-${projects}`}>
+    <table>
+      <caption>{copy.projects.title}</caption>
+      <thead><tr><th scope="col">{es ? 'Proyecto' : 'Project'}</th><th scope="col">{es ? 'Descripción' : 'Description'}</th></tr></thead>
+      <tbody>{copy.projects.items.map(item => <tr><th scope="row">{item.title}</th><td>{item.text}</td></tr>)}</tbody>
+    </table>
+    <a href={source(4)}>{copy.projects.title} ↗</a>
+  </template>
+  <template id={`terminal-${education}`}>
+    <ul>{copy.education.items.map(item => <li>{item.title} · {item.institution} ({item.period})</li>)}</ul>
+    <a href={source(5)}>{copy.education.title} ↗</a>
+  </template>
+  <template id={`terminal-${talks}`}><ul>{copy.talks.labels.map((label, index) => <li><a href={talkUrls[index]}>{label}</a></li>)}</ul></template>
+  <template id={`terminal-${download}`}><a href={cv[locale]}>{copy.download} (PDF)</a></template>
+  <template id={`terminal-${contact}`}><a href={linkedin}>LinkedIn ↗</a></template>
+</VersionShell>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#terminal-form');
+  const output = document.querySelector('#terminal-output');
+  const input = document.querySelector<HTMLInputElement>('#terminal-input');
+  const home = document.querySelector<HTMLAnchorElement>('#terminal-home');
+
+  if (form && output && input && home) {
+    form.hidden = false;
+    const run = (raw: string) => {
+      const command = raw.trim().toLowerCase().replace(/^\//, '');
+      if (!command) return;
+      const template = document.getElementById(`terminal-${command}`);
+      const entry = document.createElement('div');
+      const prompt = document.createElement('p');
+      prompt.textContent = template instanceof HTMLTemplateElement ? `❯ /${command}` : form.dataset.unknown ?? '';
+      entry.append(prompt);
+      if (template instanceof HTMLTemplateElement) entry.append(template.content.cloneNode(true));
+      output.append(entry);
+      entry.scrollIntoView({ block: 'nearest' });
+    };
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      run(input.value);
+      input.value = '';
+    });
+    for (const shortcut of form.querySelectorAll('button[type="button"]')) {
+      shortcut.addEventListener('click', () => {
+        if (shortcut instanceof HTMLButtonElement) run(shortcut.value);
+      });
+    }
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !event.defaultPrevented && !event.isComposing &&
+          !(event.target instanceof HTMLElement && event.target.closest('input, textarea, select, [contenteditable]'))) {
+        location.assign(home.href);
+      }
+    });
+  }
+</script>
+
+<style>
+  nav, .status, .shortcuts { display: flex; gap: .6rem 1rem; flex-wrap: wrap; }
+  h1 { font-size: clamp(2rem, 7vw, 4.5rem); line-height: 1; margin-bottom: .6rem; }
+  h1 span, .trace { color: var(--accent); }
+  .console { background: var(--surface); border: 1px solid var(--control-border); border-radius: .5rem; overflow: hidden; }
+  .status { background: #1d3550; padding: .7rem 1rem; }
+  .status span:last-child { margin-inline-start: auto; }
+  #terminal-output { padding: 0 1rem 1rem; overflow: auto; max-height: 52vh; overflow-wrap: anywhere; }
+  #terminal-output :global(table) { border-collapse: collapse; margin-block: .75rem; font-size: .9rem; }
+  #terminal-output :global(:is(th, td)) { text-align: start; vertical-align: top; border: 1px solid var(--control-border); padding: .4rem; }
+  form { border-top: 1px solid var(--control-border); padding: 1rem; }
+  .shortcuts { margin-bottom: .75rem; gap: .4rem; }
+  input, button { font: inherit; color: inherit; background: #0b1626; border: 1px solid var(--control-border); border-radius: .25rem; padding: .45rem; min-height: 2.2rem; box-sizing: border-box; }
+  input { width: min(100%, 18rem); }
+  button { cursor: pointer; }
+  button:hover { background: #294766; }
+  kbd { font-size: .8em; }
+</style>

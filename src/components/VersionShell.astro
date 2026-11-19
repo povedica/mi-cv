@@ -1,0 +1,41 @@
+---
+import SiteHead from './SiteHead.astro';
+import CookieNotice from './CookieNotice.astro';
+
+interface Props {
+  locale: 'es' | 'en';
+  title: string;
+  terminal?: boolean;
+}
+const { locale, title, terminal } = Astro.props;
+---
+<!doctype html>
+<html lang={locale}>
+  <SiteHead {title} description={title}>
+    <meta name="robots" content="noindex" />
+  </SiteHead>
+  <body class:list={[{ terminal }]}>
+    <main><slot /></main>
+    <footer><CookieNotice {locale} /><slot name="footer" /></footer>
+  </body>
+</html>
+
+<style is:global>
+  body {
+    --surface: #122238;
+    --text: #eef4ff;
+    --accent: #92e8c5;
+    --control-border: #829bb7;
+    background: #0b1626;
+    color: var(--text);
+    font-family: system-ui, sans-serif;
+    margin: 0;
+    padding: clamp(1rem, 4vw, 3rem);
+  }
+  body.terminal { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+  main, footer { max-width: 65rem; margin: auto; }
+  footer { padding-block: 1rem; }
+  a { color: var(--accent); }
+  :is(a, button, input):focus-visible { outline: 2px solid #ffda79; outline-offset: 3px; }
+  .cookie-notice { max-width: 60rem; }
+</style>

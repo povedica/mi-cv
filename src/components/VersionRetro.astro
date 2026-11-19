@@ -1,0 +1,129 @@
+---
+import CookieNotice from './CookieNotice.astro';
+import WebAnalytics from './WebAnalytics.astro';
+import { cv, linkedin, profileCopy, talkUrls } from '../data/public-profile';
+
+interface Props { locale: 'es' | 'en' }
+const { locale } = Astro.props;
+const es = locale === 'es';
+const copy = profileCopy[locale];
+const home = es ? '/?lang=es' : '/en/';
+const versions = es ? '/versiones/' : '/en/versions/';
+const welcome = es ? '¡Bienvenido a mi página personal!' : 'Welcome to my personal homepage!';
+---
+<!doctype html>
+<html lang={locale}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=800" />
+  <meta name="robots" content="noindex" />
+  <title>{copy.name} · {es ? 'Mi página personal' : 'My personal homepage'}</title>
+  <link rel="icon" href="/favicon.ico" />
+  <WebAnalytics />
+</head>
+<body>
+  <center>
+    <table role="presentation" width="760" cellpadding="15" cellspacing="5" class="site">
+      <tr>
+        <td colspan="2">
+          <header>
+            <a href={versions}>← {es ? 'Versiones' : 'Versions'}</a>
+            <h1><font face="Impact, Arial Black, sans-serif" size="7">{copy.name}</font></h1>
+            <p class="motion-safe" aria-hidden="true"><marquee behavior="slide" scrollamount="25" loop="1">{welcome}</marquee></p>
+            <p class="welcome">{welcome}</p>
+            <hr />
+          </header>
+        </td>
+      </tr>
+      <tr class="columns">
+        <td class="sidebar">
+          <nav aria-label={es ? 'Menú' : 'Menu'}>
+            <a href="#experience">{copy.experience.title}</a>
+            <a href="#projects">{copy.projects.title}</a>
+            <a href="#education">{copy.education.title}</a>
+            <a href="#talks">{copy.talks.heading}</a>
+            <a href={cv[locale]} hreflang={locale}>{copy.download} (PDF)</a>
+            <a href={linkedin}>LinkedIn</a>
+            <a href={home}>{es ? 'Volver a la web actual' : 'Back to the current website'}</a>
+          </nav>
+          <p class="construction">⚠ {es ? 'EN CONSTRUCCIÓN' : 'UNDER CONSTRUCTION'}</p>
+          <p>{es ? 'Contador ficticio' : 'Fictional counter'}<br /><samp>000035</samp></p>
+        </td>
+        <td>
+          <main>
+            <p><strong>{copy.headline}</strong></p>
+            {copy.lead.map(paragraph => <p>{paragraph}</p>)}
+            <hr />
+            <section id="experience">
+              <h2>{copy.experience.title}</h2>
+              <dl>{copy.experience.roles.map(role => <><dt><strong>{role.company} · {role.title}</strong></dt><dd>{role.period} · {role.summary}</dd></>)}</dl>
+            </section>
+            <hr />
+            <section id="projects">
+              <h2>{copy.projects.title}</h2>
+              {copy.projects.items.map(item => <p><strong>{item.title}</strong><br />{item.text}</p>)}
+            </section>
+            <hr />
+            <section id="education">
+              <h2>{copy.education.title}</h2>
+              <ul>{copy.education.items.map(item => <li>{item.title} · {item.institution} ({item.period})</li>)}</ul>
+            </section>
+            <hr />
+            <section id="talks">
+              <h2>{copy.talks.heading}</h2>
+              <ul>{copy.talks.labels.map((label, index) => <li><a href={talkUrls[index]}>{label}</a></li>)}</ul>
+            </section>
+            <hr />
+            <h2>{es ? 'Libro de visitas' : 'Guestbook'}</h2>
+            <p>{es ? 'Para saludar, escríbeme en LinkedIn.' : 'Say hello on LinkedIn.'} <a href={linkedin}>LinkedIn ↗</a></p>
+          </main>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <footer>
+            <CookieNotice {locale} />
+            <hr />
+            <p>{es ? 'Webring ficticio' : 'Fictional webring'} · <a href={versions}>{es ? 'Índice' : 'Index'}</a> · <a href={versions + 'tui/'}>{es ? 'Siguiente · Terminal' : 'Next · Terminal'}</a></p>
+            <p><font face="Courier New, monospace">{es ? 'Mejor visto con Netscape Navigator a 800×600' : 'Best viewed with Netscape Navigator at 800×600'}</font></p>
+          </footer>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>
+
+<style is:global>
+  body {
+    --surface: #fff6cf;
+    --text: #1b1732;
+    --accent: #372380;
+    --control-border: #372380;
+    min-width: 780px;
+    color: var(--text);
+    background: #211b54 url('/retro-tile.svg') repeat;
+    font-family: Georgia, serif;
+  }
+  .site { background: #fff6cf; border: 6px ridge #a298cf; }
+  .site header, .site footer { text-align: center; }
+  .columns > td { vertical-align: top; }
+  .sidebar { width: 190px; }
+  .site h1 { color: #592887; text-shadow: 2px 2px #ffe74f, 4px 4px #35206d; }
+  .site hr { height: 7px; border: 1px solid #433573; background: linear-gradient(90deg, #e22558, #ffb300, #ffef47, #61cb72, #5888ef, #963ed6); }
+  .site a { color: #372380; }
+  .site a:focus-visible { outline: 3px solid #372380; outline-offset: 2px; }
+  .site nav a { display: block; padding: .45rem; margin-block: .35rem; border: 4px outset #b3adc7; background: #e2daf4; font-family: Arial, sans-serif; font-size: .9rem; }
+  .site nav a:active { border-style: inset; }
+  .site dd { margin: 0 0 .6rem; }
+  .site samp { background: black; color: #9df78e; padding: .25rem .4rem; letter-spacing: .2em; }
+  .construction { padding: .5rem; background: #ffdf46; border: 3px dashed #382b22; font: bold .85rem Arial, sans-serif; }
+  .site .cookie-notice { position: static; max-width: 680px; }
+  .welcome { margin-block: 1em; }
+  @media (prefers-reduced-motion: no-preference) {
+    .welcome { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .motion-safe { display: none; }
+  }
+</style>
