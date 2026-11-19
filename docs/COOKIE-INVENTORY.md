@@ -24,3 +24,9 @@ notice and changing the theme produced only the notice and theme keys documented
 localized policies link to the inventory from the footer. The preview uses
 the production analytics hostname gate, so the local test does not replace
 the post-release collector and edge checks.
+
+The November 19 bilingual production check covered all six routes in a fresh
+Chrome context. It found empty cookie, local storage and session storage on
+initial visits. Dismissing the notice, toggling the theme and switching to
+English wrote only the three documented preferences. The test intercepted the
+Umami collector POSTs before transmission.

@@ -1,6 +1,6 @@
 # Production deployment
 
-The target is `https://cv.reflexionia.com`. GitHub Actions builds the six localized Astro pages and their assets on demand. The shared Caddy edge serves those files over HTTPS. There is no app container or runtime secret. Browser error reporting is opt-in through the [Sentry configuration](WORKFLOWS.md#sentry). There is no analytics collector.
+The target is `https://cv.reflexionia.com`. GitHub Actions builds the six localized Astro pages and their assets on demand. The shared Caddy edge serves those files over HTTPS. There is no app container or runtime secret. Browser error reporting is opt-in through the [Sentry configuration](WORKFLOWS.md#sentry). The production build loads the existing self-hosted Umami tracker. See [web analytics](ANALYTICS.md).
 
 ## Provisioning
 
@@ -41,7 +41,7 @@ If the HTTPS check fails, inspect the reported route, the live symlink and the C
 
 Keep the existing Caddy origin address on the `cv` DNS record and enable Cloudflare proxying for that record. Use Full (strict) TLS from Cloudflare to Caddy. Keep changes scoped to `cv.reflexionia.com` so other hosts keep their own settings.
 
-Add a Cache Rule that makes `/` and `/interview/` eligible for caching on this host when the query string is empty. Respect the origin cache headers and the standard cache key. Caddy allows shared caches to serve HTML for five minutes. GitHub Actions checks the new HTML on a release-specific query string and compares all deployed files with the build. The example address on the demo card uses Cloudflare’s inline email-obfuscation opt-out so the edge preserves its HTML.
+Add a Cache Rule that makes `/` and `/interview/` eligible for caching on this host when the query string is empty. Respect the origin cache headers and the standard cache key. Caddy allows shared caches to serve HTML for five minutes. GitHub Actions checks the new HTML on a release-specific query string and compares all deployed files with the build. The CV site sets `Cache-Control: no-transform` on the landing and interview routes so Cloudflare preserves the released HTML, including the public demo address.
 
 Caddy serves fingerprinted assets from the shared `assets/_astro` directory. The receiver adds a release's assets before switching the HTML. This keeps earlier HTML usable while it remains in cache or a browser tab. Keep assets for retained releases and avoid automatic asset pruning without a retention review.
 
