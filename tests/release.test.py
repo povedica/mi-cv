@@ -29,7 +29,7 @@ class ReleaseTest(unittest.TestCase):
 
     def test_landing_files_are_accepted(self):
         files = PAGES + [
-            ASSET, "en/index.html", "en/interview/index.html", "cv/public-en.pdf",
+            ASSET, "_astro/Geist-latin.Ast12.woff2", "en/index.html", "en/interview/index.html", "cv/public-en.pdf",
             "certificados/public.pdf", "sitemap.xml", "robots.txt", "og.png", "og.jpg",
         ]
         with tempfile.TemporaryDirectory() as directory:
@@ -40,7 +40,7 @@ class ReleaseTest(unittest.TestCase):
             self.assertTrue(all((root / "current" / path).is_file() for path in files))
 
     def test_unexpected_files_are_rejected(self):
-        for path in ("en/other/index.html", "cv/../private.pdf", "cv/nested/private.pdf", "private.pdf"):
+        for path in ("en/other/index.html", "cv/../private.pdf", "cv/nested/private.pdf", "private.pdf", "fonts/private.woff2"):
             with self.subTest(path=path), tempfile.TemporaryDirectory() as directory:
                 root = Path(directory)
                 (root / "releases").mkdir()

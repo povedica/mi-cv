@@ -3,10 +3,11 @@ import { Image } from 'astro:assets';
 import portrait from '../assets/pablo-portrait.jpg';
 import SiteHead from './SiteHead.astro';
 import ThemeSelect from './ThemeSelect.astro';
-import LandingCards from './LandingCards.astro';
+import LandingSectionTitle from './LandingSectionTitle.astro';
+import LandingRoles from './LandingRoles.astro';
 import es from '../content/landing/es.json';
 import en from '../content/landing/en.json';
-import '../styles/global.css';
+import '../styles/landing.css';
 
 interface Props {
   locale: 'es' | 'en';
@@ -20,8 +21,9 @@ const interview = isSpanish ? '/interview/' : '/en/interview/';
 const otherLocale = isSpanish ? 'en' : 'es';
 const cvLocales = [locale, otherLocale] as const;
 const otherHome = isSpanish ? '/en/' : '/';
-const otherLanguageLabel = isSpanish ? 'Read in English' : 'Leer en español';
-const [hero, achievements, focus, ai, experience, projects, education, talks, skills, languages, about, teaser, contact] = copy.ids;
+const otherLanguageLabel = isSpanish ? 'EN · Read in English' : 'ES · Leer en español';
+const [hero, focus, ai, experience, projects, education, talks, skills, languages, about, teaser, contact] = copy.ids;
+const [vassManager, vassLead, ...otherRoles] = copy.experience.roles;
 const navIds = [experience, projects, ai, talks, contact];
 const linkedin = 'https://www.linkedin.com/in/pablo-poveda-ortega/';
 const github = 'https://github.com/povedica';
@@ -68,139 +70,191 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json" set:html={JSON.stringify(person).replaceAll('<', '\\u003c')} />
   </SiteHead>
-  <body>
-    <a class="skip-link" href="#main-content">{copy.skip}</a>
-    <div class="page-glow"></div>
-    <header class="site-header shell">
-      <a class="brand" href={home}><span class="brand-mark" aria-hidden="true">PP</span>{copy.name}</a>
-      <nav aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}>
-        {copy.nav.map((label, index) => <a href={`#${navIds[index]}`}>{label}</a>)}
-      </nav>
-      <div class="header-actions">
-        <ThemeSelect locale={locale} />
-        <a href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">{otherLocale.toUpperCase()}</a>
-        <a class="button button-primary nav-cta" href={interview} data-interview-placement="navigation">{copy.interviewLabel}</a>
+  <body class="landing">
+    <a class="landing-skip" href="#main-content">{copy.skip}</a>
+    <header class="landing-nav">
+      <div class="landing-wrap">
+        <a class="landing-brand" href={home} aria-label={copy.name}>
+          <span>{copy.name}</span><span aria-hidden="true">PP</span><b aria-hidden="true">.</b>
+        </a>
+        <nav aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}>
+          {copy.nav.map((label, index) => <a href={`#${navIds[index]}`}>{label}</a>)}
+        </nav>
+        <div class="landing-nav-actions">
+          <a class="landing-lang" href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">{otherLocale.toUpperCase()}</a>
+          <a class="landing-button landing-linkedin" href={linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" data-analytics-action="linkedin-click">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M4 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM2.5 9h3v12h-3zm6 0h3v1.6a4 4 0 0 1 3.6-1.9c3.8 0 4.4 2.5 4.4 5.8V21h-3v-6c0-1.9-.4-3.4-2.4-3.4s-2.6 1.5-2.6 3.3V21h-3z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a class="landing-button landing-nav-cv" href={showLocalCv ? cv[locale] : `#${contact}`} download={showLocalCv} data-analytics-action={showLocalCv ? 'cv-download' : undefined}><span>{showLocalCv ? copy.download : copy.contact.title}</span><span>CV</span></a>
+          <a class="landing-button landing-primary" href={interview} data-interview-placement="navigation">{copy.interviewLabel}</a>
+        </div>
       </div>
     </header>
+
     <main id="main-content" tabindex="-1">
-      <section class="hero shell" id={hero}>
-        <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-dot"></span>{copy.eyebrow}</div>
-          <h1>{copy.name}<em>{copy.headline}</em></h1>
-          <p class="lead">{copy.lead}</p>
-          <div class="hero-actions">
-            <a class="button button-primary button-large" data-interview-placement="hero" href={interview}>{copy.interviewLabel}</a>
-            {showLocalCv && <a class="button button-secondary button-large" href={cv[locale]} hreflang={locale} download data-analytics-action="cv-download">{copy.download}</a>}
-            <a class="button button-secondary button-large" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
-            <a class="button button-secondary button-large" href={`#${contact}`} data-analytics-action="contact-click">{copy.contactLabel}</a>
-          </div>
-          <p class="hero-note">{copy.location}</p>
-        </div>
-        <figure class="hero-stage">
-          <div class="stage-content">
-            <Image src={portrait} alt={copy.portraitAlt} class="hero-portrait" width={1200} widths={[320, 480, 640, 800, 960, 1200]} sizes="(max-width: 760px) calc(100vw - 56px), (max-width: 1544px) 50vw, 720px" format="webp" priority />
-            <figcaption class="stage-overlay portrait-name">{copy.portraitLabel}</figcaption>
-          </div>
-        </figure>
-      </section>
-      <LandingCards id={achievements} section={copy.achievements} />
-      <LandingCards id={focus} section={copy.focus} />
-      <LandingCards id={ai} section={copy.ai} />
-      <section class="topics shell" id={experience}>
-        <div class="section-header"><h2>{copy.experience.title}</h2><p>{copy.experience.intro}</p></div>
-        <ol class="timeline">
-          {copy.experience.roles.map(role => (
-            <li class="topic">
-              <h3>{role.title}</h3>
-              <p>{role.period}</p>
-              <ul>{role.items.map(item => <li>{item}</li>)}</ul>
-              {role.details.length > 0 && (
-                <details>
-                  <summary>{copy.experience.more}</summary>
-                  <ul>{role.details.map(item => <li>{item}</li>)}</ul>
-                </details>
+      <section class="landing-hero" id={hero} aria-labelledby="landing-name">
+        <div class="landing-wrap landing-hero-main">
+          <div class="landing-hero-copy">
+            <p class="landing-status">
+              <Image src={portrait} alt={copy.portraitAlt} class="landing-avatar" width={96} height={96} format="webp" />
+              {copy.status}
+            </p>
+            <h1 id="landing-name">{copy.name}</h1>
+            <p class="landing-role">{copy.headline}</p>
+            <p class="landing-lead">{copy.lead}</p>
+            <div class="landing-actions">
+              <a class="landing-button landing-primary" data-interview-placement="hero" href={interview}>{copy.interviewLabel} <span aria-hidden="true">→</span></a>
+              {showLocalCv && (
+                <div class="landing-cv-group">
+                  {cvLocales.map((language, index) => (
+                    <a class="landing-button" href={cv[language]} hreflang={language} lang={language} aria-label={cvLabels[language]} download data-analytics-action="cv-download">
+                      {index === 0 && `${copy.download} · `}{language.toUpperCase()}
+                    </a>
+                  ))}
+                </div>
               )}
-            </li>
-          ))}
-        </ol>
-      </section>
-      <LandingCards id={projects} section={copy.projects} />
-      <LandingCards id={education} section={copy.education} />
-      <section class="topics shell" id={talks}>
-        <div class="section-header"><h2>{copy.talks.title}</h2></div>
-        <div class="topic-grid">
-          <article class="topic"><h3>{copy.talks.highlights[0].title}</h3><p>{copy.talks.highlights[0].text}</p></article>
-          <article class="topic"><h3>{copy.talks.heading}</h3><ul>{copy.talks.labels.map((label, index) => <li><a class="inline-link" href={talkUrls[index]}>{label}</a></li>)}</ul></article>
-          <article class="topic"><h3>{copy.talks.highlights[1].title}</h3><p>{copy.talks.highlights[1].text}</p></article>
+              <a class="landing-button" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
+              <a href={`#${contact}`} data-analytics-action="contact-click">{copy.contactLabel}</a>
+            </div>
+          </div>
+          <figure class="landing-portrait">
+            <div>
+              <Image src={portrait} alt={copy.portraitAlt} width={960} widths={[320, 480, 640, 800, 960]} sizes="(max-width: 900px) 1px, 380px" format="webp" priority />
+            </div>
+            <figcaption><strong>{copy.name}</strong><span>{copy.portraitLabel}</span></figcaption>
+          </figure>
         </div>
+        <div class="landing-hero-foot"><div class="landing-wrap"><span>{copy.eyebrow}</span><span>{copy.location}</span></div></div>
       </section>
-      <LandingCards id={skills} section={copy.skills} />
-      <section class="statement shell" id={languages}>
-        <h2>{copy.languages.title}</h2>
-        <ul>{copy.languages.items.map(item => <li>{item}</li>)}</ul>
-      </section>
-      <section class="statement shell" id={about}>
-        <h2>{copy.about.title}</h2>
-        <div>{copy.about.items.map(item => <p>{item}</p>)}</div>
-      </section>
-      <section class="project shell" id={teaser}>
-        <div>
-          <h2>{copy.interview.title}</h2>
-          <p>{copy.interview.text}</p>
-          <a class="inline-link" data-interview-placement="project" href={interview}>{copy.interview.cta}</a>
-        </div>
-      </section>
-      <section class="statement shell" id={contact}>
-        <h2>{copy.contact.title}</h2>
-        <div>
-          <p>{copy.contact.text}</p>
-          <p>{copy.contact.note}</p>
-          <div class="hero-actions">
-            {showLocalCv && cvLocales.map(language => (
-              <a class="button button-secondary" href={cv[language]} hreflang={language} lang={language} download data-analytics-action="cv-download">{cvLabels[language]}</a>
-            ))}
-            <a class="button button-primary" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">{copy.contact.linkedin}</a>
+
+      <section class="landing-section" id={focus}>
+        <div class="landing-wrap landing-split">
+          <LandingSectionTitle title={copy.focus.title} intro={copy.focus.intro} number="01" />
+          <div class="landing-areas">
+            {copy.focus.items.map(item => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}
           </div>
         </div>
       </section>
+
+      <section class="landing-section landing-band" id={ai}>
+        <div class="landing-wrap landing-split">
+          <LandingSectionTitle title={copy.ai.title} number="02" />
+          <div>
+            <p class="landing-ai-intro">{copy.ai.intro}</p>
+            <article class="landing-ai-feature"><h3>{copy.ai.items[0].title}</h3><p>{copy.ai.items[0].text}</p></article>
+            <div class="landing-ai-grid">
+              {copy.ai.items.slice(1).map(item => (
+                <article><h3>{item.href ? <a href={item.href}>{item.title}</a> : item.title}</h3><p>{item.text}</p></article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section" id={experience}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.experience.title} intro={copy.experience.intro} number="03" wide />
+          <ol class="landing-timeline" role="list">
+            <li>
+              <div class="landing-company"><strong>{vassManager.company}</strong><span class="landing-period">{copy.experience.vassPeriod}</span><span>{vassManager.context} · Digital Experience (Open Source PHP)</span></div>
+              <LandingRoles roles={[vassManager, vassLead]} group />
+            </li>
+            {otherRoles.map(role => (
+              <li>
+                <div class="landing-company"><strong>{role.company}</strong><span class="landing-period">{role.period}</span><span>{role.context}</span></div>
+                <LandingRoles roles={[role]} />
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section class="landing-section" id={projects}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.projects.title} intro={copy.projects.intro} number="04" wide />
+          <div class="landing-cases">
+            {copy.projects.items.map(item => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section">
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.profileLabel} number="05" />
+          <div class="landing-profile">
+            <div>
+              <section id={skills}>
+                <h3>{copy.skills.title}</h3>
+                {copy.skills.items.map(item => <div class="landing-profile-item"><h4>{item.title}</h4><p>{item.text}</p></div>)}
+              </section>
+              <section id={education}>
+                <h3>{copy.education.title}</h3>
+                {copy.education.items.map(item => <div class="landing-profile-item"><h4>{item.title}</h4><p>{item.text}</p></div>)}
+              </section>
+            </div>
+            <div>
+              <section id={talks}>
+                <h3>{copy.talks.title}</h3>
+                <div class="landing-profile-item"><h4>{copy.talks.highlights[0].title}</h4><p>{copy.talks.highlights[0].text}</p></div>
+                <div class="landing-profile-item"><h4>{copy.talks.heading}</h4><ul>{copy.talks.labels.map((label, index) => <li><a href={talkUrls[index]}>{label}</a></li>)}</ul></div>
+                <div class="landing-profile-item"><h4>{copy.talks.highlights[1].title}</h4><p>{copy.talks.highlights[1].text}</p></div>
+              </section>
+              <section id={languages}>
+                <h3>{copy.languages.title}</h3>
+                <ul>{copy.languages.items.map(item => <li>{item}</li>)}</ul>
+              </section>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section" id={about}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.about.title} number="06" />
+          <blockquote>“{copy.about.quote}”</blockquote>
+          <div class="landing-about">{copy.about.items.map(item => <p>{item}</p>)}</div>
+        </div>
+      </section>
+
+      <div class="landing-section">
+        <div class="landing-wrap landing-end">
+          <section id={teaser}>
+            <LandingSectionTitle title={copy.interview.title} number="07" />
+            <p>{copy.interview.text}</p>
+            <ul class="landing-questions" role="list">
+              {copy.suggestions.map(question => (
+                <li><a href={interview + '#chat-preview'} data-interview-placement="project">{question}<span aria-hidden="true">→</span></a></li>
+              ))}
+            </ul>
+            <a class="landing-button landing-primary" data-interview-placement="project" href={interview}>{copy.interview.cta}</a>
+          </section>
+          <section id={contact}>
+            <h2>{copy.contact.title}</h2>
+            <p>{copy.contact.text}</p>
+            <div class="landing-actions">
+              {showLocalCv && cvLocales.map(language => (
+                <a class="landing-button" href={cv[language]} hreflang={language} lang={language} download data-analytics-action="cv-download">{cvLabels[language]}</a>
+              ))}
+              <a class="landing-button" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">{copy.contact.linkedin}</a>
+            </div>
+            <p>{copy.contact.note}</p>
+          </section>
+        </div>
+      </div>
     </main>
-    <footer class="site-footer shell">
-      <span>© {new Date().getFullYear()} {copy.name}</span>
-      <span>{isSpanish ? 'Web hecha con Astro.' : 'Built with Astro.'}</span>
-      <div class="footer-links">
-        <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
-        <a href={github}>GitHub</a>
-        {showLocalCv && cvLocales.map(language => (
-          <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>
-        ))}
-        <a href={otherHome} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
+
+    <footer class="landing-footer">
+      <div class="landing-wrap">
+        <div><strong>{copy.name}</strong><p>{isSpanish ? 'Web hecha con Astro.' : 'Built with Astro.'}</p></div>
+        <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
+          <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
+          <a href={github}>GitHub</a>
+          {showLocalCv && cvLocales.map(language => <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>)}
+          <a href={otherHome} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
+        </nav>
+        <ThemeSelect locale={locale} />
       </div>
     </footer>
   </body>
 </html>
-
-<style>
-  .header-actions,
-  .footer-links {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .hero-stage {
-    margin: 0;
-  }
-
-  .timeline {
-    display: grid;
-    gap: 16px;
-    padding-inline-start: 1.6em;
-  }
-
-  summary {
-    cursor: pointer;
-    color: var(--accent);
-    width: fit-content;
-  }
-</style>

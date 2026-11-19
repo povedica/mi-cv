@@ -59,7 +59,7 @@ Página de entrevista:
 | Marca | Pablo Poveda | Pablo Poveda |
 | Enlaces | Trayectoria · Proyectos · IA · Charlas · CV y contacto | Experience · Projects · AI · Talks · CV & contact |
 | Botón | Entrevístame | Interview me |
-| Selector de idioma | EN (aria-label «Read in English») | ES (aria-label «Leer en español») |
+| Selector de idioma | EN (aria-label «EN · Read in English») | ES (aria-label «ES · Leer en español») |
 | Saltar al contenido | Saltar al contenido | Skip to content |
 
 ---
@@ -68,9 +68,10 @@ Página de entrevista:
 
 **ES**
 
-- Eyebrow: ENGINEERING MANAGEMENT · SOFTWARE DELIVERY · AI ENGINEERING
+- Línea de estado: Busco roles de Engineering Manager y liderazgo técnico
+- Pie del hero: Engineering Management · Software Delivery · AI Engineering
 - H1: Pablo Poveda
-- H1 (segunda línea, `em`): Engineering Manager · AI Engineering
+- Línea del cargo bajo H1: Engineering Manager · AI Engineering
 - Descripción: Lidero, gestiono y escalo equipos técnicos, mejoro la entrega de software e incorporo la IA generativa al desarrollo. Más de 15 años en el sector, del desarrollo web a dirigir un departamento de ingeniería.
 - Ubicación: Madrid, España · Remoto
 - CTA principal: Entrevístame → `/interview/`
@@ -80,27 +81,16 @@ Página de entrevista:
 
 **EN**
 
-- Eyebrow: ENGINEERING MANAGEMENT · SOFTWARE DELIVERY · AI ENGINEERING
+- Status line: I am looking for Engineering Manager and technical leadership roles
+- Hero footer: Engineering Management · Software Delivery · AI Engineering
 - H1: Pablo Poveda
-- H1 (second line, `em`): Engineering Manager · AI Engineering
+- Role line below H1: Engineering Manager · AI Engineering
 - Description: I lead, manage and scale technical teams, improve software delivery and bring generative AI into development. 15+ years in the industry, from web development to running an engineering department.
 - Location: Madrid, Spain · Remote
 - Primary CTA: Interview me → `/en/interview/`
 - Secondary CTAs: Download CV → `/cv/Pablo-Poveda-Ortega-CV-EN.pdf` · LinkedIn → https://www.linkedin.com/in/pablo-poveda-ortega/ · Contact → `#cv-contact`
 - Portrait (alt): Portrait of Pablo Poveda
 - Portrait label: Pablo Poveda · Engineering Manager
-
----
-
-## 3. Logros clave (`logros` / `achievements`)
-
-| | ES | EN |
-|---|---|---|
-| Título | Logros clave | Key achievements |
-| Cifra 1 | **1 → 20** · Escalé un departamento de ingeniería de 1 a 20 profesionales. | **1 → 20** · Scaled an engineering department from 1 to 20 people. |
-| Cifra 2 | **~30** · Lideré una cartera de unos 30 proyectos tecnológicos. | **~30** · Led a portfolio of around 30 technology projects. |
-| Cifra 3 | **Miles** · Desplegué soluciones corporativas para miles de usuarios. | **Thousands** · Delivered enterprise solutions for thousands of users. |
-| Cifra 4 | **~30 %** · Incorporé la IA generativa al desarrollo, con alrededor de un 30 % más de valor entregado. | **~30%** · Brought generative AI into development, increasing delivered value by roughly 30%. |
 
 ---
 
@@ -144,60 +134,88 @@ Página de entrevista:
 Título ES: **Trayectoria** · Entradilla: Del desarrollo web a dirigir un departamento de ingeniería.
 Title EN: **Experience** · Intro: From web development to running an engineering department.
 
-Cada rol muestra 2–3 puntos visibles; el resto va en «Ver más» / «Show more».
+Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma empresa (sep/Sep 2020 – nov/Nov 2026).
 
 ### 6.1. VASS · Manager de departamento / Department Manager
 
 | | ES | EN |
 |---|---|---|
 | Cargo | Manager de departamento · Digital Experience (Open Source PHP) | Department Manager · Digital Experience (Open Source PHP) |
-| Empresa y fechas | VASS · Madrid · may 2024 – nov 2026 | VASS · Madrid · May 2024 – Nov 2026 |
-| Visible 1 | Dirigí el departamento con autonomía sobre las decisiones organizativas y responsabilidad sobre sus resultados económicos, la cartera de proyectos y las oportunidades de negocio. | Led the department with full ownership of organizational decisions and responsibility for its financial results, project portfolio and business opportunities. |
-| Visible 2 | Organicé los equipos de ingeniería, de entre 15 y 20 personas: estructura, prioridades y asignación a proyectos. | Organized engineering teams of 15–20 people: structure, priorities and project assignments. |
-| Visible 3 | Impulsé con otros responsables la adopción de IA generativa en los equipos de desarrollo: alrededor de un 30 % más de valor entregado. | Together with other leaders, drove the adoption of generative AI across development teams: roughly 30% more delivered value. |
-| Ver más | Abrí nuevos clientes con pequeños proyectos iniciales que después hicieron crecer el negocio con ellos. · Coordiné proyectos transversales entre departamentos, alineando prioridades, plazos, dependencias y entregas. · Supervisé proyectos de alcance nacional, como la plataforma de loyalty de una de las principales operadoras de telecomunicaciones. | Opened new clients through small initial projects that later grew into larger business. · Coordinated cross-departmental projects, aligning priorities, deadlines, dependencies and delivery. · Oversaw nationwide projects, such as the loyalty platform of one of the country's leading telecom operators. |
+| Empresa | VASS | VASS |
+| Fechas | may 2024 – nov 2026 | May 2024 – Nov 2026 |
+| Contexto | Madrid | Madrid |
+| Resumen | Dirección del departamento: personas, cartera de proyectos y resultados. | Running the department: people, project portfolio and results. |
+| Punto | Dirigí el departamento con autonomía sobre las decisiones organizativas y responsabilidad sobre sus resultados económicos, la cartera de proyectos y las oportunidades de negocio. | Led the department with full ownership of organizational decisions and responsibility for its financial results, project portfolio and business opportunities. |
+| Punto | Organicé los equipos de ingeniería, de entre 15 y 20 personas: estructura, prioridades y asignación a proyectos. | Organized engineering teams of 15–20 people: structure, priorities and project assignments. |
+| Punto | Impulsé con otros responsables la adopción de IA generativa en los equipos de desarrollo: alrededor de un 30 % más de valor entregado. | Together with other leaders, drove the adoption of generative AI across development teams: roughly 30% more delivered value. |
+| Punto | Abrí nuevos clientes con pequeños proyectos iniciales que después hicieron crecer el negocio con ellos. | Opened new clients through small initial projects that later grew into larger business. |
+| Punto | Coordiné proyectos transversales entre departamentos, alineando prioridades, plazos, dependencias y entregas. | Coordinated cross-departmental projects, aligning priorities, deadlines, dependencies and delivery. |
+| Punto | Supervisé proyectos de alcance nacional, como la plataforma de loyalty de una de las principales operadoras de telecomunicaciones. | Oversaw nationwide projects, such as the loyalty platform of one of the country's leading telecom operators. |
+| Etiquetas | Dirección de equipos · Cartera de proyectos · Preventa y negocio · IA generativa | Team management · Project portfolio · Pre-sales and business · Generative AI |
 
 ### 6.2. VASS · Team Lead / Tech Lead
 
 | | ES | EN |
 |---|---|---|
 | Cargo | Team Lead / Tech Lead · Digital Experience (Open Source PHP) | Team Lead / Tech Lead · Digital Experience (Open Source PHP) |
-| Empresa y fechas | VASS · Madrid · sep 2020 – abr 2024 | VASS · Madrid · Sep 2020 – Apr 2024 |
-| Visible 1 | Hice crecer el departamento de 1 a 20 profesionales: diseñé el proceso de selección y las pruebas técnicas, entrevisté con Talent Acquisition y preparé la incorporación. | Grew the department from 1 to 20 people: designed the hiring process and technical challenges, interviewed with Talent Acquisition and prepared onboarding. |
-| Visible 2 | Dirigí una cartera de unos 30 proyectos, entre ellos una intranet web y móvil para miles de empleados de una cadena nacional de supermercados. | Managed a portfolio of around 30 projects, including a web and mobile intranet for thousands of employees of a national supermarket chain. |
-| Visible 3 | Impulsé el desarrollo del equipo con mentoría, seguimiento individual y evaluaciones por objetivos: tres personas promocionaron a puestos de más responsabilidad. | Supported the team's growth through mentoring, one-to-ones and objective-based reviews: three team members were promoted to more senior roles. |
-| Ver más | Incorporé Scrum y XP, estándares de calidad y revisión automática del código, además de logs, monitorización y métricas que redujeron las incidencias y mejoraron su seguimiento. · Automaticé parte de los procesos de entrega para entregar más valor con mayor calidad. · Asumí la responsabilidad económica del departamento, con una rentabilidad superior a la prevista, y lideré preventas hasta la propuesta y la estimación. | Introduced Scrum and XP, quality standards and automated code review, plus logging, monitoring and metrics that reduced incidents and improved how they were tracked. · Automated key delivery processes to deliver more value with higher quality. · Held financial responsibility for the department, achieving higher profitability than planned, and led pre-sales through to proposal and estimation. |
+| Empresa | VASS | VASS |
+| Fechas | sep 2020 – abr 2024 | Sep 2020 – Apr 2024 |
+| Contexto | Madrid | Madrid |
+| Resumen | Liderazgo técnico y construcción del equipo desde cero. | Technical leadership and building the team from scratch. |
+| Punto | Hice crecer el departamento de 1 a 20 profesionales: diseñé el proceso de selección y las pruebas técnicas, entrevisté con Talent Acquisition y preparé la incorporación. | Grew the department from 1 to 20 people: designed the hiring process and technical challenges, interviewed with Talent Acquisition and prepared onboarding. |
+| Punto | Dirigí una cartera de unos 30 proyectos, entre ellos una intranet web y móvil para miles de empleados de una cadena nacional de supermercados. | Managed a portfolio of around 30 projects, including a web and mobile intranet for thousands of employees of a national supermarket chain. |
+| Punto | Impulsé el desarrollo del equipo con mentoría, seguimiento individual y evaluaciones por objetivos: tres personas promocionaron a puestos de más responsabilidad. | Supported the team's growth through mentoring, one-to-ones and objective-based reviews: three team members were promoted to more senior roles. |
+| Punto | Incorporé prácticas ágiles, estándares de calidad y revisión automática del código, además de logs, monitorización y métricas que redujeron las incidencias y mejoraron su seguimiento. | Introduced agile practices, quality standards and automated code review, plus logging, monitoring and metrics that reduced incidents and improved how they were tracked. |
+| Punto | Automaticé parte de los procesos de entrega para entregar más valor con mayor calidad. | Automated key delivery processes to deliver more value with higher quality. |
+| Punto | Asumí la responsabilidad económica del departamento y lideré preventas hasta la propuesta y la estimación. | Held financial responsibility for the department and led pre-sales through to proposal and estimation. |
+| Etiquetas | Open Source PHP · Prácticas ágiles · Calidad de código · Selección y mentoría | Open Source PHP · Agile practices · Code quality · Hiring and mentoring |
 
 ### 6.3. UNIR · Senior PHP Developer
 
 | | ES | EN |
 |---|---|---|
 | Cargo | Senior PHP Developer | Senior PHP Developer |
-| Empresa y fechas | UNIR · Madrid · abr 2017 – may 2020 | UNIR · Madrid · Apr 2017 – May 2020 |
-| Visible 1 | Colideré técnicamente la plataforma de contenidos propia, basada en WordPress, de los portales de UNIR en España, México, Colombia, Perú, Ecuador y Estados Unidos. | Co-led the engineering of the in-house WordPress-based content platform powering UNIR's websites in Spain, Mexico, Colombia, Peru, Ecuador and the United States. |
-| Visible 2 | Cuando el equipo creció de 4 a 10 personas, impulsé CI/CD y contenedores: más autonomía para los equipos, mejor calidad y tiempos de entrega alrededor de un 40 % más cortos. | As the team grew from 4 to 10 people, introduced CI/CD and containers: more team autonomy, better quality and delivery times around 40% shorter. |
-| Ver más | Hice de enlace entre desarrollo y Sistemas, Marketing, Contenidos, SEO y Legal. · Para hacerlo con criterio, cursé el Máster en DevOps y Cloud en la propia universidad. | Worked as the link between development and Systems, Marketing, Content, SEO and Legal. · Completed a Master's in DevOps and Cloud at UNIR to support this work. |
+| Empresa | UNIR | UNIR |
+| Fechas | abr 2017 – may 2020 | Apr 2017 – May 2020 |
+| Contexto | Madrid | Madrid |
+| Resumen | La plataforma de contenidos de los portales internacionales de la universidad. | The content platform behind the university's international websites. |
+| Punto | Colideré técnicamente la plataforma de contenidos propia, basada en WordPress, de los portales de UNIR en España, México, Colombia, Perú, Ecuador y Estados Unidos. | I co-led the technical development of UNIR's in-house WordPress content platform for its websites in Spain, Mexico, Colombia, Peru, Ecuador and the United States. |
+| Punto | Construimos ese producto interno desde cero, en un equipo muy comprometido y exigente, y participé en su diseño pensando en el rendimiento, la escalabilidad y la seguridad. | We built the internal product from scratch as a dedicated team with high standards. I helped design it with performance, scalability and security in mind. |
+| Punto | Cuando el equipo creció de 4 a 10 personas (backend, frontend y UX/UI), impulsé CI/CD y contenedores con GitLab CI/CD y Docker: más autonomía para los equipos, mejor calidad y tiempos de entrega alrededor de un 40 % más cortos. | As the team grew from 4 to 10 across backend, frontend and UX/UI, I drove CI/CD and container adoption with GitLab CI/CD and Docker, giving teams more autonomy, improving quality and cutting delivery times by around 40%. |
+| Punto | Hice de enlace entre desarrollo y Sistemas, Marketing, Contenidos, SEO y Legal, para alinear el desarrollo con los objetivos del negocio. | I worked as the link between development and Systems, Marketing, Content, SEO and Legal to align development with business goals. |
+| Punto | Para hacerlo con criterio, cursé el Máster en DevOps y Cloud en la propia universidad. | I completed a Master's in DevOps and Cloud at UNIR to support this work. |
+| Etiquetas | PHP · WordPress · GitLab CI/CD · Docker | PHP · WordPress · GitLab CI/CD · Docker |
 
 ### 6.4. Evolufarma · Senior Web Developer
 
 | | ES | EN |
 |---|---|---|
 | Cargo | Senior Web Developer | Senior Web Developer |
-| Empresa y fechas | Evolufarma · Madrid · abr 2014 – jun 2017 · Startup de marketing 360 para farmacias | Evolufarma · Madrid · Apr 2014 – Jun 2017 · 360° marketing startup for pharmacies |
-| Visible 1 | Desarrollé con el equipo el núcleo de la plataforma SaaS que generaba las webs de las farmacias: panel de control, API de datos, campañas de email segmentadas y backend de una app móvil. | Built with the team the core of the SaaS platform that generated pharmacy websites: admin dashboard, data APIs, segmented email campaigns and a mobile app backend. |
-| Visible 2 | Lideré a tres desarrolladores junior: trabajo en iteraciones, revisión de código y acompañamiento técnico. | Led three junior developers: iterative work, code review and technical mentoring. |
-| Ver más | Organicé las incidencias y el mantenimiento con Kanban, con visibilidad y trazabilidad para toda la empresa. | Introduced Kanban for incidents and maintenance, giving the whole company visibility and traceability. |
+| Empresa | Evolufarma | Evolufarma |
+| Fechas | abr 2014 – jun 2017 | Apr 2014 – Jun 2017 |
+| Contexto | Madrid · Startup de marketing 360 para farmacias | Madrid · 360° marketing startup for pharmacies |
+| Resumen | Una plataforma SaaS de marketing online para farmacias. | An online marketing SaaS platform for pharmacies. |
+| Punto | Participé en el diseño de la plataforma que generaba y gestionaba las webs de las farmacias, con tienda online integrada y un catálogo farmacéutico común, conectada a una plataforma core propia que daba servicio de marketing online a las farmacias clientes. | I helped design the platform that generated and managed pharmacy websites, with integrated online stores and a shared pharmaceutical catalogue. It connected to an in-house core platform that provided online marketing services to pharmacy clients. |
+| Punto | Desarrollé con el equipo el núcleo de la plataforma: panel de control, API de datos, campañas de email segmentadas y backend de una app móvil. | I built the platform core with the team: the control panel, data API, segmented email campaigns and a mobile app backend. |
+| Punto | Lideré a tres desarrolladores junior: trabajo en iteraciones, revisión de código y acompañamiento técnico. | I led three junior developers through iterative delivery, code review and technical coaching. |
+| Punto | Organicé las incidencias y el mantenimiento preventivo y correctivo con Kanban, con visibilidad y trazabilidad para toda la empresa. | I organised incident handling and preventive and corrective maintenance with Kanban, giving the whole company visibility and traceability. |
+| Punto | Trabajé con varios stacks: webs y tiendas online, microservicios, API, aplicaciones móviles y bases de datos relacionales y no relacionales. | I worked across several stacks: websites and online stores, microservices, APIs, mobile applications and relational and non-relational databases. |
+| Etiquetas | SaaS · API · Microservicios · SQL y NoSQL · Kanban | SaaS · API · Microservices · SQL and NoSQL · Kanban |
 
 ### 6.5. Logiqo · Desarrollador web → Senior PHP Developer
 
 | | ES | EN |
 |---|---|---|
 | Cargo | Desarrollador web → Senior PHP Developer | Web Developer → Senior PHP Developer |
-| Empresa y fechas | Logiqo · Madrid · oct 2008 – mar 2014 | Logiqo · Madrid · Oct 2008 – Mar 2014 |
-| Visible 1 | Desarrollé webs y aplicaciones para empresas de telecomunicaciones, educación y seguros, con retargeting y test A/B para mejorar la conversión. | Built websites and web apps for telecom, education and insurance companies, using retargeting and A/B testing to improve conversion. |
-| Visible 2 | Ascendí a Senior PHP Developer en el primer año y llegué a liderar proyectos web de gran tamaño. | Promoted to Senior PHP Developer within the first year, going on to lead large web projects. |
-
-Botones: «Ver más» / «Ver menos» · «Show more» / «Show less».
+| Empresa | Logiqo | Logiqo |
+| Fechas | oct 2008 – mar 2014 | Oct 2008 – Mar 2014 |
+| Contexto | Madrid | Madrid |
+| Resumen | Webs y aplicaciones para marketing online y captación de clientes. | Websites and applications for online marketing and customer acquisition. |
+| Punto | Desarrollé webs y aplicaciones web desde cero para empresas líderes en telecomunicaciones, educación y seguros. | I built websites and web applications from scratch for leading companies in telecommunications, education and insurance. |
+| Punto | Eran proyectos orientados al marketing online y a la captación de clientes potenciales. | The projects focused on online marketing and generating leads. |
+| Punto | Aplicamos técnicas como el retargeting y los test A/B para mejorar la conversión. | We used techniques such as retargeting and A/B testing to improve conversion. |
+| Punto | Ascendí a Senior PHP Developer en el primer año y llegué a liderar proyectos web de gran tamaño. | I was promoted to Senior PHP Developer in my first year and went on to lead large web projects. |
+| Etiquetas | PHP · Retargeting · Test A/B | PHP · Retargeting · A/B testing |
 
 ---
 
@@ -210,10 +228,12 @@ Botones: «Ver más» / «Ver menos» · «Show more» / «Show less».
 | Caso 1 | **Intranet para miles de empleados.** Intranet web y móvil para una cadena nacional de supermercados (VASS). Dirigí el proyecto de principio a fin, coordiné los equipos y definí las API REST y los requisitos de seguridad con el IT del cliente. | **Intranet for thousands of employees.** Web and mobile intranet for a national supermarket chain (VASS). I led the project end to end, coordinated the teams and defined the REST APIs and security requirements with the client's IT department. |
 | Caso 2 | **Plataforma de contenidos internacional.** El producto interno de UNIR sobre el que funcionaban sus portales en seis países. Lo construimos desde cero; con el equipo creciendo de 4 a 10 personas, CI/CD y contenedores acortaron las entregas alrededor de un 40 %. | **International content platform.** UNIR's in-house product powering its websites in six countries. We built it from scratch; as the team grew from 4 to 10 people, CI/CD and containers shortened delivery by around 40%. |
 | Caso 3 | **SaaS de marketing para farmacias.** Plataforma de Evolufarma que generaba y gestionaba las webs de las farmacias, con tienda online, catálogo común, panel, API y campañas de email. | **Marketing SaaS for pharmacies.** Evolufarma's platform for generating and managing pharmacy websites, with e-commerce, a shared catalog, dashboard, APIs and email campaigns. |
-| Caso 4 | **tick-tack-done.** Proyecto personal de tareas y productividad con servidor MCP para agentes de IA, construido con agentes y un flujo de backlog en GitHub. → https://todo.reflexionia.com | **tick-tack-done.** Personal task and productivity app with an MCP server for AI agents, built with agents and a GitHub backlog workflow. → https://todo.reflexionia.com |
-| Caso 5 | **Esta entrevista con IA.** Una IA que responde sobre mi trayectoria solo con información que he revisado, citando la fuente: RAG, guardrails, evaluación y control de coste. → `/interview/` | **This AI interview.** An AI that answers questions about my career only from information I have reviewed, citing its sources: RAG, guardrails, evaluation and cost control. → `/en/interview/` |
 
 ---
+
+## Perfil / Profile
+
+El perfil agrupa habilidades, formación, charlas e idiomas.
 
 ## 8. Formación y certificaciones (`formacion` / `education`)
 

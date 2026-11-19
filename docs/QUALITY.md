@@ -71,3 +71,11 @@ The bilingual portfolio and both interview routes follow `prefers-color-scheme` 
 At 1440 pixels, axe reported no automated color contrast violations on those routes in either scheme. Photo captions keep their dark overlays. The light theme uses a stronger border on secondary buttons and inputs to make controls distinguishable from the surrounding surface. Lighthouse and visual comparison against the final landing remain release checks.
 
 The visible theme selector offers System, Light and Dark. The browser stores only an explicit choice in first-party local storage under `mi-cv:theme`. Selecting System clears the key. A choice can still apply to the current page when storage is blocked, and the CSS follows the system when scripts are disabled. Chrome checks covered keyboard focus, both explicit values, navigation and reload, the system fallback, and the four pages at 320 and 1440 pixels. Axe reported no color contrast violations in the tested light theme states.
+
+## Landing v4
+
+Chrome verified both locales at 360×800, 390×844, 1280×800, 1440×900 and 1920×1080. The hero title, description, portrait and interview action fit the initial viewport. The sticky header remained visible and section anchors landed below it. The static output rendered the role points and tags from both local copy files. The mobile check also opened the interview, added a suggested question and verified that closing the preview cleared it and restored focus.
+
+Axe reported zero automated violations on both landings at 390 and 1280 pixels in the light and navy schemes. Lighthouse 13.6.0 mobile scored both local static pages 100 for performance and 100 for accessibility, with an LCP of 0.8 s. External requests were blocked for the local audits.
+
+PDFKit and PyMuPDF text extraction found an email address and a phone number in each supplied CV. Both files remain outside the static build. The certificate files have yet to be supplied for review.

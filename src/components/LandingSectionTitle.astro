@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  number: string;
+  intro?: string;
+  wide?: boolean;
+}
+
+const { title, number, intro, wide } = Astro.props;
+---
+<div class:list={["landing-heading", { "landing-heading-wide": wide }]}>
+  <div><span aria-hidden="true">— {number}</span><h2>{title}</h2></div>
+  {intro && <p>{intro}</p>}
+</div>

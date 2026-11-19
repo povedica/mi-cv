@@ -8,14 +8,15 @@ interface Props {
 }
 
 const { description, title } = Astro.props;
+const isLanding = Astro.url.pathname === '/' || Astro.url.pathname === '/en/';
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content={isLanding ? "#0b1626" : "#0b1020"} media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content={isLanding ? "#fafafa" : "#f6f7fb"} media="(prefers-color-scheme: light)" />
   <meta name="theme-color" media="not all" data-theme-override />
   <script is:inline>
     (() => {
@@ -28,11 +29,14 @@ const { description, title } = Astro.props;
       function applyTheme(preference) {
         if (preference === 'light' || preference === 'dark') {
           root.dataset.theme = preference;
-          themeColor.content = preference === 'light' ? '#f6f7fb' : '#0b1020';
+          root.classList.remove('theme-light', 'theme-dark');
+          root.classList.add(`theme-${preference}`);
+          themeColor.content = automaticColors[preference === 'light' ? 1 : 0].content;
           themeColor.media = 'all';
           automaticColors.forEach(meta => { meta.media = 'not all'; });
         } else {
           delete root.dataset.theme;
+          root.classList.remove('theme-light', 'theme-dark');
           themeColor.media = 'not all';
           automaticColors.forEach((meta, index) => { meta.media = defaultMedia[index]; });
         }

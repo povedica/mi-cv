@@ -1,9 +1,8 @@
 {
-  "title": "Interview · Pablo Poveda",
-  "description": "Ask your questions to an AI version of Pablo Poveda that answers only from professional information he has reviewed.",
+  "title": "Pablo Poveda · Engineering Manager · AI Engineering",
+  "description": "Engineering Manager with 15+ years in software development. I lead and scale engineering teams, improve software delivery and bring generative AI into development.",
   "ids": [
     "home",
-    "achievements",
     "focus",
     "ai",
     "experience",
@@ -26,35 +25,14 @@
   ],
   "skip": "Skip to content",
   "interviewLabel": "Interview me",
-  "eyebrow": "ENGINEERING MANAGEMENT · SOFTWARE DELIVERY · AI ENGINEERING",
+  "eyebrow": "Engineering Management · Software Delivery · AI Engineering",
   "headline": "Engineering Manager · AI Engineering",
   "lead": "I lead, manage and scale technical teams, improve software delivery and bring generative AI into development. 15+ years in the industry, from web development to running an engineering department.",
   "location": "Madrid, Spain · Remote",
   "portraitAlt": "Portrait of Pablo Poveda",
-  "portraitLabel": "Pablo Poveda · Engineering Manager",
+  "portraitLabel": "Engineering Manager",
   "download": "Download CV",
   "contactLabel": "Contact",
-  "achievements": {
-    "title": "Key achievements",
-    "items": [
-      {
-        "title": "1 → 20",
-        "text": "Scaled an engineering department from 1 to 20 people."
-      },
-      {
-        "title": "~30",
-        "text": "Led a portfolio of around 30 technology projects."
-      },
-      {
-        "title": "Thousands",
-        "text": "Delivered enterprise solutions for thousands of users."
-      },
-      {
-        "title": "~30%",
-        "text": "Brought generative AI into development, increasing delivered value by roughly 30%."
-      }
-    ]
-  },
   "focus": {
     "title": "What I do",
     "intro": "Where I add the most value, and what you can ask me about in the interview.",
@@ -99,69 +77,110 @@
   "experience": {
     "title": "Experience",
     "intro": "From web development to running an engineering department.",
-    "more": "Show more",
     "roles": [
       {
         "title": "Department Manager · Digital Experience (Open Source PHP)",
-        "period": "VASS · Madrid · May 2024 – Nov 2026",
+        "period": "May 2024 – Nov 2026",
         "items": [
           "Led the department with full ownership of organizational decisions and responsibility for its financial results, project portfolio and business opportunities.",
           "Organized engineering teams of 15–20 people: structure, priorities and project assignments.",
-          "Together with other leaders, drove the adoption of generative AI across development teams: roughly 30% more delivered value."
-        ],
-        "details": [
+          "Together with other leaders, drove the adoption of generative AI across development teams: roughly 30% more delivered value.",
           "Opened new clients through small initial projects that later grew into larger business.",
           "Coordinated cross-departmental projects, aligning priorities, deadlines, dependencies and delivery.",
           "Oversaw nationwide projects, such as the loyalty platform of one of the country's leading telecom operators."
+        ],
+        "company": "VASS",
+        "context": "Madrid",
+        "summary": "Running the department: people, project portfolio and results.",
+        "tags": [
+          "Team management",
+          "Project portfolio",
+          "Pre-sales and business",
+          "Generative AI"
         ]
       },
       {
         "title": "Team Lead / Tech Lead · Digital Experience (Open Source PHP)",
-        "period": "VASS · Madrid · Sep 2020 – Apr 2024",
+        "period": "Sep 2020 – Apr 2024",
         "items": [
           "Grew the department from 1 to 20 people: designed the hiring process and technical challenges, interviewed with Talent Acquisition and prepared onboarding.",
           "Managed a portfolio of around 30 projects, including a web and mobile intranet for thousands of employees of a national supermarket chain.",
-          "Supported the team's growth through mentoring, one-to-ones and objective-based reviews: three team members were promoted to more senior roles."
-        ],
-        "details": [
-          "Introduced Scrum and XP, quality standards and automated code review, plus logging, monitoring and metrics that reduced incidents and improved how they were tracked.",
+          "Supported the team's growth through mentoring, one-to-ones and objective-based reviews: three team members were promoted to more senior roles.",
+          "Introduced agile practices, quality standards and automated code review, plus logging, monitoring and metrics that reduced incidents and improved how they were tracked.",
           "Automated key delivery processes to deliver more value with higher quality.",
-          "Held financial responsibility for the department, achieving higher profitability than planned, and led pre-sales through to proposal and estimation."
+          "Held financial responsibility for the department and led pre-sales through to proposal and estimation."
+        ],
+        "company": "VASS",
+        "context": "Madrid",
+        "summary": "Technical leadership and building the team from scratch.",
+        "tags": [
+          "Open Source PHP",
+          "Agile practices",
+          "Code quality",
+          "Hiring and mentoring"
         ]
       },
       {
         "title": "Senior PHP Developer",
-        "period": "UNIR · Madrid · Apr 2017 – May 2020",
+        "period": "Apr 2017 – May 2020",
         "items": [
-          "Co-led the engineering of the in-house WordPress-based content platform powering UNIR's websites in Spain, Mexico, Colombia, Peru, Ecuador and the United States.",
-          "As the team grew from 4 to 10 people, introduced CI/CD and containers: more team autonomy, better quality and delivery times around 40% shorter."
+          "I co-led the technical development of UNIR's in-house WordPress content platform for its websites in Spain, Mexico, Colombia, Peru, Ecuador and the United States.",
+          "We built the internal product from scratch as a dedicated team with high standards. I helped design it with performance, scalability and security in mind.",
+          "As the team grew from 4 to 10 across backend, frontend and UX/UI, I drove CI/CD and container adoption with GitLab CI/CD and Docker, giving teams more autonomy, improving quality and cutting delivery times by around 40%.",
+          "I worked as the link between development and Systems, Marketing, Content, SEO and Legal to align development with business goals.",
+          "I completed a Master's in DevOps and Cloud at UNIR to support this work."
         ],
-        "details": [
-          "Worked as the link between development and Systems, Marketing, Content, SEO and Legal.",
-          "Completed a Master's in DevOps and Cloud at UNIR to support this work."
+        "company": "UNIR",
+        "context": "Madrid",
+        "summary": "The content platform behind the university's international websites.",
+        "tags": [
+          "PHP",
+          "WordPress",
+          "GitLab CI/CD",
+          "Docker"
         ]
       },
       {
         "title": "Senior Web Developer",
-        "period": "Evolufarma · Madrid · Apr 2014 – Jun 2017 · 360° marketing startup for pharmacies",
+        "period": "Apr 2014 – Jun 2017",
         "items": [
-          "Built with the team the core of the SaaS platform that generated pharmacy websites: admin dashboard, data APIs, segmented email campaigns and a mobile app backend.",
-          "Led three junior developers: iterative work, code review and technical mentoring."
+          "I helped design the platform that generated and managed pharmacy websites, with integrated online stores and a shared pharmaceutical catalogue. It connected to an in-house core platform that provided online marketing services to pharmacy clients.",
+          "I built the platform core with the team: the control panel, data API, segmented email campaigns and a mobile app backend.",
+          "I led three junior developers through iterative delivery, code review and technical coaching.",
+          "I organised incident handling and preventive and corrective maintenance with Kanban, giving the whole company visibility and traceability.",
+          "I worked across several stacks: websites and online stores, microservices, APIs, mobile applications and relational and non-relational databases."
         ],
-        "details": [
-          "Introduced Kanban for incidents and maintenance, giving the whole company visibility and traceability."
+        "company": "Evolufarma",
+        "context": "Madrid · 360° marketing startup for pharmacies",
+        "summary": "An online marketing SaaS platform for pharmacies.",
+        "tags": [
+          "SaaS",
+          "API",
+          "Microservices",
+          "SQL and NoSQL",
+          "Kanban"
         ]
       },
       {
         "title": "Web Developer → Senior PHP Developer",
-        "period": "Logiqo · Madrid · Oct 2008 – Mar 2014",
+        "period": "Oct 2008 – Mar 2014",
         "items": [
-          "Built websites and web apps for telecom, education and insurance companies, using retargeting and A/B testing to improve conversion.",
-          "Promoted to Senior PHP Developer within the first year, going on to lead large web projects."
+          "I built websites and web applications from scratch for leading companies in telecommunications, education and insurance.",
+          "The projects focused on online marketing and generating leads.",
+          "We used techniques such as retargeting and A/B testing to improve conversion.",
+          "I was promoted to Senior PHP Developer in my first year and went on to lead large web projects."
         ],
-        "details": []
+        "company": "Logiqo",
+        "context": "Madrid",
+        "summary": "Websites and applications for online marketing and customer acquisition.",
+        "tags": [
+          "PHP",
+          "Retargeting",
+          "A/B testing"
+        ]
       }
-    ]
+    ],
+    "vassPeriod": "Sep 2020 – Nov 2026"
   },
   "projects": {
     "title": "Featured projects",
@@ -178,11 +197,6 @@
       {
         "title": "Marketing SaaS for pharmacies.",
         "text": "Evolufarma's platform for generating and managing pharmacy websites, with e-commerce, a shared catalog, dashboard, APIs and email campaigns."
-      },
-      {
-        "title": "tick-tack-done.",
-        "text": "Personal task and productivity app with an MCP server for AI agents, built with agents and a GitHub backlog workflow.",
-        "href": "https://todo.reflexionia.com"
       }
     ]
   },
@@ -259,10 +273,11 @@
   "about": {
     "title": "About me",
     "items": [
-      "I started out as a web developer and, over the years, learned that good projects come from good teams. I have moved from designing and building software to growing and leading development teams, without losing my curiosity about how things work and how to make them better. I like staying close to technology, connecting what the business needs with what we can realistically build, and creating environments where people have autonomy, grow and build good software.",
+      "I have moved from designing and building software to growing and leading development teams, without losing my curiosity about how things work and how to make them better. I like staying close to technology, connecting what the business needs with what we can realistically build, and creating environments where people have autonomy, grow and build good software.",
       "Today I am especially interested in how AI is changing the way we build software, learn and work. I am looking for a new role where I can keep combining engineering and leadership.",
       "I am a father of twins. You will find me in the mountains, on a rugby pitch or travelling."
-    ]
+    ],
+    "quote": "I started out as a web developer and, over the years, learned that good projects come from good teams."
   },
   "interview": {
     "title": "Interview me",
@@ -284,5 +299,7 @@
     "title": "Pablo Poveda · Engineering Manager",
     "description": "From web developer to running a 20-person engineering department. Technical leadership, software delivery and generative AI. Interview me.",
     "imageAlt": "Pablo Poveda, Engineering Manager"
-  }
+  },
+  "status": "I am looking for Engineering Manager and technical leadership roles",
+  "profileLabel": "Profile"
 }
