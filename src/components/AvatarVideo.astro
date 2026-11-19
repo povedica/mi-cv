@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { getImage, Image } from 'astro:assets';
 import poster from '../assets/poster-pablo-poveda-vertical.png';
 
 interface Props {
@@ -17,6 +17,13 @@ const messages = {
   unavailable: label('El vídeo no está disponible en este momento.', 'The video is currently unavailable.'),
   unsupported: label('El navegador no admite este vídeo. Se muestra el retrato de Pablo.', 'Your browser cannot play this video. Pablo’s portrait is shown.'),
 };
+const posterOptions = {
+  src: poster,
+  width: 648,
+  widths: [288, 360, 432, 504, 576, 648],
+  sizes: isHero ? "(max-width: 900px) min(calc(100vw - 2 * clamp(1rem, 4.5vw, 3rem)), 1240px), min(calc((min(100vw - 2 * clamp(1rem, 4.5vw, 3rem), 1240px) - clamp(1.25rem, 4vw, 4rem)) * .3521), max(220px, calc((100svh - 132px - 2 * clamp(1.65rem, 5svh, 4rem)) * 9 / 16)))" : "(max-width: 414px) calc(100vw - 56px), 380px",
+};
+const avifPoster = await getImage({ ...posterOptions, format: 'avif', quality: 52 });
 ---
 
 <figure class:list={["avatar-video", { "avatar-interview": !isHero }]} data-avatar-video data-messages={JSON.stringify(messages)}>
@@ -24,16 +31,16 @@ const messages = {
     {label('Generado por IA', 'AI-generated')}
   </figcaption>
   <div class="avatar-frame">
-    <Image
-      src={poster}
-      alt={label('Retrato de Pablo Poveda', 'Portrait of Pablo Poveda')}
-      width={648}
-      widths={[288, 360, 432, 504, 576, 648]}
-      sizes={isHero ? "(max-width: 900px) min(calc(100vw - 2 * clamp(1rem, 4.5vw, 3rem)), 1240px), min(calc((min(100vw - 2 * clamp(1rem, 4.5vw, 3rem), 1240px) - clamp(1.25rem, 4vw, 4rem)) * .3521), max(220px, calc((100svh - 132px - 2 * clamp(1.65rem, 5svh, 4rem)) * 9 / 16)))" : "(max-width: 414px) calc(100vw - 56px), 380px"}
-      format="webp"
-      quality={72}
-      priority={isHero}
-    />
+    <picture>
+      <source type="image/avif" srcset={avifPoster.srcSet.attribute} sizes={posterOptions.sizes} />
+      <Image
+        {...posterOptions}
+        alt={label('Retrato de Pablo Poveda', 'Portrait of Pablo Poveda')}
+        format="webp"
+        quality={72}
+        priority={isHero}
+      />
+    </picture>
     <video
       aria-label={label('Vídeo del avatar de Pablo Poveda', 'Video of Pablo Poveda’s avatar')}
       data-source={`/media/avatar/${mediaVersion}/master.m3u8`}

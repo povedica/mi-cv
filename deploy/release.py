@@ -19,7 +19,7 @@ LANDING_FILES = {
     "icon-192.png", "icon-512.png", "maskable-512.png",
 }
 PUBLIC_PDF = re.compile(r"(?:cv|certificados)/[\w-][\w.-]*\.pdf", re.ASCII)
-ASSET = re.compile(r"_astro/[\w.-]+\.(?:css|js|webp|woff2)", re.ASCII)
+ASSET = re.compile(r"_astro/[\w.-]+\.(?:css|js|avif|webp|woff2)", re.ASCII)
 SHA = re.compile(r"[a-f0-9]{40}")
 
 

@@ -136,3 +136,10 @@ The ProfilePage build matched both approved JSON-LD examples in issue #5.
 The stable portrait returned HTTP 200 on the Caddy preview at port 4466.
 Mobile Lighthouse on both landing routes scored 100 for performance, with
 LCP of 1.81 s in each language and no image delivery items.
+
+The AVIF follow-up kept the exact 9:16 geometry and WebP fallback. Chrome
+selected the 648 × 1152 AVIF in the English mobile Lighthouse run. It
+transferred 42.5 KiB of image data, down from 57.7 KiB for the matching
+WebP. This local run scored 100 with an LCP of 1.67 s and no image delivery
+items. Chrome also decoded the WebP fallback and played the HLS recording
+in the mobile and desktop checks.
