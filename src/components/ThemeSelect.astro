@@ -1,0 +1,35 @@
+---
+interface Props {
+  locale: 'es' | 'en';
+}
+
+const isSpanish = Astro.props.locale === 'es';
+const label = isSpanish ? 'Tema' : 'Theme';
+---
+<label class="theme-select" hidden>
+  <span>{label}</span>
+  <select data-theme-select>
+    <option value="system">{isSpanish ? 'Sistema' : 'System'}</option>
+    <option value="light">{isSpanish ? 'Claro' : 'Light'}</option>
+    <option value="dark">{isSpanish ? 'Oscuro' : 'Dark'}</option>
+  </select>
+</label>
+
+<style>
+  .theme-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  select {
+    min-height: 36px;
+    font: inherit;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--control-border);
+    border-radius: 8px;
+    padding-inline: 7px;
+  }
+</style>

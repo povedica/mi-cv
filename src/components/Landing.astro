@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import portrait from '../assets/pablo-portrait.jpg';
 import SiteHead from './SiteHead.astro';
+import ThemeSelect from './ThemeSelect.astro';
 import LandingCards from './LandingCards.astro';
 import es from '../content/landing/es.json';
 import en from '../content/landing/en.json';
@@ -76,6 +77,7 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
         {copy.nav.map((label, index) => <a href={`#${navIds[index]}`}>{label}</a>)}
       </nav>
       <div class="header-actions">
+        <ThemeSelect locale={locale} />
         <a href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">{otherLocale.toUpperCase()}</a>
         <a class="button button-primary nav-cta" href={interview} data-interview-placement="navigation">{copy.interviewLabel}</a>
       </div>

@@ -16,6 +16,54 @@ const { description, title } = Astro.props;
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#f6f7fb" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" media="not all" data-theme-override />
+  <script is:inline>
+    (() => {
+      const key = 'mi-cv:theme';
+      const root = document.documentElement;
+      const themeColor = document.querySelector('[data-theme-override]');
+      const automaticColors = document.querySelectorAll('meta[name="theme-color"]:not([data-theme-override])');
+      const defaultMedia = Array.from(automaticColors, meta => meta.media);
+
+      function applyTheme(preference) {
+        if (preference === 'light' || preference === 'dark') {
+          root.dataset.theme = preference;
+          themeColor.content = preference === 'light' ? '#f6f7fb' : '#0b1020';
+          themeColor.media = 'all';
+          automaticColors.forEach(meta => { meta.media = 'not all'; });
+        } else {
+          delete root.dataset.theme;
+          themeColor.media = 'not all';
+          automaticColors.forEach((meta, index) => { meta.media = defaultMedia[index]; });
+        }
+      }
+
+      let preference = 'system';
+      try {
+        const stored = localStorage.getItem(key);
+        if (stored === 'light' || stored === 'dark') preference = stored;
+      } catch {
+        // The system preference still applies when storage is unavailable.
+      }
+      applyTheme(preference);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.querySelector('[data-theme-select]');
+        if (!select) return;
+        select.value = preference;
+        select.closest('label').hidden = false;
+        select.addEventListener('change', () => {
+          applyTheme(select.value);
+          try {
+            if (select.value === 'system') localStorage.removeItem(key);
+            else localStorage.setItem(key, select.value);
+          } catch {
+            // A manual choice still applies to the current page.
+          }
+        });
+      });
+    })();
+  </script>
   <meta name="description" content={description} />
   <title>{title}</title>
   <slot />
