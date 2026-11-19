@@ -51,20 +51,45 @@ const isLanding = Astro.url.pathname === '/' || Astro.url.pathname === '/en/';
       }
       applyTheme(preference);
 
+      function setPreference(value) {
+        preference = value;
+        applyTheme(preference);
+        try {
+          if (preference === 'system') localStorage.removeItem(key);
+          else localStorage.setItem(key, preference);
+        } catch {
+          // A manual choice still applies to the current page.
+        }
+      }
+
       document.addEventListener('DOMContentLoaded', () => {
         const select = document.querySelector('[data-theme-select]');
-        if (!select) return;
-        select.value = preference;
-        select.closest('label').hidden = false;
-        select.addEventListener('change', () => {
-          applyTheme(select.value);
-          try {
-            if (select.value === 'system') localStorage.removeItem(key);
-            else localStorage.setItem(key, select.value);
-          } catch {
-            // A manual choice still applies to the current page.
-          }
+        if (select) {
+          select.value = preference;
+          select.closest('label').hidden = false;
+          select.addEventListener('change', () => setPreference(select.value));
+        }
+
+        const toggle = document.querySelector('[data-theme-toggle]');
+        if (!toggle) return;
+        const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+        const nextTheme = () => (preference === 'system' ? systemTheme.matches : preference === 'dark')
+          ? 'light'
+          : 'dark';
+
+        function updateToggleLabel() {
+          const label = nextTheme() === 'light' ? toggle.dataset.lightLabel : toggle.dataset.darkLabel;
+          toggle.setAttribute('aria-label', label);
+          toggle.title = label;
+        }
+
+        updateToggleLabel();
+        toggle.hidden = false;
+        toggle.addEventListener('click', () => {
+          setPreference(nextTheme());
+          updateToggleLabel();
         });
+        systemTheme.addEventListener('change', updateToggleLabel);
       });
     })();
   </script>

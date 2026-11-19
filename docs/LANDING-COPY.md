@@ -195,7 +195,7 @@ Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma
 | Empresa | Evolufarma | Evolufarma |
 | Sector | SaaS farmacéutico | Pharmacy SaaS |
 | Fechas | abr 2014 – jun 2017 | Apr 2014 – Jun 2017 |
-| Contexto | Madrid · Startup de marketing 360 para farmacias | Madrid · 360° marketing startup for pharmacies |
+| Contexto | Madrid | Madrid |
 | Resumen | Una plataforma SaaS de marketing online para farmacias. | An online marketing SaaS platform for pharmacies. |
 | Punto | Participé en el diseño de la plataforma que generaba y gestionaba las webs de las farmacias, con tienda online integrada y un catálogo farmacéutico común, conectada a una plataforma core propia que daba servicio de marketing online a las farmacias clientes. | I helped design the platform that generated and managed pharmacy websites, with integrated online stores and a shared pharmaceutical catalogue. It connected to an in-house core platform that provided online marketing services to pharmacy clients. |
 | Punto | Desarrollé con el equipo el núcleo de la plataforma: panel de control, API de datos, campañas de email segmentadas y backend de una app móvil. | I built the platform core with the team: the control panel, data API, segmented email campaigns and a mobile app backend. |
