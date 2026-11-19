@@ -1,0 +1,346 @@
+{
+  "title": "Pablo Poveda · Engineering Manager · AI Engineering",
+  "description": "Engineering Manager with 15+ years in software development. I lead and scale engineering teams, improve software delivery and bring generative AI into development.",
+  "ids": [
+    "home",
+    "focus",
+    "ai",
+    "experience",
+    "projects",
+    "education",
+    "talks",
+    "skills",
+    "languages",
+    "about",
+    "interview",
+    "cv-contact"
+  ],
+  "name": "Pablo Poveda",
+  "skip": "Skip to content",
+  "interviewLabel": "Interview me with AI",
+  "eyebrow": "Engineering Management · Software Delivery · AI Engineering",
+  "headline": "Engineering Manager · AI Engineering",
+  "lead": [
+    "I’ve spent more than 15 years in software, progressing from development to leading teams and departments in engineering and web development.",
+    "I combine people leadership, technical direction and end-to-end project management, with responsibility for teams, planning, budgets and outcomes. I enjoy connecting technology with business needs, building autonomous teams and turning challenges into solutions that work.",
+    "Today I apply artificial intelligence to transform how we develop software and work together."
+  ],
+  "location": "Madrid, Spain · Remote",
+  "portraitAlt": "Portrait of Pablo Poveda",
+  "portraitLabel": "Engineering Manager",
+  "download": "Download CV",
+  "focus": {
+    "title": "What I do",
+    "intro": "Where I add the most value, and what you can ask me about in the interview.",
+    "items": [
+      {
+        "title": "Leadership and teams",
+        "text": "I build and grow engineering teams: hiring, onboarding, mentoring and objective-based reviews, with autonomy and a healthy engineering culture."
+      },
+      {
+        "title": "Software delivery and quality",
+        "text": "Agile practices, quality standards, automated code review, CI/CD and metrics to deliver more value with fewer incidents."
+      },
+      {
+        "title": "Business and delivery",
+        "text": "I lead engineering departments or areas, with responsibility for financial results, the project portfolio, pre-sales, and relationships with clients and leadership."
+      },
+      {
+        "title": "AI applied to development",
+        "text": "I bring generative AI into teams' daily work in a practical, safe and responsible way, and build applications with LLMs, RAG and agents."
+      }
+    ]
+  },
+  "ai": {
+    "title": "Applied AI",
+    "intro": "Generative AI is changing how we build software. I have brought it into real teams, and I study it and use it in depth.",
+    "items": [
+      {
+        "title": "Adoption in development teams (VASS)",
+        "text": "I co-led the adoption of generative AI across the development teams in my area, introducing new methods, tools and processes into real projects. The initiative increased team autonomy, accelerated delivery cycles and strengthened quality standards, with an estimated average improvement of 30% in the teams’ ability to deliver value."
+      },
+      {
+        "title": "Master's in AI Engineering (LIDR, 2026)",
+        "text": "LLM applications, RAG and CAG, agents and agentic systems, and AI evaluation."
+      },
+      {
+        "title": "tick-tack-done",
+        "text": "My personal project: a task and productivity app with an MCP server, so AI agents can work with it. I build it with AI agents and a GitHub backlog workflow.",
+        "href": "https://todo.reflexionia.com",
+        "demo": {
+          "label": "Demo account",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "email": "demo@example.com",
+          "password": "demo_1234"
+        }
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "roles": [
+      {
+        "title": "Department Manager · Digital Experience (Open Source PHP)",
+        "period": "May 2024 – Nov 2026",
+        "items": [
+          "Led the department with full ownership of organisational decisions and responsibility for its financial results, project portfolio and business opportunities.",
+          "Organized engineering teams of 15–20 people: structure, priorities and project assignments.",
+          "Together with other leaders, drove the adoption of generative AI across development teams: roughly 30% more delivered value.",
+          "Opened new clients through small initial projects that later grew into larger business.",
+          "Coordinated cross-departmental projects, aligning priorities, deadlines, dependencies and delivery.",
+          "Oversaw nationwide projects, such as the loyalty platform of one of the country's leading telecom operators."
+        ],
+        "company": "VASS",
+        "sector": "Technology consultancy",
+        "context": "Madrid",
+        "summary": "Running the department: people, project portfolio and results.",
+        "tags": [
+          "Team management",
+          "Project portfolio",
+          "Pre-sales and business",
+          "Generative AI"
+        ]
+      },
+      {
+        "title": "Team Lead / Tech Lead · Digital Experience (Open Source PHP)",
+        "period": "Sep 2020 – Apr 2024",
+        "items": [
+          "Grew the department from 1 to 20 people: designed the hiring process and technical challenges, interviewed with Talent Acquisition and prepared onboarding.",
+          "Managed a portfolio of around 30 projects, including a web and mobile intranet for thousands of employees of a national supermarket chain.",
+          "Supported the team's growth through mentoring, one-to-ones and objective-based reviews: three team members were promoted to more senior roles.",
+          "Introduced agile practices, quality standards and automated code review, plus logging, monitoring and metrics that reduced incidents and improved how they were tracked.",
+          "Automated key delivery processes to deliver more value with higher quality.",
+          "Held financial responsibility for the department and led pre-sales through to proposal and estimation."
+        ],
+        "company": "VASS",
+        "sector": "Technology consultancy",
+        "context": "Madrid",
+        "summary": "Technical leadership and building the team from scratch.",
+        "tags": [
+          "Open Source PHP",
+          "Agile practices",
+          "Code quality",
+          "Hiring and mentoring"
+        ]
+      },
+      {
+        "title": "Senior PHP Developer",
+        "period": "Apr 2017 – May 2020",
+        "items": [
+          "I co-led the technical development of UNIR's in-house WordPress content platform for its websites in Spain, Mexico, Colombia, Peru, Ecuador and the United States.",
+          "We built the internal product from scratch as a dedicated team with high standards. I helped design it with performance, scalability and security in mind.",
+          "As the team grew from 4 to 10 across backend, frontend and UX/UI, I drove CI/CD and container adoption with GitLab CI/CD and Docker, giving teams more autonomy, improving quality and cutting delivery times by around 40%.",
+          "I worked as the link between development and Systems, Marketing, Content, SEO and Legal to align development with business goals.",
+          "I completed a Master's in DevOps and Cloud at UNIR to support this work."
+        ],
+        "company": "UNIR",
+        "sector": "Online university",
+        "context": "Madrid",
+        "summary": "The content platform behind the university's international websites.",
+        "tags": [
+          "PHP",
+          "WordPress",
+          "GitLab CI/CD",
+          "Docker"
+        ]
+      },
+      {
+        "title": "Senior Web Developer",
+        "period": "Apr 2014 – Jun 2017",
+        "items": [
+          "I helped design the platform that generated and managed pharmacy websites, with integrated online stores and a shared pharmaceutical catalogue. It connected to an in-house core platform that provided online marketing services to pharmacy clients.",
+          "I built the platform core with the team: the control panel, data API, segmented email campaigns and a mobile app backend.",
+          "I led three junior developers through iterative delivery, code review and technical coaching.",
+          "I organised incident handling and preventive and corrective maintenance with Kanban, giving the whole company visibility and traceability.",
+          "I worked across several stacks: websites and online stores, microservices, APIs, mobile applications and relational and non-relational databases."
+        ],
+        "company": "Evolufarma",
+        "sector": "Pharmacy SaaS",
+        "context": "Madrid",
+        "summary": "An online marketing SaaS platform for pharmacies.",
+        "tags": [
+          "SaaS",
+          "API",
+          "Microservices",
+          "SQL and NoSQL",
+          "Kanban"
+        ]
+      },
+      {
+        "title": "Web Developer → Senior PHP Developer",
+        "period": "Oct 2008 – Mar 2014",
+        "items": [
+          "I built websites and web applications from scratch for leading companies in telecommunications, education and insurance.",
+          "The projects focused on online marketing and generating leads.",
+          "We used techniques such as retargeting and A/B testing to improve conversion.",
+          "I was promoted to Senior PHP Developer in my first year and went on to lead large web projects."
+        ],
+        "company": "Logiqo",
+        "sector": "Digital agency",
+        "context": "Madrid",
+        "summary": "Websites and applications for online marketing and customer acquisition.",
+        "tags": [
+          "PHP",
+          "Retargeting",
+          "A/B testing"
+        ]
+      }
+    ],
+    "vassPeriod": "Sep 2020 – Nov 2026"
+  },
+  "projects": {
+    "title": "Featured projects",
+    "intro": "A few projects that show how I work.",
+    "items": [
+      {
+        "title": "Corporate intranet for thousands of employees",
+        "text": "I led the end-to-end development of a web and mobile platform for a national supermarket chain. I was responsible for technical direction and overall project management, coordinating multidisciplinary teams, overseeing planning, costs and delivery commitments, and leading strategic decisions and client communication."
+      },
+      {
+        "title": "International content platform",
+        "text": "UNIR's in-house product powering its websites in six countries. We built it from scratch; as the team grew from 4 to 10 people, CI/CD and containers shortened delivery by around 40%."
+      },
+      {
+        "title": "Marketing SaaS for pharmacies",
+        "text": "Evolufarma's platform for generating and managing pharmacy websites, with e-commerce, a shared catalogue, dashboard, APIs and email campaigns."
+      }
+    ]
+  },
+  "education": {
+    "title": "Education and certifications",
+    "items": [
+      {
+        "title": "Master's in AI Engineering",
+        "description": "Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI-generated recording and tick-tack-done with its MCP server.",
+        "period": "Sep 2026",
+        "institution": "LIDR",
+        "detail": "80 hours",
+        "publication": {
+          "href": "https://lnkd.in/p/dNjenVVA",
+          "label": "LinkedIn post"
+        }
+      },
+      {
+        "title": "LIDR Ignite technical leadership programme",
+        "description": "I took the programme while leading the Digital Experience team at VASS to bring more structure to my day-to-day work. It covers mentoring, one-to-ones, hiring and onboarding, high-performing teams, and conflict resolution.",
+        "period": "Jun 2022",
+        "institution": "LIDR",
+        "detail": "60 hours"
+      },
+      {
+        "title": "Master's in DevOps and Cloud",
+        "description": "I studied at UNIR while the content platform team grew from 4 to 10 people and we adopted CI/CD and Docker with GitLab. The programme covers DevOps culture, cloud (AWS), infrastructure as code, application lifecycles, CI/CD, Docker, Puppet and Chef, and includes a final project.",
+        "period": "Sep 2019",
+        "institution": "UNIR",
+        "detail": "60 ECTS"
+      },
+      {
+        "title": "Technical Engineering Degree in Computer Science (Management Information Systems)",
+        "description": "This degree gave me my technical foundation in software engineering. After graduating, I started working as a web developer at Logiqo.",
+        "period": "2003–2008",
+        "institution": "University of Alicante"
+      }
+    ]
+  },
+  "talks": {
+    "title": "Talks and community",
+    "highlights": [
+      {
+        "title": "Lead Organizer of WordCamp Madrid 2019",
+        "text": "(Aug 2018 – Apr 2019). Held at La Nave with 600 attendees, it was the largest WordCamp in Spain at the time; tickets sold out three weeks ahead. The Contributor Day was hosted at Google for Startups."
+      },
+      {
+        "title": "\"Ecosistemas Digitales Interconectados: La Nueva Frontera de la Competitividad Empresarial\"",
+        "text": "(Interconnected digital ecosystems: the new frontier of business competitiveness) · 24 September 2025 · Ibexa, Infinitum Digital and VASS, alongside José Cuenca (Ibexa) and Alex Net (Infinitum)."
+      }
+    ],
+    "labels": [
+      "\"El factor humano\" (The human factor) · 2017",
+      "\"KISS: cultura de plugins, buenas prácticas\" (KISS: plugin culture and good practices) · 2017",
+      "\"Trabajo en equipo: cuando cada maestrillo tiene su librillo\" (Teamwork when everyone has their own way of doing things), with Pablo López · 2018",
+      "Closing session of WordCamp Madrid 2019 · 2019",
+      "\"Hablemos de rendimiento\" (Let's talk about performance) · 2022"
+    ],
+    "heading": "Talks on WordPress.tv (in Spanish)"
+  },
+  "skills": {
+    "title": "Skills",
+    "items": [
+      {
+        "title": "Engineering leadership and management",
+        "text": "Building and developing teams, hiring and mentoring, managing performance against objectives, fostering an engineering culture, applying agile methods and taking responsibility for software delivery."
+      },
+      {
+        "title": "Department leadership",
+        "text": "Managing an engineering department and its project portfolio, including capacity and resource planning, team organisation, tracking financial performance and profitability, pre-sales, and working with leadership and clients."
+      },
+      {
+        "title": "Technology",
+        "text": "PHP (custom development and WordPress), Drupal, Laravel and Symfony. APIs, SQL and NoSQL databases, web security, performance and systems integration. Recent personal projects use TypeScript, Python and FastAPI. AI brings us back to basics: the fundamentals have never mattered more."
+      },
+      {
+        "title": "Software delivery and quality",
+        "text": "Agile, predictable delivery processes with continuous integration and deployment, engineering standards, and quality built into the continuous, iterative development cycle. Fail fast, learn fast."
+      },
+      {
+        "title": "Communication and business alignment",
+        "text": "Translating business objectives into technical plans, aligning teams across marketing, content, systems and legal, reporting to leadership and teams, and presenting solutions to clients and at industry events."
+      },
+      {
+        "title": "Artificial Intelligence & GenAI",
+        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance. AI amplifies what you already know how to do. Without sound engineering, it only makes mistakes happen faster."
+      }
+    ]
+  },
+  "languages": {
+    "title": "Languages",
+    "items": [
+      {
+        "locale": "es",
+        "text": "Spanish · native"
+      },
+      {
+        "locale": "en",
+        "text": "English · professional working proficiency (B2, Cambridge First Certificate in English)"
+      }
+    ]
+  },
+  "about": {
+    "title": "About me",
+    "items": [
+      "I have moved from designing and building software to growing and leading development teams, without losing my curiosity about how things work and how to make them better. I like staying close to technology, connecting what the business needs with what we can realistically build, and creating environments where people have autonomy, grow and build good software.",
+      "Today I am especially interested in how AI is changing the way we build software, learn and work. I am looking for a new role where I can keep combining engineering and leadership."
+    ],
+    "quote": "I started out as a web developer and, over the years, learned that good projects come from good teams."
+  },
+  "interview": {
+    "title": "Interview me",
+    "text": "I am preparing an AI interview where you can ask questions about my career. Its answers will be based on information I have reviewed.",
+    "status": "Coming soon"
+  },
+  "contact": {
+    "title": "CV & contact",
+    "text": "If I am a good fit for what you are looking for, let's talk. LinkedIn is the fastest way to reach me.",
+    "note": "I am looking for Engineering Manager and technical leadership roles, remote from Spain or hybrid in Madrid.",
+    "linkedin": "Message me on LinkedIn"
+  },
+  "suggestions": [
+    "How do you organize an engineering team?",
+    "How have you brought generative AI into development?",
+    "What practices do you use to improve software delivery and quality?"
+  ],
+  "profile": {
+    "description": "Engineering Manager with 15+ years in software development; leads engineering teams, improves software delivery and brings generative AI into development.",
+    "credentialCategory": "Master's degree",
+    "credentialNames": [
+      "Master's in AI Engineering",
+      "Master's in DevOps and Cloud"
+    ]
+  },
+  "openGraph": {
+    "title": "Pablo Poveda · Engineering Manager",
+    "description": "From web developer to running a 20-person engineering department. Technical leadership, software delivery and generative AI. Watch an AI-generated introduction.",
+    "imageAlt": "Pablo Poveda, Engineering Manager"
+  }
+}

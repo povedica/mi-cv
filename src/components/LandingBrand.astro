@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  name: string;
+  headline: string;
+  shortTitle: string;
+}
+
+const { href, name, headline, shortTitle } = Astro.props;
+---
+<a class="landing-brand" {href} aria-label={name + " · " + headline}>
+  <span class="landing-brand-name">{name}<b aria-hidden="true">.</b></span>
+  <span class="landing-brand-title"><span>{headline}</span><span>{shortTitle}</span></span>
+</a>

@@ -1,0 +1,68 @@
+{
+  "title": "Política de cookies",
+  "notice": "Esta web usa almacenamiento local para recordar tus preferencias y una analítica propia sin cookies. No hay publicidad ni seguimiento de terceros.",
+  "dismiss": "Entendido",
+  "home": "Volver al perfil",
+  "inventory": "Cookies y almacenamiento local",
+  "columns": [
+    "Nombre",
+    "Tipo",
+    "Finalidad",
+    "Duración",
+    "Proveedor"
+  ],
+  "entries": [
+    [
+      "mi-cv:cookie-notice:v1",
+      "Almacenamiento local propio",
+      "Recordar que has cerrado el aviso.",
+      "Hasta que borres los datos del sitio o cambie la versión del aviso.",
+      "cv.reflexionia.com"
+    ],
+    [
+      "mi-cv:theme",
+      "Almacenamiento local propio",
+      "Recordar el tema que eliges.",
+      "Hasta que vuelvas a Sistema en la entrevista o borres los datos del sitio.",
+      "cv.reflexionia.com"
+    ],
+    [
+      "mi-cv:language",
+      "Almacenamiento local propio",
+      "Recordar el idioma que eliges desde la portada.",
+      "Hasta que cambies la elección o borres los datos del sitio.",
+      "cv.reflexionia.com"
+    ]
+  ],
+  "updated": "Última actualización",
+  "date": "19 de noviembre de 2026",
+  "introduction": [
+    [
+      "Qué son",
+      "Las cookies son pequeños archivos que un sitio web guarda en tu navegador. También existen otras tecnologías parecidas, como el almacenamiento local."
+    ],
+    [
+      "Qué usa esta web",
+      "Esta web se sirve con almacenamiento técnico para las funciones descritas en el inventario. La analítica es propia (Umami, alojada en mi servidor) y no usa cookies. No hay cookies de publicidad ni de redes sociales."
+    ]
+  ],
+  "guidance": [
+    [
+      "Base legal",
+      "El almacenamiento técnico estrictamente necesario para prestar el servicio solicitado está exento de consentimiento según el artículo 22.2 de la LSSI. Este aviso es informativo."
+    ],
+    [
+      "Cómo gestionarlas",
+      "Puedes borrar o bloquear las cookies y el almacenamiento local desde la configuración de tu navegador. Si bloqueas el almacenamiento local, el sitio no podrá recordar el tema, el idioma ni si has cerrado el aviso."
+    ]
+  ],
+  "controller": [
+    "Responsable",
+    "Pablo Poveda Ortega"
+  ],
+  "contact": "Contacto",
+  "changes": [
+    "Cambios",
+    "Si esta política cambia, se actualizará aquí."
+  ]
+}

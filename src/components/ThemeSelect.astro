@@ -1,0 +1,75 @@
+---
+interface Props {
+  locale: 'es' | 'en';
+  compact?: boolean;
+}
+
+const { locale, compact = false } = Astro.props;
+const isSpanish = locale === 'es';
+const label = isSpanish ? 'Tema' : 'Theme';
+---
+{compact ? (
+  <button
+    class="theme-toggle"
+    type="button"
+    aria-label={label}
+    data-theme-toggle
+    data-light-label={isSpanish ? 'Cambiar a tema claro' : 'Switch to light theme'}
+    data-dark-label={isSpanish ? 'Cambiar a tema oscuro' : 'Switch to dark theme'}
+    hidden
+  >
+    <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75">
+      <circle cx="12" cy="12" r="8.5" />
+      <path fill="currentColor" stroke="none" d="M12 3.5a8.5 8.5 0 0 1 0 17Z" />
+    </svg>
+  </button>
+) : (
+  <label class="theme-select" hidden>
+    <span>{label}</span>
+    <select data-theme-select>
+      <option value="system">{isSpanish ? 'Sistema' : 'System'}</option>
+      <option value="light">{isSpanish ? 'Claro' : 'Light'}</option>
+      <option value="dark">{isSpanish ? 'Oscuro' : 'Dark'}</option>
+    </select>
+  </label>
+)}
+
+<style>
+  .theme-select:not([hidden]) {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  select {
+    min-height: 36px;
+    font: inherit;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--control-border);
+    border-radius: 8px;
+    padding-inline: 7px;
+  }
+
+  .theme-toggle:not([hidden]) {
+    display: inline-grid;
+    place-items: center;
+    flex: 0 0 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .theme-toggle:hover {
+    color: var(--accent);
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+</style>

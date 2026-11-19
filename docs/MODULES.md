@@ -2,9 +2,9 @@
 
 | Module | How it works | Boundaries and checks |
 | --- | --- | --- |
-| [Profile](../src/pages/index.astro) and [public copy](../src/data/site.ts) | Astro renders the profile, section anchors and four native interview links. Link placement markers identify the entry point. | No visitor state on this route. Keyboard navigation, landmarks and usable narrow layout are checked in the browser. |
+| [Landing](../src/components/Landing.astro) and [localized copy](../src/content/landing/) | Renders the Spanish and English portfolios with a sticky header, a visible career timeline and local Geist fonts. Link placement markers identify each interview entry point. | The theme selector stores the visitor’s preferred color scheme locally. The header exposes contact actions, language and theme controls. Section IDs support direct links. |
 | [Interview](../src/pages/interview.astro) | Native DOM listeners open the preview, populate suggested questions, append valid text to an ordered list, and clear history on close. | No chat request, microphone, video, storage or provider call. The form and preview use labelled controls, focus management and live status. |
-| [Styles](../src/styles/global.css) and [portrait](../src/assets/pablo-portrait.jpg) | One stylesheet controls layouts, states and reduced motion. Astro generates responsive WebP candidates with intrinsic dimensions. | The portrait is a still source image. Build output includes only the derivatives used by the two routes. |
+| [Styles](../src/styles/global.css) and [portrait](../src/assets/pablo-portrait-v2.jpg) | One stylesheet controls layouts, states and reduced motion. Astro generates responsive WebP candidates with intrinsic dimensions. | The portrait is a still source image. Astro generates derivatives for the bilingual landing and interview. |
 | [Analytics](../src/analytics/data-layer.ts) and [page bootstrap](../src/components/WebAnalytics.astro) | The shared page head loads Umami and a validator projects events into a bounded queue and an allowlisted adapter. | No tracking cookies or question content. Schema, mapping, bounds and collector failure have [unit coverage](../tests/data-layer.test.mjs). |
 | [Sentry bootstrap](../src/components/BrowserMonitoring.astro) and [adapter](../src/monitoring/sentry.ts) | A configured public DSN enables a dynamic browser import. A send hook rebuilds errors from an allowlist of first-party frames and safe metadata. | Disabled by default. No replay or user data. [Tests](../tests/sentry.test.mjs) cover filtering, and a local receiver previously verified delivery. |
 | [Astro tracing](../src/server/astro-tracing.mjs) | Astro hooks emit build start and completion with a shared ID. A dev middleware emits a JSON event for each completed GET to either page and sets `X-Request-Id`. | Server-side only. Fixed route labels, status and duration. No raw request data. [Trace tests](../tests/astro-tracing.test.mjs) verify correlation and exclusion. |
@@ -23,3 +23,21 @@
 | `DELETE /api/v1/chat/sessions/{id}` | 204 for idempotent close by the owner of the session. Release transient state. |
 
 Target errors are 400 for invalid input, 404 for an inaccessible session, 429 for quota, and 503 when the service is unavailable. Validate origins and citation ownership server-side. Keep visitor questions out of logs. Future interfaces for voice sessions, avatar sessions and publication are separate from this contract.
+
+## Recorded avatar
+
+`src/components/AvatarVideo.astro` renders a 9:16 crop of the approved portrait as a responsive AVIF poster with WebP fallback and labels the recording as AI-generated. Both localized landing and interview pages request the
+versioned HLS manifest only after the visitor activates the player. Spanish routes use `v2` and English routes use `v3`. The player
+uses native HLS when reported by the browser and loads the bundled hls.js light
+build dynamically for Media Source Extensions. Unsupported browsers keep the portrait visible. Playback failures return to the portrait and offer a retry. Media files live outside the static release and are
+served by Caddy. Version-matched WebVTT caption tracks are bundled with the static release. See [conversion and deployment](DEPLOYMENT.md#avatar-video).
+
+### Profile structured data
+
+Both landing routes render one Schema.org graph through
+`src/components/ProfileSchema.astro`. The site and person identifiers are shared
+across locales. Each profile page has its own canonical URL, language and
+localised credential text. The graph omits contact details and refers to the
+approved portrait at the stable `/pablo-poveda.jpg` URL. The responsive hero
+poster remains a separate build asset. The release receiver admits the portrait
+by its exact path.

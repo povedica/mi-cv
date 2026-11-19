@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+  intro?: string;
+  wide?: boolean;
+}
+
+const { title, intro, wide } = Astro.props;
+---
+<div class:list={["landing-heading", { "landing-heading-wide": wide }]}>
+  <h2>{title}</h2>
+  {intro && <p>{intro}</p>}
+</div>

@@ -19,7 +19,6 @@ jobs:
       url: https://cv.reflexionia.com
     env:
       ASTRO_TELEMETRY_DISABLED: '1'
-      PUBLIC_SENTRY_DSN: ''
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -30,6 +29,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run verify
+        env:
+          PUBLIC_SENTRY_DSN: ${{ vars.PUBLIC_SENTRY_DSN }}
       - name: Publish static release
         env:
           SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
@@ -49,7 +50,7 @@ jobs:
           printf '%s\n' "$SSH_KEY" > "$ssh_dir/key"
           printf '%s\n' "$SSH_KNOWN_HOSTS" > "$ssh_dir/known_hosts"
           archive="$ssh_dir/release.tar"
-          (cd dist && find index.html interview _astro -type f -print0 |
+          (cd dist && find * -type f -print0 |
             tar --null --verbatim-files-from -cf "$archive" -T -)
           ssh -F /dev/null -T -o BatchMode=yes -o ConnectTimeout=10 \
             -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \

@@ -1,0 +1,346 @@
+{
+  "title": "Pablo Poveda · Engineering Manager · AI Engineering",
+  "description": "Engineering Manager con más de 15 años en desarrollo de software. Lidero y escalo equipos de ingeniería, mejoro la entrega de software e incorporo la IA generativa al desarrollo.",
+  "ids": [
+    "inicio",
+    "areas",
+    "ia",
+    "trayectoria",
+    "casos",
+    "formacion",
+    "charlas",
+    "habilidades",
+    "idiomas",
+    "sobre-mi",
+    "entrevista",
+    "cv-contacto"
+  ],
+  "name": "Pablo Poveda",
+  "skip": "Saltar al contenido",
+  "interviewLabel": "Entrevístame con IA",
+  "eyebrow": "Engineering Management · Software Delivery · AI Engineering",
+  "headline": "Engineering Manager · AI Engineering",
+  "lead": [
+    "Llevo más de 15 años en el software, evolucionando del desarrollo a la dirección de equipos y departamentos de ingeniería y desarrollo web.",
+    "Combino liderazgo de personas, dirección técnica y gestión integral de proyectos, con responsabilidad sobre equipos, planificación, presupuestos y resultados. Me gusta conectar la tecnología con las necesidades del negocio, construir equipos autónomos y convertir retos en soluciones que funcionan.",
+    "Hoy aplico la inteligencia artificial para transformar cómo desarrollamos software y trabajamos en equipo."
+  ],
+  "location": "Madrid, España · Remoto",
+  "portraitAlt": "Retrato de Pablo Poveda",
+  "portraitLabel": "Engineering Manager",
+  "download": "Descargar CV",
+  "focus": {
+    "title": "Qué hago",
+    "intro": "Las áreas donde más aporto y de las que puedes preguntarme en la entrevista.",
+    "items": [
+      {
+        "title": "Liderazgo y equipos",
+        "text": "Construyo y hago crecer equipos de ingeniería: selección, onboarding, mentoría y evaluación por objetivos, con autonomía y buena cultura de ingeniería."
+      },
+      {
+        "title": "Entrega de software y calidad",
+        "text": "Prácticas ágiles, estándares de calidad, revisión automática del código, CI/CD y métricas para entregar más valor con menos incidencias."
+      },
+      {
+        "title": "Negocio y entrega",
+        "text": "Dirijo departamentos o áreas de ingeniería, con responsabilidad sobre resultados económicos, cartera de proyectos, preventa y relación con clientes y dirección."
+      },
+      {
+        "title": "IA aplicada al desarrollo",
+        "text": "Llevo la IA generativa al trabajo diario de los equipos con un uso práctico, seguro y responsable, y construyo aplicaciones con LLM, RAG y agentes."
+      }
+    ]
+  },
+  "ai": {
+    "title": "IA aplicada",
+    "intro": "La IA generativa está cambiando cómo desarrollamos software. La he llevado a equipos reales y la estudio y la uso a fondo.",
+    "items": [
+      {
+        "title": "Adopción en equipos de desarrollo (VASS)",
+        "text": "Colideré en mi área la incorporación de IA generativa en los equipos de desarrollo, impulsando nuevas metodologías, herramientas y procesos integrados en proyectos reales. La iniciativa permitió aumentar la autonomía de los equipos, acelerar los ciclos de entrega y reforzar los estándares de calidad, con una mejora estimada media del 30 % en la capacidad de entrega de valor."
+      },
+      {
+        "title": "Máster en AI Engineering (LIDR, 2026)",
+        "text": "Aplicaciones con LLM, RAG y CAG, agentes y sistemas agénticos, y evaluación de soluciones de IA."
+      },
+      {
+        "title": "tick-tack-done",
+        "text": "Mi proyecto personal: una aplicación de tareas y productividad con servidor MCP, para que los agentes de IA trabajen con ella. Lo desarrollo con agentes de IA y un flujo de backlog en GitHub.",
+        "href": "https://todo.reflexionia.com",
+        "demo": {
+          "label": "Cuenta demo",
+          "emailLabel": "Correo",
+          "passwordLabel": "Contraseña",
+          "email": "demo@example.com",
+          "password": "demo_1234"
+        }
+      }
+    ]
+  },
+  "experience": {
+    "title": "Trayectoria",
+    "roles": [
+      {
+        "title": "Manager de departamento · Digital Experience (Open Source PHP)",
+        "period": "may 2024 – nov 2026",
+        "items": [
+          "Dirigí el departamento con autonomía sobre las decisiones organizativas y responsabilidad sobre sus resultados económicos, la cartera de proyectos y las oportunidades de negocio.",
+          "Organicé los equipos de ingeniería, de entre 15 y 20 personas: estructura, prioridades y asignación a proyectos.",
+          "Impulsé con otros responsables la adopción de IA generativa en los equipos de desarrollo: alrededor de un 30 % más de valor entregado.",
+          "Abrí nuevos clientes con pequeños proyectos iniciales que después hicieron crecer el negocio con ellos.",
+          "Coordiné proyectos transversales entre departamentos, alineando prioridades, plazos, dependencias y entregas.",
+          "Supervisé proyectos de alcance nacional, como la plataforma de loyalty de una de las principales operadoras de telecomunicaciones."
+        ],
+        "company": "VASS",
+        "sector": "Consultoría tecnológica",
+        "context": "Madrid",
+        "summary": "Dirección del departamento: personas, cartera de proyectos y resultados.",
+        "tags": [
+          "Dirección de equipos",
+          "Cartera de proyectos",
+          "Preventa y negocio",
+          "IA generativa"
+        ]
+      },
+      {
+        "title": "Team Lead / Tech Lead · Digital Experience (Open Source PHP)",
+        "period": "sep 2020 – abr 2024",
+        "items": [
+          "Hice crecer el departamento de 1 a 20 profesionales: diseñé el proceso de selección y las pruebas técnicas, entrevisté con Talent Acquisition y preparé la incorporación.",
+          "Dirigí una cartera de unos 30 proyectos, entre ellos una intranet web y móvil para miles de empleados de una cadena nacional de supermercados.",
+          "Impulsé el desarrollo del equipo con mentoría, seguimiento individual y evaluaciones por objetivos: tres personas promocionaron a puestos de más responsabilidad.",
+          "Incorporé prácticas ágiles, estándares de calidad y revisión automática del código, además de logs, monitorización y métricas que redujeron las incidencias y mejoraron su seguimiento.",
+          "Automaticé parte de los procesos de entrega para entregar más valor con mayor calidad.",
+          "Asumí la responsabilidad económica del departamento y lideré preventas hasta la propuesta y la estimación."
+        ],
+        "company": "VASS",
+        "sector": "Consultoría tecnológica",
+        "context": "Madrid",
+        "summary": "Liderazgo técnico y construcción del equipo desde cero.",
+        "tags": [
+          "Open Source PHP",
+          "Prácticas ágiles",
+          "Calidad de código",
+          "Selección y mentoría"
+        ]
+      },
+      {
+        "title": "Senior PHP Developer",
+        "period": "abr 2017 – may 2020",
+        "items": [
+          "Colideré técnicamente la plataforma de contenidos propia, basada en WordPress, de los portales de UNIR en España, México, Colombia, Perú, Ecuador y Estados Unidos.",
+          "Construimos ese producto interno desde cero, en un equipo muy comprometido y exigente, y participé en su diseño pensando en el rendimiento, la escalabilidad y la seguridad.",
+          "Cuando el equipo creció de 4 a 10 personas (backend, frontend y UX/UI), impulsé CI/CD y contenedores con GitLab CI/CD y Docker: más autonomía para los equipos, mejor calidad y tiempos de entrega alrededor de un 40 % más cortos.",
+          "Hice de enlace entre desarrollo y Sistemas, Marketing, Contenidos, SEO y Legal, para alinear el desarrollo con los objetivos del negocio.",
+          "Para hacerlo con criterio, cursé el Máster en DevOps y Cloud en la propia universidad."
+        ],
+        "company": "UNIR",
+        "sector": "Universidad online",
+        "context": "Madrid",
+        "summary": "La plataforma de contenidos de los portales internacionales de la universidad.",
+        "tags": [
+          "PHP",
+          "WordPress",
+          "GitLab CI/CD",
+          "Docker"
+        ]
+      },
+      {
+        "title": "Senior Web Developer",
+        "period": "abr 2014 – jun 2017",
+        "items": [
+          "Participé en el diseño de la plataforma que generaba y gestionaba las webs de las farmacias, con tienda online integrada y un catálogo farmacéutico común, conectada a una plataforma core propia que daba servicio de marketing online a las farmacias clientes.",
+          "Desarrollé con el equipo el núcleo de la plataforma: panel de control, API de datos, campañas de email segmentadas y backend de una app móvil.",
+          "Lideré a tres desarrolladores junior: trabajo en iteraciones, revisión de código y acompañamiento técnico.",
+          "Organicé las incidencias y el mantenimiento preventivo y correctivo con Kanban, con visibilidad y trazabilidad para toda la empresa.",
+          "Trabajé con varios stacks: webs y tiendas online, microservicios, API, aplicaciones móviles y bases de datos relacionales y no relacionales."
+        ],
+        "company": "Evolufarma",
+        "sector": "SaaS farmacéutico",
+        "context": "Madrid",
+        "summary": "Una plataforma SaaS de marketing online para farmacias.",
+        "tags": [
+          "SaaS",
+          "API",
+          "Microservicios",
+          "SQL y NoSQL",
+          "Kanban"
+        ]
+      },
+      {
+        "title": "Desarrollador web → Senior PHP Developer",
+        "period": "oct 2008 – mar 2014",
+        "items": [
+          "Desarrollé webs y aplicaciones web desde cero para empresas líderes en telecomunicaciones, educación y seguros.",
+          "Eran proyectos orientados al marketing online y a la captación de clientes potenciales.",
+          "Aplicamos técnicas como el retargeting y los test A/B para mejorar la conversión.",
+          "Ascendí a Senior PHP Developer en el primer año y llegué a liderar proyectos web de gran tamaño."
+        ],
+        "company": "Logiqo",
+        "sector": "Agencia digital",
+        "context": "Madrid",
+        "summary": "Webs y aplicaciones para marketing online y captación de clientes.",
+        "tags": [
+          "PHP",
+          "Retargeting",
+          "Test A/B"
+        ]
+      }
+    ],
+    "vassPeriod": "sep 2020 – nov 2026"
+  },
+  "projects": {
+    "title": "Proyectos y casos",
+    "intro": "Algunos proyectos que explican cómo trabajo.",
+    "items": [
+      {
+        "title": "Intranet corporativa para miles de empleados",
+        "text": "Lideré de principio a fin el desarrollo de una plataforma web y móvil para una cadena nacional de supermercados. Asumí la dirección técnica y la gestión integral del proyecto, coordinando equipos multidisciplinares, supervisando la planificación, los costes y los compromisos de entrega, y liderando las decisiones estratégicas y la interlocución con el cliente."
+      },
+      {
+        "title": "Plataforma de contenidos internacional",
+        "text": "El producto interno de UNIR sobre el que funcionaban sus portales en seis países. Lo construimos desde cero; con el equipo creciendo de 4 a 10 personas, CI/CD y contenedores acortaron las entregas alrededor de un 40 %."
+      },
+      {
+        "title": "SaaS de marketing para farmacias",
+        "text": "Plataforma de Evolufarma que generaba y gestionaba las webs de las farmacias, con tienda online, catálogo común, panel, API y campañas de email."
+      }
+    ]
+  },
+  "education": {
+    "title": "Formación y certificaciones",
+    "items": [
+      {
+        "title": "Máster en AI Engineering",
+        "description": "Ingeniería aplicada para construir productos con LLM: CAG, RAG, orquestación de agentes y evaluación de soluciones de IA. Lo pongo en práctica en mis propios proyectos, como esta web con una grabación generada con IA y tick-tack-done con su servidor MCP.",
+        "period": "sep 2026",
+        "institution": "LIDR",
+        "detail": "80 horas",
+        "publication": {
+          "href": "https://lnkd.in/p/dNjenVVA",
+          "label": "Publicación en LinkedIn"
+        }
+      },
+      {
+        "title": "Programa de liderazgo técnico LIDR Ignite",
+        "description": "Lo hice cuando ya dirigía el equipo de Digital Experience en VASS, para dar método a lo que hacía cada día. Trata de mentoring, one-to-ones, contratación y onboarding, equipos de alto rendimiento y resolución de conflictos.",
+        "period": "jun 2022",
+        "institution": "LIDR",
+        "detail": "60 horas"
+      },
+      {
+        "title": "Máster en DevOps y Cloud",
+        "description": "Lo cursé en la propia UNIR mientras el equipo de la plataforma de contenidos crecía de 4 a 10 personas y adoptábamos CI/CD y Docker con GitLab. Cubre cultura DevOps, cloud (AWS), infraestructura como código, ciclo de vida de las aplicaciones, CI/CD, Docker, Puppet y Chef, con un proyecto final.",
+        "period": "sep 2019",
+        "institution": "UNIR",
+        "detail": "60 ECTS"
+      },
+      {
+        "title": "Ingeniería Técnica en Informática de Gestión",
+        "description": "Mi base técnica en ingeniería del software. Al terminarla empecé como desarrollador web en Logiqo.",
+        "period": "2003–2008",
+        "institution": "Universidad de Alicante"
+      }
+    ]
+  },
+  "talks": {
+    "title": "Charlas y comunidad",
+    "highlights": [
+      {
+        "title": "Organizador principal de WordCamp Madrid 2019",
+        "text": "(ago 2018 – abr 2019). En La Nave, con 600 asistentes, fue el WordCamp más grande de España hasta entonces; las entradas se agotaron tres semanas antes. El Contributor Day se celebró en Google for Startups."
+      },
+      {
+        "title": "«Ecosistemas Digitales Interconectados: La Nueva Frontera de la Competitividad Empresarial»",
+        "text": "24 de septiembre de 2025 · Ibexa, Infinitum Digital y VASS, junto a José Cuenca (Ibexa) y Alex Net (Infinitum)."
+      }
+    ],
+    "labels": [
+      "«El factor humano» · 2017",
+      "«KISS: cultura de plugins, buenas prácticas» · 2017",
+      "«Trabajo en equipo: cuando cada maestrillo tiene su librillo», con Pablo López · 2018",
+      "Clausura de WordCamp Madrid 2019 · 2019",
+      "«Hablemos de rendimiento» · 2022"
+    ],
+    "heading": "Charlas en WordPress.tv"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "items": [
+      {
+        "title": "Liderazgo y gestión de ingeniería",
+        "text": "Construcción y desarrollo de equipos, selección y mentoría, gestión del desempeño por objetivos, cultura de ingeniería, metodologías ágiles y responsabilidad sobre la entrega de software."
+      },
+      {
+        "title": "Dirección de departamento",
+        "text": "Gestión de un departamento de ingeniería y de su cartera de proyectos: planificación de capacidad y recursos, organización de equipos, seguimiento económico y de rentabilidad, preventa y relación con dirección y clientes."
+      },
+      {
+        "title": "Tecnologías",
+        "text": "PHP (a medida y WordPress), Drupal, Laravel y Symfony; API, bases de datos SQL y NoSQL, seguridad web, rendimiento e integración de sistemas. Proyectos personales recientes con TypeScript, Python y FastAPI. Con la IA volvemos a las bases: los fundamentos nunca fueron tan importantes como ahora."
+      },
+      {
+        "title": "Entrega y calidad de software",
+        "text": "Procesos de entrega ágiles y predecibles, con integración y despliegue continuos, estándares de ingeniería y calidad integrada en el ciclo de desarrollo continuo e iterativo. Falla rápido, aprende rápido."
+      },
+      {
+        "title": "Comunicación y relación con negocio",
+        "text": "Traducir objetivos de negocio en planes técnicos, alinear a áreas como marketing, contenidos, sistemas o legal, reportar tanto a dirección como a los equipos y presentar soluciones a clientes y en eventos del sector."
+      },
+      {
+        "title": "Artificial Intelligence & GenAI",
+        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance. La IA multiplica lo que ya sabes hacer: sin buena ingeniería detrás, solo acelera los errores."
+      }
+    ]
+  },
+  "languages": {
+    "title": "Idiomas",
+    "items": [
+      {
+        "locale": "es",
+        "text": "Español · nativo"
+      },
+      {
+        "locale": "en",
+        "text": "Inglés · nivel profesional (B2 acreditado, Cambridge First Certificate)"
+      }
+    ]
+  },
+  "about": {
+    "title": "Sobre mí",
+    "items": [
+      "He pasado de diseñar y construir software a formar y liderar equipos de desarrollo, sin perder el interés por entender cómo funcionan las cosas y cómo mejorarlas. Me gusta estar cerca de la tecnología, conectar lo que el negocio necesita con lo que realmente podemos construir y crear entornos donde las personas tengan autonomía, crezcan y hagan buen software.",
+      "Hoy me interesa especialmente cómo la IA está cambiando nuestra forma de desarrollar, aprender y trabajar. Busco una nueva etapa donde seguir combinando ingeniería y liderazgo."
+    ],
+    "quote": "Empecé programando web y, con los años, aprendí que los buenos proyectos salen de buenos equipos."
+  },
+  "interview": {
+    "title": "Entrevístame",
+    "text": "Estoy preparando una entrevista con IA para que puedas hacer preguntas sobre mi trayectoria. Las respuestas se basarán en información que he revisado.",
+    "status": "Próximamente"
+  },
+  "contact": {
+    "title": "CV y contacto",
+    "text": "Si encajo con lo que buscas, hablemos. LinkedIn es la forma más rápida de contactar conmigo.",
+    "note": "Busco roles de Engineering Manager y liderazgo técnico, en remoto desde España o en híbrido en Madrid.",
+    "linkedin": "Escríbeme por LinkedIn"
+  },
+  "suggestions": [
+    "¿Cómo organizas un equipo de ingeniería?",
+    "¿Cómo has incorporado la IA generativa al desarrollo?",
+    "¿Qué prácticas usas para mejorar la entrega y la calidad del software?"
+  ],
+  "profile": {
+    "description": "Engineering Manager con más de 15 años en desarrollo de software; lidera equipos técnicos, mejora la entrega e incorpora la IA generativa al desarrollo.",
+    "credentialCategory": "Máster",
+    "credentialNames": [
+      "Máster en AI Engineering",
+      "Máster en DevOps y Cloud"
+    ]
+  },
+  "openGraph": {
+    "title": "Pablo Poveda · Engineering Manager",
+    "description": "De desarrollador web a dirigir un departamento de ingeniería de 20 personas. Liderazgo técnico, entrega de software e IA generativa y una grabación generada con IA.",
+    "imageAlt": "Pablo Poveda, Engineering Manager"
+  }
+}

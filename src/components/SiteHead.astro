@@ -8,14 +8,98 @@ interface Props {
 }
 
 const { description, title } = Astro.props;
+const isLanding = Astro.url.pathname === '/' || Astro.url.pathname === '/en/';
 ---
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content={isLanding ? "#0b1626" : "#0b1020"} media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content={isLanding ? "#fafafa" : "#f6f7fb"} media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" media="not all" data-theme-override />
+  <script is:inline>
+    (() => {
+      const key = 'mi-cv:theme';
+      const root = document.documentElement;
+      const themeColor = document.querySelector('[data-theme-override]');
+      const automaticColors = document.querySelectorAll('meta[name="theme-color"]:not([data-theme-override])');
+      const defaultMedia = Array.from(automaticColors, meta => meta.media);
+
+      function applyTheme(preference) {
+        if (preference === 'light' || preference === 'dark') {
+          root.dataset.theme = preference;
+          root.classList.remove('theme-light', 'theme-dark');
+          root.classList.add(`theme-${preference}`);
+          themeColor.content = automaticColors[preference === 'light' ? 1 : 0].content;
+          themeColor.media = 'all';
+          automaticColors.forEach(meta => { meta.media = 'not all'; });
+        } else {
+          delete root.dataset.theme;
+          root.classList.remove('theme-light', 'theme-dark');
+          themeColor.media = 'not all';
+          automaticColors.forEach((meta, index) => { meta.media = defaultMedia[index]; });
+        }
+      }
+
+      let preference = 'system';
+      try {
+        const stored = localStorage.getItem(key);
+        if (stored === 'light' || stored === 'dark') preference = stored;
+      } catch {
+        // The system preference still applies when storage is unavailable.
+      }
+      applyTheme(preference);
+
+      function setPreference(value) {
+        preference = value;
+        applyTheme(preference);
+        try {
+          if (preference === 'system') localStorage.removeItem(key);
+          else localStorage.setItem(key, preference);
+        } catch {
+          // A manual choice still applies to the current page.
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const select = document.querySelector('[data-theme-select]');
+        if (select) {
+          select.value = preference;
+          select.closest('label').hidden = false;
+          select.addEventListener('change', () => setPreference(select.value));
+        }
+
+        const toggle = document.querySelector('[data-theme-toggle]');
+        if (!toggle) return;
+        const systemTheme = matchMedia('(prefers-color-scheme: dark)');
+        const nextTheme = () => (preference === 'system' ? systemTheme.matches : preference === 'dark')
+          ? 'light'
+          : 'dark';
+
+        function updateToggleLabel() {
+          const label = nextTheme() === 'light' ? toggle.dataset.lightLabel : toggle.dataset.darkLabel;
+          toggle.setAttribute('aria-label', label);
+          toggle.title = label;
+        }
+
+        updateToggleLabel();
+        toggle.hidden = false;
+        toggle.addEventListener('click', () => {
+          setPreference(nextTheme());
+          updateToggleLabel();
+        });
+        systemTheme.addEventListener('change', updateToggleLabel);
+      });
+    })();
+  </script>
   <meta name="description" content={description} />
   <title>{title}</title>
+  <slot />
   <WebAnalytics />
   <BrowserMonitoring />
 </head>

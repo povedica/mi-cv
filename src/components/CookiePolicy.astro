@@ -1,0 +1,66 @@
+---
+import SiteHead from './SiteHead.astro';
+import es from '../content/cookies/es.json';
+import en from '../content/cookies/en.json';
+import '../styles/global.css';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+
+const { locale } = Astro.props;
+const isSpanish = locale === 'es';
+const copy = isSpanish ? es : en;
+---
+<!doctype html>
+<html lang={locale}>
+  <SiteHead title={copy.title} description={copy.notice}>
+    <link rel="canonical" href={isSpanish ? "https://cv.reflexionia.com/cookies/" : "https://cv.reflexionia.com/en/cookies/"} />
+    <link rel="alternate" hreflang="es" href="https://cv.reflexionia.com/cookies/" />
+    <link rel="alternate" hreflang="en" href="https://cv.reflexionia.com/en/cookies/" />
+  </SiteHead>
+  <body>
+    <header class="site-header shell">
+      <a class="back-link" href={isSpanish ? '/' : '/en/'}>{copy.home}</a>
+      <a href={isSpanish ? '/en/cookies/' : '/cookies/'} hreflang={isSpanish ? 'en' : 'es'} lang={isSpanish ? 'en' : 'es'}>{isSpanish ? 'English' : 'Español'}</a>
+    </header>
+    <main class="shell policy" tabindex="-1">
+      <h1>{copy.title}</h1>
+      {copy.introduction.map(([title, text]) => (
+        <section>
+          <h2>{title}</h2>
+          <p>{text}</p>
+        </section>
+      ))}
+      <table>
+        <caption>{copy.inventory}</caption>
+        <thead><tr>{copy.columns.map(title => <th scope="col">{title}</th>)}</tr></thead>
+        <tbody>{copy.entries.map(entry => <tr>{entry.map(text => <td>{text}</td>)}</tr>)}</tbody>
+      </table>
+      {copy.guidance.map(([title, text]) => (
+        <section>
+          <h2>{title}</h2>
+          <p>{text}</p>
+        </section>
+      ))}
+      <section>
+        <h2>{copy.controller[0]}</h2>
+        <p>{copy.controller[1]}</p>
+        <p>{copy.contact} <a class="inline-link" href="https://www.linkedin.com/in/pablo-poveda-ortega/">LinkedIn</a></p>
+      </section>
+      <section>
+        <h2>{copy.changes[0]}</h2>
+        <p>{copy.changes[1]}</p>
+        <p>{copy.updated} <time datetime="2026-11-19">{copy.date}</time></p>
+      </section>
+    </main>
+    <footer class="site-footer shell"><a href={isSpanish ? '/cookies/' : '/en/cookies/'}>Cookies</a></footer>
+  </body>
+</html>
+
+<style>
+  .policy { max-width: 760px; padding-block: 32px; }
+  table { border-collapse: collapse; width: 100%; table-layout: fixed; overflow-wrap: anywhere; }
+  caption { text-align: start; font-weight: 700; padding-block: 8px; }
+  th, td { border: 1px solid var(--line); padding: 8px; text-align: start; vertical-align: top; }
+</style>

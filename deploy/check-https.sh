@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+test -s dist/index.html
+test -s dist/interview/index.html
 response=$(mktemp)
 trap 'rm -f "$response"' EXIT
-for file in dist/index.html dist/interview/index.html dist/_astro/*; do
-  route=${file#dist/}
+while IFS= read -r -d '' route; do
+  file="dist/$route"
   route=${route%index.html}
+  url="https://cv.reflexionia.com/$route"
+  # Keep release verification independent of the cached public HTML URLs.
+  if [[ "$file" == *.html && -n "${GITHUB_SHA:-}" ]]; then
+    url+="?release=$GITHUB_SHA"
+  fi
   status=$(curl --silent --show-error --fail --max-time 15 --retry 3 \
     --compressed --output "$response" --write-out '%{http_code}' \
-    "https://cv.reflexionia.com/$route")
+    "$url")
   [[ "$status" == 200 ]]
   cmp "$file" "$response"
   printf 'Verified /%s\n' "$route"
-done
+done < <(cd dist && find * -type f -print0)

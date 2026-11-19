@@ -4,6 +4,11 @@
 !astro.config.mjs
 !tsconfig.json
 !src/
+!public/
+public/**
+!public/og.jpg
+!public/robots.txt
+!public/sitemap.xml
 !tests/
 !knowledge/
 knowledge/**
@@ -16,3 +21,6 @@ knowledge/**
 **/*.pem
 **/*.key
 **/*.local
+
+src/assets/avatar-pablo-poveda-720p.mp4
+src/assets/avatar-pablo-poveda-720p-en.mp4

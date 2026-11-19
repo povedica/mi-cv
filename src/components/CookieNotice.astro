@@ -1,0 +1,90 @@
+---
+import es from '../content/cookies/es.json';
+import en from '../content/cookies/en.json';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+
+const { locale } = Astro.props;
+const copy = locale === 'es' ? es : en;
+const policy = locale === 'es' ? '/cookies/' : '/en/cookies/';
+---
+<aside class="cookie-notice shell landing-wrap" aria-label={copy.title} hidden>
+  <p>{copy.notice} <a class="inline-link" href={policy}>{copy.title}</a></p>
+  <button class="button button-secondary" type="button">{copy.dismiss}</button>
+</aside>
+
+<script is:inline>
+  (() => {
+    const notice = document.querySelector('.cookie-notice');
+    const key = 'mi-cv:cookie-notice:v1';
+    let acknowledged = false;
+    try {
+      acknowledged = localStorage.getItem(key) === '1';
+    } catch {
+      // The notice still works where storage is disabled.
+    }
+    const root = document.documentElement;
+    const reserveSpace = () => {
+      const reserve = notice.hidden ? 0 : Math.ceil(innerHeight - notice.getBoundingClientRect().top);
+      root.style.setProperty('--cookie-notice-reserve', `${reserve}px`);
+    };
+    notice.hidden = acknowledged;
+    new ResizeObserver(reserveSpace).observe(notice);
+    window.addEventListener('resize', reserveSpace);
+    reserveSpace();
+    notice.querySelector('button').addEventListener('click', () => {
+      try {
+        localStorage.setItem(key, '1');
+      } catch {
+        // Dismiss for this page even without persistent storage.
+      }
+      notice.hidden = true;
+      reserveSpace();
+      notice.parentElement?.querySelector('a:not(.cookie-notice a)')?.focus({ preventScroll: true });
+    });
+  })();
+</script>
+
+<style>
+  :global(html:has(.cookie-notice:not([hidden]))) {
+    scroll-padding-bottom: var(--cookie-notice-reserve, 0px);
+  }
+
+  :global(footer:has(> .cookie-notice:not([hidden]))) {
+    margin-bottom: var(--cookie-notice-reserve, 0px);
+  }
+
+  .cookie-notice:not([hidden]) {
+    position: fixed;
+    z-index: 6;
+    inset-inline: 0;
+    bottom: calc(max(.75rem, env(safe-area-inset-bottom)) + var(--dock-reserve, 0px));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    border: 1px solid #2f6ea8;
+    border-radius: 12px;
+    background-color: var(--surface);
+    padding: 12px 16px;
+    font-size: .9rem;
+    margin: 0 auto;
+  }
+
+  p { flex: 1 1 26rem; margin: 0; }
+  .inline-link { margin: 0; }
+  button {
+    background: transparent;
+    border: 1px solid var(--control-border);
+    border-radius: 2px;
+    color: var(--text);
+    cursor: pointer;
+    font: inherit;
+    min-height: 44px;
+    padding-inline: .9rem;
+  }
+  :is(a, button):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+</style>

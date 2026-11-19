@@ -1,0 +1,68 @@
+{
+  "title": "Cookie policy",
+  "notice": "This site uses local storage to remember your preferences and cookie-free, self-hosted analytics. No ads, no third-party tracking.",
+  "dismiss": "Got it",
+  "home": "Back to the profile",
+  "inventory": "Cookies and local storage",
+  "columns": [
+    "Name",
+    "Type",
+    "Purpose",
+    "Duration",
+    "Provider"
+  ],
+  "entries": [
+    [
+      "mi-cv:cookie-notice:v1",
+      "First-party local storage",
+      "Remember that you dismissed the notice.",
+      "Until you clear site data or the notice version changes.",
+      "cv.reflexionia.com"
+    ],
+    [
+      "mi-cv:theme",
+      "First-party local storage",
+      "Remember your chosen theme.",
+      "Until you switch back to System in the interview or clear site data.",
+      "cv.reflexionia.com"
+    ],
+    [
+      "mi-cv:language",
+      "First-party local storage",
+      "Remember the language you choose on the landing page.",
+      "Until you change your choice or clear site data.",
+      "cv.reflexionia.com"
+    ]
+  ],
+  "updated": "Last updated",
+  "date": "19 November 2026",
+  "introduction": [
+    [
+      "What they are",
+      "Cookies are small files a website stores in your browser. There are also similar technologies, such as local storage."
+    ],
+    [
+      "What this site uses",
+      "This site uses technical storage for the features listed below. Analytics are self-hosted (Umami, on my own server) and use no cookies. There are no advertising or social media cookies."
+    ]
+  ],
+  "guidance": [
+    [
+      "Legal basis",
+      "Technical storage strictly necessary to provide the requested service is exempt from consent under Article 22.2 of Spain’s LSSI. This notice is informational."
+    ],
+    [
+      "How to manage them",
+      "You can delete or block cookies and local storage in your browser settings. If you block local storage, the site cannot remember your theme, language or whether you dismissed the notice."
+    ]
+  ],
+  "controller": [
+    "Controller",
+    "Pablo Poveda Ortega"
+  ],
+  "contact": "Contact",
+  "changes": [
+    "Changes",
+    "Any changes to this policy will be posted here."
+  ]
+}

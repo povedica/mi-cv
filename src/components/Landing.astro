@@ -1,0 +1,318 @@
+---
+import AvatarVideo from './AvatarVideo.astro';
+import SiteHead from './SiteHead.astro';
+import ProfileSchema from './ProfileSchema.astro';
+import CookieNotice from './CookieNotice.astro';
+import LandingContactActions from './LandingContactActions.astro';
+import LandingBrand from './LandingBrand.astro';
+import UnavailableInterview from './UnavailableInterview.astro';
+import ThemeSelect from './ThemeSelect.astro';
+import LandingSectionTitle from './LandingSectionTitle.astro';
+import LandingRoles from './LandingRoles.astro';
+import LandingCompany from './LandingCompany.astro';
+import es from '../content/landing/es.json';
+import en from '../content/landing/en.json';
+import '../styles/landing.css';
+
+interface Props {
+  locale: 'es' | 'en';
+}
+
+const { locale } = Astro.props;
+const isSpanish = locale === 'es';
+const copy = isSpanish ? es : en;
+const home = isSpanish ? '/' : '/en/';
+const otherLocale = isSpanish ? 'en' : 'es';
+const cvLocales = [locale, otherLocale] as const;
+const otherHome = isSpanish ? '/en/?lang=en' : '/?lang=es';
+const otherLanguageLabel = isSpanish ? 'EN · Read in English' : 'ES · Leer en español';
+const [hero, focus, ai, experience, projects, education, talks, skills, languages, about, teaser, contact] = copy.ids;
+const [vassManager, vassLead, ...otherRoles] = copy.experience.roles;
+const linkedin = 'https://www.linkedin.com/in/pablo-poveda-ortega/';
+const github = 'https://github.com/povedica';
+const talkUrls = [
+  'https://wordpress.tv/2017/05/16/pablo-poveda-el-factor-humano/',
+  'https://wordpress.tv/2017/10/15/pablo-poveda-kiss-cultura-de-plugins-buenas-practicas/',
+  'https://wordpress.tv/2018/11/26/pablo-poveda-y-pablo-lopez-trabajo-en-equipo-cuando-cada-maestrillo-tiene-su-librillo/',
+  'https://wordpress.tv/2019/04/27/cierre-wordcamp-madrid-2019/',
+  'https://wordpress.tv/2022/11/22/hablemos-de-rendimiento/',
+];
+const cv = {
+  es: '/cv/Pablo-Poveda-Ortega-CV-ES.pdf',
+  en: '/cv/Pablo-Poveda-Ortega-CV-EN.pdf',
+};
+const cvHint = isSpanish ? 'abre en una pestaña nueva' : 'opens in a new tab';
+const cvLabels = {
+  es: `CV (ES) · PDF, ${cvHint}`,
+  en: `CV (EN) · PDF, ${cvHint}`,
+};
+---
+<!doctype html>
+<html lang={locale} data-analytics-page="home">
+  <SiteHead title={copy.title} description={copy.description}>
+    <script is:inline>
+      (() => {
+        const key = 'mi-cv:language';
+        const url = new URL(location.href);
+        const locale = document.documentElement.lang;
+        const selected = url.searchParams.get('lang');
+
+        if (selected === locale) {
+          try {
+            localStorage.setItem(key, locale);
+            url.searchParams.delete('lang');
+            history.replaceState(history.state, '', url);
+          } catch {
+            // Keep the explicit language in the URL when storage is blocked.
+          }
+          return;
+        }
+
+        if (locale !== 'es' || url.pathname !== '/' || url.hash) return;
+
+        let preference;
+        try {
+          preference = localStorage.getItem(key);
+        } catch {
+          // Use browser preferences when storage is blocked.
+        }
+        if (preference !== 'es' && preference !== 'en') {
+          preference = (navigator.languages.length ? navigator.languages : [navigator.language])
+            .map(language => language.toLowerCase().split('-')[0])
+            .find(language => language === 'es' || language === 'en');
+        }
+        if (preference === 'en') {
+          url.pathname = '/en/';
+          location.replace(url);
+        }
+      })();
+    </script>
+    <link rel="canonical" href={`https://cv.reflexionia.com${isSpanish ? '/' : '/en/'}`} />
+    <link rel="alternate" hreflang="es" href="https://cv.reflexionia.com/" />
+    <link rel="alternate" hreflang="en" href="https://cv.reflexionia.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://cv.reflexionia.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={copy.openGraph.title} />
+    <meta property="og:description" content={copy.openGraph.description} />
+    <meta property="og:url" content={`https://cv.reflexionia.com${home}`} />
+    <meta property="og:image" content="https://cv.reflexionia.com/og.jpg" />
+    <meta property="og:image:alt" content={copy.openGraph.imageAlt} />
+    <meta property="og:locale" content={isSpanish ? 'es_ES' : 'en_GB'} />
+    <meta property="og:locale:alternate" content={isSpanish ? 'en_GB' : 'es_ES'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <ProfileSchema {locale} {home} title={copy.title} profile={copy.profile} {linkedin} {github} />
+  </SiteHead>
+  <body class="landing">
+    <a class="landing-skip" href="#main-content">{copy.skip}</a>
+    <header class="landing-nav">
+      <div class="landing-wrap">
+        <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
+        <div class="landing-nav-actions">
+          <LandingContactActions {linkedin} {cv} {cvLabels} />
+          <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
+          <div class="landing-nav-preferences">
+            <a class="landing-lang" href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
+              {otherLocale.toUpperCase()}
+            </a>
+            <ThemeSelect locale={locale} compact />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="landing-hero" id={hero} aria-labelledby="landing-name">
+        <div class="landing-wrap landing-hero-main">
+          <div class="landing-hero-copy">
+            <h1 id="landing-name">{copy.name}</h1>
+            <p class="landing-role">{copy.headline}</p>
+            <div class="landing-lead">
+              {copy.lead.map(paragraph => <p>{paragraph}</p>)}
+            </div>
+            <div class="landing-hero-actions">
+              <LandingContactActions {linkedin} {cv} {cvLabels} />
+              <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
+            </div>
+          </div>
+          <div class="landing-portrait">
+            <AvatarVideo locale={locale} placement="hero" />
+          </div>
+        </div>
+        <div class="landing-hero-foot"><div class="landing-wrap"><span>{copy.eyebrow}</span><span>{copy.location}</span></div></div>
+      </section>
+
+      <section class="landing-section" id={focus}>
+        <div class="landing-wrap landing-split">
+          <LandingSectionTitle title={copy.focus.title} intro={copy.focus.intro} />
+          <div class="landing-areas">
+            {copy.focus.items.map(item => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section landing-band" id={ai}>
+        <div class="landing-wrap landing-split">
+          <LandingSectionTitle title={copy.ai.title} />
+          <div>
+            <p class="landing-ai-intro">{copy.ai.intro}</p>
+            <article class="landing-ai-feature"><h3>{copy.ai.items[0].title}</h3><p>{copy.ai.items[0].text}</p></article>
+            <div class="landing-ai-grid">
+              {copy.ai.items.slice(1).map(item => (
+                <article>
+                  <h3>{item.href ? <a href={item.href} target="_blank" rel="noopener">{item.title}</a> : item.title}</h3>
+                  <p>{item.text}</p>
+                  {item.demo && (
+                    <div class="landing-project-demo">
+                      <h4>{item.demo.label}</h4>
+                      <dl>
+                        <div><dt>{item.demo.emailLabel}</dt><dd><code>{item.demo.email}</code></dd></div>
+                        <div><dt>{item.demo.passwordLabel}</dt><dd><code>{item.demo.password}</code></dd></div>
+                      </dl>
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section" id={experience}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.experience.title} />
+          <ol class="landing-timeline" role="list">
+            <li>
+              <LandingCompany company={vassManager.company} sector={vassManager.sector} period={copy.experience.vassPeriod} context={vassManager.context} />
+              <LandingRoles roles={[vassManager, vassLead]} group />
+            </li>
+            {otherRoles.map(role => (
+              <li>
+                <LandingCompany company={role.company} sector={role.sector} period={role.period} context={role.context} />
+                <LandingRoles roles={[role]} />
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section class="landing-section" id={projects}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.projects.title} intro={copy.projects.intro} wide />
+          <div class="landing-cases">
+            {copy.projects.items.map(item => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section" id={skills}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.skills.title} />
+          <div class="landing-skills">
+            {copy.skills.items.map(item => (
+              <div class="landing-profile-item">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="landing-section" id={education}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.education.title} />
+          {copy.education.items.map(item => (
+            <article class="landing-education-entry">
+              <div class="landing-education-metadata">
+                <p class="landing-period">{item.period}</p>
+                <p class="landing-education-institution">{item.institution}</p>
+                {item.detail && <p class="landing-education-detail">{item.detail}</p>}
+              </div>
+              <div class="landing-education-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                {item.publication && (
+                  <a class="landing-education-publication" href={item.publication.href} target="_blank" rel="noopener">{item.publication.label}</a>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="landing-section" id={languages}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.languages.title} />
+          <ul class="landing-languages" role="list">
+            {copy.languages.items.map(item => <li><span class="landing-language-code" aria-hidden="true">{item.locale.toUpperCase()}</span>{item.text}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section class="landing-section" id={about}>
+        <div class="landing-wrap">
+          <LandingSectionTitle title={copy.about.title} />
+          <blockquote>“{copy.about.quote}”</blockquote>
+          <div class="landing-about">{copy.about.items.map(item => <p>{item}</p>)}</div>
+        </div>
+      </section>
+
+      <section class="landing-section" id={talks}>
+        <div class="landing-wrap landing-split">
+          <LandingSectionTitle title={copy.talks.title} />
+          <div>
+              <div class="landing-profile-item"><h3>{copy.talks.highlights[0].title}</h3><p>{copy.talks.highlights[0].text}</p></div>
+              <div class="landing-profile-item"><h3>{copy.talks.heading}</h3><ul>{copy.talks.labels.map((label, index) => <li><a href={talkUrls[index]}>{label}</a></li>)}</ul></div>
+              <div class="landing-profile-item"><h3>{copy.talks.highlights[1].title}</h3><p>{copy.talks.highlights[1].text}</p></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="landing-section">
+        <div class="landing-wrap landing-end">
+          <section id={teaser}>
+            <LandingSectionTitle title={copy.interview.title} />
+            <p>{copy.interview.text}</p>
+            <ul class="landing-questions" role="list">
+              {copy.suggestions.map(question => (
+                <li>{question}</li>
+              ))}
+            </ul>
+            <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
+          </section>
+          <section id={contact}>
+            <h2>{copy.contact.title}</h2>
+            <p>{copy.contact.text}</p>
+            <p>{copy.contact.note}</p>
+            <LandingContactActions {linkedin} {cv} {cvLabels} />
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="landing-footer">
+      <CookieNotice locale={locale} />
+      <div class="landing-wrap">
+        <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
+        <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
+          <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
+          <a href={github} target="_blank" rel="noopener">GitHub</a>
+          <a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a>
+          {cvLocales.map(language => {
+            const label = `CV (${language.toUpperCase()})`;
+            return (
+              <a href={cv[language]} hreflang={language} target="_blank" rel="noopener" aria-label={cvLabels[language]} title={cvLabels[language]} data-analytics-action="cv-download">
+                {label} <span aria-hidden="true">↗</span>
+              </a>
+            );
+          })}
+          <a href={otherHome} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
+        </nav>
+      </div>
+    </footer>
+    <nav class="landing-dock landing-wrap" aria-label={isSpanish ? 'Acciones rápidas' : 'Quick actions'}>
+      <LandingContactActions {linkedin} {cv} {cvLabels} />
+      <UnavailableInterview label={copy.interview.title} status={copy.interview.status} />
+    </nav>
+  </body>
+</html>

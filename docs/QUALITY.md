@@ -63,3 +63,83 @@ Chrome and axe checks passed on both routes at 320, 390 and 1440 px, including t
 2. Audit both routes with Lighthouse mobile. Compare LCP, CLS and blocking time using the same browser and throttling profile. Inspect selected image and JavaScript bytes in the network panel.
 3. Run axe with the preview closed and populated. Use keyboard-only navigation at 320 px and desktop widths. Check reduced motion, focus, list announcements and reflow. Recheck with a screen reader before public release.
 4. Inspect `window.dataLayer` and the network panel after adding a synthetic question. Events should contain action metadata only, and analytics should cause no requests.
+
+## Automatic color scheme preview
+
+The bilingual portfolio and both interview routes follow `prefers-color-scheme` via CSS. A headless Chrome check changed the preference live on all four routes at viewport widths of 320 and 1440 pixels. The background token switched between the approved dark and light values, and the pages fit both widths. The interview was checked with the local preview open.
+
+At 1440 pixels, axe reported no automated color contrast violations on those routes in either scheme. Photo captions keep their dark overlays. The light theme uses a stronger border on secondary buttons and inputs to make controls distinguishable from the surrounding surface. Lighthouse and visual comparison against the final landing remain release checks.
+
+The visible theme selector offers System, Light and Dark. The browser stores only an explicit choice in first-party local storage under `mi-cv:theme`. Selecting System clears the key. A choice can still apply to the current page when storage is blocked, and the CSS follows the system when scripts are disabled. Chrome checks covered keyboard focus, both explicit values, navigation and reload, the system fallback, and the four pages at 320 and 1440 pixels. Axe reported no color contrast violations in the tested light theme states.
+
+## Landing v4
+
+Chrome verified both locales at 360×800, 390×844, 1280×800, 1440×900 and 1920×1080. The hero title, description, portrait and interview action fit the initial viewport. The sticky header remained visible and section anchors landed below it. The static output rendered the role points and tags from both local copy files. The mobile check also opened the interview, added a suggested question and verified that closing the preview cleared it and restored focus.
+
+Axe reported zero automated violations on both landings at 390 and 1280 pixels in the light and navy schemes. Lighthouse 13.6.0 mobile scored both local static pages 100 for performance and 100 for accessibility, with an LCP of 0.8 s. External requests were blocked for the local audits.
+
+PDFKit and PyMuPDF text extraction found an email address and a phone number in each supplied CV. Pablo subsequently authorized keeping both fields inside the original CV PDFs for public download. The certificate files have yet to be supplied for review.
+## Recorded avatar on the interview page
+
+Local Lighthouse mobile simulation in Chrome compared the previous interview
+preview with the static build served through Caddy. Performance and
+accessibility both scored 100 in each run. LCP was 1.2 s before and 0.8 s
+with the avatar poster. These are single local runs. The video and hls.js
+were requested only after player activation.
+
+Browser smoke checks covered keyboard activation, video playback and the
+local chat lifecycle at 1440 px and 375 px in Chrome. A rejected manifest
+request restored the poster and retry control. Firefox exercised hls.js.
+Playwright WebKit exercised native HLS at desktop and mobile viewport sizes.
+Physical iOS Safari and production delivery remain release checks.
+
+The landing hero was checked in Chrome at 1440 px and 375 px. The responsive
+portrait loaded before any media request and playback began from the keyboard.
+The portrait stayed visible with HLS and MSE disabled, JavaScript disabled, and
+a rejected manifest request. The interview smoke checks passed after reusing
+the same fallback there.
+
+The fragmented MP4 version retained all 1,187 source video frames in each
+rendition. Chrome (native and hls.js), Firefox and Playwright WebKit played at
+normal speed from the first frame through the end of the 47.48 s recording.
+Firefox's initial buffer adjustment was verified to stay within the first
+frame. The supplied poster loads as WebP and remains visible if playback fails.
+
+The #5 integration was tested on both localized landings and interview pages
+through a local Caddy instance. Chrome played the fragmented HLS stream
+after keyboard activation and restored the poster with a retry after a 403.
+Caddy returned 403 for a request without a Referer and 200 with the local
+site Referer. The local question history still cleared on close. Both approved CV PDFs return HTTP 200. The header opens the active locale’s PDF in a new tab.
+
+## November 19, 2026 landing review
+
+Chrome exercised all six static routes at 320, 390, 1280 and 1440 CSS pixels
+with both colour schemes and reduced motion. The storage notice sits in the
+document flow. It did not overlap controls, and both chat previews closed,
+cleared the question history and restored focus with the notice visible. Axe
+reported zero violations in the tested WCAG rules. The two HLS streams played
+with their matching WebVTT track and active timed cues on both route types.
+
+Mobile Lighthouse runs against the revised static build scored 100/99 for
+performance in Spanish/English. LCP was 1.87/1.95 s and CLS was 0.001/0.033.
+Accessibility, best practices and SEO each scored 100 in both languages. At
+412 CSS pixels and DPR 1.75, the browser selected a 57.2 KiB WebP, down from
+64.7 KiB. These are local runs with simulated mobile throttling.
+
+In a separate local A/B test, two runs with the external stylesheet painted in
+0.75–0.76 s. Two runs with the stylesheet inlined painted in 0.79–0.80 s.
+Preloading Geist in a four-run follow-up left first paint at approximately
+0.75 s and showed no consistent change in LCP. The site keeps the cacheable
+stylesheet and discovers fonts through it.
+
+The ProfilePage build matched both approved JSON-LD examples in issue #5.
+The stable portrait returned HTTP 200 on the Caddy preview at port 4466.
+Mobile Lighthouse on both landing routes scored 100 for performance, with
+LCP of 1.81 s in each language and no image delivery items.
+
+The AVIF follow-up kept the exact 9:16 geometry and WebP fallback. Chrome
+selected the 648 × 1152 AVIF in the English mobile Lighthouse run. It
+transferred 42.5 KiB of image data, down from 57.7 KiB for the matching
+WebP. This local run scored 100 with an LCP of 1.67 s and no image delivery
+items. Chrome also decoded the WebP fallback and played the HLS recording
+in the mobile and desktop checks.

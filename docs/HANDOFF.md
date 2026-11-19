@@ -2,7 +2,7 @@
 
 ## Current state
 
-The static profile and local interview preview are the running product. The source portrait is a still image. The interview clears its own DOM history when closed. Astro emits two static routes with responsive WebP images. The dashboard event contract runs in the browser. The Umami integration was verified against the self-hosted dashboard from a local build. Production verification awaits release approval.
+The static profile and local interview preview are the running product. The source portrait is a still image. The interview clears its own DOM history when closed. Astro emits six localized static routes with responsive AVIF and WebP images. The landing and interview show a labelled AI-generated recording on demand, with a poster fallback. The dashboard event contract runs in the browser. The Umami integration was verified against the self-hosted dashboard from a local build. Production verification awaits release approval.
 
 Colima serves the optimized static preview by default on loopback. The explicit development override enables Docker Watch. Independent worktree environments are documented in [engineering workflows](WORKFLOWS.md). Build and local access logs are correlated. Optional Sentry remains disabled by default; a synthetic DSN and local receiver verified scrubbed browser delivery.
 
@@ -12,6 +12,24 @@ The [latest DevTools audit](QUALITY.md#november-18-2026-devtools-comparison) ver
 
 The production dependency audit previously reported one critical, three high and one low finding. npm proposed a major Astro upgrade. That migration is a separate task. See [quality verification](QUALITY.md) for the current build and browser checks.
 
+## Bilingual portfolio release
+
+Version 0.2.0 includes the Spanish and English portfolios, both local interview
+previews, and bilingual cookie policies. The landing presents all roles in a
+visible timeline, with self-hosted Geist fonts and localized discovery metadata.
+The two original CVs are approved for public download with their contact details.
+Certificate PDFs still depend on supplied and approved files. See the [landing
+copy](LANDING-COPY.md) and [information architecture](ARQUITECTURA-INFORMACION.md).
+
 ## Next bounded change
 
 Implement a local text-chat session, one question and close using synthetic content. Verify citation ownership, abstention without evidence, session access and exclusion of private records before connecting the interface. The live corpus requires approval of each version. See [analytics rollout](ANALYTICS.md) for the pending production verification.
+
+## Recorded avatar release
+
+Issue #27 adds a recorded HLS demonstration to the landing hero and interview and keeps the live
+avatar capability planned. The media is provisioned independently of the
+static release. See [deployment and service rationale](DEPLOYMENT.md#avatar-video).
+
+The bilingual cookie policy documents theme and language preferences and
+notice acknowledgement. See the [storage inventory](COOKIE-INVENTORY.md).
