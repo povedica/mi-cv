@@ -2,7 +2,7 @@
 
 ## Current state
 
-The static profile and local interview preview are the running product. The source portrait is a still image. The interview clears its own DOM history when closed. Astro emits six localized static routes with responsive WebP images. The landing and interview show a labelled AI-generated recording on demand, with a poster fallback. The dashboard event contract runs in the browser. The Umami integration was verified against the self-hosted dashboard from a local build. Production verification awaits release approval.
+The static profile and local interview preview are the running product. The source portrait is a still image. The interview clears its own DOM history when closed. Astro emits six localized static routes with responsive AVIF and WebP images. The landing and interview show a labelled AI-generated recording on demand, with a poster fallback. The dashboard event contract runs in the browser. The Umami integration was verified against the self-hosted dashboard from a local build. Production verification awaits release approval.
 
 Colima serves the optimized static preview by default on loopback. The explicit development override enables Docker Watch. Independent worktree environments are documented in [engineering workflows](WORKFLOWS.md). Build and local access logs are correlated. Optional Sentry remains disabled by default; a synthetic DSN and local receiver verified scrubbed browser delivery.
 
@@ -12,11 +12,14 @@ The [latest DevTools audit](QUALITY.md#november-18-2026-devtools-comparison) ver
 
 The production dependency audit previously reported one critical, three high and one low finding. npm proposed a major Astro upgrade. That migration is a separate task. See [quality verification](QUALITY.md) for the current build and browser checks.
 
-## Bilingual portfolio preview
+## Bilingual portfolio release
 
-The #5 worktree serves the Spanish and English portfolios at `/` and `/en/`, with local interview previews at `/interview/` and `/en/interview/`. Both portfolios render the approved v4 layout from locale-specific static copy. The updated role points remain visible in a single timeline grouped by employer. The landing uses locally bundled Geist and Geist Mono fonts, and the release receiver accepts hashed WOFF2 assets. Both original CV PDFs are included as approved public files. Pablo expressly approved retaining the phone number and email inside the PDFs for publication at cv.reflexionia.com. Certificate PDFs are awaiting delivery. Canonicals, alternate-language links, the sitemap, structured person data and localized social metadata are in the local branch. The release receiver accepted the bilingual archive in a local dry run.
-
-The private Compose preview at `http://127.0.0.1:32773/` serves the owner-authorized CV originals through local read-only mounts. Normal builds omit the local download controls. Certificates, final release review and receiver installation on the VPS remain open. See [the landing copy](LANDING-COPY.md) and [information architecture](ARQUITECTURA-INFORMACION.md).
+Version 0.2.0 includes the Spanish and English portfolios, both local interview
+previews, and bilingual cookie policies. The landing presents all roles in a
+visible timeline, with self-hosted Geist fonts and localized discovery metadata.
+The two original CVs are approved for public download with their contact details.
+Certificate PDFs still depend on supplied and approved files. See the [landing
+copy](LANDING-COPY.md) and [information architecture](ARQUITECTURA-INFORMACION.md).
 
 ## Next bounded change
 
@@ -28,7 +31,5 @@ Issue #27 adds a recorded HLS demonstration to the landing hero and interview an
 avatar capability planned. The media is provisioned independently of the
 static release. See [deployment and service rationale](DEPLOYMENT.md#avatar-video).
 
-Issue #27 is integrated in the #5 branch. The landing PR should close
-both issues when it merges into the default branch.
-
-Issue #25 is integrated in the #5 branch. The landing PR should close it along with #5 and #27. The bilingual cookie notice and policy document the theme choice and notice acknowledgement. Repeat the inventory after deploying.
+The bilingual cookie policy documents theme and language preferences and
+notice acknowledgement. See the [storage inventory](COOKIE-INVENTORY.md).

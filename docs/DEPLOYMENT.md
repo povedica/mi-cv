@@ -1,6 +1,6 @@
 # Production deployment
 
-The target is `https://cv.reflexionia.com`. GitHub Actions builds the two Astro pages and their assets on demand. The shared Caddy edge serves those files over HTTPS. There is no app container or runtime secret. Browser error reporting is opt-in through the [Sentry configuration](WORKFLOWS.md#sentry). There is no analytics collector.
+The target is `https://cv.reflexionia.com`. GitHub Actions builds the six localized Astro pages and their assets on demand. The shared Caddy edge serves those files over HTTPS. There is no app container or runtime secret. Browser error reporting is opt-in through the [Sentry configuration](WORKFLOWS.md#sentry). There is no analytics collector.
 
 ## Provisioning
 

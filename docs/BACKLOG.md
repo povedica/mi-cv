@@ -7,8 +7,9 @@ GitHub Projects holds task status. Each milestone lists the intended capabilitie
 - [x] Astro project with a responsive profile and still portrait.
 - [x] Standalone interview preview with labelled modalities, local history and an accessible close action.
 - [x] Versioned analytics event layer, responsive portrait derivatives and English technical documentation.
-- [ ] Owner review of desktop and mobile composition and copy.
-- [ ] Release the bilingual landing from issue #5. The approved v4 layout is implemented locally. The approved CV PDFs are in the build. Certificate downloads still need approved files.
+- [x] Owner review of desktop and mobile composition and copy.
+- [x] Implement the bilingual landing from issue #5 with the approved CV PDFs.
+- [ ] Publish certificate downloads once their files are supplied and approved.
 - [x] Owner approval for publishing the versioned portrait, professional copy and screenshots (November 18, 2026).
 
 ## 1. Professional content
@@ -16,7 +17,7 @@ GitHub Projects holds task status. Each milestone lists the intended capabilitie
 - [x] Editorial schema, local sample drafts, publication gate and tests.
 - [ ] Create and approve 30–50 candidate fragments.
 - [ ] Verify public facts, professional timeline, links and CV.
-- [ ] Configure search metadata, OpenGraph and sitemap after choosing a domain.
+- [x] Configure localized search metadata, OpenGraph, ProfilePage structured data and sitemap.
 
 Acceptance requires approved facts, usable navigation without AI, and verified links.
 

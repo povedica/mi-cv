@@ -8,7 +8,13 @@ Use Semantic Versioning for the public interfaces and documented contracts. Once
 
 ## Unreleased
 
+## 0.2.0 - 2026-11-19
+
 ### Added
+
+- Publish the Spanish and English portfolios, approved CV PDFs, local interview previews and bilingual discovery metadata. ([#5](https://github.com/povedica/mi-cv/issues/5))
+- Add system-aware light and dark themes and bilingual storage notices and policies. ([#19](https://github.com/povedica/mi-cv/issues/19), [#25](https://github.com/povedica/mi-cv/issues/25))
+- Play labelled, prerecorded AI avatar introductions on demand in both languages with HLS, captions and a responsive still fallback. ([#27](https://github.com/povedica/mi-cv/issues/27))
 
 - Add release notes and a Semantic Versioning workflow. ([#23](https://github.com/povedica/mi-cv/issues/23))
 - Add an opt-in integration with self-hosted Umami for page views and approved interaction events, with a privacy notice and no question text in analytics. Production activation is tracked separately. ([#15](https://github.com/povedica/mi-cv/issues/15), [PR #20](https://github.com/povedica/mi-cv/pull/20))
