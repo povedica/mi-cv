@@ -25,7 +25,6 @@ import '../styles/global.css';
           <div class="hero-note">Vista previa de la interfaz de entrevista.</div>
         </div>
         <div class="hero-stage" aria-label="Vista previa de entrevista virtual">
-          <div class="stage-header"><div class="stage-label">VISTA PREVIA DE ENTREVISTA</div></div>
           <AvatarVideo placement="hero" />
           <div class="stage-bottom"><span class="interview-cta stage-link" role="link" aria-disabled="true">Ver entrevista <span class="interview-badge">Próximamente</span></span></div>
         </div>
@@ -58,6 +57,15 @@ import '../styles/global.css';
   .hero-stage {
     width: min(100%, 380px);
     justify-self: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+
+  .stage-bottom {
+    padding-inline: 0;
   }
 
   .interview-cta {

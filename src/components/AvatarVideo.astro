@@ -10,7 +10,7 @@ const { placement = 'interview' } = Astro.props;
 const isHero = placement === 'hero';
 ---
 
-<figure class:list={["avatar-video", isHero ? "avatar-hero" : "video-panel"]} data-avatar-video>
+<figure class:list={["avatar-video", { "avatar-interview": !isHero }]} data-avatar-video>
   <figcaption class="video-top">Vídeo generado con IA a partir de Pablo</figcaption>
   <div class="avatar-frame">
     <Image
@@ -74,14 +74,14 @@ const isHero = placement === 'hero';
     visibility: visible;
   }
 
-  .avatar-video.video-panel {
+  .avatar-video {
+    margin: 0;
+  }
+
+  .avatar-interview {
     width: min(100%, 380px);
     align-self: start;
     justify-self: center;
-  }
-
-  .avatar-hero {
-    margin: 0;
   }
 
   .avatar-play {
