@@ -20,7 +20,11 @@
   "interviewLabel": "Interview me with AI",
   "eyebrow": "Engineering Management · Software Delivery · AI Engineering",
   "headline": "Engineering Manager · AI Engineering",
-  "lead": "I lead, manage and scale technical teams, improve software delivery and bring generative AI into development. 15+ years in the industry, from web development to running an engineering department.",
+  "lead": [
+    "I’ve spent more than 15 years in software, progressing from development to leading engineering teams and departments.",
+    "I combine people leadership, technical direction and end-to-end project management, with responsibility for teams, planning, budgets and outcomes. I enjoy connecting technology with business needs, building autonomous teams and turning challenges into solutions that work.",
+    "Today I apply artificial intelligence to transform how we develop software and work together."
+  ],
   "location": "Madrid, Spain · Remote",
   "portraitAlt": "Portrait of Pablo Poveda",
   "portraitLabel": "Engineering Manager",

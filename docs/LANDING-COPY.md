@@ -71,7 +71,11 @@ Página de entrevista:
 - Pie del hero: Engineering Management · Software Delivery · AI Engineering
 - H1: Pablo Poveda
 - Línea del cargo bajo H1: Engineering Manager · AI Engineering
-- Descripción: Lidero, gestiono y escalo equipos técnicos, mejoro la entrega de software e incorporo la IA generativa al desarrollo. Más de 15 años en el sector, del desarrollo web a dirigir un departamento de ingeniería.
+- Descripción: Llevo más de 15 años en el software, evolucionando del desarrollo a la dirección de equipos y departamentos de ingeniería.
+
+  Combino liderazgo de personas, dirección técnica y gestión integral de proyectos, con responsabilidad sobre equipos, planificación, presupuestos y resultados. Me gusta conectar la tecnología con las necesidades del negocio, construir equipos autónomos y convertir retos en soluciones que funcionan.
+
+  Hoy aplico la inteligencia artificial para transformar cómo desarrollamos software y trabajamos en equipo.
 - Ubicación: Madrid, España · Remoto
 - CTA activos: LinkedIn · CV (ES) · CV (EN).
 - Entrevístame con IA: botón deshabilitado con «Próximamente».
@@ -83,7 +87,11 @@ Página de entrevista:
 - Hero footer: Engineering Management · Software Delivery · AI Engineering
 - H1: Pablo Poveda
 - Role line below H1: Engineering Manager · AI Engineering
-- Description: I lead, manage and scale technical teams, improve software delivery and bring generative AI into development. 15+ years in the industry, from web development to running an engineering department.
+- Description: I’ve spent more than 15 years in software, progressing from development to leading engineering teams and departments.
+
+  I combine people leadership, technical direction and end-to-end project management, with responsibility for teams, planning, budgets and outcomes. I enjoy connecting technology with business needs, building autonomous teams and turning challenges into solutions that work.
+
+  Today I apply artificial intelligence to transform how we develop software and work together.
 - Location: Madrid, Spain · Remote
 - Active CTAs: LinkedIn · CV (ES) · CV (EN).
 - Interview me with AI: disabled button with “Coming soon”.

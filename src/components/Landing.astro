@@ -126,7 +126,9 @@ const cvLabels = {
           <div class="landing-hero-copy">
             <h1 id="landing-name">{copy.name}</h1>
             <p class="landing-role">{copy.headline}</p>
-            <p class="landing-lead">{copy.lead}</p>
+            <div class="landing-lead">
+              {copy.lead.map(paragraph => <p>{paragraph}</p>)}
+            </div>
             <div class="landing-hero-actions">
               <LandingContactActions {linkedin} {cv} {cvLabels} />
               <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
