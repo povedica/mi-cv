@@ -8,7 +8,7 @@ GitHub Projects holds task status. Each milestone lists the intended capabilitie
 - [x] Standalone interview preview with labelled modalities, local history and an accessible close action.
 - [x] Versioned analytics event layer, responsive portrait derivatives and English technical documentation.
 - [ ] Owner review of desktop and mobile composition and copy.
-- [ ] Release the bilingual landing from issue #5. The approved v4 layout is implemented locally. PDF downloads still need public CV files that pass the privacy check and approved certificate files.
+- [ ] Release the bilingual landing from issue #5. The approved v4 layout is implemented locally. The approved CV PDFs are in the build. Certificate downloads still need approved files.
 - [x] Owner approval for publishing the versioned portrait, professional copy and screenshots (November 18, 2026).
 
 ## 1. Professional content

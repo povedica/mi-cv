@@ -51,7 +51,6 @@ const cvLabels = {
   es: 'Descargar CV en PDF (español)',
   en: 'Download CV in PDF (English)',
 };
-const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
 ---
 <!doctype html>
 <html lang={locale} data-analytics-page="home">
@@ -87,7 +86,7 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M4 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM2.5 9h3v12h-3zm6 0h3v1.6a4 4 0 0 1 3.6-1.9c3.8 0 4.4 2.5 4.4 5.8V21h-3v-6c0-1.9-.4-3.4-2.4-3.4s-2.6 1.5-2.6 3.3V21h-3z"/></svg>
             <span>LinkedIn</span>
           </a>
-          <a class="landing-button landing-nav-cv" href={showLocalCv ? cv[locale] : `#${contact}`} target={showLocalCv ? "_blank" : undefined} rel={showLocalCv ? "noopener" : undefined} hreflang={showLocalCv ? locale : undefined} data-analytics-action={showLocalCv ? 'cv-download' : undefined}><span>{showLocalCv ? copy.download : "CV"}</span><span>CV</span></a>
+          <a class="landing-button landing-nav-cv" href={cv[locale]} target="_blank" rel="noopener" hreflang={locale} data-analytics-action="cv-download"><span>{copy.download}</span><span>CV</span></a>
           <a class="landing-button landing-primary" href={interview} data-interview-placement="navigation">{copy.interviewLabel}</a>
           <a class="landing-lang" href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
             <span aria-hidden="true">{isSpanish ? '🇬🇧' : '🇪🇸'}</span>{otherLocale.toUpperCase()}
@@ -109,15 +108,13 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
             <p class="landing-lead">{copy.lead}</p>
             <div class="landing-actions">
               <a class="landing-button landing-primary" data-interview-placement="hero" href={interview}>{copy.interviewLabel} <span aria-hidden="true">→</span></a>
-              {showLocalCv && (
-                <div class="landing-cv-group">
-                  {cvLocales.map((language, index) => (
-                    <a class="landing-button" href={cv[language]} hreflang={language} lang={language} aria-label={cvLabels[language]} download data-analytics-action="cv-download">
-                      {index === 0 && `${copy.download} · `}{language.toUpperCase()}
-                    </a>
-                  ))}
-                </div>
-              )}
+              <div class="landing-cv-group">
+                {cvLocales.map((language, index) => (
+                  <a class="landing-button" href={cv[language]} hreflang={language} lang={language} aria-label={cvLabels[language]} download data-analytics-action="cv-download">
+                    {index === 0 && `${copy.download} · `}{language.toUpperCase()}
+                  </a>
+                ))}
+              </div>
               <a class="landing-button" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
               <a href={`#${contact}`} data-analytics-action="contact-click">{copy.contactLabel}</a>
             </div>
@@ -234,7 +231,7 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
             <h2>{copy.contact.title}</h2>
             <p>{copy.contact.text}</p>
             <div class="landing-actions">
-              {showLocalCv && cvLocales.map(language => (
+              {cvLocales.map(language => (
                 <a class="landing-button" href={cv[language]} hreflang={language} lang={language} download data-analytics-action="cv-download">{cvLabels[language]}</a>
               ))}
               <a class="landing-button" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">{copy.contact.linkedin}</a>
@@ -251,7 +248,7 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
         <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
           <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
           <a href={github}>GitHub</a>
-          {showLocalCv && cvLocales.map(language => <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>)}
+          {cvLocales.map(language => <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>)}
           <a href={otherHome} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
         </nav>
         <ThemeSelect locale={locale} />

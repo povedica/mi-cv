@@ -78,7 +78,7 @@ Chrome verified both locales at 360×800, 390×844, 1280×800, 1440×900 and 192
 
 Axe reported zero automated violations on both landings at 390 and 1280 pixels in the light and navy schemes. Lighthouse 13.6.0 mobile scored both local static pages 100 for performance and 100 for accessibility, with an LCP of 0.8 s. External requests were blocked for the local audits.
 
-PDFKit and PyMuPDF text extraction found an email address and a phone number in each supplied CV. Both files remain outside the static build. The certificate files have yet to be supplied for review.
+PDFKit and PyMuPDF text extraction found an email address and a phone number in each supplied CV. Pablo subsequently authorized keeping both fields inside the original CV PDFs for public download. The certificate files have yet to be supplied for review.
 ## Recorded avatar on the interview page
 
 Local Lighthouse mobile simulation in Chrome compared the previous interview
@@ -109,5 +109,4 @@ The #5 integration was tested on both localized landings and interview pages
 through a local Caddy instance. Chrome played the fragmented HLS stream
 after keyboard activation and restored the poster with a retry after a 403.
 Caddy returned 403 for a request without a Referer and 200 with the local
-site Referer. The local question history still cleared on close. The CV
-preview used local test PDFs to verify the active language and new-tab link.
+site Referer. The local question history still cleared on close. Both approved CV PDFs return HTTP 200. The header opens the active locale’s PDF in a new tab.
