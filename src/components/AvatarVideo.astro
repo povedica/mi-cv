@@ -12,13 +12,13 @@ const isHero = placement === 'hero';
 
 <figure class:list={["avatar-video", isHero ? "avatar-hero" : "video-panel"]} data-avatar-video>
   <figcaption class="video-top">Vídeo generado con IA a partir de Pablo</figcaption>
-  <div class:list={["avatar-frame", { "stage-content": isHero }]}>
+  <div class="avatar-frame">
     <Image
       src={portrait}
       alt="Retrato de Pablo Poveda"
       width={1200}
       widths={[320, 480, 640, 800, 960, 1200]}
-      sizes={isHero ? "(max-width: 760px) calc(100vw - 56px), (max-width: 1544px) 50vw, 720px" : "(max-width: 760px) calc(100vw - 56px), 44vw"}
+      sizes="(max-width: 414px) calc(100vw - 56px), 356px"
       format="webp"
       priority={isHero}
     />
@@ -44,14 +44,7 @@ const isHero = placement === 'hero';
     overflow: hidden;
     border-radius: 12px;
     background: #273042;
-  }
-
-  .avatar-frame::after {
-    display: none;
-  }
-
-  .avatar-frame:not(.stage-content) {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 9 / 16;
   }
 
   .avatar-frame img,
@@ -70,7 +63,7 @@ const isHero = placement === 'hero';
 
   video {
     visibility: hidden;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   [data-video-ready] img {
@@ -79,6 +72,12 @@ const isHero = placement === 'hero';
 
   [data-video-ready] video {
     visibility: visible;
+  }
+
+  .avatar-video.video-panel {
+    width: min(100%, 380px);
+    align-self: start;
+    justify-self: center;
   }
 
   .avatar-hero {
