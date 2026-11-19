@@ -56,4 +56,5 @@ Acceptance requires grounded responses, privacy boundaries, cost limits and a wo
 
 - [x] Implement the localized Versions index, terminal demo and fixed-width 90s site in the issue #35 worktree.
 - [x] Add the desktop Konami sequence and seven-tap mobile shortcut to the Versions index.
-- [ ] Review the implementation alongside the original design references and complete retro frame navigation and the game from issue #35.
+- [x] Add a playable brick breaker with keyboard and touch controls to the retro page.
+- [ ] Review the implementation alongside the original design references and complete retro frame navigation from issue #35.

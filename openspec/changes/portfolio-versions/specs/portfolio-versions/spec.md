@@ -40,3 +40,12 @@ The portfolio home SHALL recognize the desktop Konami sequence and seven rapid t
 
 - **WHEN** a visitor taps the header brand seven times in succession on a touch screen
 - **THEN** the fourth through sixth taps show the remaining count and the seventh opens the localized index
+
+### Requirement: The retro page ends with a brick breaker
+
+The retro page SHALL offer an original brick breaker with keyboard and touch controls. Gameplay SHALL start only on explicit activation and SHALL provide a pause control. Clearing a row SHALL reveal a public career milestone.
+
+#### Scenario: Start and pause gameplay
+
+- **WHEN** a visitor selects Play and then Pause
+- **THEN** the game starts and stops advancing until the visitor resumes it

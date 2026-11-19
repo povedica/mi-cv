@@ -6,6 +6,8 @@
 
 - [x] Add desktop and touch Easter eggs to the portfolio header.
 
+- [x] Add the brick breaker and public career milestones to the retro page.
+
 ## 2. Verification
 
 - [x] Run the repository type checks, tests and static build.

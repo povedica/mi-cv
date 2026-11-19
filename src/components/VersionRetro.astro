@@ -1,4 +1,5 @@
 ---
+import RetroBrickGame from './RetroBrickGame.astro';
 import CookieNotice from './CookieNotice.astro';
 import WebAnalytics from './WebAnalytics.astro';
 import { cv, linkedin, profileCopy, talkUrls } from '../data/public-profile';
@@ -42,6 +43,7 @@ const welcome = es ? '¡Bienvenido a mi página personal!' : 'Welcome to my pers
             <a href="#projects">{copy.projects.title}</a>
             <a href="#education">{copy.education.title}</a>
             <a href="#talks">{copy.talks.heading}</a>
+            <a href="#rompeladrillos">{es ? "Rompeladrillos" : "Brick breaker"}</a>
             <a href={cv[locale]} hreflang={locale}>{copy.download} (PDF)</a>
             <a href={linkedin}>LinkedIn</a>
             <a href={home}>{es ? 'Volver a la web actual' : 'Back to the current website'}</a>
@@ -76,6 +78,8 @@ const welcome = es ? '¡Bienvenido a mi página personal!' : 'Welcome to my pers
             <hr />
             <h2>{es ? 'Libro de visitas' : 'Guestbook'}</h2>
             <p>{es ? 'Para saludar, escríbeme en LinkedIn.' : 'Say hello on LinkedIn.'} <a href={linkedin}>LinkedIn ↗</a></p>
+            <hr />
+            <RetroBrickGame {locale} />
           </main>
         </td>
       </tr>

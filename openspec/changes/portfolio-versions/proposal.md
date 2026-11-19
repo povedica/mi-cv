@@ -7,7 +7,8 @@ Issue #35 introduces alternate ways to browse the public CV. The first increment
 - Add a Versions link to the Spanish and English portfolio headers.
 - Add a localized versions index, a command-driven terminal and a fixed-width 90s homepage.
 - Add keyboard and touch shortcuts to the versions index.
-- Keep the game and retro frame navigation pending in issue #35.
+- Add an original brick breaker to the end of the retro page.
+- Keep retro frame navigation pending in issue #35.
 
 ## Capabilities
 
