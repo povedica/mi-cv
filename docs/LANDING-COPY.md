@@ -73,7 +73,7 @@ Página de entrevista:
 - Línea del cargo bajo H1: Engineering Manager · AI Engineering
 - Descripción: Lidero, gestiono y escalo equipos técnicos, mejoro la entrega de software e incorporo la IA generativa al desarrollo. Más de 15 años en el sector, del desarrollo web a dirigir un departamento de ingeniería.
 - Ubicación: Madrid, España · Remoto
-- CTA activos: LinkedIn · 🇪🇸 CV · 🇬🇧 CV.
+- CTA activos: LinkedIn · CV (ES) · CV (EN).
 - Entrevístame con IA: botón deshabilitado con «Próximamente».
 - Retrato (alt): Retrato de Pablo Poveda
 - Etiqueta del retrato: Pablo Poveda · Engineering Manager
@@ -85,7 +85,7 @@ Página de entrevista:
 - Role line below H1: Engineering Manager · AI Engineering
 - Description: I lead, manage and scale technical teams, improve software delivery and bring generative AI into development. 15+ years in the industry, from web development to running an engineering department.
 - Location: Madrid, Spain · Remote
-- Active CTAs: LinkedIn · 🇪🇸 CV · 🇬🇧 CV.
+- Active CTAs: LinkedIn · CV (ES) · CV (EN).
 - Interview me with AI: disabled button with “Coming soon”.
 - Portrait (alt): Portrait of Pablo Poveda
 - Portrait label: Pablo Poveda · Engineering Manager
