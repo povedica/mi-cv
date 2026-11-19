@@ -210,8 +210,7 @@
       {
         "title": "Master's in AI Engineering",
         "description": "Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI interview and tick-tack-done with its MCP server.",
-        "period": "2026",
-        "detail": "Completed in September",
+        "period": "Sep 2026",
         "institution": "LIDR",
         "publication": {
           "href": "https://lnkd.in/p/dNjenVVA",
@@ -221,14 +220,14 @@
       {
         "title": "LIDR Ignite technical leadership program",
         "description": "I took the program while leading the Digital Experience team at VASS to bring more structure to my day-to-day work. It covers mentoring, one-to-ones, hiring and onboarding, high-performing teams, and conflict resolution.",
-        "period": "2022",
+        "period": "Jun 2022",
         "institution": "LIDR",
         "detail": "60 hours"
       },
       {
         "title": "Master's in DevOps and Cloud",
         "description": "I studied at UNIR while the content platform team grew from 4 to 10 people and we adopted CI/CD and Docker with GitLab. The program covers DevOps culture, cloud (AWS), infrastructure as code, application lifecycles, CI/CD, Docker, Puppet and Chef, and includes a final project.",
-        "period": "2019",
+        "period": "Sep 2019",
         "institution": "UNIR",
         "detail": "60 ECTS"
       },
@@ -238,8 +237,7 @@
         "period": "2003–2008",
         "institution": "University of Alicante"
       }
-    ],
-    "latest": "Most recent"
+    ]
   },
   "talks": {
     "title": "Talks and community",

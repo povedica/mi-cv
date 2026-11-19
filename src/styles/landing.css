@@ -199,16 +199,6 @@
 .landing-section .landing-education-metadata p { margin: 0; }
 .landing-section .landing-education-institution { color: var(--text); font-size: .9rem; }
 .landing-section .landing-education-detail { font: 400 .75rem/1.4 var(--mono); color: var(--dim); }
-.landing-education-heading { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .75rem; }
-.landing-education-latest {
-  padding: .15rem .55rem;
-  border: 1px solid var(--strong-line);
-  border-radius: 999px;
-  color: var(--accent);
-  font: 400 .65rem/1.3 var(--mono);
-  letter-spacing: .05em;
-  text-transform: uppercase;
-}
 .landing-education-content { max-width: 46rem; }
 .landing-section .landing-education-content > p { margin-top: .65rem; color: var(--muted); }
 .landing .landing-education-publication { display: inline-block; margin-top: .65rem; color: var(--accent); font: 400 .8rem/1.4 var(--mono); }

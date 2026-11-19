@@ -193,7 +193,7 @@ const cvLabels = {
       <section class="landing-section" id={education}>
         <div class="landing-wrap">
           <LandingSectionTitle title={copy.education.title} />
-          {copy.education.items.map((item, index) => (
+          {copy.education.items.map(item => (
             <article class="landing-education-entry">
               <div class="landing-education-metadata">
                 <p class="landing-period">{item.period}</p>
@@ -201,10 +201,7 @@ const cvLabels = {
                 {item.detail && <p class="landing-education-detail">{item.detail}</p>}
               </div>
               <div class="landing-education-content">
-                <div class="landing-education-heading">
-                  <h3>{item.title}</h3>
-                  {index === 0 && <span class="landing-education-latest">{copy.education.latest}</span>}
-                </div>
+                <h3>{item.title}</h3>
                 <p>{item.description}</p>
                 {item.publication && (
                   <a class="landing-education-publication" href={item.publication.href} target="_blank" rel="noopener">{item.publication.label}</a>
