@@ -121,7 +121,7 @@
 .landing-button:hover { border-color: currentColor; }
 .landing-nav .landing-button { min-height: 34px; padding-inline: .55rem; font-size: .8rem; white-space: nowrap; }
 .landing-nav .landing-linkedin { width: 34px; }
-.landing .landing-linkedin { color: #fff; background: #0a66c2; border-color: #0a66c2; }
+.landing .landing-linkedin { color: #fff; background: #2f6ea8; border-color: #2f6ea8; }
 .landing .landing-linkedin:hover { background: #004182; border-color: #004182; }
 .landing-lang { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; min-height: 34px; white-space: nowrap; }
 .landing-lang, .landing-footer nav {
@@ -269,7 +269,8 @@
     background: var(--surface);
     box-shadow: 0 4px 22px rgb(0 0 0 / 16%);
   }
-  .landing-dock .landing-button { min-height: 44px; padding: .3rem .12rem; font-size: .74rem; white-space: nowrap; }
+  .landing-dock[data-scrolled-away] { visibility: hidden; }
+  .landing-dock .landing-button { min-height: 44px; padding: .3rem .12rem; font-size: .75rem; white-space: nowrap; }
   .landing-dock .landing-interview-unavailable {
     flex-direction: column;
     gap: .12rem;

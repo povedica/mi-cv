@@ -12,6 +12,8 @@ import LandingRoles from './LandingRoles.astro';
 import LandingCompany from './LandingCompany.astro';
 import es from '../content/landing/es.json';
 import en from '../content/landing/en.json';
+import geist from '../assets/fonts/Geist-latin.woff2?url';
+import geistMono from '../assets/fonts/GeistMono-latin.woff2?url';
 import '../styles/landing.css';
 
 interface Props {
@@ -87,6 +89,8 @@ const cvLabels = {
         }
       })();
     </script>
+    <link rel="preload" href={geist} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={geistMono} as="font" type="font/woff2" crossorigin="anonymous" />
     <link rel="canonical" href={`https://cv.reflexionia.com${isSpanish ? '/' : '/en/'}`} />
     <link rel="alternate" hreflang="es" href="https://cv.reflexionia.com/" />
     <link rel="alternate" hreflang="en" href="https://cv.reflexionia.com/en/" />
@@ -314,5 +318,24 @@ const cvLabels = {
       <LandingContactActions {linkedin} {cv} {cvLabels} />
       <UnavailableInterview label={copy.interview.title} status={copy.interview.status} />
     </nav>
+    <script>
+      const dock = document.querySelector('.landing-dock');
+      const mobile = matchMedia('(max-width: 740px)');
+      let lastScroll = Math.max(0, window.scrollY);
+
+      mobile.addEventListener('change', () => {
+        lastScroll = Math.max(0, window.scrollY);
+        dock?.removeAttribute('data-scrolled-away');
+      });
+
+      window.addEventListener('scroll', () => {
+        if (!dock || !mobile.matches) return;
+        const scroll = Math.max(0, window.scrollY);
+        if (scroll === lastScroll) return;
+        dock.toggleAttribute('data-scrolled-away',
+          scroll > 0 && scroll > lastScroll && !dock.matches(':focus-within'));
+        lastScroll = scroll;
+      }, { passive: true });
+    </script>
   </body>
 </html>
