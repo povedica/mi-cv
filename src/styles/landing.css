@@ -188,6 +188,12 @@
 .landing-ai-intro { font-size: clamp(1.3rem, 2.2vw, 1.85rem); font-weight: 300; line-height: 1.35; }
 .landing-ai-feature { margin-block: 1.35rem; padding-block: 1.35rem; border-block: 1px solid var(--line); }
 .landing-ai-grid { gap: 1.35rem; }
+.landing-project-demo { margin-top: .85rem; padding-top: .7rem; border-top: 1px solid var(--line); }
+.landing-project-demo h4 { font-size: .9rem; font-weight: 600; }
+.landing-project-demo dl { display: grid; gap: .2rem; margin: .35rem 0 0; font-size: .85rem; }
+.landing-project-demo dl > div { display: flex; flex-wrap: wrap; gap: .15rem .5rem; }
+.landing-project-demo dd { margin: 0; overflow-wrap: anywhere; }
+.landing-project-demo code { font-family: var(--mono); }
 .landing-timeline { list-style: none; padding: 0; border-bottom: 1px solid var(--line); }
 .landing-timeline > li { display: grid; gap: 1.15rem clamp(2rem, 5vw, 5rem); padding-block: 1.9rem; border-top: 1px solid var(--line); }
 .landing-company { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem .75rem; color: var(--dim); font-size: .9rem; }

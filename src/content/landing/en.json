@@ -69,7 +69,14 @@
       {
         "title": "tick-tack-done.",
         "text": "My personal project: a task and productivity app with an MCP server, so AI agents can work with it. I build it with AI agents and a GitHub backlog workflow.",
-        "href": "https://todo.reflexionia.com"
+        "href": "https://todo.reflexionia.com",
+        "demo": {
+          "label": "Demo account",
+          "emailLabel": "Email",
+          "passwordLabel": "Password",
+          "email": "demo@example.com",
+          "password": "demo_1234"
+        }
       }
     ]
   },

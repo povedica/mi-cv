@@ -69,7 +69,14 @@
       {
         "title": "tick-tack-done.",
         "text": "Mi proyecto personal: una aplicación de tareas y productividad con servidor MCP, para que los agentes de IA trabajen con ella. Lo desarrollo con agentes de IA y un flujo de backlog en GitHub.",
-        "href": "https://todo.reflexionia.com"
+        "href": "https://todo.reflexionia.com",
+        "demo": {
+          "label": "Cuenta demo",
+          "emailLabel": "Correo",
+          "passwordLabel": "Contraseña",
+          "email": "demo@example.com",
+          "password": "demo_1234"
+        }
       }
     ]
   },

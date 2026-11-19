@@ -166,7 +166,19 @@ const cvLabels = {
             <article class="landing-ai-feature"><h3>{copy.ai.items[0].title}</h3><p>{copy.ai.items[0].text}</p></article>
             <div class="landing-ai-grid">
               {copy.ai.items.slice(1).map(item => (
-                <article><h3>{item.href ? <a href={item.href} target="_blank" rel="noopener">{item.title}</a> : item.title}</h3><p>{item.text}</p></article>
+                <article>
+                  <h3>{item.href ? <a href={item.href} target="_blank" rel="noopener">{item.title}</a> : item.title}</h3>
+                  <p>{item.text}</p>
+                  {item.demo && (
+                    <div class="landing-project-demo">
+                      <h4>{item.demo.label}</h4>
+                      <dl>
+                        <div><dt>{item.demo.emailLabel}</dt><dd><code>{item.demo.email}</code></dd></div>
+                        <div><dt>{item.demo.passwordLabel}</dt><dd><code>{item.demo.password}</code></dd></div>
+                      </dl>
+                    </div>
+                  )}
+                </article>
               ))}
             </div>
           </div>
