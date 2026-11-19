@@ -10,6 +10,8 @@ export const GET: APIRoute = () => new Response(`# ${profileCopy.es.name}
 - [Perfil en español](${profileOrigin}/index.md)
 - [Profile in English](${profileOrigin}/en/index.md)
 
+- [English discovery index](${profileOrigin}/en/llms.txt)
+
 ## Curriculum vitae
 
 - [CV en español (PDF)](${profileOrigin}${cv.es})

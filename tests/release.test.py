@@ -32,7 +32,7 @@ class ReleaseTest(unittest.TestCase):
     def test_landing_files_are_accepted(self):
         files = PAGES + [
             ASSET, "_astro/poster.test.avif", "_astro/Geist-latin.Ast12.woff2", "en/index.html", "en/interview/index.html", "cv/public-en.pdf",
-            "certificados/public.pdf", "sitemap.xml", "robots.txt", "llms.txt", "index.md", "en/index.md", "og.png", "og.jpg", "og-v2.jpg", "og-v2-en.jpg", "pablo-poveda.jpg",
+            "certificados/public.pdf", "sitemap.xml", "robots.txt", "llms.txt", "en/llms.txt", "index.md", "en/index.md", "og.png", "og.jpg", "og-v2.jpg", "og-v2-en.jpg", "pablo-poveda.jpg",
             "favicon.svg", "favicon.ico", "apple-touch-icon.png", "site.webmanifest",
             "icon-192.png", "icon-512.png", "maskable-512.png",
             "captions/avatar-v2-es.vtt", "captions/avatar-v3-en.vtt",

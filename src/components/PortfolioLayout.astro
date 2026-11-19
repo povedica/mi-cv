@@ -83,7 +83,7 @@ const cvLabels = {
     {page === 'interview' && <meta name="robots" content="noindex" />}
     {page === 'home' && <>
       <link rel="alternate" type="text/markdown" href={isSpanish ? '/index.md' : '/en/index.md'} />
-      <link rel="describedby" href="/llms.txt" />
+      <link rel="describedby" href={isSpanish ? '/llms.txt' : '/en/llms.txt'} />
     </>}
     <link rel="canonical" href={`https://cv.reflexionia.com${pagePath}`} />
     <link rel="alternate" hreflang="es" href={`https://cv.reflexionia.com${path}`} />
