@@ -8,6 +8,8 @@ Keep the static routes and current consent storage. Preserve keyboard access and
 
 ## Decisions
 
+Render profile and interview content in the same portfolio layout. Keep canonical metadata, alternate language URLs and analytics page identity specific to the route.
+
 Use the prototype own-property check for analytics. Keep the dock visible while it has focus and switch visibility without animation. Reserve the dock footprint for the notice so it stays clear of the dock as it reappears.
 
 Preload both existing Geist files. Keep the full Latin glyph coverage because Spanish and English labels include accents and punctuation and the unused range was a minor audit finding.

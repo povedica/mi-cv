@@ -5,10 +5,10 @@ import WebAnalytics from './WebAnalytics.astro';
 interface Props {
   description: string;
   title: string;
+  portfolioTheme?: boolean;
 }
 
-const { description, title } = Astro.props;
-const isLanding = Astro.url.pathname === '/' || Astro.url.pathname === '/en/';
+const { description, title, portfolioTheme = false } = Astro.props;
 ---
 
 <head>
@@ -19,8 +19,8 @@ const isLanding = Astro.url.pathname === '/' || Astro.url.pathname === '/en/';
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
-  <meta name="theme-color" content={isLanding ? "#0b1626" : "#0b1020"} media="(prefers-color-scheme: dark)" />
-  <meta name="theme-color" content={isLanding ? "#fafafa" : "#f6f7fb"} media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content={portfolioTheme ? "#0b1626" : "#0b1020"} media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content={portfolioTheme ? "#fafafa" : "#f6f7fb"} media="(prefers-color-scheme: light)" />
   <meta name="theme-color" media="not all" data-theme-override />
   <script is:inline>
     (() => {

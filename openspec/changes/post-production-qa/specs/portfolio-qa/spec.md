@@ -35,3 +35,12 @@ The production edge SHALL serve compressed landing HTML to a compatible client a
 
 - **WHEN** a client advertises Brotli and gzip
 - **THEN** both routes return a compressed response and the public demo address remains intact
+
+### Requirement: Shared portfolio structure
+
+The localized interview routes SHALL use the same site layout as the corresponding profile routes and render their own main content and route metadata.
+
+#### Scenario: Visitor opens the interview preview directly
+
+- **WHEN** the visitor loads either interview route
+- **THEN** the header, footer, cookie notice and mobile dock behave like the profile layout, the language switch opens the other interview locale, and the interview history stays local

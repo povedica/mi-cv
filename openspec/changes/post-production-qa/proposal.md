@@ -5,6 +5,7 @@ Production QA found a legacy analytics error, crowded mobile overlays, stale sha
 ## What Changes
 
 - Preserve analytics validation in browsers without Object.hasOwn.
+- Share the portfolio layout with both interview previews.
 - Compact the mobile cookie notice and hide the action dock on downward scroll.
 - Refresh bilingual share descriptions and use the approved locale-specific JPEGs when supplied.
 - Allow compressed HTML at the edge while preserving the published demo address.

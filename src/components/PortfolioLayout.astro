@@ -1,0 +1,177 @@
+---
+import SiteHead from './SiteHead.astro';
+import ProfileSchema from './ProfileSchema.astro';
+import CookieNotice from './CookieNotice.astro';
+import LandingContactActions from './LandingContactActions.astro';
+import LandingBrand from './LandingBrand.astro';
+import UnavailableInterview from './UnavailableInterview.astro';
+import ThemeSelect from './ThemeSelect.astro';
+import es from '../content/landing/es.json';
+import en from '../content/landing/en.json';
+import geist from '../assets/fonts/Geist-latin.woff2?url';
+import geistMono from '../assets/fonts/GeistMono-latin.woff2?url';
+import '../styles/landing.css';
+
+interface Props {
+  locale: 'es' | 'en';
+  page?: 'home' | 'interview';
+  title?: string;
+  description?: string;
+}
+
+const { locale, page = 'home' } = Astro.props;
+const isSpanish = locale === 'es';
+const copy = isSpanish ? es : en;
+const home = isSpanish ? '/' : '/en/';
+const socialImage = `https://cv.reflexionia.com/${isSpanish ? 'og-v2.jpg' : 'og-v2-en.jpg'}`;
+const otherLocale = isSpanish ? 'en' : 'es';
+const cvLocales = [locale, otherLocale] as const;
+const path = page === 'home' ? '/' : '/interview/';
+const englishPath = `/en${path}`;
+const pagePath = isSpanish ? path : englishPath;
+const otherPage = `${isSpanish ? englishPath : path}?lang=${otherLocale}`;
+const title = Astro.props.title ?? copy.title;
+const description = Astro.props.description ?? copy.description;
+const otherLanguageLabel = isSpanish ? 'EN · Read in English' : 'ES · Leer en español';
+const linkedin = 'https://www.linkedin.com/in/pablo-poveda-ortega/';
+const github = 'https://github.com/povedica';
+const cv = {
+  es: '/cv/Pablo-Poveda-Ortega-CV-ES.pdf',
+  en: '/cv/Pablo-Poveda-Ortega-CV-EN.pdf',
+};
+const cvHint = isSpanish ? 'abre en una pestaña nueva' : 'opens in a new tab';
+const cvLabels = {
+  es: `CV (ES) · PDF, ${cvHint}`,
+  en: `CV (EN) · PDF, ${cvHint}`,
+};
+---
+<!doctype html>
+<html lang={locale} data-analytics-page={page}>
+  <SiteHead {title} {description} portfolioTheme>
+    <script is:inline>
+      (() => {
+        const key = 'mi-cv:language';
+        const url = new URL(location.href);
+        const locale = document.documentElement.lang;
+        const selected = url.searchParams.get('lang');
+
+        if (selected === locale) {
+          try {
+            localStorage.setItem(key, locale);
+            url.searchParams.delete('lang');
+            history.replaceState(history.state, '', url);
+          } catch {
+            // Keep the explicit language in the URL when storage is blocked.
+          }
+          return;
+        }
+
+        if (locale !== 'es' || url.hash) return;
+
+        let preference;
+        try {
+          preference = localStorage.getItem(key);
+        } catch {
+          // Use browser preferences when storage is blocked.
+        }
+        if (preference !== 'es' && preference !== 'en') {
+          preference = (navigator.languages.length ? navigator.languages : [navigator.language])
+            .map(language => language.toLowerCase().split('-')[0])
+            .find(language => language === 'es' || language === 'en');
+        }
+        if (preference === 'en') {
+          url.pathname = `/en${url.pathname}`;
+          location.replace(url);
+        }
+      })();
+    </script>
+    <link rel="preload" href={geist} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href={geistMono} as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="canonical" href={`https://cv.reflexionia.com${pagePath}`} />
+    <link rel="alternate" hreflang="es" href={`https://cv.reflexionia.com${path}`} />
+    <link rel="alternate" hreflang="en" href={`https://cv.reflexionia.com${englishPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://cv.reflexionia.com${path}`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={page === 'home' ? copy.openGraph.title : title} />
+    <meta property="og:description" content={page === 'home' ? copy.openGraph.description : description} />
+    <meta property="og:url" content={`https://cv.reflexionia.com${pagePath}`} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:secure_url" content={socialImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={copy.openGraph.imageAlt} />
+    <meta property="og:locale" content={isSpanish ? 'es_ES' : 'en_GB'} />
+    <meta property="og:locale:alternate" content={isSpanish ? 'en_GB' : 'es_ES'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={copy.openGraph.imageAlt} />
+    {page === 'home' && <ProfileSchema {locale} {home} {title} profile={copy.profile} {linkedin} {github} />}
+  </SiteHead>
+  <body class="landing">
+    <a class="landing-skip" href="#main-content">{copy.skip}</a>
+    <header class="landing-nav">
+      <div class="landing-wrap">
+        <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
+        <div class="landing-nav-actions">
+          <LandingContactActions {linkedin} {cv} {cvLabels} />
+          <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
+          <div class="landing-nav-preferences">
+            <a class="landing-lang" href={otherPage} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
+              {otherLocale.toUpperCase()}
+            </a>
+            <ThemeSelect locale={locale} compact />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="landing-footer">
+      <CookieNotice locale={locale} />
+      <div class="landing-wrap">
+        <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
+        <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
+          <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
+          <a href={github} target="_blank" rel="noopener">GitHub</a>
+          <a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a>
+          {cvLocales.map(language => {
+            const label = `CV (${language.toUpperCase()})`;
+            return (
+              <a href={cv[language]} hreflang={language} target="_blank" rel="noopener" aria-label={cvLabels[language]} title={cvLabels[language]} data-analytics-action="cv-download">
+                {label} <span aria-hidden="true">↗</span>
+              </a>
+            );
+          })}
+          <a href={otherPage} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
+        </nav>
+      </div>
+    </footer>
+    <nav class="landing-dock landing-wrap" aria-label={isSpanish ? 'Acciones rápidas' : 'Quick actions'}>
+      <LandingContactActions {linkedin} {cv} {cvLabels} />
+      <UnavailableInterview label={copy.interview.title} status={copy.interview.status} />
+    </nav>
+    <script>
+      const dock = document.querySelector('.landing-dock');
+      const mobile = matchMedia('(max-width: 740px)');
+      let lastScroll = Math.max(0, window.scrollY);
+
+      mobile.addEventListener('change', () => {
+        lastScroll = Math.max(0, window.scrollY);
+        dock?.removeAttribute('data-scrolled-away');
+      });
+
+      window.addEventListener('scroll', () => {
+        if (!dock || !mobile.matches) return;
+        const scroll = Math.max(0, window.scrollY);
+        if (scroll === lastScroll) return;
+        dock.toggleAttribute('data-scrolled-away',
+          scroll > 0 && scroll > lastScroll && !dock.matches(':focus-within'));
+        lastScroll = scroll;
+      }, { passive: true });
+    </script>
+  </body>
+</html>
