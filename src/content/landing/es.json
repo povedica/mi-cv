@@ -32,7 +32,6 @@
   "portraitAlt": "Retrato de Pablo Poveda",
   "portraitLabel": "Engineering Manager",
   "download": "Descargar CV",
-  "contactLabel": "Contacto",
   "focus": {
     "title": "Qué hago",
     "intro": "Las áreas donde más aporto y de las que puedes preguntarme en la entrevista.",
@@ -313,8 +312,8 @@
   },
   "interview": {
     "title": "Entrevístame",
-    "text": "Estoy construyendo una entrevista con una IA que responderá sobre mi trayectoria solo con información que he revisado, citando de dónde sale cada respuesta. Ya puedes probar la interfaz.",
-    "cta": "Probar la entrevista"
+    "text": "Estoy preparando una entrevista con IA para que puedas hacer preguntas sobre mi trayectoria. Las respuestas se basarán en información que he revisado.",
+    "status": "Próximamente"
   },
   "contact": {
     "title": "CV y contacto",

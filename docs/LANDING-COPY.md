@@ -73,8 +73,8 @@ Página de entrevista:
 - Línea del cargo bajo H1: Engineering Manager · AI Engineering
 - Descripción: Lidero, gestiono y escalo equipos técnicos, mejoro la entrega de software e incorporo la IA generativa al desarrollo. Más de 15 años en el sector, del desarrollo web a dirigir un departamento de ingeniería.
 - Ubicación: Madrid, España · Remoto
-- CTA principal: Entrevístame → `/interview/`
-- CTA secundarios: Descargar CV → `/cv/Pablo-Poveda-Ortega-CV-ES.pdf` · LinkedIn → https://www.linkedin.com/in/pablo-poveda-ortega/ · Contacto → `#cv-contacto`
+- CTA activos: LinkedIn · 🇪🇸 CV · 🇬🇧 CV.
+- Entrevístame: botón deshabilitado con «Próximamente».
 - Retrato (alt): Retrato de Pablo Poveda
 - Etiqueta del retrato: Pablo Poveda · Engineering Manager
 
@@ -85,8 +85,8 @@ Página de entrevista:
 - Role line below H1: Engineering Manager · AI Engineering
 - Description: I lead, manage and scale technical teams, improve software delivery and bring generative AI into development. 15+ years in the industry, from web development to running an engineering department.
 - Location: Madrid, Spain · Remote
-- Primary CTA: Interview me → `/en/interview/`
-- Secondary CTAs: Download CV → `/cv/Pablo-Poveda-Ortega-CV-EN.pdf` · LinkedIn → https://www.linkedin.com/in/pablo-poveda-ortega/ · Contact → `#cv-contact`
+- Active CTAs: LinkedIn · 🇪🇸 CV · 🇬🇧 CV.
+- Interview me: disabled button with “Coming soon”.
 - Portrait (alt): Portrait of Pablo Poveda
 - Portrait label: Pablo Poveda · Engineering Manager
 
@@ -322,12 +322,12 @@ Nota para el agente: cada charla enlaza a su página en wordpress.tv. Comprueba 
 
 ## 13. Entrevista (`entrevista` / `interview`)
 
-Hay dos variantes. Mientras el chat con IA no esté en producción (BKL-008 a BKL-011), se usa la A; cuando funcione, la B. Ninguna dice «pendiente» ni «próximamente».
+Hay dos variantes. Mientras el chat con IA no esté en producción (BKL-008 a BKL-011), se usa la A; cuando funcione, la B. La variante A muestra un botón deshabilitado mientras se prepara la entrevista.
 
 **ES · A (vista previa)**
 - Título: Entrevístame
-- Texto: Estoy construyendo una entrevista con una IA que responderá sobre mi trayectoria solo con información que he revisado, citando de dónde sale cada respuesta. Ya puedes probar la interfaz.
-- CTA: Probar la entrevista → `/interview/`
+- Texto: Estoy preparando una entrevista con IA para que puedas hacer preguntas sobre mi trayectoria. Las respuestas se basarán en información que he revisado.
+- CTA: Entrevístame · Próximamente (deshabilitado).
 
 **ES · B (chat activo)**
 - Título: Entrevístame
@@ -337,8 +337,8 @@ Hay dos variantes. Mientras el chat con IA no esté en producción (BKL-008 a BK
 
 **EN · A (preview)**
 - Title: Interview me
-- Text: I am building an interview with an AI that will answer questions about my career only from information I have reviewed, showing where each answer comes from. You can already try the interface.
-- CTA: Try the interview → `/en/interview/`
+- Text: I am preparing an AI interview where you can ask questions about my career. Its answers will be based on information I have reviewed.
+- CTA: Interview me · Coming soon (disabled).
 
 **EN · B (chat live)**
 - Title: Interview me
@@ -393,6 +393,6 @@ GitHub → https://github.com/povedica
 
 - Cifras usadas: 1 → 20, 15–20 personas, ~30 proyectos, miles de usuarios, ~30 % con IA (estimación propia), ~40 % en UNIR, de 4 a 10 en UNIR, 3 promociones, 6 países de UNIR, 3 desarrolladores junior en Evolufarma y 600 asistentes en WordCamp. Ninguna más.
 - «Arquitectura» no aparece como área, titular ni pregunta sugerida.
-- Ni «pendiente» ni «próximamente». La única etiqueta de estado es «En desarrollo» en los modos de voz y avatar de `/interview/`.
+- «Próximamente» identifica el botón deshabilitado de entrevista en la portada. Los modos de voz y avatar de `/interview/` llevan «En desarrollo».
 - Sin email, teléfono ni dirección. Sin nombres de clientes: solo «cadena nacional de supermercados» y «operadora de telecomunicaciones». UNIR, Evolufarma y Logiqo son empleadores y ya salen en el CV.
 - Primera persona en toda la web y logros en pasado.

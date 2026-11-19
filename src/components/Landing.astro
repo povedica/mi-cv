@@ -3,6 +3,8 @@ import AvatarVideo from './AvatarVideo.astro';
 import SiteHead from './SiteHead.astro';
 import CookieNotice from './CookieNotice.astro';
 import LinkedInIcon from './LinkedInIcon.astro';
+import LandingContactActions from './LandingContactActions.astro';
+import UnavailableInterview from './UnavailableInterview.astro';
 import ThemeSelect from './ThemeSelect.astro';
 import LandingSectionTitle from './LandingSectionTitle.astro';
 import LandingRoles from './LandingRoles.astro';
@@ -19,7 +21,6 @@ const { locale } = Astro.props;
 const isSpanish = locale === 'es';
 const copy = isSpanish ? es : en;
 const home = isSpanish ? '/' : '/en/';
-const interview = isSpanish ? '/interview/' : '/en/interview/';
 const otherLocale = isSpanish ? 'en' : 'es';
 const cvLocales = [locale, otherLocale] as const;
 const otherHome = isSpanish ? '/en/' : '/';
@@ -88,7 +89,7 @@ const cvLabels = {
             <span>LinkedIn</span>
           </a>
           <a class="landing-button landing-nav-cv" href={cv[locale]} target="_blank" rel="noopener" hreflang={locale} data-analytics-action="cv-download"><span>{copy.download}</span><span>CV</span></a>
-          <a class="landing-button landing-primary" href={interview} data-interview-placement="navigation">{copy.interviewLabel}</a>
+          <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
           <a class="landing-lang" href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
             <span aria-hidden="true">{isSpanish ? '🇬🇧' : '🇪🇸'}</span>{otherLocale.toUpperCase()}
           </a>
@@ -105,17 +106,9 @@ const cvLabels = {
             <h1 id="landing-name">{copy.name}</h1>
             <p class="landing-role">{copy.headline}</p>
             <p class="landing-lead">{copy.lead}</p>
-            <div class="landing-actions">
-              <a class="landing-button landing-primary" data-interview-placement="hero" href={interview}>{copy.interviewLabel} <span aria-hidden="true">→</span></a>
-              <div class="landing-cv-group">
-                {cvLocales.map((language, index) => (
-                  <a class="landing-button" href={cv[language]} hreflang={language} lang={language} aria-label={cvLabels[language]} download data-analytics-action="cv-download">
-                    {index === 0 && `${copy.download} · `}{language.toUpperCase()}
-                  </a>
-                ))}
-              </div>
-              <a class="landing-button" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
-              <a href={`#${contact}`} data-analytics-action="contact-click">{copy.contactLabel}</a>
+            <div class="landing-hero-actions">
+              <LandingContactActions {linkedin} {cv} {cvLabels} />
+              <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
             </div>
           </div>
           <div class="landing-portrait">
@@ -247,23 +240,16 @@ const cvLabels = {
             <p>{copy.interview.text}</p>
             <ul class="landing-questions" role="list">
               {copy.suggestions.map(question => (
-                <li><a href={interview + '#chat-preview'} data-interview-placement="project">{question}<span aria-hidden="true">→</span></a></li>
+                <li>{question}</li>
               ))}
             </ul>
-            <a class="landing-button landing-primary" data-interview-placement="project" href={interview}>{copy.interview.cta}</a>
+            <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
           </section>
           <section id={contact}>
             <h2>{copy.contact.title}</h2>
             <p>{copy.contact.text}</p>
             <p>{copy.contact.note}</p>
-            <div class="landing-actions">
-              <a class="landing-button landing-linkedin" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click"><LinkedInIcon /> LinkedIn</a>
-              {(['es', 'en'] as const).map(language => (
-                <a class="landing-button" href={cv[language]} hreflang={language} lang={language} aria-label={cvLabels[language]} target="_blank" rel="noopener" data-analytics-action="cv-download">
-                  <span aria-hidden="true">{language === 'es' ? '🇪🇸' : '🇬🇧'}</span> CV
-                </a>
-              ))}
-            </div>
+            <LandingContactActions {linkedin} {cv} {cvLabels} />
           </section>
         </div>
       </div>

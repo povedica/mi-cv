@@ -32,7 +32,6 @@
   "portraitAlt": "Portrait of Pablo Poveda",
   "portraitLabel": "Engineering Manager",
   "download": "Download CV",
-  "contactLabel": "Contact",
   "focus": {
     "title": "What I do",
     "intro": "Where I add the most value, and what you can ask me about in the interview.",
@@ -313,8 +312,8 @@
   },
   "interview": {
     "title": "Interview me",
-    "text": "I am building an interview with an AI that will answer questions about my career only from information I have reviewed, showing where each answer comes from. You can already try the interface.",
-    "cta": "Try the interview"
+    "text": "I am preparing an AI interview where you can ask questions about my career. Its answers will be based on information I have reviewed.",
+    "status": "Coming soon"
   },
   "contact": {
     "title": "CV & contact",
