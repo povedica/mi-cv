@@ -32,3 +32,13 @@ versioned HLS manifest only after the visitor activates the player. Spanish rout
 uses native HLS when reported by the browser and loads the bundled hls.js light
 build dynamically for Media Source Extensions. Unsupported browsers keep the portrait visible. Playback failures return to the portrait and offer a retry. Media files live outside the static release and are
 served by Caddy. Version-matched WebVTT caption tracks are bundled with the static release. See [conversion and deployment](DEPLOYMENT.md#avatar-video).
+
+### Profile structured data
+
+Both landing routes render one Schema.org graph through
+`src/components/ProfileSchema.astro`. The site and person identifiers are shared
+across locales. Each profile page has its own canonical URL, language and
+localised credential text. The graph omits contact details and refers to the
+approved portrait at the stable `/pablo-poveda.jpg` URL. The responsive hero
+poster remains a separate build asset. The release receiver admits the portrait
+by its exact path.

@@ -131,3 +131,8 @@ In a separate local A/B test, two runs with the external stylesheet painted in
 Preloading Geist in a four-run follow-up left first paint at approximately
 0.75 s and showed no consistent change in LCP. The site keeps the cacheable
 stylesheet and discovers fonts through it.
+
+The ProfilePage build matched both approved JSON-LD examples in issue #5.
+The stable portrait returned HTTP 200 on the Caddy preview at port 4466.
+Mobile Lighthouse on both landing routes scored 100 for performance, with
+LCP of 1.81 s in each language and no image delivery items.

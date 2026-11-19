@@ -41,7 +41,7 @@ Estructura y reglas: `docs/ARQUITECTURA-INFORMACION.md`. Fuentes: CV v7 ES/EN, `
 | `og:description` | De desarrollador web a dirigir un departamento de ingeniería de 20 personas. Liderazgo técnico, entrega de software e IA generativa y una grabación generada con IA. | From web developer to running a 20-person engineering department. Technical leadership, software delivery and generative AI. Watch an AI-generated introduction. |
 | `og:image:alt` | Pablo Poveda, Engineering Manager | Pablo Poveda, Engineering Manager |
 | `og:locale` | es_ES (alternativa en_GB) | en_GB (alternativa es_ES) |
-| JSON-LD `Person` | name «Pablo Poveda Ortega», jobTitle «Engineering Manager», address Madrid (ES), sameAs: https://www.linkedin.com/in/pablo-poveda-ortega/ y https://github.com/povedica | igual |
+| JSON-LD | `WebSite` → `ProfilePage` → `Person`, con descripción y credenciales localizadas, retrato en `/pablo-poveda.jpg` y los identificadores aprobados en CA-17. | Mismo grafo, con URL y textos en inglés. |
 
 Página de entrevista:
 

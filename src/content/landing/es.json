@@ -333,6 +333,14 @@
     "¿Cómo has incorporado la IA generativa al desarrollo?",
     "¿Qué prácticas usas para mejorar la entrega y la calidad del software?"
   ],
+  "profile": {
+    "description": "Engineering Manager con más de 15 años en desarrollo de software; lidera equipos técnicos, mejora la entrega e incorpora la IA generativa al desarrollo.",
+    "credentialCategory": "Máster",
+    "credentialNames": [
+      "Máster en AI Engineering",
+      "Máster en DevOps y Cloud"
+    ]
+  },
   "openGraph": {
     "title": "Pablo Poveda · Engineering Manager",
     "description": "De desarrollador web a dirigir un departamento de ingeniería de 20 personas. Liderazgo técnico, entrega de software e IA generativa y una grabación generada con IA.",

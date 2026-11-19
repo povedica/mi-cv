@@ -1,0 +1,67 @@
+---
+interface Props {
+  locale: 'es' | 'en';
+  home: string;
+  title: string;
+  profile: {
+    description: string;
+    credentialCategory: string;
+    credentialNames: string[];
+  };
+  linkedin: string;
+  github: string;
+}
+
+const { locale, home, title, profile, linkedin, github } = Astro.props;
+const site = 'https://cv.reflexionia.com/';
+const url = new URL(home, site).href;
+const websiteId = `${site}#website`;
+const personId = `${site}#person`;
+const lidr = { '@type': 'Organization', name: 'LIDR' };
+const unir = { '@type': 'CollegeOrUniversity', name: 'UNIR' };
+const credential = (name: string, institution: typeof lidr) => ({
+  '@type': 'EducationalOccupationalCredential',
+  name,
+  credentialCategory: profile.credentialCategory,
+  recognizedBy: institution,
+});
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebSite', '@id': websiteId, url: site, name: 'Pablo Poveda', inLanguage: ['es', 'en'] },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${url}#profile`,
+      url,
+      name: title,
+      isPartOf: { '@id': websiteId },
+      mainEntity: { '@id': personId },
+      inLanguage: locale,
+    },
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: 'Pablo Poveda Ortega',
+      alternateName: 'Pablo Poveda',
+      url,
+      image: `${site}pablo-poveda.jpg`,
+      jobTitle: 'Engineering Manager',
+      description: profile.description,
+      address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
+      knowsAbout: [
+        'Engineering Management', 'Technical Leadership', 'AI Engineering', 'Generative AI',
+        'Retrieval-Augmented Generation', 'AI Agents', 'Software Delivery', 'DevOps', 'PHP',
+      ],
+      knowsLanguage: ['es', 'en'],
+      alumniOf: [{ '@type': 'CollegeOrUniversity', name: 'Universidad de Alicante' }, unir, lidr],
+      hasCredential: [
+        credential(profile.credentialNames[0], lidr),
+        credential(profile.credentialNames[1], unir),
+      ],
+      sameAs: [linkedin, github],
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(graph).replaceAll('<', '\\u003c')} />

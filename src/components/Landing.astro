@@ -1,6 +1,7 @@
 ---
 import AvatarVideo from './AvatarVideo.astro';
 import SiteHead from './SiteHead.astro';
+import ProfileSchema from './ProfileSchema.astro';
 import CookieNotice from './CookieNotice.astro';
 import LandingContactActions from './LandingContactActions.astro';
 import LandingBrand from './LandingBrand.astro';
@@ -30,14 +31,6 @@ const [vassManager, vassLead, ...otherRoles] = copy.experience.roles;
 const navIds = [experience, projects, ai, talks, contact];
 const linkedin = 'https://www.linkedin.com/in/pablo-poveda-ortega/';
 const github = 'https://github.com/povedica';
-const person = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  name: 'Pablo Poveda Ortega',
-  jobTitle: 'Engineering Manager',
-  address: { '@type': 'PostalAddress', addressLocality: 'Madrid', addressCountry: 'ES' },
-  sameAs: [linkedin, github],
-};
 const talkUrls = [
   'https://wordpress.tv/2017/05/16/pablo-poveda-el-factor-humano/',
   'https://wordpress.tv/2017/10/15/pablo-poveda-kiss-cultura-de-plugins-buenas-practicas/',
@@ -108,7 +101,7 @@ const cvLabels = {
     <meta property="og:locale" content={isSpanish ? 'es_ES' : 'en_GB'} />
     <meta property="og:locale:alternate" content={isSpanish ? 'en_GB' : 'es_ES'} />
     <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json" set:html={JSON.stringify(person).replaceAll('<', '\\u003c')} />
+    <ProfileSchema {locale} {home} title={copy.title} profile={copy.profile} {linkedin} {github} />
   </SiteHead>
   <body class="landing">
     <a class="landing-skip" href="#main-content">{copy.skip}</a>

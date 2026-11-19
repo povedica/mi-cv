@@ -333,6 +333,14 @@
     "How have you brought generative AI into development?",
     "What practices do you use to improve software delivery and quality?"
   ],
+  "profile": {
+    "description": "Engineering Manager with 15+ years in software development; leads engineering teams, improves software delivery and brings generative AI into development.",
+    "credentialCategory": "Master's degree",
+    "credentialNames": [
+      "Master's in AI Engineering",
+      "Master's in DevOps and Cloud"
+    ]
+  },
   "openGraph": {
     "title": "Pablo Poveda · Engineering Manager",
     "description": "From web developer to running a 20-person engineering department. Technical leadership, software delivery and generative AI. Watch an AI-generated introduction.",
