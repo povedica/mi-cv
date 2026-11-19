@@ -42,6 +42,7 @@ const messages = {
     <button class="avatar-play" type="button" aria-label={label('Reproducir vídeo', 'Play video')} hidden>
       <span aria-hidden="true"></span>
     </button>
+    <div class="avatar-tap-zone" aria-hidden="true"></div>
   </div>
   <p role="status"></p>
   <noscript><p>{label('Activa JavaScript para reproducir el vídeo.', 'Enable JavaScript to play the video.')}</p></noscript>
@@ -93,6 +94,17 @@ const messages = {
     width: min(100%, 380px);
     align-self: start;
     justify-self: center;
+  }
+
+  .avatar-tap-zone { display: none; }
+
+  @media (pointer: coarse) {
+    [data-video-ready] .avatar-tap-zone {
+      position: absolute;
+      inset: 0 0 56px;
+      display: block;
+      touch-action: manipulation;
+    }
   }
 
   .avatar-play {
@@ -161,6 +173,15 @@ const messages = {
 
   load.hidden = false;
   video.addEventListener('contextmenu', event => event.preventDefault());
+
+  const tapZone = player.querySelector('.avatar-tap-zone')!;
+  tapZone.addEventListener('click', () => {
+    if (video.paused) {
+      void video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
+  });
 
   load.addEventListener('click', async () => {
     load.disabled = true;
