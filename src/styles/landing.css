@@ -102,9 +102,11 @@
 .landing-nav .landing-wrap { min-height: var(--nav-height); display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
 .landing-nav nav { display: none; margin-left: auto; }
 .landing-nav-actions { display: flex; align-items: center; gap: .35rem; }
-.landing-brand { white-space: nowrap; font-size: 1.05rem; font-weight: 600; letter-spacing: -.04em; text-decoration: none; }
+.landing-brand { display: grid; gap: .15rem; font-size: 1.15rem; font-weight: 600; letter-spacing: -.04em; text-decoration: none; line-height: 1.05; }
+.landing-brand-name { white-space: nowrap; }
+.landing-brand-title { color: var(--muted); font-size: .68rem; font-weight: 500; letter-spacing: 0; }
 .landing-brand b { color: var(--accent); }
-.landing-brand span + span, .landing-nav-cv span:first-child, .landing-linkedin span, .landing-lang { display: none; }
+.landing-brand-name span + span, .landing-nav-cv span:first-child, .landing-linkedin span { display: none; }
 .landing-button {
   display: inline-flex;
   align-items: center;
@@ -122,7 +124,10 @@
 .landing .landing-primary { color: white; background: var(--button); border-color: var(--button); }
 .landing .landing-primary:hover { box-shadow: inset 0 0 0 1px white; }
 .landing-nav .landing-button { min-height: 34px; padding-inline: .55rem; font-size: .8rem; white-space: nowrap; }
-.landing-nav .landing-linkedin { width: 34px; }
+.landing-nav .landing-linkedin { width: 34px; color: #fff; background: #0a66c2; border-color: #0a66c2; }
+.landing-nav .landing-linkedin:hover { background: #004182; border-color: #004182; }
+.landing-lang { display: inline-flex; align-items: center; gap: .25rem; min-height: 34px; white-space: nowrap; }
+.landing-lang span { font: 1rem/1 system-ui, sans-serif; }
 .landing-nav nav a, .landing-lang, .landing-footer nav {
   font: 400 .72rem/1.3 var(--mono);
   letter-spacing: .035em;
@@ -197,8 +202,8 @@
 .landing-footer .landing-wrap, .landing-footer nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .65rem 1rem; }
 
 @media (max-width: 379px) {
-  .landing-brand span:first-child { display: none; }
-  .landing-brand span + span { display: inline; }
+  .landing-brand-name span:first-child { display: none; }
+  .landing-brand-name span + span { display: inline; }
 }
 @media (max-width: 560px) {
   .landing-hero-copy > .landing-actions { display: grid; grid-template-columns: 1fr 1fr; }
@@ -207,7 +212,11 @@
 }
 @media (min-width: 561px) {
   :root { --nav-height: 56px; }
-  .landing-lang { display: inline-flex; margin-inline: .2rem; }
+  .landing-lang { margin-inline: .2rem; }
+  .landing-brand { font-size: 1.35rem; }
+  .landing-brand-title { font-size: .78rem; }
+  .landing-nav .landing-button { font-size: .88rem; }
+  .landing-nav nav a { font-size: .8rem; }
   .landing-nav .landing-linkedin { width: auto; }
   .landing-linkedin span, .landing-nav-cv span:first-child { display: inline; }
   .landing-nav-cv span + span { display: none; }
@@ -239,7 +248,7 @@
   .landing-profile, .landing-end, .landing-ai-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .landing-end section:first-child { border-bottom: 0; border-right: 1px solid var(--line); }
 }
-@media (min-width: 1101px) {
+@media (min-width: 1220px) {
   .landing-nav nav { display: flex; gap: clamp(.65rem, 1.5vw, 1.3rem); }
   .landing-nav .landing-wrap { gap: 1.25rem; }
 }

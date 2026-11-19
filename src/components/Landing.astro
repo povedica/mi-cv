@@ -74,20 +74,23 @@ const showLocalCv = import.meta.env.PUBLIC_MI_CV_PREVIEW_PDFS === '1';
     <a class="landing-skip" href="#main-content">{copy.skip}</a>
     <header class="landing-nav">
       <div class="landing-wrap">
-        <a class="landing-brand" href={home} aria-label={copy.name}>
-          <span>{copy.name}</span><span aria-hidden="true">PP</span><b aria-hidden="true">.</b>
+        <a class="landing-brand" href={home} aria-label={copy.name + " · " + copy.headline}>
+          <span class="landing-brand-name"><span>{copy.name}</span><span aria-hidden="true">PP</span><b aria-hidden="true">.</b></span>
+          <span class="landing-brand-title">{copy.headline}</span>
         </a>
         <nav aria-label={isSpanish ? 'Navegación principal' : 'Main navigation'}>
           {copy.nav.map((label, index) => <a href={`#${navIds[index]}`}>{label}</a>)}
         </nav>
         <div class="landing-nav-actions">
-          <a class="landing-lang" href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">{otherLocale.toUpperCase()}</a>
           <a class="landing-button landing-linkedin" href={linkedin} target="_blank" rel="noopener" aria-label="LinkedIn" data-analytics-action="linkedin-click">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M4 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM2.5 9h3v12h-3zm6 0h3v1.6a4 4 0 0 1 3.6-1.9c3.8 0 4.4 2.5 4.4 5.8V21h-3v-6c0-1.9-.4-3.4-2.4-3.4s-2.6 1.5-2.6 3.3V21h-3z"/></svg>
             <span>LinkedIn</span>
           </a>
-          <a class="landing-button landing-nav-cv" href={showLocalCv ? cv[locale] : `#${contact}`} download={showLocalCv} data-analytics-action={showLocalCv ? 'cv-download' : undefined}><span>{showLocalCv ? copy.download : copy.contact.title}</span><span>CV</span></a>
+          <a class="landing-button landing-nav-cv" href={showLocalCv ? cv[locale] : `#${contact}`} download={showLocalCv} data-analytics-action={showLocalCv ? 'cv-download' : undefined}><span>{showLocalCv ? copy.download : "CV"}</span><span>CV</span></a>
           <a class="landing-button landing-primary" href={interview} data-interview-placement="navigation">{copy.interviewLabel}</a>
+          <a class="landing-lang" href={otherHome} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
+            <span aria-hidden="true">{isSpanish ? '🇬🇧' : '🇪🇸'}</span>{otherLocale.toUpperCase()}
+          </a>
         </div>
       </div>
     </header>
