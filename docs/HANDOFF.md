@@ -25,7 +25,7 @@ copy](LANDING-COPY.md) and [information architecture](ARQUITECTURA-INFORMACION.m
 
 [Issue #33](https://github.com/povedica/mi-cv/issues/33) tracks the post-release changes. Local verification passed with `npm run verify` (16 tests), the release receiver tests, and strict OpenSpec validation. Headless Chrome loaded both static localizations with `Object.hasOwn` absent and recorded a page view in each. The mobile notice measured approximately 147 px at 360 px in Spanish and 129 px at 390 px in English, with an 11 px gap above the dock. Reduced-motion emulation confirmed that the dock hides on descent and returns on ascent, including focus retention and notice dismissal. Both Geist preloads matched the actual font requests.
 
-The approved social JPEGs are pending delivery. The Caddy change requires the hostname-scoped Cloudflare rule and production validation described in the [deployment runbook](DEPLOYMENT.md). YellowLab, historical browsers, HLS response types, and social crawler previews remain production acceptance checks.
+The supplied social JPEGs are 1200×630. Both static landing pages reference the locale-specific image and declare matching Open Graph and Twitter metadata. The release receiver accepts both image paths. The Caddy change requires the hostname-scoped Cloudflare rule and production validation described in the [deployment runbook](DEPLOYMENT.md). YellowLab, historical browsers, HLS response types, and social crawler previews remain production acceptance checks.
 
 ## Next bounded change
 

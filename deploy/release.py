@@ -14,7 +14,7 @@ PAGES = {"index.html", "interview/index.html"}
 LANDING_FILES = {
     "en/index.html", "en/interview/index.html", "sitemap.xml", "robots.txt",
     "captions/avatar-v2-es.vtt", "captions/avatar-v3-en.vtt",
-    "og.png", "og.jpg", "pablo-poveda.jpg", "cookies/index.html", "en/cookies/index.html",
+    "og.png", "og.jpg", "og-v2.jpg", "og-v2-en.jpg", "pablo-poveda.jpg", "cookies/index.html", "en/cookies/index.html",
     "favicon.svg", "favicon.ico", "apple-touch-icon.png", "site.webmanifest",
     "icon-192.png", "icon-512.png", "maskable-512.png",
 }
