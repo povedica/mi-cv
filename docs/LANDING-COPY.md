@@ -129,8 +129,8 @@ Página de entrevista:
 
 ## 6. Trayectoria (`trayectoria` / `experience`)
 
-Título ES: **Trayectoria** · Entradilla: Del desarrollo web a dirigir un departamento de ingeniería.
-Title EN: **Experience** · Intro: From web development to running an engineering department.
+Título ES: **Trayectoria**
+Title EN: **Experience**
 
 Todos los puntos están visibles. Los dos roles de VASS se agrupan bajo la misma empresa (sep/Sep 2020 – nov/Nov 2026).
 

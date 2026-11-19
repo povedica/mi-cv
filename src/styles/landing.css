@@ -170,7 +170,9 @@
 .landing-timeline > li { display: grid; gap: 1.15rem clamp(2rem, 5vw, 5rem); padding-block: 1.9rem; border-top: 1px solid var(--line); }
 .landing-company { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem .75rem; color: var(--dim); font-size: .9rem; }
 .landing-company strong { color: var(--text); font-size: 1.65rem; line-height: 1; letter-spacing: -.045em; }
-.landing .landing-period { color: var(--accent); }
+.landing .landing-period { color: var(--accent); font-size: .9rem; }
+.landing-location { display: inline-flex; align-items: baseline; gap: .35rem; }
+.landing-location svg { flex: none; translate: 0 .15em; }
 .landing-roles article + article { margin-top: 1.7rem; padding-top: 1.7rem; border-top: 1px dashed var(--line); }
 .landing-roles .landing-period { margin: 0 0 .55rem; }
 .landing-roles h3 { font-size: 1.4rem; }

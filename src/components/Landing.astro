@@ -4,6 +4,7 @@ import SiteHead from './SiteHead.astro';
 import ThemeSelect from './ThemeSelect.astro';
 import LandingSectionTitle from './LandingSectionTitle.astro';
 import LandingRoles from './LandingRoles.astro';
+import LandingCompany from './LandingCompany.astro';
 import es from '../content/landing/es.json';
 import en from '../content/landing/en.json';
 import '../styles/landing.css';
@@ -146,15 +147,15 @@ const cvLabels = {
 
       <section class="landing-section" id={experience}>
         <div class="landing-wrap">
-          <LandingSectionTitle title={copy.experience.title} intro={copy.experience.intro} wide />
+          <LandingSectionTitle title={copy.experience.title} />
           <ol class="landing-timeline" role="list">
             <li>
-              <div class="landing-company"><strong>{vassManager.company}</strong><span class="landing-period">{copy.experience.vassPeriod}</span><span>{vassManager.context} · Digital Experience (Open Source PHP)</span></div>
+              <LandingCompany company={vassManager.company} period={copy.experience.vassPeriod} context={vassManager.context} />
               <LandingRoles roles={[vassManager, vassLead]} group />
             </li>
             {otherRoles.map(role => (
               <li>
-                <div class="landing-company"><strong>{role.company}</strong><span class="landing-period">{role.period}</span><span>{role.context}</span></div>
+                <LandingCompany company={role.company} period={role.period} context={role.context} />
                 <LandingRoles roles={[role]} />
               </li>
             ))}
