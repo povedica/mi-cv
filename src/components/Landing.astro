@@ -249,6 +249,7 @@ const cvLabels = {
           <section id={contact}>
             <h2>{copy.contact.title}</h2>
             <p>{copy.contact.text}</p>
+            <p>{copy.contact.note}</p>
             <div class="landing-actions">
               <a class="landing-button landing-linkedin" href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click"><LinkedInIcon /> LinkedIn</a>
               {(['es', 'en'] as const).map(language => (
@@ -257,7 +258,6 @@ const cvLabels = {
                 </a>
               ))}
             </div>
-            <p>{copy.contact.note}</p>
           </section>
         </div>
       </div>
