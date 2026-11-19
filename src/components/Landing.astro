@@ -166,7 +166,7 @@ const cvLabels = {
             <article class="landing-ai-feature"><h3>{copy.ai.items[0].title}</h3><p>{copy.ai.items[0].text}</p></article>
             <div class="landing-ai-grid">
               {copy.ai.items.slice(1).map(item => (
-                <article><h3>{item.href ? <a href={item.href}>{item.title}</a> : item.title}</h3><p>{item.text}</p></article>
+                <article><h3>{item.href ? <a href={item.href} target="_blank" rel="noopener">{item.title}</a> : item.title}</h3><p>{item.text}</p></article>
               ))}
             </div>
           </div>
@@ -292,7 +292,7 @@ const cvLabels = {
         <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
         <nav aria-label={isSpanish ? 'Pie de página' : 'Footer'}>
           <a href={linkedin} target="_blank" rel="noopener" data-analytics-action="linkedin-click">LinkedIn</a>
-          <a href={github}>GitHub</a>
+          <a href={github} target="_blank" rel="noopener">GitHub</a>
           <a href={isSpanish ? "/cookies/" : "/en/cookies/"}>Cookies</a>
           {cvLocales.map(language => <a href={cv[language]} hreflang={language} download data-analytics-action="cv-download">CV ({language.toUpperCase()})</a>)}
           <a href={otherHome} hreflang={otherLocale} lang={otherLocale} data-analytics-action="language-change">{isSpanish ? 'English' : 'Español'}</a>
