@@ -212,7 +212,11 @@
         "description": "Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI interview and tick-tack-done with its MCP server.",
         "period": "2026",
         "detail": "Completed in September",
-        "institution": "LIDR"
+        "institution": "LIDR",
+        "publication": {
+          "href": "https://lnkd.in/p/dNjenVVA",
+          "label": "LinkedIn post"
+        }
       },
       {
         "title": "LIDR Ignite technical leadership program",

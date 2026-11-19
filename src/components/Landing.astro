@@ -206,6 +206,9 @@ const cvLabels = {
                   {index === 0 && <span class="landing-education-latest">{copy.education.latest}</span>}
                 </div>
                 <p>{item.description}</p>
+                {item.publication && (
+                  <a class="landing-education-publication" href={item.publication.href} target="_blank" rel="noopener">{item.publication.label}</a>
+                )}
               </div>
             </article>
           ))}

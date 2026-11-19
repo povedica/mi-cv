@@ -212,7 +212,11 @@
         "description": "Ingeniería aplicada para construir productos con LLM: CAG, RAG, orquestación de agentes y evaluación de soluciones de IA. Lo pongo en práctica en mis propios proyectos, como esta web con entrevista por IA y tick-tack-done con su servidor MCP.",
         "period": "2026",
         "detail": "Finalizado en septiembre",
-        "institution": "LIDR"
+        "institution": "LIDR",
+        "publication": {
+          "href": "https://lnkd.in/p/dNjenVVA",
+          "label": "Publicación en LinkedIn"
+        }
       },
       {
         "title": "Programa de liderazgo técnico LIDR Ignite",
