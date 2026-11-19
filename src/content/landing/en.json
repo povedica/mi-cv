@@ -209,29 +209,33 @@
     "items": [
       {
         "title": "Master's in AI Engineering",
-        "metadata": "LIDR",
         "description": "Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI interview and tick-tack-done with its MCP server.",
-        "period": "2026"
+        "period": "2026",
+        "detail": "Completed in September",
+        "institution": "LIDR"
       },
       {
         "title": "LIDR Ignite technical leadership program",
-        "metadata": "LIDR · 60 hours",
         "description": "I took the program while leading the Digital Experience team at VASS to bring more structure to my day-to-day work. It covers mentoring, one-to-ones, hiring and onboarding, high-performing teams, and conflict resolution.",
-        "period": "2022"
+        "period": "2022",
+        "institution": "LIDR",
+        "detail": "60 hours"
       },
       {
         "title": "Master's in DevOps and Cloud",
-        "metadata": "UNIR · 60 ECTS",
         "description": "I studied at UNIR while the content platform team grew from 4 to 10 people and we adopted CI/CD and Docker with GitLab. The program covers DevOps culture, cloud (AWS), infrastructure as code, application lifecycles, CI/CD, Docker, Puppet and Chef, and includes a final project.",
-        "period": "2019"
+        "period": "2019",
+        "institution": "UNIR",
+        "detail": "60 ECTS"
       },
       {
         "title": "Technical Engineering Degree in Computer Science (Management Information Systems)",
-        "metadata": "University of Alicante",
         "description": "This degree gave me my technical foundation in software engineering. After graduating, I started working as a web developer at Logiqo.",
-        "period": "2003–2008"
+        "period": "2003–2008",
+        "institution": "University of Alicante"
       }
-    ]
+    ],
+    "latest": "Most recent"
   },
   "talks": {
     "title": "Talks and community",
@@ -286,8 +290,14 @@
   "languages": {
     "title": "Languages",
     "items": [
-      "Spanish · native",
-      "English · professional working proficiency (B2, Cambridge First Certificate in English)"
+      {
+        "locale": "es",
+        "text": "Spanish · native"
+      },
+      {
+        "locale": "en",
+        "text": "English · professional working proficiency (B2, Cambridge First Certificate in English)"
+      }
     ]
   },
   "about": {

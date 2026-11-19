@@ -193,17 +193,21 @@ const cvLabels = {
       <section class="landing-section" id={education}>
         <div class="landing-wrap">
           <LandingSectionTitle title={copy.education.title} />
-          {copy.education.items.map(item => (
-            <div class="landing-profile-item">
-              <div class="landing-education-heading">
-                <h3>{item.title}</h3>
-                <div class="landing-education-metadata">
-                  <span class="landing-period">{item.period}</span>
-                  <span>{item.metadata}</span>
-                </div>
+          {copy.education.items.map((item, index) => (
+            <article class="landing-education-entry">
+              <div class="landing-education-metadata">
+                <p class="landing-period">{item.period}</p>
+                <p class="landing-education-institution">{item.institution}</p>
+                {item.detail && <p class="landing-education-detail">{item.detail}</p>}
               </div>
-              <p>{item.description}</p>
-            </div>
+              <div class="landing-education-content">
+                <div class="landing-education-heading">
+                  <h3>{item.title}</h3>
+                  {index === 0 && <span class="landing-education-latest">{copy.education.latest}</span>}
+                </div>
+                <p>{item.description}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>
@@ -211,7 +215,9 @@ const cvLabels = {
       <section class="landing-section" id={languages}>
         <div class="landing-wrap">
           <LandingSectionTitle title={copy.languages.title} />
-          <ul class="landing-languages">{copy.languages.items.map(item => <li>{item}</li>)}</ul>
+          <ul class="landing-languages" role="list">
+            {copy.languages.items.map(item => <li><span aria-hidden="true">{item.locale === 'es' ? '🇪🇸' : '🇬🇧'}</span>{item.text}</li>)}
+          </ul>
         </div>
       </section>
 

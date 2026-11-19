@@ -209,29 +209,33 @@
     "items": [
       {
         "title": "Máster en AI Engineering",
-        "metadata": "LIDR",
         "description": "Ingeniería aplicada para construir productos con LLM: CAG, RAG, orquestación de agentes y evaluación de soluciones de IA. Lo pongo en práctica en mis propios proyectos, como esta web con entrevista por IA y tick-tack-done con su servidor MCP.",
-        "period": "2026"
+        "period": "2026",
+        "detail": "Finalizado en septiembre",
+        "institution": "LIDR"
       },
       {
         "title": "Programa de liderazgo técnico LIDR Ignite",
-        "metadata": "LIDR · 60 horas",
         "description": "Lo hice cuando ya dirigía el equipo de Digital Experience en VASS, para dar método a lo que hacía cada día. Trata de mentoring, one-to-ones, contratación y onboarding, equipos de alto rendimiento y resolución de conflictos.",
-        "period": "2022"
+        "period": "2022",
+        "institution": "LIDR",
+        "detail": "60 horas"
       },
       {
         "title": "Máster en DevOps y Cloud",
-        "metadata": "UNIR · 60 ECTS",
         "description": "Lo cursé en la propia UNIR mientras el equipo de la plataforma de contenidos crecía de 4 a 10 personas y adoptábamos CI/CD y Docker con GitLab. Cubre cultura DevOps, cloud (AWS), infraestructura como código, ciclo de vida de las aplicaciones, CI/CD, Docker, Puppet y Chef, con un proyecto final.",
-        "period": "2019"
+        "period": "2019",
+        "institution": "UNIR",
+        "detail": "60 ECTS"
       },
       {
         "title": "Ingeniería Técnica en Informática de Gestión",
-        "metadata": "Universidad de Alicante",
         "description": "Mi base técnica en ingeniería del software. Al terminarla empecé como desarrollador web en Logiqo.",
-        "period": "2003–2008"
+        "period": "2003–2008",
+        "institution": "Universidad de Alicante"
       }
-    ]
+    ],
+    "latest": "Más reciente"
   },
   "talks": {
     "title": "Charlas y comunidad",
@@ -286,8 +290,14 @@
   "languages": {
     "title": "Idiomas",
     "items": [
-      "Español · nativo",
-      "Inglés · nivel profesional (B2 acreditado, Cambridge First Certificate)"
+      {
+        "locale": "es",
+        "text": "Español · nativo"
+      },
+      {
+        "locale": "en",
+        "text": "Inglés · nivel profesional (B2 acreditado, Cambridge First Certificate)"
+      }
     ]
   },
   "about": {
