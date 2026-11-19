@@ -51,3 +51,11 @@ Acceptance requires grounded responses, privacy boundaries, cost limits and a wo
 - [ ] Editorial roles, MFA, publishing lifecycle and rollback.
 - [ ] Release and verify the Umami adapter in production. See [analytics rollout](ANALYTICS.md) and issue #15 for acceptance criteria.
 - [ ] Privacy and accessibility review, deployment automation, staging and production.
+
+## Alternate portfolio presentations
+
+- [x] Implement the localized Versions dropdown, terminal demo and fixed-width 90s site in the issue #35 worktree.
+- [x] Add the desktop Konami sequence and seven-tap mobile shortcut to the Versions dropdown.
+- [x] Add a playable brick breaker with keyboard and touch controls to the retro page.
+- [x] Add a localized secret word maze below the brick breaker.
+- [ ] Review the implementation alongside the original design references and complete retro frame navigation from issue #35.

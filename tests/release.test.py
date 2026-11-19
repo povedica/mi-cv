@@ -37,6 +37,8 @@ class ReleaseTest(unittest.TestCase):
             "icon-192.png", "icon-512.png", "maskable-512.png",
             "captions/avatar-v2-es.vtt", "captions/avatar-v3-en.vtt",
             "cookies/index.html", "en/cookies/index.html",
+            "versiones/tui/index.html", "versiones/90s/index.html", "en/versions/tui/index.html",
+            "en/versions/90s/index.html", "retro-tile.svg",
         ]
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -55,7 +57,7 @@ class ReleaseTest(unittest.TestCase):
                 self.assertEqual(result.returncode, expected, result.stderr)
 
     def test_unexpected_files_are_rejected(self):
-        for path in ("en/other/index.html", "cv/../private.pdf", "cv/nested/private.pdf", "private.pdf", "private.txt", "en/private.md", "fonts/private.woff2"):
+        for path in ("en/other/index.html", "en/versions/private/index.html", "versiones/index.html", "cv/../private.pdf", "cv/nested/private.pdf", "private.pdf", "private.txt", "en/private.md", "fonts/private.woff2"):
             with self.subTest(path=path), tempfile.TemporaryDirectory() as directory:
                 root = Path(directory)
                 (root / "releases").mkdir()

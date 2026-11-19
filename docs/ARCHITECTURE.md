@@ -2,7 +2,7 @@
 
 ## System context
 
-The build emits localized static HTML for the profile, interview preview and cookie policies, with hashed assets. The profile and preview share a document layout and render before JavaScript runs. The interview uses progressive enhancement for a local history. The production target is the shared Caddy edge at `cv.reflexionia.com`. See the [deployment runbook](DEPLOYMENT.md) for provisioning and release activation.
+The build emits localized static HTML for the profile, interview preview, alternate portfolio versions and cookie policies, with hashed assets. The profile and preview share a document layout and render before JavaScript runs. The interview uses progressive enhancement for a local history. The production target is the shared Caddy edge at `cv.reflexionia.com`. See the [deployment runbook](DEPLOYMENT.md) for provisioning and release activation.
 
 ```mermaid
 flowchart LR
@@ -27,6 +27,9 @@ The landing and interview can play the recorded avatar on demand. HLS files are 
 flowchart TD
   Astro[Astro routes] --> Portfolio[Shared portfolio layout]
   Portfolio --> Home[Profile content]
+  Portfolio --> Versions[Versions dropdown]
+  Versions --> Terminal[Local terminal demo]
+  Versions --> Retro[Fixed-width retro site]
   Portfolio --> Interview[Local preview content]
   Astro --> Assets[Shared CSS and responsive portrait]
   Home --> Data[Versioned analytics data layer]

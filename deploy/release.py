@@ -17,6 +17,8 @@ LANDING_FILES = {
     "og.png", "og.jpg", "og-v2.jpg", "og-v2-en.jpg", "pablo-poveda.jpg", "cookies/index.html", "en/cookies/index.html",
     "favicon.svg", "favicon.ico", "apple-touch-icon.png", "site.webmanifest",
     "icon-192.png", "icon-512.png", "maskable-512.png",
+    "versiones/tui/index.html", "versiones/90s/index.html",
+    "en/versions/tui/index.html", "en/versions/90s/index.html", "retro-tile.svg",
 }
 INDEXNOW_KEY = re.compile(r"[a-f0-9]{32}\.txt")
 PUBLIC_PDF = re.compile(r"(?:cv|certificados)/[\w-][\w.-]*\.pdf", re.ASCII)
@@ -39,7 +41,7 @@ def unpack(destination):
                     member.size < 1 or total > 32 * 1024 * 1024 or len(names) >= 256):
                 raise ValueError("Invalid release contents")
             target = destination / name
-            target.parent.mkdir(mode=0o755, exist_ok=True)
+            target.parent.mkdir(mode=0o755, parents=True, exist_ok=True)
             with archive.extractfile(member) as source, target.open("xb") as output:
                 shutil.copyfileobj(source, output)
             if INDEXNOW_KEY.fullmatch(name) and target.read_bytes() != name[:-4].encode("ascii"):

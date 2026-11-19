@@ -1,0 +1,68 @@
+---
+import { profileCopy } from '../data/public-profile';
+
+interface Props { locale: 'es' | 'en' }
+const { locale } = Astro.props;
+const es = locale === 'es';
+const title = es ? 'Laberinto de palabras secretas' : 'Secret word maze';
+const labels = es ? {
+  play: 'Jugar', restart: 'Reiniciar', letters: 'Letras', captured: 'Te ha alcanzado una patrulla. Vuelves al inicio.',
+  locked: 'Recoge las cuatro letras para abrir la salida.', open: '¡Salida abierta!', won: '¡Has descubierto las palabras secretas!',
+} : {
+  play: 'Play', restart: 'Restart', letters: 'Letters', captured: 'A patrol caught you. Back to the start.',
+  locked: 'Collect all four letters to open the exit.', open: 'Exit open!', won: 'You found the secret words!',
+};
+const directions = [
+  ['ArrowUp', '↑', es ? 'Arriba' : 'Up'],
+  ['ArrowLeft', '←', es ? 'Izquierda' : 'Left'],
+  ['ArrowDown', '↓', es ? 'Abajo' : 'Down'],
+  ['ArrowRight', '→', es ? 'Derecha' : 'Right'],
+];
+const milestone = profileCopy[locale].education.items[0];
+---
+<section id="laberinto" data-word-maze data-second-word={es ? 'IA' : 'AI'} data-labels={JSON.stringify(labels)}>
+  <h2>{title}</h2>
+  <p id="maze-instructions">{es ? 'Usa las flechas o los botones para recoger cuatro letras y llegar a la salida. Las patrullas se mueven cuando tú te mueves.' : 'Use the arrow keys or buttons to collect four letters and reach the exit. Patrols move when you move.'}</p>
+  <div class="maze-board" data-maze-board tabindex="0" role="group" aria-label={title} aria-describedby="maze-instructions maze-status"></div>
+  <div class="maze-controls" hidden>
+    <button type="button" data-maze-play>{labels.play}</button>
+    {directions.map(([key, arrow, label]) => <button type="button" data-maze-direction={key} aria-label={label} disabled>{arrow}</button>)}
+  </div>
+  <p id="maze-status" role="status"></p>
+  <p data-maze-reward hidden>{milestone.title} · {milestone.institution} ({milestone.period})</p>
+  <noscript><p>{es ? 'El laberinto necesita JavaScript.' : 'The maze requires JavaScript.'}</p></noscript>
+</section>
+
+<script>
+  import { mountWordMaze } from '../data/retro-word-maze';
+  const maze = document.querySelector<HTMLElement>('[data-word-maze]');
+  if (maze) mountWordMaze(maze);
+</script>
+
+<style>
+  section { margin-block: 1.25rem; }
+  .maze-board {
+    display: grid;
+    grid-template-columns: repeat(13, 34px);
+    width: max-content;
+    border: 4px inset #a298cf;
+    background: #160e33;
+  }
+  .maze-board :global(span) {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 29px;
+    color: #fff4c3;
+    font: bold 1rem monospace;
+  }
+  .maze-board :global([data-tile="#"]) { background: #41327b; box-shadow: inset 1px 1px #7461b2; }
+  .maze-board :global([data-tile="player"]) { color: #7ee8d1; }
+  .maze-board :global([data-tile="patrol"]) { color: #ff86cf; }
+  .maze-board :global([data-tile="exit"]) { color: #ffe473; outline: 1px dashed currentColor; outline-offset: -4px; }
+  .maze-controls:not([hidden]) { display: flex; gap: .35rem; margin-top: .5rem; }
+  button { min-height: 44px; min-width: 44px; font: bold .9rem Arial, sans-serif; color: #211b54; background: #e2daf4; border: 3px outset #b3adc7; padding-inline: .6rem; }
+  button:active:not(:disabled) { border-style: inset; }
+  :is(.maze-board, button):focus-visible { outline: 3px solid #372380; outline-offset: 2px; }
+  #maze-status:empty { display: none; }
+</style>

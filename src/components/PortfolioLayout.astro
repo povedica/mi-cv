@@ -22,6 +22,7 @@ const { locale, page = 'home' } = Astro.props;
 const isSpanish = locale === 'es';
 const copy = profileCopy[locale];
 const home = isSpanish ? '/' : '/en/';
+const versionsPath = isSpanish ? '/versiones/' : '/en/versions/';
 const socialImage = `https://cv.reflexionia.com/${isSpanish ? 'og-v2.jpg' : 'og-v2-en.jpg'}`;
 const otherLocale = isSpanish ? 'en' : 'es';
 const cvLocales = [locale, otherLocale] as const;
@@ -106,15 +107,22 @@ const cvLabels = {
     <meta name="twitter:image:alt" content={copy.openGraph.imageAlt} />
     {page === 'home' && <ProfileSchema {locale} {home} {title} profile={copy.profile} {linkedin} {github} />}
   </SiteHead>
-  <body class="landing">
+  <body id="inicio-portfolio" class="landing">
     <a class="landing-skip" href="#main-content">{copy.skip}</a>
     <header class="landing-nav">
       <div class="landing-wrap">
-        <LandingBrand href={home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
+        <LandingBrand href={page === "home" ? "#inicio-portfolio" : home} name={copy.name} headline={copy.headline} shortTitle={copy.portraitLabel} />
         <div class="landing-nav-actions">
           <LandingContactActions {linkedin} {cv} {cvLabels} />
           <UnavailableInterview label={copy.interviewLabel} status={copy.interview.status} />
           <div class="landing-nav-preferences">
+            <details class="landing-versions">
+              <summary class="landing-lang">{isSpanish ? "Versiones" : "Versions"}</summary>
+              <ul>
+                <li><a href={versionsPath + "tui/"}>Terminal (TUI)</a></li>
+                <li><a href={versionsPath + "90s/"}>{isSpanish ? "Web de los 90" : "90s website"}</a></li>
+              </ul>
+            </details>
             <a class="landing-lang" href={otherPage} hreflang={otherLocale} lang={otherLocale} aria-label={otherLanguageLabel} data-analytics-action="language-change">
               {otherLocale.toUpperCase()}
             </a>
@@ -123,6 +131,10 @@ const cvLabels = {
         </div>
       </div>
     </header>
+
+    {page === 'home' && <p class="landing-wrap" data-versions-secret role="status"
+      data-unlocked={isSpanish ? "¡Acceso a Versiones descubierto!" : "Versions shortcut discovered!"}
+      data-countdown={isSpanish ? "Toques restantes" : "Taps remaining"}></p>}
 
     <main id="main-content" tabindex="-1">
       <slot />
@@ -153,6 +165,67 @@ const cvLabels = {
       <UnavailableInterview label={copy.interview.title} status={copy.interview.status} />
     </nav>
     <script>
+      const secret = document.querySelector<HTMLElement>('[data-versions-secret]');
+      const versions = document.querySelector<HTMLDetailsElement>('.landing-versions');
+      const versionsToggle = versions?.querySelector('summary');
+      if (versions && versionsToggle) {
+        document.addEventListener('click', event => {
+          if (!event.defaultPrevented && event.target instanceof Node && !versions.contains(event.target)) versions.open = false;
+        });
+        versions.addEventListener('keydown', event => {
+          if (event.key !== 'Escape' || !versions.open) return;
+          versions.open = false;
+          versionsToggle.focus();
+        });
+      }
+      const brand = document.querySelector('.landing-nav .landing-brand');
+
+      if (secret && versions && brand) {
+        const sequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        const activate = () => {
+          secret.textContent = secret.dataset.unlocked ?? '';
+          versions.open = true;
+          versionsToggle?.focus();
+          window.setTimeout(() => {
+            if (secret.textContent === secret.dataset.unlocked) secret.textContent = '';
+          }, 2500);
+        };
+        let keys: string[] = [];
+        let lastKey = 0;
+        document.addEventListener('keydown', event => {
+          if (event.defaultPrevented || event.repeat || event.isComposing ||
+              event.ctrlKey || event.altKey || event.metaKey ||
+              (event.target instanceof Element && event.target.closest('input, textarea, select, [contenteditable], [role="textbox"]'))) return;
+          const now = performance.now();
+          if (now - lastKey > 1800) keys = [];
+          lastKey = now;
+          keys = [...keys.slice(-(sequence.length - 1)), event.key.length === 1 ? event.key.toLowerCase() : event.key];
+          if (sequence.every((key, index) => keys[index] === key)) {
+            keys = [];
+            activate();
+          }
+        });
+
+        let taps = 0;
+        let tapTimeout = 0;
+        brand.addEventListener('click', event => {
+          if (!(event instanceof PointerEvent) || event.pointerType !== 'touch') return;
+          window.clearTimeout(tapTimeout);
+          taps += 1;
+          if (taps === 7) {
+            event.preventDefault();
+            taps = 0;
+            activate();
+          } else {
+            if (taps >= 4) secret.textContent = `${secret.dataset.countdown} · ${7 - taps}`;
+            tapTimeout = window.setTimeout(() => {
+              taps = 0;
+              secret.textContent = '';
+            }, 1000);
+          }
+        });
+      }
+
       const dock = document.querySelector('.landing-dock');
       const mobile = matchMedia('(max-width: 740px)');
       let lastScroll = Math.max(0, window.scrollY);

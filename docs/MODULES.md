@@ -43,3 +43,15 @@ localised credential text. The graph omits contact details and refers to the
 approved portrait at the stable `/pablo-poveda.jpg` URL. The responsive hero
 poster remains a separate build asset. The release receiver admits the portrait
 by its exact path.
+
+## Alternate portfolio versions
+
+The Spanish and English portfolio headers expose a native Versions dropdown that links directly to `tui/` and `90s/` under `/versiones/` or `/en/versions/`. The Astro components read the localized public profile, PDF paths and links from `src/data/public-profile.ts`. Alternate documents use `noindex`.
+
+The terminal opens with a labelled example and clones pre-rendered HTML templates for recognized commands. Commands stay in the browser and the demo uses no conversational API. The retro document uses a fixed 800 px viewport, in-page navigation and a native marquee with a CSS reduced-motion fallback. Both load the existing website analytics integration without collecting terminal input. See the [OpenSpec change](../openspec/changes/portfolio-versions/).
+
+`npm run verify` passed Astro checking, 16 tests and the static build. Chrome headless exercised the Spanish desktop and English mobile routes (320 px emulated viewport), including header keyboard focus, terminal projects and CV commands, unknown input, retro anchors, reduced motion and PDF HTTP responses. Physical device zoom and assistive technology were outside the browser check.
+
+On the home page, the desktop Konami sequence and seven consecutive touch taps on the header brand open the localized Versions dropdown with a discovery message. Keyboard matching excludes editable fields and modified shortcuts. Chrome verified the final key, editable-field exclusion, and the touch timeout and countdown on an emulated mobile viewport.
+
+The retro page includes an original canvas brick breaker. Its JavaScript animation starts on explicit Play and stops on pause, when the tab becomes hidden, or when the round ends. Arrow keys and touch buttons move the paddle. Clearing rows reveals three entries from the approved public experience section. The word maze follows the brick breaker. It advances only on a valid player move, with no animation timer. Collecting all four letters opens the exit and completing the maze reveals a public education entry. Both games keep their state in the current document.

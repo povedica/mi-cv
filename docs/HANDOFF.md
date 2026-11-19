@@ -45,3 +45,7 @@ static release. See [deployment and service rationale](DEPLOYMENT.md#avatar-vide
 
 The bilingual cookie policy documents theme and language preferences and
 notice acknowledgement. See the [storage inventory](COOKIE-INVENTORY.md).
+
+## Issue #35 worktree
+
+`feat/issue-35-versiones` implements the localized Versions menu, TUI and 90s homepage. See [module verification](MODULES.md#alternate-portfolio-versions). The original design files referenced in the issue live on another machine. The keyboard and touch shortcuts open the Versions dropdown. The retro page now includes a playable brick breaker and a turn-based secret word maze that reveal public profile entries. Retro frame navigation remains open.

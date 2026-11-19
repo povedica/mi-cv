@@ -1,0 +1,44 @@
+---
+import { profileCopy } from '../data/public-profile';
+
+interface Props { locale: 'es' | 'en' }
+const { locale } = Astro.props;
+const es = locale === 'es';
+const copy = profileCopy[locale];
+const title = es ? 'Rompeladrillos' : 'Brick breaker';
+const labels = es
+  ? { start: 'Jugar', pause: 'Pausa', resume: 'Continuar', retry: 'Volver a jugar', won: '¡Tablero completado!', lost: 'Fin de la partida', paused: 'Partida en pausa', left: 'Izquierda', right: 'Derecha' }
+  : { start: 'Play', pause: 'Pause', resume: 'Resume', retry: 'Play again', won: 'Board cleared!', lost: 'Game over', paused: 'Game paused', left: 'Left', right: 'Right' };
+---
+<section id="rompeladrillos" data-brick-game data-labels={JSON.stringify(labels)}>
+  <h2>{title}</h2>
+  <p id="brick-instructions">{es ? 'Mantén la pelota en juego con las flechas o los botones. Cada fila completada descubre una etapa del perfil.' : 'Keep the ball in play with the arrow keys or buttons. Clearing a row reveals a milestone from the profile.'}</p>
+  <canvas width="480" height="280" tabindex="0" aria-label={title} aria-describedby="brick-instructions"></canvas>
+  <div class="controls">
+    <button type="button" data-direction="-1" aria-label={labels.left}>←</button>
+    <button type="button" data-play>{labels.start}</button>
+    <button type="button" data-pause disabled>{labels.pause}</button>
+    <button type="button" data-direction="1" aria-label={labels.right}>→</button>
+  </div>
+  <p role="status" data-game-status></p>
+  <ul class="milestones" aria-live="polite">
+    {[...copy.experience.roles.slice(0, 3)].reverse().map(role => <li hidden>{role.company} · {role.title} ({role.period})</li>)}
+  </ul>
+  <noscript><p>{es ? 'El juego necesita JavaScript.' : 'The game requires JavaScript.'}</p></noscript>
+</section>
+
+<script>
+  import { mountBrickGame } from '../data/retro-brick-game';
+  const game = document.querySelector<HTMLElement>('[data-brick-game]');
+  if (game) mountBrickGame(game);
+</script>
+
+<style>
+  section { margin-block: 1.25rem; }
+  canvas { display: block; background: #160e33; border: 4px inset #a298cf; }
+  .controls { display: flex; gap: .35rem; margin-top: .5rem; }
+  button { min-height: 44px; min-width: 44px; touch-action: none; font: bold .9rem Arial, sans-serif; background: #e2daf4; border: 3px outset #b3adc7; color: #211b54; padding-inline: .6rem; }
+  button:active:not(:disabled) { border-style: inset; }
+  :is(canvas, button):focus-visible { outline: 3px solid #372380; outline-offset: 2px; }
+  [data-game-status]:empty, .milestones:not(:has(li:not([hidden]))) { display: none; }
+</style>
