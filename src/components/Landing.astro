@@ -165,7 +165,7 @@ const cvLabels = {
                     <div class="landing-project-demo">
                       <h4>{item.demo.label}</h4>
                       <dl>
-                        <div><dt>{item.demo.emailLabel}</dt><dd><code>{item.demo.email}</code></dd></div>
+                        <div><dt>{item.demo.emailLabel}</dt><dd><code><Fragment set:html={"<!--email_off-->"} />{item.demo.email}<Fragment set:html={"<!--/email_off-->"} /></code></dd></div>
                         <div><dt>{item.demo.passwordLabel}</dt><dd><code>{item.demo.password}</code></dd></div>
                       </dl>
                     </div>
