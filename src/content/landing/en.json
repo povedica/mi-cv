@@ -254,20 +254,28 @@
     "title": "Skills",
     "items": [
       {
-        "title": "Engineering leadership and management:",
-        "text": "building and developing teams, hiring and mentoring, objective-based performance management, engineering culture, agile methodologies and ownership of software delivery."
+        "title": "Engineering leadership and management",
+        "text": "Building and developing teams, hiring and mentoring, managing performance against objectives, fostering an engineering culture, applying agile methods and taking responsibility for software delivery."
+      },
+      {
+        "title": "Department leadership",
+        "text": "Managing an engineering department and its project portfolio, including capacity and resource planning, team organisation, tracking financial performance and profitability, pre-sales, and working with leadership and clients."
+      },
+      {
+        "title": "Technology",
+        "text": "PHP (custom development and WordPress), Drupal, Laravel and Symfony. APIs, SQL and NoSQL databases, web security, performance and systems integration. Recent personal projects use TypeScript, Python and FastAPI. AI brings us back to basics: the fundamentals have never mattered more."
       },
       {
         "title": "Artificial Intelligence & GenAI",
-        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance"
+        "text": "AI Engineering · Generative AI · LLM Applications · Retrieval-Augmented Generation (RAG) · Cache-Augmented Generation (CAG) · AI Agents & Agentic Systems · AI-assisted Software Development · Prompt Engineering · AI Evaluation · AI Adoption & Governance. AI amplifies what you already know how to do. Without sound engineering, it only makes mistakes happen faster."
       },
       {
-        "title": "Software delivery and quality:",
-        "text": "Scrum, XP and Kanban, CI/CD (GitLab), containers (Docker), engineering standards, code review and automated quality checks."
+        "title": "Software delivery and quality",
+        "text": "Agile, predictable delivery processes with continuous integration and deployment, engineering standards, and quality built into the continuous, iterative development cycle. Fail fast, learn fast."
       },
       {
-        "title": "Technology:",
-        "text": "PHP (custom and WordPress), Drupal, Laravel and Symfony; APIs, SQL and NoSQL databases, web security, performance and systems integration. Recent personal projects with TypeScript, Python and FastAPI."
+        "title": "Communication and business alignment",
+        "text": "Translating business objectives into technical plans, aligning teams across marketing, content, systems and legal, reporting to leadership and teams, and presenting solutions to clients and at industry events."
       }
     ]
   },

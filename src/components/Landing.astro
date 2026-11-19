@@ -176,12 +176,14 @@ const cvLabels = {
       <section class="landing-section" id={skills}>
         <div class="landing-wrap">
           <LandingSectionTitle title={copy.skills.title} />
-          {copy.skills.items.map(item => (
-            <div class="landing-profile-item">
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </div>
-          ))}
+          <div class="landing-skills">
+            {copy.skills.items.map(item => (
+              <div class="landing-profile-item">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

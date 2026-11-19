@@ -244,7 +244,8 @@
   .landing-cases article { border-bottom: 0; padding-inline: 1.5rem; }
   .landing-cases article:first-child { padding-left: 0; }
   .landing-cases article + article { border-left: 1px solid var(--line); }
-  .landing-about, .landing-end, .landing-ai-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .landing-skills { display: grid; column-gap: clamp(2rem, 5vw, 5rem); }
+  .landing-skills, .landing-about, .landing-end, .landing-ai-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .landing-end section:first-child { border-bottom: 0; border-right: 1px solid var(--line); }
 }
 @media (min-width: 1220px) {
