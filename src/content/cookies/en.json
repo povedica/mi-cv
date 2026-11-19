@@ -3,32 +3,6 @@
   "notice": "This site only uses technical cookies needed to work and a cookie-free, self-hosted analytics tool. No ads, no third-party tracking.",
   "dismiss": "Got it",
   "home": "Back to the profile",
-  "sections": [
-    [
-      "What they are",
-      "Cookies are small files a website stores in your browser. There are also similar technologies, such as local storage."
-    ],
-    [
-      "What this site uses",
-      "Analytics are self-hosted (Umami, on my own server) and use no cookies. There are no advertising or social media cookies."
-    ],
-    [
-      "Legal basis",
-      "Technical storage strictly necessary to provide the requested service is exempt from consent under Article 22.2 of Spain’s LSSI. This notice is informational."
-    ],
-    [
-      "How to manage them",
-      "You can delete or block cookies and local storage in your browser settings."
-    ],
-    [
-      "Controller",
-      "Pablo Poveda Ortega"
-    ],
-    [
-      "Changes",
-      "Any changes to this policy will be posted here."
-    ]
-  ],
   "inventory": "Cookies and local storage",
   "columns": [
     "Name",
@@ -54,5 +28,34 @@
     ]
   ],
   "updated": "Last updated",
-  "date": "19 November 2026"
+  "date": "19 November 2026",
+  "introduction": [
+    [
+      "What they are",
+      "Cookies are small files a website stores in your browser. There are also similar technologies, such as local storage."
+    ],
+    [
+      "What this site uses",
+      "This site uses technical storage for the features listed below. Analytics are self-hosted (Umami, on my own server) and use no cookies. There are no advertising or social media cookies."
+    ]
+  ],
+  "guidance": [
+    [
+      "Legal basis",
+      "Technical storage strictly necessary to provide the requested service is exempt from consent under Article 22.2 of Spain’s LSSI. This notice is informational."
+    ],
+    [
+      "How to manage them",
+      "You can delete or block cookies and local storage in your browser settings. If you block local storage, the site cannot remember your chosen theme or that you dismissed the notice."
+    ]
+  ],
+  "controller": [
+    "Controller",
+    "Pablo Poveda Ortega"
+  ],
+  "contact": "Contact",
+  "changes": [
+    "Changes",
+    "Any changes to this policy will be posted here."
+  ]
 }

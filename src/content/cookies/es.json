@@ -3,32 +3,6 @@
   "notice": "Esta web solo usa cookies técnicas necesarias para funcionar y una analítica propia sin cookies. No hay publicidad ni seguimiento de terceros.",
   "dismiss": "Entendido",
   "home": "Volver al perfil",
-  "sections": [
-    [
-      "Qué son",
-      "Las cookies son pequeños archivos que un sitio web guarda en tu navegador. También existen otras tecnologías parecidas, como el almacenamiento local."
-    ],
-    [
-      "Qué usa esta web",
-      "La analítica es propia (Umami, alojada en mi servidor) y no usa cookies. No hay cookies de publicidad ni de redes sociales."
-    ],
-    [
-      "Base legal",
-      "El almacenamiento técnico estrictamente necesario para prestar el servicio solicitado está exento de consentimiento según el artículo 22.2 de la LSSI. Este aviso es informativo."
-    ],
-    [
-      "Cómo gestionarlas",
-      "Puedes borrar o bloquear las cookies y el almacenamiento local desde la configuración de tu navegador."
-    ],
-    [
-      "Responsable",
-      "Pablo Poveda Ortega"
-    ],
-    [
-      "Cambios",
-      "Si esta política cambia, se actualizará aquí."
-    ]
-  ],
   "inventory": "Cookies y almacenamiento local",
   "columns": [
     "Nombre",
@@ -54,5 +28,34 @@
     ]
   ],
   "updated": "Última actualización",
-  "date": "19 de noviembre de 2026"
+  "date": "19 de noviembre de 2026",
+  "introduction": [
+    [
+      "Qué son",
+      "Las cookies son pequeños archivos que un sitio web guarda en tu navegador. También existen otras tecnologías parecidas, como el almacenamiento local."
+    ],
+    [
+      "Qué usa esta web",
+      "Esta web se sirve con almacenamiento técnico para las funciones descritas en el inventario. La analítica es propia (Umami, alojada en mi servidor) y no usa cookies. No hay cookies de publicidad ni de redes sociales."
+    ]
+  ],
+  "guidance": [
+    [
+      "Base legal",
+      "El almacenamiento técnico estrictamente necesario para prestar el servicio solicitado está exento de consentimiento según el artículo 22.2 de la LSSI. Este aviso es informativo."
+    ],
+    [
+      "Cómo gestionarlas",
+      "Puedes borrar o bloquear las cookies y el almacenamiento local desde la configuración de tu navegador. Si bloqueas el almacenamiento local, el sitio no podrá recordar el tema que elijas ni que has cerrado el aviso."
+    ]
+  ],
+  "controller": [
+    "Responsable",
+    "Pablo Poveda Ortega"
+  ],
+  "contact": "Contacto",
+  "changes": [
+    "Cambios",
+    "Si esta política cambia, se actualizará aquí."
+  ]
 }
