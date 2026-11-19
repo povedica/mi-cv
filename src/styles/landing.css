@@ -106,7 +106,7 @@
 .landing-brand-name { white-space: nowrap; }
 .landing-brand-title { color: var(--muted); font-size: .68rem; font-weight: 500; letter-spacing: 0; }
 .landing-brand b { color: var(--accent); }
-.landing-brand-title span:first-child, .landing-brand-name span + span, .landing-nav-cv span:first-child, .landing-linkedin span { display: none; }
+.landing-brand-title span:first-child, .landing-brand-name span + span, .landing-nav-cv span:first-child, .landing-nav .landing-linkedin span { display: none; }
 .landing-button {
   display: inline-flex;
   align-items: center;
@@ -124,8 +124,9 @@
 .landing .landing-primary { color: white; background: var(--button); border-color: var(--button); }
 .landing .landing-primary:hover { box-shadow: inset 0 0 0 1px white; }
 .landing-nav .landing-button { min-height: 34px; padding-inline: .55rem; font-size: .8rem; white-space: nowrap; }
-.landing-nav .landing-linkedin { width: 34px; color: #fff; background: #0a66c2; border-color: #0a66c2; }
-.landing-nav .landing-linkedin:hover { background: #004182; border-color: #004182; }
+.landing-nav .landing-linkedin { width: 34px; }
+.landing .landing-linkedin { color: #fff; background: #0a66c2; border-color: #0a66c2; }
+.landing .landing-linkedin:hover { background: #004182; border-color: #004182; }
 .landing-lang { display: inline-flex; align-items: center; gap: .25rem; min-height: 34px; white-space: nowrap; }
 .landing-lang span { font: 1rem/1 system-ui, sans-serif; }
 .landing-nav nav a, .landing-lang, .landing-footer nav {
@@ -223,7 +224,7 @@
   .landing-nav .landing-button { font-size: .88rem; }
   .landing-nav nav a { font-size: .8rem; }
   .landing-nav .landing-linkedin { width: auto; }
-  .landing-linkedin span, .landing-nav-cv span:first-child { display: inline; }
+  .landing-nav .landing-linkedin span, .landing-nav-cv span:first-child { display: inline; }
   .landing-nav-cv span + span { display: none; }
   .landing-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .landing-areas article:nth-child(odd) { border-right: 1px solid var(--line); padding-right: 1.5rem; }
