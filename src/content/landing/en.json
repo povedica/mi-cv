@@ -212,6 +212,7 @@
         "description": "Applied engineering for building products with LLMs: CAG, RAG, agent orchestration and evaluation of AI solutions. I put this into practice in my own projects, including this site with its AI interview and tick-tack-done with its MCP server.",
         "period": "Sep 2026",
         "institution": "LIDR",
+        "detail": "80 hours",
         "publication": {
           "href": "https://lnkd.in/p/dNjenVVA",
           "label": "LinkedIn post"
