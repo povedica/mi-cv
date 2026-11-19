@@ -136,8 +136,8 @@
 .landing-nav nav a, .landing-lang { padding-block: .6rem; text-decoration: none; }
 .landing-nav nav a:hover, .landing-lang:hover { text-decoration: underline; }
 
-.landing-hero { display: grid; grid-template-rows: 1fr auto; }
-.landing-hero-main { display: grid; gap: clamp(2rem, 6vw, 6rem); align-items: center; padding-block: clamp(1.65rem, 5svh, 4rem); }
+.landing-hero { --hero-padding: clamp(1.65rem, 5svh, 4rem); display: grid; grid-template-rows: 1fr auto; }
+.landing-hero-main { display: grid; gap: clamp(2rem, 6vw, 6rem); align-items: center; padding-block: var(--hero-padding); }
 .landing-hero-copy { display: grid; gap: clamp(.75rem, 2.5svh, 1.55rem); }
 .landing-status, .landing-hero-foot, .landing-heading span, .landing-period, .landing-tags {
   font: 400 .75rem/1.4 var(--mono);
@@ -152,7 +152,7 @@
 .landing-cv-group { display: inline-flex; }
 .landing-cv-group a + a { margin-left: -1px; }
 .landing-cv-group a:focus-visible { z-index: 1; }
-.landing-portrait { width: min(100%, 270px); justify-self: center; }
+.landing-portrait { width: 100%; }
 .landing-hero-foot { border-top: 1px solid var(--line); color: var(--muted); }
 .landing-hero-foot .landing-wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; padding-block: clamp(.75rem, 2.2svh, 1.2rem); }
 
@@ -231,7 +231,11 @@
   .landing-role { font-size: clamp(1.5rem, min(3.25vw, 5.4svh), 3rem); }
   .landing-avatar { display: none; }
   .landing-status::before { content: ''; width: 2.2rem; height: 1px; background: var(--accent); }
-  .landing-portrait { width: min(100%, 38svh, 380px); justify-self: end; }
+  .landing-portrait {
+    /* Reserve room for the header, player caption and hero footer. */
+    width: min(100%, max(220px, calc((100svh - var(--nav-height) - 2 * var(--hero-padding) - 76px) * 9 / 16)));
+    justify-self: end;
+  }
   .landing-split, .landing-heading-wide { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); }
   .landing-heading-wide { display: grid; align-items: end; gap: 1.6rem clamp(2rem, 5vw, 5rem); }
   .landing-timeline > li { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); }
