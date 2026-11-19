@@ -139,7 +139,7 @@
 .landing-hero { --hero-padding: clamp(1rem, 2.5svh, 1.75rem); }
 .landing-hero-main { display: grid; gap: clamp(1.25rem, 4vw, 4rem); align-items: start; padding-block: var(--hero-padding); }
 .landing-hero-copy { display: grid; gap: clamp(.65rem, 1.6svh, 1.15rem); }
-.landing-hero-foot, .landing-heading span, .landing-period, .landing-tags {
+.landing-hero-foot, .landing-period, .landing-tags {
   font: 400 .75rem/1.4 var(--mono);
   letter-spacing: .035em;
 }
@@ -157,7 +157,6 @@
 .landing-section { border-top: 1px solid var(--line); padding-block: clamp(3.25rem, 6.5vw, 5.25rem); }
 .landing-split { display: grid; align-items: start; gap: 1.6rem clamp(2rem, 5vw, 5rem); }
 .landing-heading { margin-bottom: 1.5rem; }
-.landing-heading span { display: block; margin-bottom: .9rem; color: var(--accent); }
 .landing-heading p { margin-top: .65rem; color: var(--muted); }
 .landing-areas, .landing-cases, .landing-profile, .landing-about, .landing-ai-grid { display: grid; }
 .landing-areas, .landing-cases { border-top: 1px solid var(--line); }

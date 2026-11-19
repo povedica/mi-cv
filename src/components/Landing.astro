@@ -122,7 +122,7 @@ const cvLabels = {
 
       <section class="landing-section" id={focus}>
         <div class="landing-wrap landing-split">
-          <LandingSectionTitle title={copy.focus.title} intro={copy.focus.intro} number="01" />
+          <LandingSectionTitle title={copy.focus.title} intro={copy.focus.intro} />
           <div class="landing-areas">
             {copy.focus.items.map(item => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}
           </div>
@@ -131,7 +131,7 @@ const cvLabels = {
 
       <section class="landing-section landing-band" id={ai}>
         <div class="landing-wrap landing-split">
-          <LandingSectionTitle title={copy.ai.title} number="02" />
+          <LandingSectionTitle title={copy.ai.title} />
           <div>
             <p class="landing-ai-intro">{copy.ai.intro}</p>
             <article class="landing-ai-feature"><h3>{copy.ai.items[0].title}</h3><p>{copy.ai.items[0].text}</p></article>
@@ -146,7 +146,7 @@ const cvLabels = {
 
       <section class="landing-section" id={experience}>
         <div class="landing-wrap">
-          <LandingSectionTitle title={copy.experience.title} intro={copy.experience.intro} number="03" wide />
+          <LandingSectionTitle title={copy.experience.title} intro={copy.experience.intro} wide />
           <ol class="landing-timeline" role="list">
             <li>
               <div class="landing-company"><strong>{vassManager.company}</strong><span class="landing-period">{copy.experience.vassPeriod}</span><span>{vassManager.context} · Digital Experience (Open Source PHP)</span></div>
@@ -164,7 +164,7 @@ const cvLabels = {
 
       <section class="landing-section" id={projects}>
         <div class="landing-wrap">
-          <LandingSectionTitle title={copy.projects.title} intro={copy.projects.intro} number="04" wide />
+          <LandingSectionTitle title={copy.projects.title} intro={copy.projects.intro} wide />
           <div class="landing-cases">
             {copy.projects.items.map(item => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}
           </div>
@@ -173,7 +173,7 @@ const cvLabels = {
 
       <section class="landing-section">
         <div class="landing-wrap">
-          <LandingSectionTitle title={copy.profileLabel} number="05" />
+          <LandingSectionTitle title={copy.profileLabel} />
           <div class="landing-profile">
             <div>
               <section id={skills}>
@@ -203,7 +203,7 @@ const cvLabels = {
 
       <section class="landing-section" id={about}>
         <div class="landing-wrap">
-          <LandingSectionTitle title={copy.about.title} number="06" />
+          <LandingSectionTitle title={copy.about.title} />
           <blockquote>“{copy.about.quote}”</blockquote>
           <div class="landing-about">{copy.about.items.map(item => <p>{item}</p>)}</div>
         </div>
@@ -212,7 +212,7 @@ const cvLabels = {
       <div class="landing-section">
         <div class="landing-wrap landing-end">
           <section id={teaser}>
-            <LandingSectionTitle title={copy.interview.title} number="07" />
+            <LandingSectionTitle title={copy.interview.title} />
             <p>{copy.interview.text}</p>
             <ul class="landing-questions" role="list">
               {copy.suggestions.map(question => (
